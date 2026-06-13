@@ -1,0 +1,117 @@
+% Created by Joel Sleeba, MSc 2021, Mathematics, IISER Thiruvananthapuram
+% Connect with me at joelsleeba.github.io or github.com/joelsleeba
+\documentclass[12pt]{report}
+
+\input{config/packages.tex}
+\input{config/options.tex}
+\input{config/colors.tex}
+\input{config/theoremstyle.tex}
+\input{config/mathletters.tex}
+
+\addbibresource{02End/math.bib}
+\usepackage{amssymb}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{epigraph}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{mathrsfs}
+\usepackage{framed}
+\usepackage{frame}
+\usepackage{quiver}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\newenvironment{leftbar}[1][\hsize]
+{%
+    \def\FrameCommand
+    {%
+        {\color{white}\vrule width 1pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{white}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
+
+\newcommand{\thmp}[3]{    
+\begin{theorem} \textbf{#1}\
+    #2   
+\end{theorem}
+ 
+\begin{Proof}\leftbar
+    #3
+\endleftbar\end{Proof}
+
+}
+
+\newcommand{\lemp}[3]{
+\begin{lemma}\textbf{#1}\
+    #2   
+\end{lemma}
+ 
+\begin{Proof}\leftbar
+    #3
+\endleftbar\end{Proof}
+
+}
+
+\newcommand{\defn}[2]{
+\begin{definition}
+    \textbf{(#1)}
+    \
+    #2
+    
+\end{definition}
+
+}
+\newenvironment{Proof}[1][Proof]
+  {\proof[#1]\leftskip=0.2cm }
+  {\endproof}
+
+\newcommand{\prob}[3]{\textbf{Problem}
+\textbf{#1:}\
+#2
+\\\\ \textbf{Solution:} 
+\leftbar #3 \leftskip=0.5cm \hfill\qedsymbol
+\endleftbar
+}
+
+
+
+
+\begin{document}
+    \include{00Intro/01_Title.tex}
+    \pagenumbering{roman} \setcounter{page}{2}
+    \include{00Intro/02_Declaration.tex}
+    \include{00Intro/03_Certificate.tex}
+    \include{00Intro/04_Acknowledgement.tex}
+    \include{00Intro/05_Abstract.tex}
+    \include{00Intro/06_ToC-LoF-LoA.tex}
+
+    \pagenumbering{arabic} \setcounter{page}{1}
+    \include{01Chapters/prelim.tex}
+    % \include{01Chapters/02LpConvergence.tex}
+    % \include{01Chapters/03FourierTransform.tex}
+    % \include{01Chapters/04Holomorphic.tex}
+
+    \appendix
+    \appendixpage
+    \addappheadtotoc
+    \input{02End/appendix.tex}
+
+    \printbibliography[heading=bibintoc]
+
+\end{document}

@@ -1,0 +1,51 @@
+% TeX root = ../main.tex
+\chapter{Some results from Calculus on $\bbR^n$}
+\section{Differentiation Results}
+\lemp{}{There exists a function $f:\bbR \to \bbR$ which is positive on $(-1,1)$, 0 elsewhere and is $C^{\infty}$
+}{Consider $$f:=\begin{cases}
+    e^{-(x-1)^{-2}}e^{-(x+1)^{-2}} & \text{if } x\in (-1,1)\\
+    0 & \text{elsewhere}
+\end{cases}$$
+This function is $C^{\infty}$ and is positive on $(-1,1)$ and 0 elsewhere.
+}
+
+\begin{lemma}
+Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon)f([x^2-a^2]/\varepsilon)\cdots f([x^n-a^n]/\varepsilon)$$ $g$ is then $C^{\infty}$, and has positive values only on $(a^1-\varepsilon,a^1+\varepsilon) \times (a^2-\varepsilon,a^2+\varepsilon) \cdots \times (a^n-\varepsilon,a^n+\varepsilon)$.
+\end{lemma}
+
+\begin{theorem} (\textbf{Inverse Function Theorem}) Let $f:\bbR^n\to \bbR^n$ be continuously differentiable. Suppose that $\det{Df(a)}\neq 0$ for a given $a\in \bbR^n$.
+Then, there exists $U$ and $V$ open in $\bbR^n$ such that $a\in U$, $f(a)\in V$ and $f|_{U}:U\to V$ is a diffeomorphism.   
+\end{theorem}
+
+\thmp{\label{Implicit function theorem}(Implicit Function Theorem)}{Let $f:\bbR^n \times \bbR^m \to \bbR^m $ be continuously differentiable in an open set of $(a,b)$ and let $f(a,b)=0$. Let $M$ be the $m \times m $ matrix $$D_{n+j}f^i(a,b) ; 1 \leq i,j\leq m $$ and suppose $\det{M}\neq 0$. Then there exists open sets $A \subset \bbR^n$, $B \subset \bbR^n$ with $a\in A, b\in B$ such that for all $x\in A$ there is a unique $g(x)\in B$ so that $f(x,g(x))=0$, and the $g$ so obtained is differentiable.}{Define $F:\bbR^n\times \bbR^m \to \bbR^n \times \bbR^m$ given by $F(x,y):=(x,f(x,y))$. This function is clearly differentiable, and moreover, $$DF=\begin{pmatrix} \frac{\partial x^1}{\partial x^1} \ \frac{\partial x^1}{\partial x^2} \ \cdots \ \frac{\partial x^1}{\partial x^n} \ \frac{\partial x^1}{\partial y^1} \ \frac{\partial x^1}{\partial y^2} \ \cdots \ \frac{\partial x^1}{\partial y^m} \\
+\frac{\partial x^2}{\partial x^1} \ \frac{\partial x^2}{\partial x^2} \ \cdots \ \frac{\partial x^2}{\partial x^n} \ \frac{\partial x^2}{\partial y^1} \ \frac{\partial x^2}{\partial y^2} \ \cdots \ \frac{\partial x^2}{\partial y^m} \\ \vdots \ \vdots \ \ddots \ \vdots \ \vdots \ \vdots \ \ddots \ \vdots \\ \frac{\partial x^n}{\partial x^1} \ \frac{\partial x^n}{\partial x^2} \ \cdots \ \frac{\partial x^n}{\partial x^n} \ \frac{\partial x^n}{\partial y^1} \ \frac{\partial x^n}{\partial y^2} \ \cdots \ \frac{\partial x^n}{\partial y^m} \\ \frac{\partial f^1}{\partial x^1} \ \frac{\partial f^1}{\partial x^2} \ \cdots \ \frac{\partial f^1}{\partial x^n} \ \frac{\partial f^1}{\partial y^1} \ \frac{\partial f^1}{\partial y^2} \ \cdots \ \frac{\partial f^1}{\partial y^m} \\ \vdots \ \vdots \ \ddots \ \vdots \ \vdots \ \vdots \ \ddots \ \vdots \\ \frac{\partial f^m}{\partial x^1}\ \frac{\partial f^m}{\partial x^2} \ \cdots  \ \frac{\partial f^m}{\partial x^n} \ \frac{\partial f^m}{\partial y^1} \ \frac{\partial f^m}{\partial y^2}\ \cdots \ \frac{\partial f^m}{\partial y^m}
+    
+\end{pmatrix}$$
+And it is easy to see that $\det{DF(a,b)}=det M\neq 0$. Therefore, from Inverse function theorem (with litte modification), there exists an open set $A \times B $ of $\bbR^n \times \bbR^m$, and an open set $W \subset \bbR^n \times \bbR^m$ such that $(a,b)\in A\times B$, $(a,0)\in W$ and $F:A \times B\to W$ is a diffeomorphism. $F^{-1}:W\to A\times B$ is also a diffeomorphism. Moreover, note that $F^{-1}(p,q)$ is of the form $(p,k(p,q))$ for some differentiable function $k:\bbR^n \times \bbR^m \to \bbR^m $. $\pi \circ F(x,y)= \pi \circ (x,f(x,y))=f(x,y)$ so $\pi \circ F\equiv f$. Look at $f \circ (p,k(p,q))=f \circ F^{-1}(p,q)=\pi(p,q)=q$ so $f \circ(p,k(p,0))=0$. Our $g(p)$ is given by $k(p,0)$, and it is differentiable as a composition of differentiable functions.
+}
+
+\thmp{(A corollary of \ref{Implicit function theorem}) }{Let $f:\bbR^n\to \bbR^p (p\leq n)$ be continuously differentiable in an open set containing $a\in \bbR^n$. If $f(a)=0$ and the matrix $D_j(f^i(a))_{p\times n}$ has rank $p$, then there exists an open neighbourhood $A$ of $a$ and a diffeomorphism $h:A\to \bbR^n$ such that $f\circ h (x_1,x_2\cdots x_n)=(x_{n-p+1},x_{n-p+2}\cdots ,x_{n})$.}{Consider $f:\bbR^{n-p}\times \bbR^p \to \bbR^p$. Suppose that the matrix $Q=D_{n-p+i}(f^j); i,j\leq p$ be invertible ($\det{Q}\neq 0$). Let, as before, $F:\bbR^{n-p}\times \bbR^p \to \bbR^{n-p}\times \bbR^p$ given by $$F(p,q)=(p,f(p,q))$$ Since $\det{DF}\neq 0$, there exists, around $a=(a^1,a^2,\cdots,a^{n-p},a^{n-p+1},\cdots a^{n})$ a neighbourhood $A_{n-p}\times A_{p}\subset \bbR^{n-p}\times \bbR^{p}$ and a neighbourhood $W \subset \bbR^{n-p}\times \bbR^{p}$ containing $F(a)=(a_1,a_2\cdots a_{n-p},0)$ such that $F: A_{n-p}\times A_p \to W$ is invertible and whose inverse is continuously differentiable. Note that, the inverse of $F$ ought to be of the form $F^{-1}(x_1,x_2,\cdots,x_{n-p},y_{n-p+1},\cdots, y_{n})=(\vec{x},b(\vec{x},\vec{y}))$ (let $\vec x =(x_1,x_2,\cdots x_{n-p})\in \bbR^{n-p}$ and $\vec y=(y_{n-p+1},y_{n-p+2},\cdots,y_n) \in \bbR^{p}$) where it is understood that $b:\bbR^n\to \bbR^p$ is continuously differentiable. Also note that $\pi_2 \circ F\equiv f$. We have that $$f \circ F^{-1}(x_1,x_2\cdots x_{n-p},x_{n-p+1},\cdots x_n)=$$ $$\pi_2 (x_1,x_2,\cdots x_{n-p},x_{n-p+1},\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_{n})$$ 
+\textbf{Case 2}: If the indices where the matrix $\{(\partial_i f^j(a)); 1\leq j\leq p, i=i_1,i_2,\cdots i_p\}$ is not the last $p$ indices, we write the linear transformation $\operatorname{Swap}:\bbR^{n}\to \bbR^{n}$ that takes these $p$ indices to the last $p$ indices. This is a linear transformation that is invertible since it takes basis elements to basis elements. If we look then, at $f \circ \operatorname{Swap}: \bbR^{n}\to \bbR^p$, we see that this is a function of the form of Case 1, so we have a $h$ such that $f\circ \operatorname{Swap}\circ h(x_1,x_2,\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots x_n)$ which means our desired function is $\operatorname{Swap}\circ h$.  }
+
+\section{Integration Results}
+\defn{Partition}{For closed interval $[a,b]$ in $\bbR$, a partition is simply a collection of sub-intervals $[a_i,a_{i+1}]$ so that $a_0=a<a_1<a_2<\cdots a_k=b$.
+\\\\ For a closed rectangle $R$ in $\bbR^n$, a partition $P$, usually written along with its subpartitions (as in, $P\equiv (P_1,P_2,\cdots,P_n)$), is \emph{a} collection of subrectangles $R_i$ (of a particular form) so that $R=\cup_i R_i$ and $R_i^{\circ}\cap R_j^{\circ}=\emptyset$. Explicitly, if $$R=[a^1,b^1]\times [a^2,b^2]\times \cdots \times [a^n,b^n]$$, $$P_i\equiv [a^i=a^i_0<a^i_1<a^i_2 \cdots a^i_{k_i}=b^i]$$ and $I^i_j$ denotes the $j-$th subinterval of the $i-$th partition, the collection of all possible sub rectangles of $R$ of the form $\{I^1_{j_1}\times I^2_{j_2}\times \cdots \times I^n_{j_n}: 1\leq j_q\leq \operatorname{number \ of \ intervals}(P_q) \}$ is a partition of $R$.      }
+\defn{Upper and Lower sums}{Let $R$ be a rectangle in $\bbR^n$, $f:R\to \bbR$ be a bounded function and let $P$ be a partition of $R$. 
+$$\mathcal{L}(P,f):=\sum_{S \in P (S\text{ is a subrectangle})} (\inf_{x\in S}f(x))|S| $$ 
+$$\mathcal{U}(P,f):=\sum_{S \in P (S\text{ is a subrectangle})} (\sup_{x\in S}f(x))|S| $$ where $|S|$ is the volume of the subrectangle $S$. For convenience, we denote $\inf_{x\in S} f(x)$ by $m_S(f)$ and $\sup_{x\in S}f(x)=M_S(f)$. }
+
+\lemp{}{
+    For a bounded function $f:R\to \bbR$, $$\mathcal{L}(P,f)\leq \mathcal{U}(P,f)$$ for a given partition $P$.}{If $S_i$ are subrectangles of $S$ coming from $P'$, then $m_S(f) |S|= m_S(f)(|S_1|+|S_2|+\cdots+|S_i|)\leq \sum_{S_i \in S} m_{S_i}(f)|S_i|$. This proves the result for lower sums, and the proof for upper sums is similar.}
+
+\begin{lemma}
+    If $P'$ is a refinement of $P$ (i.e. each subrectangle of $P'$ is contained in some subrectangle of $P$) then $$\mathcal{L}(P,f)\leq \mathcal{L}(P',f) $$ and $$\mathcal{U}(P',f)\leq \mathcal{U}(P,f)$$
+\end{lemma}
+\chapter{Exterior Forms}
+\section{Definitions and Results}
+\defn{Exterior Forms}{Let $k\geq 1$ and $n\in \mathbb{N}$. A \emph{k-form} on $\mathbb{R}^n$ is a map $$f:\underbrace{\bbR^n \times \bbR^n \times \cdots \times \bbR^n}_{k \text{ copies}} \to \bbR$$ such that \begin{enumerate}
+\item $f$ is linear in each of its $k$ coordinates.
+\item For every $\sigma \in sym(k)$, we have $f(x_{\sigma(1)},x_{\sigma(2)}\cdots x_{\sigma(k)})=\operatorname{sgn}(\sigma) f(x_1,x_2,\cdots x_k) $.
+\end{enumerate} }
+
+\defn{$\Lambda^k(\bbR^n)$}{We denote the space of all $k-$forms by $\Lambda^k(\bbR^n)$. By convention, we set $$\Lambda^0(\bbR^n)=\bbR $$}
+\lemp{}{}{}
