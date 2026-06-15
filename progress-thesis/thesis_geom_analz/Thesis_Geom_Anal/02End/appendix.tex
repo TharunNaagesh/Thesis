@@ -1,6 +1,6 @@
 % TeX root = ../main.tex
 \chapter{Some results from Calculus on $\bbR^n$}
-\section{Differentiation Results}
+\section{Results from Differentiation}
 \lemp{}{There exists a function $f:\bbR \to \bbR$ which is positive on $(-1,1)$, 0 elsewhere and is $C^{\infty}$
 }{Consider $$f:=\begin{cases}
     e^{-(x-1)^{-2}}e^{-(x+1)^{-2}} & \text{if } x\in (-1,1)\\
@@ -24,10 +24,11 @@ Then, there exists $U$ and $V$ open in $\bbR^n$ such that $a\in U$, $f(a)\in V$ 
 And it is easy to see that $\det{DF(a,b)}=det M\neq 0$. Therefore, from Inverse function theorem (with litte modification), there exists an open set $A \times B $ of $\bbR^n \times \bbR^m$, and an open set $W \subset \bbR^n \times \bbR^m$ such that $(a,b)\in A\times B$, $(a,0)\in W$ and $F:A \times B\to W$ is a diffeomorphism. $F^{-1}:W\to A\times B$ is also a diffeomorphism. Moreover, note that $F^{-1}(p,q)$ is of the form $(p,k(p,q))$ for some differentiable function $k:\bbR^n \times \bbR^m \to \bbR^m $. $\pi \circ F(x,y)= \pi \circ (x,f(x,y))=f(x,y)$ so $\pi \circ F\equiv f$. Look at $f \circ (p,k(p,q))=f \circ F^{-1}(p,q)=\pi(p,q)=q$ so $f \circ(p,k(p,0))=0$. Our $g(p)$ is given by $k(p,0)$, and it is differentiable as a composition of differentiable functions.
 }
 
-\thmp{(A corollary of \ref{Implicit function theorem}) }{Let $f:\bbR^n\to \bbR^p (p\leq n)$ be continuously differentiable in an open set containing $a\in \bbR^n$. If $f(a)=0$ and the matrix $D_j(f^i(a))_{p\times n}$ has rank $p$, then there exists an open neighbourhood $A$ of $a$ and a diffeomorphism $h:A\to \bbR^n$ such that $f\circ h (x_1,x_2\cdots x_n)=(x_{n-p+1},x_{n-p+2}\cdots ,x_{n})$.}{Consider $f:\bbR^{n-p}\times \bbR^p \to \bbR^p$. Suppose that the matrix $Q=D_{n-p+i}(f^j); i,j\leq p$ be invertible ($\det{Q}\neq 0$). Let, as before, $F:\bbR^{n-p}\times \bbR^p \to \bbR^{n-p}\times \bbR^p$ given by $$F(p,q)=(p,f(p,q))$$ Since $\det{DF}\neq 0$, there exists, around $a=(a^1,a^2,\cdots,a^{n-p},a^{n-p+1},\cdots a^{n})$ a neighbourhood $A_{n-p}\times A_{p}\subset \bbR^{n-p}\times \bbR^{p}$ and a neighbourhood $W \subset \bbR^{n-p}\times \bbR^{p}$ containing $F(a)=(a_1,a_2\cdots a_{n-p},0)$ such that $F: A_{n-p}\times A_p \to W$ is invertible and whose inverse is continuously differentiable. Note that, the inverse of $F$ ought to be of the form $F^{-1}(x_1,x_2,\cdots,x_{n-p},y_{n-p+1},\cdots, y_{n})=(\vec{x},b(\vec{x},\vec{y}))$ (let $\vec x =(x_1,x_2,\cdots x_{n-p})\in \bbR^{n-p}$ and $\vec y=(y_{n-p+1},y_{n-p+2},\cdots,y_n) \in \bbR^{p}$) where it is understood that $b:\bbR^n\to \bbR^p$ is continuously differentiable. Also note that $\pi_2 \circ F\equiv f$. We have that $$f \circ F^{-1}(x_1,x_2\cdots x_{n-p},x_{n-p+1},\cdots x_n)=$$ $$\pi_2 (x_1,x_2,\cdots x_{n-p},x_{n-p+1},\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_{n})$$ 
+\thmp{(A corollary of \ref{Implicit function theorem}) }{Let $f:\bbR^n\to \bbR^p (p\leq n)$ be continuously differentiable in an open set containing $a\in \bbR^n$. If $f(a)=0$ and the matrix $D_j(f^i(a))_{p\times n}$ has rank $p$, then there exists an open neighbourhood $A$ of $a$ and a diffeomorphism $h:A\to h(A)\subset \bbR^n$ such that $f\circ h (x_1,x_2\cdots x_n)=(x_{n-p+1},x_{n-p+2}\cdots ,x_{n})$.}{Consider $f:\bbR^{n-p}\times \bbR^p \to \bbR^p$. Suppose that the matrix $Q=D_{n-p+i}(f^j); i,j\leq p$ be invertible ($\det{Q}\neq 0$). Let, as before, $F:\bbR^{n-p}\times \bbR^p \to \bbR^{n-p}\times \bbR^p$ given by $$F(p,q)=(p,f(p,q))$$ Since $\det{DF}\neq 0$, there exists, around $a=(a^1,a^2,\cdots,a^{n-p},a^{n-p+1},\cdots a^{n})$ a neighbourhood $A_{n-p}\times A_{p}\subset \bbR^{n-p}\times \bbR^{p}$ and a neighbourhood $W \subset \bbR^{n-p}\times \bbR^{p}$ containing $F(a)=(a_1,a_2\cdots a_{n-p},0)$ such that $F: A_{n-p}\times A_p \to W$ is invertible and whose inverse is continuously differentiable. Note that, the inverse of $F$ ought to be of the form $F^{-1}(x_1,x_2,\cdots,x_{n-p},y_{n-p+1},\cdots, y_{n})=(\vec{x},b(\vec{x},\vec{y}))$ (let $\vec x =(x_1,x_2,\cdots x_{n-p})\in \bbR^{n-p}$ and $\vec y=(y_{n-p+1},y_{n-p+2},\cdots,y_n) \in \bbR^{p}$) where it is understood that $b:\bbR^n\to \bbR^p$ is continuously differentiable. Also note that $\pi_2 \circ F\equiv f$. We have that $$f \circ F^{-1}(x_1,x_2\cdots x_{n-p},x_{n-p+1},\cdots x_n)=$$ $$\pi_2 (x_1,x_2,\cdots x_{n-p},x_{n-p+1},\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_{n})$$ 
 \textbf{Case 2}: If the indices where the matrix $\{(\partial_i f^j(a)); 1\leq j\leq p, i=i_1,i_2,\cdots i_p\}$ is not the last $p$ indices, we write the linear transformation $\operatorname{Swap}:\bbR^{n}\to \bbR^{n}$ that takes these $p$ indices to the last $p$ indices. This is a linear transformation that is invertible since it takes basis elements to basis elements. If we look then, at $f \circ \operatorname{Swap}: \bbR^{n}\to \bbR^p$, we see that this is a function of the form of Case 1, so we have a $h$ such that $f\circ \operatorname{Swap}\circ h(x_1,x_2,\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots x_n)$ which means our desired function is $\operatorname{Swap}\circ h$.  }
 
-\section{Integration Results}
+\section{Results from Integration}
+\subsection{The Riemann Integral}
 \defn{Partition}{For closed interval $[a,b]$ in $\bbR$, a partition is simply a collection of sub-intervals $[a_i,a_{i+1}]$ so that $a_0=a<a_1<a_2<\cdots a_k=b$.
 \\\\ For a closed rectangle $R$ in $\bbR^n$, a partition $P$, usually written along with its subpartitions (as in, $P\equiv (P_1,P_2,\cdots,P_n)$), is \emph{a} collection of subrectangles $R_i$ (of a particular form) so that $R=\cup_i R_i$ and $R_i^{\circ}\cap R_j^{\circ}=\emptyset$. Explicitly, if $$R=[a^1,b^1]\times [a^2,b^2]\times \cdots \times [a^n,b^n]$$, $$P_i\equiv [a^i=a^i_0<a^i_1<a^i_2 \cdots a^i_{k_i}=b^i]$$ and $I^i_j$ denotes the $j-$th subinterval of the $i-$th partition, the collection of all possible sub rectangles of $R$ of the form $\{I^1_{j_1}\times I^2_{j_2}\times \cdots \times I^n_{j_n}: 1\leq j_q\leq \operatorname{number \ of \ intervals}(P_q) \}$ is a partition of $R$.      }
 \defn{Upper and Lower sums}{Let $R$ be a rectangle in $\bbR^n$, $f:R\to \bbR$ be a bounded function and let $P$ be a partition of $R$. 
@@ -40,6 +41,47 @@ $$\mathcal{U}(P,f):=\sum_{S \in P (S\text{ is a subrectangle})} (\sup_{x\in S}f(
 \begin{lemma}
     If $P'$ is a refinement of $P$ (i.e. each subrectangle of $P'$ is contained in some subrectangle of $P$) then $$\mathcal{L}(P,f)\leq \mathcal{L}(P',f) $$ and $$\mathcal{U}(P',f)\leq \mathcal{U}(P,f)$$
 \end{lemma}
+
+\lemp{}{If $P$ and $P'$ are any two partitions and $f:R\to \bbR$ a bounded function, then $\mathcal{L}(P',f)\leq \mathcal{U}(P,f) $.}{Let $P''$ be a partition of both $P$ and $P'$ (i.e. the subrectangles of $P''$ are contained in some subrectangle of $P$ as well as some subrectangle of $P'$). Then by the previous lemma, $$\mathcal{L}(P',f)\leq \mathcal{L}(P'',f)\leq \mathcal{U}(P'',f)\leq \mathcal{U}(P,f) $$}
+
+Now we are in a position to define the Riemann Integral.
+\defn{$\int_R f$}{Let $f:R\to \bbR$ be a bounded function from a rectangle $R$. We say $f$ is \emph{Riemann integrable} if $$\sup_{P} \mathcal{L}(P,f)=\inf_{P} \mathcal{U}(P,f)$$ where $\sup$ and $\inf$ are taken over all partitions $P$ of $R$. In that case we say $\sup_{P} \mathcal{L}(P,f)=\inf_{P} \mathcal{U}(P,f):= \int_R f$.   }
+
+\begin{lemma}
+    A bounded function $f:R\to \bbR^n$ is Riemann Integrable if and only if for every $\varepsilon>0$, there exists a partition $P$ such that $\mathcal{U}(P,f)-\mathcal{L}(P,f)<\varepsilon$.
+\end{lemma}
+\subsection{Measure Zero and Content Zero}
+\defn{Measure Zero}{A set $A\subset \bbR^n$ is said to be \emph{measure zero} if for every $\varepsilon>0$, there exists a countable collection of closed rectangles $R_i$ such that $A\subset \bigcup_i R_i$ and $\sum_i |R_i|<\varepsilon$.}
+\lemp{}{
+    \begin{enumerate}
+        \item Subsets of Measure Zero sets are Measure Zero.
+        \item Countable union of Measure Zero sets is Measure Zero.
+    \end{enumerate}}{(1) Is trivial. 
+    \\\\ For (2), consider $E_i$ a countable collection of measure zero sets. Let $\varepsilon>0$. Consider $\varepsilon/2^{i}$. There exists a collection of closed rectangles $\{R_{ij}:j\in \bbN\}$ such that $E_i\subseteq \bigcup_j R_{ij}$ and $\sum_{j} |R_{ij|}<\varepsilon/2^i$. Look at the collection $\{R_{ij}:i,j \leq \bbN\}$ as a whole. This is a countable collection of closed rectangles that cover $\cup_i E_i$, and note that $\sum_{i,j} |R_{i,j}|<\varepsilon$. }
+
+\defn{Content Zero}{A set $A\subset \bbR^n$ is said to have \emph{content zero} if for every $\varepsilon>0$, there exists a \emph{finite} collection of closed rectangles $R_i$ such that $A\subseteq \cup_{i=1}^n R_i$ and $\sum_{i=1}^n |R_i|<\varepsilon$.}
+
+\begin{lemma}
+    If $A$ is compact and has measure zero, then it has content zero.
+\end{lemma}
+
+\subsection{Integrable Functions}
+\defn{\label{orig_osc}Oscillation}{Let $f:X\to \bbR$ be a bounded function, where $X$ is a metric space. Define $$M(f,a,\delta):=\sup_{x\in B_{\delta}(a)} f(x)$$ and $$m(f,a,\delta):=\inf_{x\in B_{\delta}(a)} f(x)$$
+Let $$\operatorname{osc}(f,a,\delta):= M(f,a,\delta)-m(f,a,\delta)$$ Note first, that $\operatorname{osc}(f,a,\delta)$ is decreasing for decreasing $\delta$. Now we define $$\boxed{\operatorname{osc}(f,a):= \lim_{\delta\to 0} \operatorname{osc}(f,a,\delta)}$$}
+An alternative characterisation of oscillation is the following: 
+\begin{lemma}
+{Let $f$ be as in definition \ref{orig_osc}. The quantity $\sup_{x,y \in B_{\delta}(a)}|f(y)-f(x)|$ is decreasing for decreasing $\delta$ and $$\operatorname{osc}(f,a)= \lim_{\delta\to 0} (\sup_{x,y\in B_{\delta}(a)}|f(x)-f(y)|)=\inf_{\delta>0}(\sup_{x,y\in B_{\delta}(a)}|f(x)-f(y)|) $$ }
+\end{lemma}
+\lemp{}{$f:X\to \bbR$(where $X$ is a metric space) is continuous at $a$ if and only if $\operatorname{osc}(f,a)=0$}{$\implies$) Let $f$ be continuous at $a$. For any given $\varepsilon>0$, there exists $\delta>0$ such that for all $x,y \in B_{\delta}(a)$ we have $$|f(x)-f(a)|<\varepsilon/2 \text{ and }|f(y)-f(a)|<\varepsilon/2 $$ Adding these we get $$|f(x)-f(y)|<\varepsilon$$ for $x,y \in B_{\delta(\varepsilon)}(a)$. Therefore, $\sup_{x,y \in B_{\delta(\varepsilon)}(a)} |f(x)-f(y)|<\varepsilon$. Since for every $\varepsilon>0$, there exists some $\delta(\varepsilon)>0$ such that $\sup_{x,y \in B_{\delta(\varepsilon)}(a)} |f(x)-f(y)|<\varepsilon$, we have $\operatorname{osc}(f,a)=0$.
+\\\\ $\impliedby$) Let $\operatorname{osc}(f,a)=\inf_{\delta>0}(\sup_{x,y\in B_{\delta}(a)}|f(x)-f(y)|)=0$. This means that for every $\varepsilon>0$, there exists $\delta>0$ such that $\sup_{x,y\in B_{\delta}(a)}(|f(x)-f(y)|)<\varepsilon$, which means that $$|f(x)-f(a)|<\varepsilon$$ whenever $x\in B_{\delta}(a)$.  } 
+\lemp{}{\textbf{\emph{(Recharacterisation of oscillation in terms of rectangles in $\mathbf{\bbR^n}$)}} $$\operatorname{osc}(f,a)=\inf_{\delta>0} (\sup_{x\in R_{\delta}(a)}f(x)-\inf_{x\in R_{\delta}(a)}f(x))$$ Where $R_{\delta}(a)$ is a cube centreed at $a$ with side length $\delta$. 
+}{Note that $$B_{\delta/\sqrt{n}(a)}\subseteq R_{\delta}(a)\subseteq B_{\delta\sqrt{n}}(a) $$ From here the proof is trivial. }
+
+\lemp{}{Let $A$ be a closed rectangle and $f:A\to \bbR$ be a bounded function such that $\operatorname{osc}(f,a)<\varepsilon$ for every $a\in A$. Then there exists a partition $P$ of $A$ such that $\mathcal{U}(f,P)-\mathcal{L}(f,P)<\varepsilon \cdot |A|$}{We are given a fixed $\varepsilon_0>0$. We have that $\operatorname{osc}(f,a)<\varepsilon_0$ for all $a\in A$. $\inf_{\delta>0}(\sup_{x\in R_{\delta}(a)}f(x)-\inf_{y\in R_{\delta}(a)}f(y))<\varepsilon_0$ for every $a\in A$. This means that, for every $a\in A$, there exists $\delta_a>0$ such that $\sup_{x\in R_{\delta}(a)}f(x)-\inf_{x\in R_{\delta}(a)}f(x)<\varepsilon_0$. Collect all such $R_{\delta_a}(a)$. This is a cover of $A$, for which a finite subcover $\{R_{\delta_{a_j}}(a_j): j\leq N\}$ exists. Consider the partition $P$ of $A$ formed by extending the grids of all the cubes $\{R_{\delta_{a_j}}(a_j): j\leq N\}$. The final partition $P$'s subrectangles $J_i$ have the property that $$\sup_{x\in J_i}f(x)-\inf_{x\in J_i}f(x)<\varepsilon_0$$ Essentially, $$M_{S}(f)-m_S(f)<\varepsilon_0$$ for $S \text{ (a subrectangle) }\in P$. This gives us that $\mathcal{U}(f,P)-\mathcal{L}(f,P)=\sum_{S\in P}( M_S(f)-m_S(f) )|S|<\varepsilon_0 \sum_{S\in P}|S|=\varepsilon_0 |A| $}
+
+\thmp{}{Let $A$ be a closed rectangle and $f:A\to \bbR$ be a bounded function. Let $B:=\{x \in A: f \text{ not continuous at }x\}$. Then $f$ is integrable if and only if $B$ is a set of measure $0$.}{ Note that $B:=\{x\in A: \operatorname{osc}(f,x)>0\}$ which could be written as $\cup_{n\in \bbN}\{x\in A: \operatorname{osc}(f,x)\geq 1/n\}$, where we note that $\{x\in A: \operatorname{osc}(f,x)\geq t\}$ is closed for any $t>0$ (If $\operatorname{osc}(f,a)<\varepsilon$ then there would exist a ball around $a$ such that $osc(f,x)<\varepsilon$ for $x$ in said ball). 
+}
+
 \chapter{Exterior Forms}
 \section{Definitions and Results}
 \defn{Exterior Forms}{Let $k\geq 1$ and $n\in \mathbb{N}$. A \emph{k-form} on $\mathbb{R}^n$ is a map $$f:\underbrace{\bbR^n \times \bbR^n \times \cdots \times \bbR^n}_{k \text{ copies}} \to \bbR$$ such that \begin{enumerate}
@@ -48,4 +90,4 @@ $$\mathcal{U}(P,f):=\sum_{S \in P (S\text{ is a subrectangle})} (\sup_{x\in S}f(
 \end{enumerate} }
 
 \defn{$\Lambda^k(\bbR^n)$}{We denote the space of all $k-$forms by $\Lambda^k(\bbR^n)$. By convention, we set $$\Lambda^0(\bbR^n)=\bbR $$}
-\lemp{}{}{}
+

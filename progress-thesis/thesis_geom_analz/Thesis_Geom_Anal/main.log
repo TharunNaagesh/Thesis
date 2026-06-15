@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  13 JUN 2026 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  15 JUN 2026 15:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/steve/sem7_12_6_25/Sem-7/Progress-on-My-thesis/Thesis_Geometric_Analysis/Thesis_Geom_Anal/main.tex
-(c:/Users/steve/sem7_12_6_25/Sem-7/Progress-on-My-thesis/Thesis_Geometric_Analysis/Thesis_Geom_Anal/main.tex
+**c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex
+(c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (c:/texlive/2024/texmf-dist/tex/latex/base/report.cls
@@ -1008,7 +1008,7 @@ Package todonotes Warning: The length marginparwidth is less than 2cm and will m
 \openout2 = `00Intro/01_Title.aux'.
 
 (./00Intro/01_Title.tex
-<./figures/logo/iiser_logo.png, id=47, 1284.8pt x 755.82375pt>
+<./figures/logo/iiser_logo.png, id=59, 1284.8pt x 755.82375pt>
 File: ./figures/logo/iiser_logo.png Graphic file (type png)
 <use ./figures/logo/iiser_logo.png>
 Package pdftex.def Info: ./figures/logo/iiser_logo.png  used on input line 41.
@@ -1149,28 +1149,46 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ]
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 
  []
 
 
 
 [5]
-Overfull \hbox (27.91489pt too wide) in paragraph at lines 32--32
+Overfull \hbox (27.91489pt too wide) in paragraph at lines 33--33
 \OT1/cmr/m/n/12 ble sub rect-an-gles of $\OML/cmm/m/it/12 R$ \OT1/cmr/m/n/12 of the form $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 I[] \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 I[] \OMS/cmsy/m/n/12 ^^B [] ^^B \OML/cmm/m/it/12 I[] \OT1/cmr/m/n/12 : 1 \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 j[] \OMS/cmsy/m/n/12 ^^T []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 g$
  []
 
 
-Overfull \hbox (8.3093pt too wide) in paragraph at lines 35--35
+Overfull \hbox (8.3093pt too wide) in paragraph at lines 36--36
 \OT1/cmr/m/n/12 where $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 S\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 is the vol-ume of the sub-rect-an-gle $\OML/cmm/m/it/12 S$\OT1/cmr/m/n/12 . For con-ve-nience, we de-note $[][] \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$
  []
 
 
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+ 
+ []
+
+
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+ 
+ []
+
+
+
+[8]
+
+[9]
+
+[10]
 Appendix B.
 
-Overfull \hbox (7.05634pt too wide) in paragraph at lines 48--48
+Overfull \hbox (7.05634pt too wide) in paragraph at lines 90--90
 []\OT1/cmr/m/n/12 For ev-ery $\OML/cmm/m/it/12 ^^[ \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 sym\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 )$, we have $\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; x[] [] x[]\OT1/cmr/m/n/12 ) = [](\OML/cmm/m/it/12 ^^[\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; x[]; [] x[]\OT1/cmr/m/n/12 )$. 
  []
 
@@ -1180,7 +1198,7 @@ LaTeX Warning: Empty bibliography on input line 115.
 
 
 
-[7
+[11
 
 ] (./main.aux (./00Intro/01_Title.aux) (./00Intro/02_Declaration.aux) (./00Intro/03_Certificate.aux) (./00Intro/04_Acknowledgement.aux) (./00Intro/05_Abstract.aux) (./00Intro/06_ToC-LoF-LoA.aux) (./01Chapters/prelim.aux))
  ***********
@@ -1188,24 +1206,24 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3AE85A213238B9D8707FBADBCB31246C;1365.
+(rerunfilecheck)             Checksum: 91908BE7FC34A8D0FC423B41317A0A54;1973.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34345 strings out of 473584
- 665742 string characters out of 5732363
- 1953908 words of memory out of 5000000
- 56587 multiletter control sequences out of 15000+600000
- 578307 words of font info for 108 fonts, out of 8000000 for 9000
+ 34374 strings out of 473584
+ 666052 string characters out of 5732363
+ 1948908 words of memory out of 5000000
+ 56593 multiletter control sequences out of 15000+600000
+ 579008 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,10n,111p,1693b,1884s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (15 pages, 255125 bytes).
+ 99i,10n,111p,1691b,1884s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (19 pages, 283407 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
