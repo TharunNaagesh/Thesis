@@ -1,17 +1,6 @@
 % TeX root = ../main.tex
 \chapter{Some results from Calculus on $\bbR^n$}
 \section{Results from Differentiation}
-\lemp{}{There exists a function $f:\bbR \to \bbR$ which is positive on $(-1,1)$, 0 elsewhere and is $C^{\infty}$
-}{Consider $$f:=\begin{cases}
-    e^{-(x-1)^{-2}}e^{-(x+1)^{-2}} & \text{if } x\in (-1,1)\\
-    0 & \text{elsewhere}
-\end{cases}$$
-This function is $C^{\infty}$ and is positive on $(-1,1)$ and 0 elsewhere.
-}
-
-\begin{lemma}
-Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon)f([x^2-a^2]/\varepsilon)\cdots f([x^n-a^n]/\varepsilon)$$ $g$ is then $C^{\infty}$, and has positive values only on $(a^1-\varepsilon,a^1+\varepsilon) \times (a^2-\varepsilon,a^2+\varepsilon) \cdots \times (a^n-\varepsilon,a^n+\varepsilon)$.
-\end{lemma}
 
 \begin{theorem} (\textbf{Inverse Function Theorem}) Let $f:\bbR^n\to \bbR^n$ be continuously differentiable. Suppose that $\det{Df(a)}\neq 0$ for a given $a\in \bbR^n$.
 Then, there exists $U$ and $V$ open in $\bbR^n$ such that $a\in U$, $f(a)\in V$ and $f|_{U}:U\to V$ is a diffeomorphism.   
@@ -47,7 +36,7 @@ $$\mathcal{U}(P,f):=\sum_{S \in P (S\text{ is a subrectangle})} (\sup_{x\in S}f(
 Now we are in a position to define the Riemann Integral.
 \defn{$\int_R f$}{Let $f:R\to \bbR$ be a bounded function from a rectangle $R$. We say $f$ is \emph{Riemann integrable} if $$\sup_{P} \mathcal{L}(P,f)=\inf_{P} \mathcal{U}(P,f)$$ where $\sup$ and $\inf$ are taken over all partitions $P$ of $R$. In that case we say $\sup_{P} \mathcal{L}(P,f)=\inf_{P} \mathcal{U}(P,f):= \int_R f$.   }
 
-\begin{lemma}
+\begin{lemma}\label{integrability_criteria_epsilon}
     A bounded function $f:R\to \bbR^n$ is Riemann Integrable if and only if for every $\varepsilon>0$, there exists a partition $P$ such that $\mathcal{U}(P,f)-\mathcal{L}(P,f)<\varepsilon$.
 \end{lemma}
 \subsection{Measure Zero and Content Zero}
@@ -77,10 +66,54 @@ An alternative characterisation of oscillation is the following:
 \lemp{}{\textbf{\emph{(Recharacterisation of oscillation in terms of rectangles in $\mathbf{\bbR^n}$)}} $$\operatorname{osc}(f,a)=\inf_{\delta>0} (\sup_{x\in R_{\delta}(a)}f(x)-\inf_{x\in R_{\delta}(a)}f(x))$$ Where $R_{\delta}(a)$ is a cube centreed at $a$ with side length $\delta$. 
 }{Note that $$B_{\delta/\sqrt{n}(a)}\subseteq R_{\delta}(a)\subseteq B_{\delta\sqrt{n}}(a) $$ From here the proof is trivial. }
 
-\lemp{}{Let $A$ be a closed rectangle and $f:A\to \bbR$ be a bounded function such that $\operatorname{osc}(f,a)<\varepsilon$ for every $a\in A$. Then there exists a partition $P$ of $A$ such that $\mathcal{U}(f,P)-\mathcal{L}(f,P)<\varepsilon \cdot |A|$}{We are given a fixed $\varepsilon_0>0$. We have that $\operatorname{osc}(f,a)<\varepsilon_0$ for all $a\in A$. $\inf_{\delta>0}(\sup_{x\in R_{\delta}(a)}f(x)-\inf_{y\in R_{\delta}(a)}f(y))<\varepsilon_0$ for every $a\in A$. This means that, for every $a\in A$, there exists $\delta_a>0$ such that $\sup_{x\in R_{\delta}(a)}f(x)-\inf_{x\in R_{\delta}(a)}f(x)<\varepsilon_0$. Collect all such $R_{\delta_a}(a)$. This is a cover of $A$, for which a finite subcover $\{R_{\delta_{a_j}}(a_j): j\leq N\}$ exists. Consider the partition $P$ of $A$ formed by extending the grids of all the cubes $\{R_{\delta_{a_j}}(a_j): j\leq N\}$. The final partition $P$'s subrectangles $J_i$ have the property that $$\sup_{x\in J_i}f(x)-\inf_{x\in J_i}f(x)<\varepsilon_0$$ Essentially, $$M_{S}(f)-m_S(f)<\varepsilon_0$$ for $S \text{ (a subrectangle) }\in P$. This gives us that $\mathcal{U}(f,P)-\mathcal{L}(f,P)=\sum_{S\in P}( M_S(f)-m_S(f) )|S|<\varepsilon_0 \sum_{S\in P}|S|=\varepsilon_0 |A| $}
+\lemp{\label{osc_integral_bound}}{Let $A$ be a closed rectangle and $f:A\to \bbR$ be a bounded function such that $\operatorname{osc}(f,a)<\varepsilon$ for every $a\in A$. Then there exists a partition $P$ of $A$ such that $\mathcal{U}(f,P)-\mathcal{L}(f,P)<\varepsilon \cdot |A|$}{We are given a fixed $\varepsilon_0>0$. We have that $\operatorname{osc}(f,a)<\varepsilon_0$ for all $a\in A$. $\inf_{\delta>0}(\sup_{x\in R_{\delta}(a)}f(x)-\inf_{y\in R_{\delta}(a)}f(y))<\varepsilon_0$ for every $a\in A$. This means that, for every $a\in A$, there exists $\delta_a>0$ such that $\sup_{x\in R_{\delta}(a)}f(x)-\inf_{x\in R_{\delta}(a)}f(x)<\varepsilon_0$. Collect all such $R_{\delta_a}(a)$. This is a cover of $A$, for which a finite subcover $\{R_{\delta_{a_j}}(a_j): j\leq N\}$ exists. Consider the partition $P$ of $A$ formed by extending the grids of all the cubes $\{R_{\delta_{a_j}}(a_j): j\leq N\}$. The final partition $P$'s subrectangles $J_i$ have the property that $$\sup_{x\in J_i}f(x)-\inf_{x\in J_i}f(x)<\varepsilon_0$$ Essentially, $$M_{S}(f)-m_S(f)<\varepsilon_0$$ for $S \text{ (a subrectangle) }\in P$. This gives us that $\mathcal{U}(f,P)-\mathcal{L}(f,P)=\sum_{S\in P}( M_S(f)-m_S(f) )|S|<\varepsilon_0 \sum_{S\in P}|S|=\varepsilon_0 |A| $}
 
-\thmp{}{Let $A$ be a closed rectangle and $f:A\to \bbR$ be a bounded function. Let $B:=\{x \in A: f \text{ not continuous at }x\}$. Then $f$ is integrable if and only if $B$ is a set of measure $0$.}{ Note that $B:=\{x\in A: \operatorname{osc}(f,x)>0\}$ which could be written as $\cup_{n\in \bbN}\{x\in A: \operatorname{osc}(f,x)\geq 1/n\}$, where we note that $\{x\in A: \operatorname{osc}(f,x)\geq t\}$ is closed for any $t>0$ (If $\operatorname{osc}(f,a)<\varepsilon$ then there would exist a ball around $a$ such that $osc(f,x)<\varepsilon$ for $x$ in said ball). 
+\thmp{\label{measure_zero_criteria_integrability}}{Let $A$ be a closed rectangle and $f:A\to \bbR$ be a bounded function. Let $B:=\{x \in A: f \text{ not continuous at }x\}$. Then $f$ is integrable if and only if $B$ is a set of measure $0$.}{ Note that $B:=\{x\in A: \operatorname{osc}(f,x)>0\}$ which could be written as $\cup_{n\in \bbN}\{x\in A: \operatorname{osc}(f,x)\geq 1/n\}$, where we note that $\{x\in A: \operatorname{osc}(f,x)\geq t\}$ is closed for any $t>0$ (If $\operatorname{osc}(f,a)<\varepsilon$ then there would exist a ball around $a$ such that $osc(f,x)<\varepsilon$ for $x$ in said ball). 
+\\ $\implies)$ Let $B$ be measure $0$. Consider the closed (and hence compact) set $B_{\varepsilon}:=\{x\in A: \operatorname{osc}(f,x)\geq \varepsilon\}$ whose measure (since $B_{\varepsilon}\subseteq B$) is $0$. We thus have a finite collection of rectangles $R_i$ that cover $B_{\varepsilon}$ and $\sum_{i=1}^N |R_i|<\varepsilon$. Consider the partition $P$ of $A$ generated by extending the grid formed by $R_i$ and collecting all subrectangles $K_i$. These can be classified into two subcategories (which together partition $A$): 
+\begin{enumerate}
+    \item $(\bbS)^1:=\{K_i : K_i \cap B_{\varepsilon}\neq \varnothing \} $ 
+    \item $(\bbS)^2:=\{K_i: K_i \cap B_{\varepsilon}=\varnothing\}$
+\end{enumerate}
+\vspace{2pt} We now look at $\mathcal{U}(f,P)-\mathcal{L}(f,P)=\sum_{S\in (\bbS)^1 \cup (\bbS)^2} (M_S(f)-m_S(f))|S| $. 
+\\\\ Look at the first sum: $$\sum_{S\in (\bbS)^1} (M_S(f)-m_S(f))|S| $$ Since $f$ is bounded, $|f(x)|\leq M$ and hence $\sum_{S\in (\bbS)^1}(M_S(f)-m_S(f))|S|\leq 2M\sum_{S\in (\bbS)^1} |S|$. Since we know that $S_1$ consists of the subrectangles of the cover elements (and only the cover elements) we note that $\sum_{S\in (\bbS)^1} |S|\leq \varepsilon$. Hence we have the first sum $\leq 2M\varepsilon$ 
+\\\\ Look at the second sum: $$\sum_{S\in (\bbS)^2}(M_S(f)-m_S(f))|S|$$
+For $S\in (\bbS)^2$, we have $\operatorname{osc}(f,x)<\varepsilon$. By \ref{osc_integral_bound} we have that there exists a partition of $S$, call it $P_S$ such that $\mathcal{U}(f,P_S)-\mathcal{L}(f,P_S)\leq \varepsilon |S|$. Extending the grid for each of these subrectangles in $P_S$ forms a new partition $P'$ which is a refinement of $P$ as a whole, such that $\sum_{S'\subset S; S'\in P'} (M_S(f)-m_S(f))|S'|\leq \varepsilon |S|$, so as a whole, $$\mathcal{U}(f,P')-\mathcal{L}(f,P')=\sum_{S'\in (\bbS)^1}\sum_{S''\subset S'; S''\in P'} (M_{S''}(f)-m_{S''}(f))|S''| + $$ $$\sum_{S'\in (\bbS)^2}\sum_{S''\subset S'; S''\in P'} (M_{S''}(f)-m_{S''}(f))|S''| $$ $$\leq 2M\varepsilon+\sum_{S'\in (\bbS)^2} \varepsilon |S'|\leq 2M\varepsilon+\varepsilon |A|$$
+Hence $f$ is integrable by criteria \ref{integrability_criteria_epsilon} we have that $f$ is integrable.
+\\\\ $\impliedby$) Let $f$ be integrable. The set of discontinuities $B$ is $\cup_{n\in \bbN} B_n$ where $B_n:=\{x\in A: \operatorname{osc}(f,x)\geq 1/n\}$ (closed and hence compact). 
+For $a\in B_n$, we have $\operatorname{osc}(f,a)\geq 1/n$ which means that $\inf_{\delta>0}(M_{R_{\delta}}(f)-m_{R_{\delta}}(f))\geq 1/n$. Let $P$ be the partition of $A$ such that $$\mathcal{U}(f,P)-\mathcal{L}(f,P)\leq \varepsilon/n$$ and let $\SS$ be the collection of subrectangles of $P$ which intersect with $B_n$. These form a cover for $B_n$. Therefore, for $S$ such that $S\cap B_n\neq \varnothing$, we have $\exists x \in S$ such that $\inf_{\delta>0}(M_{R_{\delta}}(f)-m_{R_{\delta}}(f))\geq 1/n$ which implies $M_S(f)-m_S(f)\geq 1/n$ and hence $$\varepsilon/n \geq \sum_{S\in\SS} (M_S(f)-m_S(f))|S|\geq 1/n \sum_{S\in \SS}|S|$$ which gives us that $\sum_{S\in \SS}|S|\leq \varepsilon$. Therefore, $B_n$ is content zero and hence $B$ is of measure zero. 
+
 }
+\defn{$\int_C f$ for arbitrary set $C$}{Let $A$ be any rectangle containing $C$ (in the case where we can find one). Then we define $$\int_C f:=\int_A f \cdot \chi_C$$ where $\chi_C(x)=\begin{cases}
+    1 \ \text{ if x }\in C \\ 
+    0 \ \text{ if x }\not\in C
+\end{cases}$ }
+\thmp{}{Function $\chi_C:A\to \bbR$ is integrable if and only if $\partial C$ is a set of measure zero.}{Note that, for $x \in C^{\circ}$, $\chi_C$ is continuous. And likewise for $x\in (\bbR^n-C)^{\circ}$. The only place where $\chi_C$ is discontinuous is precisely on $\partial C$. The result follows from \ref{measure_zero_criteria_integrability}. }
+\defn{Jordan-Measurable}{A bounded set $C$ whose boundary has measure zero is called \textbf{Jordan Measurable}.}
+\thmp{}{If $f:A\to \bbR$ is a non-negative function and $\int_A f=0$, then $B=\{x: f(x)>0\}$ is a set of measure zero.}{Let $B_n:=\{x\in A: f(x)\geq 1/n\}$ and note that $B=\cup_n B_n$. Since $f$ is said to be integrable, we note that $\inf_{P}\mathcal{U}(f,P)$ must be equal to the integral $\int_A f=0$. Let $\varepsilon>0$ be arbitrary and consider that partition $P$ such that $\mathcal{U}(P,f)<\varepsilon/n$. Look at $\bbJ:=\{S\in P: S\cap B_n \neq \varnothing\}$. This covers $B_n$. Moreover, $1/n \sum_{S\in \bbJ}|S|\leq \sum_{S\in \bbJ} M_S(f)|S| \leq \mathcal{U}(f,P)\leq \varepsilon/n$ (Since $f(x)\geq 1/n$ for elements in $B_n$, and each $S$ has some intersection with $B_n$). This implies $\sum_{S\in \bbJ}|S|\leq \varepsilon$ and $\cup_{S\in \bbJ} S$ covers $B_n$. Therefore, $B_n$ is content zero set, and hence $B$ is a measure zero set.}
+
+
+\subsection{Fubini's Theorem}
+\defn{Lower and Upper Integrals}{If $f:A\to \bbR$ is a bounded function on a closed rectangle $A\subset \bbR^n$, then regardless of whether $f$ is integrable, the least upper bound of the lower sums and the greatest lower bound of the upper sums both exist. They are called \textbf{Lower} and \textbf{Upper} \emph{integrals} of $f$ on $A$, denoted by: 
+$$\mathbf{L}\int_A f $$ and $$\mathbf{U}\int_A f$$
+
+}
+\thmp{(Fubini)}{Let $A\subset\bbR^n$ and $B\subset \bbR^m$ be closed rectangles and let $f:A\times B\to \bbR$ be integrable. For $x\in A$, let $g_x:B\to R$ be given by $g_x(y)=f(x,y)$ (and likewise define $h_y:A\to \bbR$ as $h_y(x)=f(x,y)$). Let $$\mathscr{L}(x):=\mathbf{L}\int_B g_x=\mathbf{L}\int_B f(x,y)dy$$ and $$\mathscr{U}(x):=\mathbf{U}\int_B g_x=\mathbf{U}\int_B f(x,y)dy$$ then $\mathscr{L}(x):A\to \bbR$ and $\mathscr{U}(x):A\to \bbR$ are both \emph{integrable} on $A$ and $$\int_{A\times B} f= \int_A \mathscr{L}(x)dx=\int_A (\mathbf{L}\int_B f(x,y)dy)dx $$
+$$\int_{A\times B} f= \int_A \mathscr{U}(x)dx=\int_A (\mathbf{U}\int_B f(x,y)dy)dx  $$
+}{\textbf{(sketch)}}
+
+\section{Partitions of Unity}
+\lemp{\label{exist_C_inf_on_R}}{There exists a function $f:\bbR \to \bbR$ which is positive on $(-1,1)$, 0 elsewhere and is $C^{\infty}$
+}{Consider $$f:=\begin{cases}
+    e^{-(x-1)^{-2}}e^{-(x+1)^{-2}} & \text{if } x\in (-1,1)\\
+    0 & \text{elsewhere}
+\end{cases}$$
+This function is $C^{\infty}$ and is positive on $(-1,1)$ and 0 elsewhere.
+}
+
+\begin{lemma}\label{exist_C_inf_on_Rn}
+Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon)f([x^2-a^2]/\varepsilon)\cdots f([x^n-a^n]/\varepsilon)$$ $g$ is then $C^{\infty}$, and has positive values only on $(a^1-\varepsilon,a^1+\varepsilon) \times (a^2-\varepsilon,a^2+\varepsilon) \cdots \times (a^n-\varepsilon,a^n+\varepsilon)$.
+\end{lemma}
+
 
 \chapter{Exterior Forms}
 \section{Definitions and Results}
@@ -90,4 +123,3 @@ An alternative characterisation of oscillation is the following:
 \end{enumerate} }
 
 \defn{$\Lambda^k(\bbR^n)$}{We denote the space of all $k-$forms by $\Lambda^k(\bbR^n)$. By convention, we set $$\Lambda^0(\bbR^n)=\bbR $$}
-

@@ -34,13 +34,26 @@
 
 \numberwithin{equation}{section}
 
+% \newenvironment{leftbar}[1][\hsize]
+% {%
+%     \def\FrameCommand
+%     {%
+%         {\color{black}\vrule width 1pt}%
+%         \hspace{0pt}%must no space.
+%         \fboxsep=\FrameSep\colorbox[HTML]{FAFFFF}%
+%     }%
+%     \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+% }
+% {\endMakeFramed}
+
 \newenvironment{leftbar}[1][\hsize]
 {%
     \def\FrameCommand
     {%
         {\color{black}\vrule width 1pt}%
-        \hspace{0pt}%must no space.
-        \fboxsep=\FrameSep\colorbox[HTML]{FAFFFF}%
+        \hspace{0pt}
+        \fboxsep=\FrameSep
+        \colorbox[HTML]{FAFFFF}%
     }%
     \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
 }
@@ -50,7 +63,7 @@
 \begin{theorem} \textbf{#1}\
     #2   
 \end{theorem}
- 
+ \vspace{-1em}
 \begin{Proof}\leftbar
     #3
 \endleftbar\end{Proof}
@@ -77,9 +90,19 @@
 \end{definition}
 
 }
+% \newenvironment{Proof}[1][Proof]
+%   {\proof[#1]\leftskip=0.2cm }
+%   {\endproof}
+\renewcommand{\qedsymbol}{\rule{1.5ex}{2ex}}
+
 \newenvironment{Proof}[1][Proof]
-  {\proof[#1]\leftskip=0.2cm }
-  {\endproof}
+{
+\proof[#1]
+\leftskip=0.2cm
+}
+{
+\endproof
+}
 
 \newcommand{\prob}[3]{\textbf{Problem}
 \textbf{#1:}\
