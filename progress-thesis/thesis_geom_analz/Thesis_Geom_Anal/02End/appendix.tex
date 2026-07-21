@@ -2,6 +2,10 @@
 \chapter{Some results from Calculus on $\bbR^n$}
 \section{Results from Differentiation}
 
+\thmp{\label{Taylor}(Taylor's Theorem)}{Let $f:U\to \bbR$ be $C^1$ in a neighbourhood $U$ of $p\in \bbR^n$ that is star shaped. Then there exists $g_1,g_2,\cdots g_n$ such that $$f(x)=f(p)+\sum_{i=1}^n g_i(x)(x^i-p^i) $$ where $g_i(p)=\frac{\partial}{\partial x^i}|_{p}f $}{Let $x\in U$. Since $U$ is star shaped, we have $\gamma(t)=p+t(x-p)\in U$ for $t\in[0,1]$. Consider $\frac{d}{dt} (f\circ \gamma(t))=Df(\gamma(t))\cdot \gamma'(t)=\sum_{i=1}^n \frac{\partial}{\partial x^i}f(\gamma(t))(x^i-p^i)$. Integrate both sides to get 
+$$\int_{t=0}^{t=1}\frac{d}{dt}(f\circ \gamma(t)) dt=f(x)-f(p)=\sum_{i=1}^n (x^i-p^i) \int_{t=0}^{t=1}\frac{\partial f}{\partial x^i}(p+t(x-p))dt $$ And let $g_i(x):=\int_{t=0}^{t=1} \frac{\partial f}{\partial x^i}(p+t(x-p))dt$ whence it is easy to verify that $g_i(p)=\frac{\partial f}{\partial x^i}(p)$.
+}
+
 \begin{theorem} (\textbf{Inverse Function Theorem}) Let $f:\bbR^n\to \bbR^n$ be continuously differentiable. Suppose that $\det{Df(a)}\neq 0$ for a given $a\in \bbR^n$.
 Then, there exists $U$ and $V$ open in $\bbR^n$ such that $a\in U$, $f(a)\in V$ and $f|_{U}:U\to V$ is a diffeomorphism.   
 \end{theorem}
@@ -114,12 +118,222 @@ This function is $C^{\infty}$ and is positive on $(-1,1)$ and 0 elsewhere.
 Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon)f([x^2-a^2]/\varepsilon)\cdots f([x^n-a^n]/\varepsilon)$$ $g$ is then $C^{\infty}$, and has positive values only on $(a^1-\varepsilon,a^1+\varepsilon) \times (a^2-\varepsilon,a^2+\varepsilon) \cdots \times (a^n-\varepsilon,a^n+\varepsilon)$.
 \end{lemma}
 
+\chapter{Differential Forms}
+\section{Exterior Algebra: Definitions and Results}
 
-\chapter{Exterior Forms}
-\section{Definitions and Results}
-\defn{Exterior Forms}{Let $k\geq 1$ and $n\in \mathbb{N}$. A \emph{k-form} on $\mathbb{R}^n$ is a map $$f:\underbrace{\bbR^n \times \bbR^n \times \cdots \times \bbR^n}_{k \text{ copies}} \to \bbR$$ such that \begin{enumerate}
-\item $f$ is linear in each of its $k$ coordinates.
-\item For every $\sigma \in sym(k)$, we have $f(x_{\sigma(1)},x_{\sigma(2)}\cdots x_{\sigma(k)})=\operatorname{sgn}(\sigma) f(x_1,x_2,\cdots x_k) $.
-\end{enumerate} }
+\defn{Dual Space $V^*$}{Let $V$ be a vector space over $\bbR$. The set of all linear maps $f:V\to \bbR$ is called the \emph{dual space} of $V$ and is denoted by $V^*$ or $\Lambda^1(V)$.}
+\begin{lemma}
+    Let $e_1,e_2,\cdots,e_n$ be a basis for $V$. Then the vectors $\xi^1,\xi^2,\cdots,\xi^n \in \Lambda^1(V)$ defined by $\xi^i(e_j)=\delta_{ij}$ forms a basis for $\Lambda^1(V)$.
+\end{lemma}
 
-\defn{$\Lambda^k(\bbR^n)$}{We denote the space of all $k-$forms by $\Lambda^k(\bbR^n)$. By convention, we set $$\Lambda^0(\bbR^n)=\bbR $$}
+\defn{Multilinear Maps (Tensors)}{$$f:\underbrace{\bbR^n \times \bbR^n \times \cdots \times \bbR^n}_{k \text{ copies}} \to \bbR$$ is a \emph{k-tensor} if it is linear in each coordinate.
+\\\\ \textbf{Note:} The space of all tensors forms a vector space.}
+
+\defn{$\sigma f$}{Let $f$ be a $k-$ tensor and $\sigma \in Sym(k)$. We define $$\sigma f (v_1,v_2,\cdots,v_k):= f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)}) $$}
+
+\subsection{$\sigma f$ as a group action}
+Let $X=$ set of all $k-$ tensors. Define $\rho: sym(k)\times X\to X$ by $\rho(\sigma, f):=\sigma f$. We see that $\rho$ is a group action since 
+\begin{enumerate}
+    \item $\rho(1,f)=f$
+    \item $\rho(\sigma_1, \rho(\sigma_2,f))=\rho(\sigma_1\sigma_2,f)$
+\end{enumerate}
+
+\defn{Alternating Tensors}{A $k-$tensor is alternating if for every $\sigma \in sym(k)$, $$f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})=\operatorname{sign}(\sigma) f(v_1,v_2,\cdots,v_k)$$ or $$\sigma f\equiv \operatorname{sign}(\sigma) f$$ }
+
+\defn{Symmetric Tensors}{A $k-$tensor is symmetric if for every $\sigma\in sym(k)$, $$f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})=f(v_1,v_2,\cdots,v_k)$$ or $$\sigma f\equiv f $$}
+
+\defn{Symmetrization Operator $Sf$}{$$S:\{k-\text{tensors}\}\to \{k-\text{tensors}\}$$ given by $Sf(v_1,v_2,\cdots,v_k)=\sum_{\sigma \in sym(k)} f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})$ or $$Sf\equiv \sum_{\sigma \in sym(k)} \sigma f $$ is called the \emph{symmetrization operator}}
+
+\defn{Alternation or Antisymmetrizer Operator $Af$}{$$A:\{k-\text{tensors}\}\to \{k-\text{tensors}\}$$ given by $Af(v_1,v_2,\cdots,v_k)=\sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})$ or $$Af\equiv \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma)\sigma f $$ is called the \emph{alternation operator}}
+
+\thmp{}{If $f$ is a $k-$tensor, then 
+\begin{enumerate}
+    \item $Sf$ is a symmetric $k-$tensor.
+    \item $Af$ is an alternating $k-$tensor.
+\end{enumerate}
+}{
+1) $Sf:=\sum_{\sigma \in sym(k)} \sigma f$. Let $\tau \in sym(k)$. $$\tau Sf= \sum_{\sigma \in sym(k)} (\tau \sigma)f = Sf$$ (since $\tau \sigma$ runs over all of $sym(k)$ once and exactly once).
+\\\\ 2) $Af:=\sum_{\sigma\in sym(k)}\operatorname{sign}(\sigma)f$. Let $\tau \in sym(k)$. $$\tau Af= \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma \tau) \operatorname{sign}(\tau) (\tau \sigma)f=$$ $$ \operatorname{sign}(\tau) Af$$. 
+ }
+\lemp{}{\begin{enumerate}
+    \item If $f$ is an alternating $k-$ tensor ($\sigma f=\operatorname{sign}(\sigma)f$) then $Af=k!f$.
+    \item If $f$ is an alternating $k-$ tensor then $Sf=0$.
+    \item If $f$ is a symmetric $k-$tensor ($\sigma f=f$) then $Af=0$.
+    \item If $f$ is a symmetric $k-$tensor then $Sf=k! f$
+\end{enumerate}}{
+1) $$Af:=\sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \operatorname{sign}(\sigma)f=\sum_{\sigma \in sym(k)} f = k!f$$
+\\\\ 2) If $f$ is alternating, then $$Sf=\sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) f=0 $$
+\\\\ 3) If $f$ is symmetric, then $$A(f):=\sum_{\sigma \in sym(k)}\operatorname{sign}(\sigma) f=0 $$
+\\\\ 4) If $f$ is symmetric, then $$Sf:=\sum_{\sigma \in sym(k)} \sigma f = k! f$$
+}
+
+\subsection{Tensor Product, Alternating Forms and the Wedge Product}
+\defn{Tensor Product}{Let $f$ be a $k-$tensor and $g$ be a $l-$tensor. We define the \textbf{tensor product} $f\otimes g$ to be the $(k+l)-$tensor given by $$f\otimes g (v_1,v_2,\cdots, v_k, v_{k+1},v_{k+2},\cdots, v_{k+l}):=f(v_1,v_2,\cdots,v_k) \cdot g(v_{k+1},v_{k+2},\cdots,v_{k+l}) $$}
+\textbf{Note:} The tensor product is \emph{bilinear} (linear in each argument) and \emph{associative} ($(f\otimes g)\otimes h=f\otimes(g\otimes h)$) but not \emph{commutative}.
+
+\defn{Wedge Product}{Let $f$ be an alternating $k-$tensor ($f\in \Lambda^k(V)$) and $g$ an alternating $l-$tensor ($g\in \Lambda^l(V)$). We define $$f \wedge g:= \frac{1}{k!l!} A(f\otimes g)$$ or written explicitly $$f\wedge g(v_1,\cdots,v_{k+l}):=\frac{1}{k!l!} \sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) $$ }
+\defn{$Sym(k,l)$}{Given natural numbers $k$ and $l$, we define $Sym(k,l)$ as follows: $$Sym(k,l):=\{\sigma\in sym(k+l): \sigma(1)<\sigma(2)<\cdots<\sigma(k) \text{ and }\sigma(k+1)<\sigma(k+2)<\cdots<\sigma(k+l)\} $$}
+\thmp{(Equivalent Expressions for the Wedge Product)}{The two expressions \begin{enumerate}
+    \item $$f\wedge g(v_1,\cdots,v_{k+l}):=\frac{1}{k!l!} \sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) $$
+    \item $$f\wedge g(v_1,\cdots,v_{l+l})=\sum_{\sigma\in sym(k,l)}\operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) $$
+\end{enumerate} are equivalent.}{Consider $G=sym(k+l)$ and consider the subgroup $$H:=\{\sigma \in sym(k+l): \sigma|_{\{1,\cdots,k\}}\equiv1\kern-0.25em\text{l} \text{ and } \sigma|_{\{k+1,\cdots,l+l\}}\equiv 1\kern-0.25em\text{l} \}$$ (One can view every element $\sigma \in H$ as $\pi_1 \times \pi_2$ where $\pi_1 \in sym\{1,\cdots,k\}$ and $\pi_2 \in sym\{k+1,\cdots,k_l\}$).
+\\\\ Let $\alpha,\beta \in G$ and define an equivalence relation $\alpha \sim \beta $ if and only if there exists $h \in H$ such that $\alpha h=\beta $
+\\\\ Let $S_{\sigma}$ be the expression $\operatorname{sign}(\sigma) \sigma(f\otimes g)$. 
+\\\\ Suppose $\alpha \sim \beta$ or $\alpha h=\beta$ where $h=\pi_1 \times \pi_2$. 
+\\\\ $$S_{\alpha}=\operatorname{sign}(\alpha) f(v_{\alpha(1)},\cdots,v_{\alpha(k)})g(v_{\alpha(k+1)},\cdots,v_{\alpha(k+l)})$$
+and $$S_{\beta}=\operatorname{sign}(\beta) f(v_{\beta(1)},\cdots,v_{\beta(k)})g(v_{\beta(k+1)},\cdots,v_{\beta(k+l)})$$ which is equal to $$ \operatorname{sign}(\alpha)\operatorname{sign}(\pi_1)\operatorname{sign}(\pi_2) f(v_{\alpha(h(1))},\cdots,v_{\alpha(h(k))})g(v_{\alpha(h(k+1))},\cdots,v_{\alpha(h(k+l))}) $$ $$=\operatorname{sign}(\alpha) \operatorname{sign}(\pi_1)^2 \operatorname{sign}(\pi_2)^2 f(v_{\alpha(1)},\cdots,v_{\alpha(k)})g(v_{\alpha(k+1)},\cdots,v_{\alpha(k+l)})=S_{\alpha} $$ So whenever $\alpha\sim \beta$, $S_{\alpha}=S_{\beta}$.
+\\\\ We can also see that, via rearrangement, for every $\sigma \in sym(k+l)$ there exists an $\alpha \in sym(k,l)$ and a $h\in H$ such that $\sigma h=\alpha$ or $\sigma \sim \alpha$.
+\\\\ The first expression can now be written as $$\frac{1}{k!l!}\sum_{\sigma\in sym(k,l)}\sum_{\alpha\in [\sigma]} S_{\alpha} $$
+
+but for elements of the same equivalence class, $S_{\alpha}$ are all the same and is equal to $S_{\sigma}$, so we have $$\frac{1}{k!l!} \sum_{\sigma\in sym(k,l)}S_{\sigma} (k!l!)=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\sigma) \sigma (f\otimes g)  $$ (The $k!l!$ comes from the fact that $|H|=k!l!$ and so the size of each coset is $k!l!$) and the equality is proved.}
+
+\thmp{}{For $f\in \Lambda^k(V)$ and $g\in \Lambda^l(V)$ $$f\wedge g=(-1)^{kl}g \wedge f$$}{$$f\wedge g=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\sigma) \sigma(f\otimes g)$$ Let $\tau$ be the element of $sym(k+l)$ given by $\tau(1)=k+1, \tau(2)=k+2,\cdots \tau(l)=k+l$ and $\tau(l+1)=1, \tau(l+2)=2,\cdots \tau(l+k)=k$ (We are moving the block $\{k+1,k+2,\cdots,k+l\}$ back, behind the block $\{1,2\cdots k\}$, which amounts to a total of $kl$ swaps/transpositions).
+Note that $\tau$ acts as a correspondence between $sym(k,l)$ and $sym(l,k)$ since for every $\sigma \in sym(k,l)$, we have $\sigma(\tau(l+1))<\sigma(\tau(l+2))<\cdots<\sigma(\tau(l+k))$ and $\sigma(\tau(1))<\sigma(\tau(2))<\cdots<\sigma(\tau(l))$ so $\sigma(\tau)$ is in $sym(l,k)$. 
+$$f\wedge g(v_1,\cdots,v_{k+l})=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)})$$ $$=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\tau\sigma)\operatorname{sign}(\tau)g(v_{\sigma(\tau(1))},\cdots,v_{\sigma(\tau(l))}) f(v_{\sigma(\tau(l+1))},\cdots,v_{\sigma(\tau(l+k))}) $$
+$$=\sum_{\gamma \in sym(l,k)} \operatorname{sign}(\gamma) (-1)^{kl}g(v_{\gamma(1)},\cdots,v_{\gamma(l)})f(v_{\gamma(l+1)},\cdots,v_{\gamma(l+k)})=(-1)^{kl} g\wedge f$$}
+
+\subsection{The Associativity of the Wedge Product}
+\lemp{}{Let $f\in \Lambda^k(V)$ and $g\in \Lambda^l(V)$, then: 
+\begin{enumerate}
+    \item $A(Af\otimes G)=k!A(f\otimes g)$
+    \item $A(f \otimes Ag)=l! A(f\otimes g)$
+\end{enumerate}
+}{1) $$A(Af\otimes g)=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) \sigma(Af\otimes g)$$
+$$Af:= \sum_{\substack{\tau\in sym(k+l) \\ \tau \text{ preserves }\{k+1,\cdots,k+l\}}}\operatorname{sign}(\tau) \tau (f) $$
+and $$ A(Af \otimes g):=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) (Af(X_{\sigma(1)},\cdots,X_{\sigma(k)})g(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)}))$$
+$$=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) \bigg{(} \sum_{\substack{\tau \in sym(k+l)\\ \tau \text{ preserves } \\ \{k+1,\cdots,k+l\}}} \operatorname{sign}(\tau) f(X_{\sigma \tau (1)},\cdots,X_{\sigma tau(k)}) \bigg{)}g(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)}))$$
+
+$$=\sum_{\sigma \in sym(k+l)}\sum_{\substack{\tau \in sym(k+l)\\ \tau \text{ fixes } \\ \{k+1,\cdots,k+l\}}} \operatorname{sign}(\sigma \tau) f(X_{\sigma \tau (1)},\cdots,X_{\sigma \tau (k)})g(X_{\sigma\tau (k+1)},\cdots,X_{\sigma\tau (k+l)}) $$
+The number of such $\tau$ that fixes $\{k+1,\cdots,k+l\}$ are precisely $k!$, and for each such $\tau$, $\sigma \tau$ runs over all of $sym(k+l)$ once and exactly once. Hence we have $$A(Af\otimes g)=k! \sum_{\gamma \in sym(k+l)}\operatorname{sign}(\gamma) \gamma (f\otimes g)=k! A(f\otimes g) $$
+2) The 2nd part is proved similarly.
+}
+\thmp{\label{associativity_of_wedge}(Associativity of Wedge Product)}{For any $f\in \Lambda^k(V),g\in \Lambda^l(V), h\in \Lambda^m(V)$ $$f\wedge (g\wedge h)=(f\wedge g)\wedge h $$}{$$f\wedge (g\wedge h):= \frac{1}{k!(l+m)!} A(f\otimes (g\wedge h))=\frac{1}{k!(l+m)!} A(f\otimes (\frac{1}{l!m!}A(g\otimes h) ))  $$ $$= \frac{1}{k!l!m!(l+m)!} A(f\otimes A(g\otimes h))=\frac{1}{k!l!m!} A(f\otimes g\otimes h) $$ and likewise $$(f\wedge g)\wedge h=\frac{1}{(k+l)!m!}A((f\wedge g)\otimes h)=\frac{1}{(k+l)k!l!m!}A(A(f\otimes g)\otimes h) $$ $$=\frac{1}{k!l!m!} (k+l)!A(f\otimes g\otimes h)=\frac{1}{k!l!m!}A(f\otimes g\otimes h) $$}
+
+\textbf{Note:} \emph{The proof of \ref{associativity_of_wedge} shows that if $f_{l_1}$ is an $l_1-$form, $f_{l_2}$ is an $l_2-$form and so on, $f_{l_1}\wedge f_{l_2}\wedge \cdots \wedge f_{l_k}$ is given by}
+
+\begin{equation}\label{wedge_product_of_bunch_of_forms}
+    f_{l_1}\wedge f_{l_2}\wedge \cdots \wedge f_{l_k}=\frac{1}{l_1 ! l_2 ! \cdots l_k!} A(f_{l_1}\otimes f_{l_2}\otimes \cdots \otimes f_{l_k}) 
+\end{equation}
+\subsubsection{Short Digression on Determinants}
+\defn{Determinant (\emph{Leibniz Formula})}{Let $\{a_{ij}:1\leq i,j\leq n\}$ be a matrix. We define determinant of $A$ as $$\det(A):=\sum_{\sigma \in sym(n)}\operatorname{sign}(\sigma) a_{1,\sigma(1)}a_{2,\sigma(2)}\cdots a_{n,\sigma(n)}$$ (To be thought of as multiplying one element from each row chosen from distinct columns, and taking into account the sign of the permutation of the columns).}
+
+\defn{Minor of $(i,j)-$entry}{Let $A$ be a matrix and let $a_{ij}$ be the $(i,j)-$entry of $A$. The \emph{minor} of $a_{ij}$ is the determinant of the matrix obtained by deleting the $i^{th}$ row and $j^{th}$ column from $A$. It is denoted $m_{ij}$. The matrix itself (after deleting $i^{th}$ row and $j^{th}$ column) is denoted $M_{ij}$. }
+
+\defn{Laplace's Expansion}{Fix a row $i$. Then the Laplace's expansion gives $$\det(B)=\sum_{j=1}^n (-1)^{i+j} b_{ij} \det(M_{ij})$$}
+\textbf{Note:} 
+From \begin{equation}
+    \sum_{\sigma \in sym(n)}\operatorname{sign}(\sigma) \prod_{q=1}^n a_{q,\sigma(q)}=\sum_{j=1}^n \sum_{\substack{\sigma \in sym(n)\\ \sigma: i \mapsto j}}\operatorname{sign}(\sigma) a_{i,j}  \prod_{\substack{q=1\\ q\neq i}}^{n} a_{q,\sigma(q)}
+\end{equation}
+we can see that the Laplace's expansion is a consequence of the Leibniz formula for determinants.
+\thmp{(Wedge Product of $1-$forms or Functionals)}{Let $f_1,f_2,\cdots,f_k$ be in $\Lambda^1(V)\equiv V^*$. Then $$f_1 \wedge f_2 \wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)=det(f_i(x_j)) $$}{From \ref{wedge_product_of_bunch_of_forms}, we have $$f_1\wedge f_2\wedge \cdots \wedge f_k (x_1,\cdots,x_k)=A(f_1\otimes f_2 \otimes \cdots \otimes f_k) $$ or $$f_1 \wedge f_2 \wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)=\sum_{\sigma \in sym(k)}\operatorname{sign}(\sigma) f_1(x_{\sigma(1)})f_2(x_{\sigma(2)})\cdots f_k(x_{\sigma(k)}) $$ which is precisely the Leibniz formula for determinants. Hence $$f_1\wedge f_2\wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)=\det(f_i(x_j)) $$}
+
+\lemp{}{Any collection $f_1,f_2,\cdots,f_k$ of $1-$forms is linearly independent if and only if $f_1 \wedge f_2\wedge \cdots \wedge f_k\neq 0$}{$\implies$) Say $f_1,\cdots,f_k$ is a linearly independent collection of functionals. Then it is part of a larger collection that forms a basis for $V^*$. Let $x_1,x_2,\cdots,x_k$ be the vectors in $V$ such that $f_i(x_j)=\delta_{ij}$. Then $$f_1\wedge f_2 \wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)= \det(\delta_{ij})=1$$
+$\impliedby)$ Let $f_1,f_2,\cdots,f_k$ be linearly dependent. Then (without loss of generality) $f_1=c_2f_2+c_3f_3+\cdots c_kf_k$
+ and $f_1 \wedge f_2 \wedge \cdots \wedge f_k= c_2 (f_2 \wedge f_2 \wedge f_3 \cdots \wedge f_k)+ c_3(f_3\wedge f_2 \wedge f_3 \wedge \cdots \wedge f_k)+ \cdots c_k(f_k \wedge f_2 \wedge f_3 \wedge \cdots \wedge f_k)=0$}
+
+\subsection{Dimension of Alternating k-forms}
+Let $E_1,E_2,\cdots, E_n$ be a basis for $V$. Let $\xi^1,\xi^2,\cdots,\xi^n \in V^*=\Lambda^k(V)$ be the dual basis to $E_1,\cdots E_n$. 
+
+\thmp{(Basis for $\Lambda^k(V)$)}{The set $$\{\xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}: 1\leq i_1<i_2<\cdots<i_k\leq n\}$$ forms a basis for $\Lambda^k(V)$.}{\textbf{Linear Independence:} Look at $$\sum_{1\leq i_1<\cdots<i_k\leq n} c_{i_1 i_2 \cdots i_k} \xi^{i_1}\wedge xi^{i_2}\wedge \cdots \wedge \xi^{i_k} \equiv 0$$ in $\Lambda^k(V)$. Hence, $$\sum_{1\leq i_1<\cdots<i_k\leq n} c_{i_1 i_2 \cdots i_k} \xi^{i_1}\wedge xi^{i_2}\wedge \cdots \wedge \xi^{i_k} (E_{j_1}, E_{j_2},\cdots ,E_{j_k})=$$ $$\sum_{1\leq i_1<\cdots<i_k\leq n} c_{i_1 i_2 \cdots i_k} det(\xi^{i_r}(E_{j_s}))=0 $$ $$\implies c_{j_1 j_2 \cdots j_k}=0 $$ for every increasing k-tuple $j_1,j_2,\cdots,j_k$ and hence $\{\xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}:1\leq i_1<\cdots<i_k\leq n\}$ is linearly independent.
+\\\\ \textbf{Span:} Let $f\in \Lambda^k(V)$. Let $x_r=\sum_{j_1=1}^n \xi^{j_1}(x_r) E_{j_1} $ for $r=1,2,\cdots,k$. $$f(x_1,x_2,\cdots,x_k)=f(\sum_{j_1=1}^n \xi^{j_1}(x_1) E_{j_1},\sum_{j_1=1}^n \xi^{j_1}(x_2) E_{j_1},\cdots,\sum_{j_1=1}^n \xi^{j_1}(x_k) E_{j_1})$$ $$=\sum_{j_1=1}^n \sum_{j_2=1}^n \cdots \sum_{j_k=1}^n \xi^{j_1}(x_1)\xi^{j_2}(x_2)\cdots \xi^{j_k}(x_k) f(E_{j_1},E_{j_2},\cdots,E_{j_k}) $$ If $j_r=j_s$ for some $r$ and $s$, note that the summand is $0$. Hence we rewrite the above sum as:
+$$\sum_{\substack{1\leq j_1,j_2,\cdots,j_k\leq n \\ j_r \text{ distinct}}}\xi^{j_1}(x_1)\xi^{j_2}(x_2)\cdots \xi^{j_k}(x_k) f(E_{j_1},E_{j_2},\cdots,E_{j_k}) $$
+
+We now note that each choice of $1\leq j_1,j_2,\cdots,j_k\leq n$ tuple is some $\sigma \in sym(k)$ of the ordered $1\leq j_1<j_2<\cdots<j_k\leq n$ (Simply reorder the elements $j_1,j_2,\cdots,j_k$ such that we achieve $\sigma(j_1)<\sigma(j_2)<\cdots<\sigma(j_k)$), and hence the above sum can be rewritten as: $$\sum_{1\leq j_1<\cdots<j_k\leq n} \sum_{\sigma \in sym(k)} \xi^{j_{\sigma(1)}}(x_1) \xi^{j_{\sigma(2)}}(x_2)\cdots \xi^{j_{\sigma(k)}}(x_k) f(E_{j_{\sigma(1)}},\cdots,E_{j_{\sigma(k)}})  $$ which is precisely $$ \sum_{1\leq j_1<\cdots<j_k\leq n} f(E_{j_1},\cdots,E_{j_k}) \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \xi^{j_{\sigma(1)}}(x_1)\xi^{j_{\sigma(2)}}(x_2)\cdots \xi^{j_{\sigma(k)}}(x_k)$$ $$=\sum_{1\leq j_1<\cdots<j_k\leq n} f(E_{j_1},\cdots, E_{j_k}) \xi^{j_1}\wedge \xi^{j_2}\cdots \wedge \xi^{j_k} (x_1,x_2,\cdots,x_k) $$ which means $f$ can be written as a linear combination of $\xi^{j_1}\wedge \cdots \wedge \xi^{j_k}$.
+}
+
+\lemp{}{Let $\beta^i\in \Lambda^1(V)$ for $1\leq i\leq k$ and let $\gamma^i\in \Lambda^1(V)$ and if $$\beta^i=\sum_{j=1}^k \alpha^i_j \gamma^j$$ then $$\beta^1\wedge \beta^2\wedge \cdots \wedge \beta^k=\det(\alpha^i_j) \gamma^1\wedge \gamma^2 \wedge \cdots \gamma^k$$ }{$$\beta^1\wedge \cdots \wedge \beta^k=\sum_{j_1=1}^k\sum_{j_2=1}^k \cdots \sum_{j_k=1}^k (\alpha^1_{j_1}\alpha^2_{j_2}\cdots \alpha^k_{j_k}) (\gamma^{j_1}\wedge \gamma^{j_2}\wedge \cdots \wedge \gamma^{j_k})$$
+$$=\sum_{\substack{1\leq j_1<\cdots<j_k\leq k\\ j_r \text{ distinct} }} (\alpha^1_{j_1}\alpha^2_{j_2}\cdots \alpha^k_{j_k}) \gamma^{j_1}\wedge \gamma^{j_2}\cdots \wedge \gamma^{j_k} $$ $$=\sum_{1\leq j_1<\cdots<j_k\leq k} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \alpha^1_{j_1} \cdots \alpha^{k}_{j_k} \gamma^1\wedge \gamma^2 \cdots \gamma^k $$ $$=\det(\alpha^i_j) \gamma^1\wedge \gamma^2 \wedge \cdots \wedge \gamma^k $$}
+
+\lemp{}{Let $f\in \Lambda^k(V)$ and let $u_1,u_2,\cdots,u_k $ and $v_1,v_2,\cdots,v_k \in V$ be related by $$ u_i=\sum_{j=1}^n a^i_j v_j $$ Then $$f(u_1,u_2,\cdots,u_k) =\det(a^i_j) f(v_1,v_2,\cdots,v_k) $$ }{$ f(\sum_{j_1=1}^n a^1_{j_1}v_{j_1}, \sum_{j_2=1}^k a^2_{j_2}v_{j_k},\cdots, \sum_{j_k=1}^n a^k_{j_k} v_j )$ $$=\sum_{\substack{ j_1,j_2,\cdots,j_k \\ each distinct}} a^1_{j_1}a^2_{j_2}\cdots a^k_{j_k} f(v_{j_1},v_{j_2},\cdots, v_{j_k})  $$ $$=\sum_{\substack{1\leq j_1<j_2<\cdots<j_k\leq k\\ each distinct}} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) a^1_{\sigma(1)}a^2(\sigma(2))\cdots a^k_{\sigma(k)} f(v_1,v_2,\cdots,v_k)=$$ $$\det(a^i_j) f(v_1,v_2,\cdots, v_k) $$}
+
+\textbf{Notation:} Let $\mathscr T_k$ denote the set \begin{equation}\label{index_notation}\mathscr{T}_k:=\{I\equiv (i_1,i_2,\cdots,i_k): 1\leq i_1<i_2<\cdots<i_k\leq n\} \end{equation} Suppose that $E_1,E_2,\cdots, E_n $ are the basis for $V$, and $\xi^1,\xi^2,\cdots,\xi^n$ be the dual basis for $\Lambda^1(V)$. Then, for $I=(i_1,i_2,\cdots,i_k)$ we have the notation \begin{equation} \xi^I:= \xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}\end{equation} and hence for any $k-$form $f:V\times V\times \cdots \times V\to \bbR$ we have the notation for the expansion \begin{equation}f:=\sum_{I\in \mathscr{T}_k} f^I \xi^I \end{equation}  
+\section{Tangent vectors in $\bbR^n$ and Vector Fields}
+We denote points in $\bbR^n$ by $$p=(p^1,p^2,\cdots ,p^n)$$ and points in $T_p(\bbR^n)$, the tangent space of $\bbR^n$ at $p$ (the space of all vectors $v$ eminating from $p$), by $$v= [v^1,v^2,\cdots, v^n]^T$$
+
+\subsection{The Directional Derivative and Derivations}
+\defn{Directional Derivative}{Let $p\in \bbR^n$ be given and let $f\in C_p^{\infty}$, the space of all functions $f:U\to \bbR$ such that $p\in U$ and $f$ is $C^{\infty}$ in $U$. Let $v\in T_p(\bbR^n)$. Let $\gamma(t):=p+tv$ and look at $$ \frac{d}{dt}|_{t=0} (f \circ \gamma(t))=Df(\gamma(0))\cdot \gamma'(0)=\sum_{i=1}^n v^i \frac{\partial}{\partial x^i}|_{p}f$$
+
+If we fix a point $p$ (arbitrary) and a direction $v\in T_p(\bbR^n)$, we have an operator $D_{p,v}: C^{\infty}_p \to \bbR$ given by $$D_{p,v} (f):= \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\bigg{|}_{p} (f) $$
+This operator is \emph{Linear} and follows the property $$D_{p,v}(f \cdot g)= (D_{p,v}(f))g(p)+(D_{p,v}(g))f(p) $$
+\emph{The operator $D_{p,v}$ is called the \textbf{directional derivative} at $p$ in the direction $v$.}}
+\defn{Germs of Functions}{Fix a point $p$ and look at all pairs $(f,U)$ where $f:U\to \bbR$, $p\in U\subseteq \bbR^n$ open and $f\in C^{\infty}(U)$. We say $(f,U)\sim (g,V)$ if $f$ and $g$ agree on an open subset of $U \cap V$. This is an equivalence relation and we (by abuse of notation) denote the equivalence class of $(f,U)$ as simply $f$. The set of all such equivalence classes is denoted by $C^{\infty}_p$ known as the \emph{\textbf{Germs of functions at $p$}}.
+\\\\ Defining addition, scalar multiplication and function multiplication on $C^{\infty}_p$ by the usual operations on representatives, we see that $C^{\infty}_p$ is a commutative ring with identity. Moreover, it is also a Vector space over $\bbR$. 
+}
+
+\defn{\label{Derp}Point Derivation}{Fix a point $p \in \bbR^n$. We say $D:C^{\infty}_p\to \bbR$ is a \emph{point derivation} (at $p$) if:
+\begin{enumerate}
+    \item $D$ is linear.
+    \item $D$ obeys \emph{Leibniz's Rule}: $$D(f\cdot g)=D(f)g(p)+D(g)f(p) $$
+\end{enumerate} and the space of all point derivations at $p$ is denoted by $\mathscr{D}_p (\bbR^n)$ }
+\lemp{}{If $D\in \mathscr{D}_p(\bbR^n)$, then $D(c)=0$ for every constant function $c\in C_p^{\infty}$.}{$D(1)=D(1\cdot 1)=1 D(1)+1D(1)=2D(1)$ which implies $D(1)=0$. From linearity, we have the result. }
+
+\lemp{}{The space of all point derivations $\mathscr{D}_p(\bbR^n)$ is a vector space over $\bbR$ and $T_p(\bbR^n)\cong \mathscr{D}_p(\bbR^n)$. Moreover, $D_{p,()}:T_p(\bbR^n)\to \mathscr{D}_p(\bbR^n)$ given by $v\mapsto D_{p,v}$ is the isomorphism.}{That $\mathscr{D}_p(\bbR^n)$ is a vector space is clear. Look at the map $v\mapsto D_{p,v}$. $v+cw\mapsto D_{p,v+cw}$ Where $$D_{p,v+cw}(f)=\sum_{i=1}^n (v^i+cw^i) \frac{\partial}{\partial x^i}\big{|}_{p} (f) =D_{p,v}(f)+cD_{p,w}(f)$$ Which makes $v\mapsto D_{p,v}$ linear. 
+\\\\ \textbf{Injectivity:} Let $D_{p,v}(f)=\sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\big{|}_{p} (f)\equiv 0$ for all $f \in C^{\infty}_p$
+Let $f=x^{j}:\bbR^n\to \bbR$ that picks out the $j-$th coordinate. Then $D_{p,v}(x^j)= \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\big{|}_{p} (x^j)=v^j=0$. Therefore, $v=0$ and hence, the nullspace is trivial.
+\\\\ \textbf{Surjectivity:} Let $f \in C^{\infty}_p$. We have $f(x)=f(p)+\sum_{i=1}^n g_i(x)(x^i-p^i)$ where $g^{i}(p)=\frac{\partial f}{\partial x^i}(p)$ (From \ref{Taylor}) 
+\\\\ Let $D\in \mathscr{D}_p(\bbR^n)$. $$D(f(x))=D(f(p))+\sum_{i=1}^n D(g_i(x)\cdot (x^i-p^i))$$
+$$=0+\sum_{i=1}^n D(g_i(x))(0)+D(x^i-p^i)\frac{\partial f}{\partial x^i}(p)= \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p f $$ Which means $$D\equiv \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p\equiv D_{p,<D(x^1),D(x^2)\cdots,D(x^n)>} $$ 
+\\\\ And hence, the map $v\mapsto D_{p,v}$ is surjective.
+
+}
+\defn{Vector Field}{A \emph{vector field} on $\bbR^n$ is a map $X:U\mapsto \amalg_{p\in U}T_p(U)$. For every $p \in U$, $X(p)$ is a vector in the tangent space at $p$. $$X(p)=\sum_{i=1}^n a^i(p)\frac{\partial}{\partial x^i}\big{|}_p $$ We call $X$ a smooth vector field if $a^i:U\to \bbR$ are $C^{\infty}$.}
+
+Let $f \in C^{\infty}_p$, that is $f:U\to \bbR$, a vector field $X$ to f is $$Xf (p):=\sum a_i(p) \frac{\partial}{\partial x^i}|_{p} f$$
+Then $$Xf:U\to \bbR $$ is again a $C^{\infty}$ function. 
+
+\section{Differential Forms}
+
+We start with defining what are $1-$forms.
+
+\defn{$1-$forms}{A function $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_{p}(\bbR^n)) $$ such that $\omega(p)\in \Lambda^1(T_p(\bbR^n))\equiv T^*_p(\bbR^n)$ is called a $1-$form.
+}
+
+\textbf{Note:} Let $f:U\to \bbR$ be any $C^{\infty}$ function. We can construct a $1-$form from $f$ as follows: 
+
+$$df:U\to \amalg_{p\in U} \Lambda^1(T_p(U)) $$ such that $$df_p \in \Lambda^1(T_p(U))$$ $$df_p:V\to \bbR $$ given by the action (for $v=\sum_{j=1}^n v^j \frac{\partial}{\partial x^j}|_{p} \in T_p(U)$): $$df_p(v)=df_p(\sum_j v^j \frac{\partial}{\partial x^j}|_{p})= \sum_j v^j \frac{\partial}{\partial x^j}|_{p}(f) \in \bbR $$
+
+Suppose that $v\in T_p(\bbR^n)$ and $f\in C^{\infty}_p (\bbR^n)$. $$v=\sum_{i=1}^n a^i(p)\frac{\partial}{\partial x^i}\big{|}_{p}\equiv X(p) $$ where $X:U\to \amalg_{p\in U} T_p(\bbR^n) $ is formally $$X(p):=\sum_{i=1}^n a^i(p) \frac{\partial}{\partial x^i}\big{|}_p\in T_p(\bbR^n)$$
+We then have a bilinear function $$\langle , \rangle:T_p(\bbR^n)\times C^{\infty}_p(\bbR^n)\to \bbR$$ given by $$\langle v,f\rangle=\langle \sum_i a^i(p)\frac{\partial}{\partial x^i}\big{|}p,f \rangle:=\sum_i a^i(p)\frac{\partial}{\partial x^i}\big{|}_p f \in \bbR$$
+One can then think of \emph{tangent vectors} as $\langle v,() \rangle$ functions of the 2nd argument. Likewise, we can think of $df$ as maps on the 1st argument: $df_p()=\langle (),f\rangle$ that takes in tangent vectors and gives a number in $\bbR$.
+
+\lemp{}{Let $x^1,x^2,\cdots, x^n :\bbR^n \to \bbR$ be the standard coordinate functions on $\bbR^n$. Then at each point $p$, $\{dx^1_p,dx^2_p \cdots dx^n_p\}$ forms a basis for $\Lambda^1(T_p(\bbR^n)) $ dual to $\{\frac{\partial}{\partial x^1}\big{|}_p,\frac{\partial}{\partial x^2}\big{|}_p,\cdots, \frac{\partial}{\partial x^n}\big{|}_p\} \in T_p(\bbR^n)$.}{Note that $$dx^i:\bbR^n \to \cup_{p\in \bbR^n} \Lambda^1(T_p(\bbR^n))$$ where $dx^i_p \in \Lambda^1(T_p(\bbR^n))$ is such that $$dx^i_p(\frac{\partial}{\partial x^j}\big{|}_p):=\frac{\partial}{\partial x^j}\big{|}_p (x^i)=\delta_{ij}$$ and $dx^j_p \in \Lambda_p(T_p(\bbR^n))$ is precisely the dual basis to $\frac{\partial}{\partial x^i}\big{|}_p \in T_P(\bbR^n)$.}
+
+\textbf{Note:} If $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_p(\bbR^n))$$ is a $1-$form, $\omega(p)\in \Lambda^1(T_p(\bbR^n))$ and $$\omega(p)=\sum_i a^i(p) dx^i_p $$ and formally $$\omega(\cdot) \equiv \sum_i a_i(\cdot) dx^i_{(\cdot)} $$
+Where $a^j(p)=w_p(\frac{\partial}{\partial x^j}\big{|}_p)$.
+
+\subsection{Differential Forms in terms of Coordinates}
+\thmp{}{
+Let $f:U\to \bbR$ be $C^{\infty}$. Then $df_p$ is defined as that linear function on $T_p(\bbR^n)$ such that $$df_p(\frac{\partial}{\partial x^i}\big{|}_p)=\frac{\partial}{\partial x^i}\big{|}_p f $$
+Then (as a covector) $$df_p\equiv \sum_{i=1}^n \frac{\partial f}{\partial x^i}\big{|}_p  (dx^i)_p$$ and formally (as a map on $U$) $$ df_{()}\equiv \sum_{j=1}^n \frac{\partial f}{\partial x^i}\big{|}_{()} dx^i_{()} $$
+}{Let $f:U \to \bbR$. $df_p \in \Lambda^1(T_p(U))$ and hence we have an expansion of the form \begin{equation}\label{temp_1}{df_p=\sum_{j=1}^n a^j_p dx^j_p}\end{equation} where $x^j: \bbR^n \to \bbR$ is the $j-$th standard coordinate function and $dx^j$ is the dual covector to $\frac{\partial}{\partial x^i}\big{|}_p \in T_p(U)$. Applying $df_p$ on $\frac{\partial}{\partial x^i}\big{|}_p$ (in \ref{temp_1}) we get $$df_p(\frac{\partial}{\partial x^i}\big{|}_p):=\frac{\partial f}{\partial x^i}\big{|}_p=\sum_{j=1}^n a^j_p dx^j_p(\frac{\partial }{\partial x^i}\big{|}_p)=a^j_p $$ and hence $$df_p\equiv \sum_{j=1}^n \frac{\partial f}{\partial x^j}\big{|}_p dx^j_p $$
+
+}
+
+\textbf{Note: } Let $X_p \in T_p(\bbR^n)$ be a tangent vector. we have $X_p\equiv \sum_{i=1}^n b^i(X_p) \frac{\partial}{\partial x^i}\big{|}_p$. Apply $dx^j_p$ on both sides: $$dx^j_p(X_p)=b^j(X_p) $$ and hence $$X_p \equiv \sum_{i=1}^n dx^i_p(X_p) \frac{\partial}{\partial x^i}\big{|}_p$$
+
+\subsection{Differential $k-$forms}
+\defn{Differential $k-$form}{A differential $k-$form is a function of the kind $$\omega: U\to \amalg_{p\in U} \Lambda^k(T_p(\bbR^n)) $$ $$\omega_p \in \Lambda^k(T_p(\bbR^n))$$ 
+
+Since $\Lambda^k(T_p(\bbR^n))$ is spanned by vectors of the kind (for $1\leq i_1<i_2<\cdots<i_k\leq n$) $$dx^{i_1}_p \wedge dx^{i_2}_p \wedge \cdots \wedge dx^{i_k}_p $$ and hence $$\omega_p\equiv \sum_{1\leq i_1<\cdots<i_k\leq n} w^{i_1 i_2 \cdots i_k}_{(p)} dx^{i_1}_p \wedge dx^{i_2}_p \wedge\cdots \wedge dx^{i_k}_p  $$ where $w^{i_1 i_2 \cdots i_k}:U\to \bbR$ is a $C^{\infty}$ function. Then we say $\omega$ is a $C^{\infty}$ differential $k-$form. 
+
+}
+
+\begin{example} \textbf{(In $\bbR^3$)} Let $x,y,z:\bbR^3\to \bbR$ be the coordinate maps. 
+\begin{enumerate}
+    \item $C^{\infty}$ $1-$forms are maps $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_p(U))$$ and $$\omega_p\equiv \sum_{i=1}^3 f^i_p dx^i_p =f^x_p dx_p +f^y_p dy_p +f^z_p dz_p \in \Lambda^1(T_p(U)) $$
+    \item $C^{\infty}$ $2-$forms are maps $$\omega: U\to \amalg_{p\in U} \Lambda^2(T_p(U)) $$ and $$\omega_p\equiv \sum_{1\leq i_1< i_2\leq 3} f^{i_1 i_2}_p dx^{i_1}_p\wedge dx^{i_2}_p = f_p^{1,2} dx_p \wedge dy_p - f_p^{1,3} dz_p \wedge dx_p + f^{2,3}_p dy_p\wedge dz_p  \in \Lambda^2(T_p(U))$$
+    \item $C^{\infty}$ $3-$forms are maps $$\omega:U\mapsto \amalg_p \Lambda^3(T_p(U)) $$ and $$\omega_p \equiv \sum_{1\leq i_1<i_2<i_3} f^{i_1 i_2 i_3}_p dx^{i_1}_p\wedge dx^{i_2}_p\wedge dx^{i_3}_p= f_p dx_p \wedge dy_p \wedge dz_p \in \Lambda^3(T_p(U)) $$
+\end{enumerate}
+    
+\end{example}
+
+\subsection{Exterior Derivative}
+
+Consider a $C^{\infty}$ function $f: U\to \bbR$. We have $df:U\to \amalg_{p\in U} \Lambda^1(T_p(U))$ such that $df_p \in \Lambda^1(T_p(U))$. $$df_p:T_p(U)\to \bbR$$ via $$df_p(v)=df_p(\sum_{i=1}^n dx^i_p(v)\frac{\partial}{\partial x^i}\big{|}_p )=\sum_{i=1}^n \frac{\partial f}{\partial x^i}\big{|}_p dx^i_p(v)$$ and symbolically we have $$df_{} \equiv \sum_{i=1}^n \frac{\partial f}{\partial x^i}\big{|}_{} dx^i_{}$$
+
+So $d$ in this case can be viewed as a map that takes $0-$forms (functions) and gives us a $1-$form $df$.
+
+Before we define the general exterior derivative for $k-$ forms, we will set up some notation.
+
+\defn{\label{space_of_k_forms}The space of $k-$ forms}{Let $\Omega$ be an open set in $\bbR^n$. The space of $k-$forms is denoted by $$\{\Omega, \Lambda^k(T\Omega)\} $$}
+\defn{Exterior derivative $d$}{$d:\{\Omega,\Lambda^k(T\Omega)\}\to \{\Omega,\Lambda^{k+1}\Omega\}$}
