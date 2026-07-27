@@ -201,7 +201,7 @@ $$=\sum_{\gamma \in sym(l,k)} \operatorname{sign}(\gamma) (-1)^{kl}g(v_{\gamma(1
 }{1) $$A(Af\otimes g)=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) \sigma(Af\otimes g)$$
 $$Af:= \sum_{\substack{\tau\in sym(k+l) \\ \tau \text{ preserves }\{k+1,\cdots,k+l\}}}\operatorname{sign}(\tau) \tau (f) $$
 and $$ A(Af \otimes g):=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) (Af(X_{\sigma(1)},\cdots,X_{\sigma(k)})g(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)}))$$
-$$=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) \bigg{(} \sum_{\substack{\tau \in sym(k+l)\\ \tau \text{ preserves } \\ \{k+1,\cdots,k+l\}}} \operatorname{sign}(\tau) f(X_{\sigma \tau (1)},\cdots,X_{\sigma tau(k)}) \bigg{)}g(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)}))$$
+$$=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) \bigg{(} \sum_{\substack{\tau \in sym(k+l)\\ \tau \text{ preserves } \\ \{k+1,\cdots,k+l\}}} \operatorname{sign}(\tau) f(X_{\sigma \tau (1)},\cdots,X_{\sigma \tau(k)}) \bigg{)}g(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)}))$$
 
 $$=\sum_{\sigma \in sym(k+l)}\sum_{\substack{\tau \in sym(k+l)\\ \tau \text{ fixes } \\ \{k+1,\cdots,k+l\}}} \operatorname{sign}(\sigma \tau) f(X_{\sigma \tau (1)},\cdots,X_{\sigma \tau (k)})g(X_{\sigma\tau (k+1)},\cdots,X_{\sigma\tau (k+l)}) $$
 The number of such $\tau$ that fixes $\{k+1,\cdots,k+l\}$ are precisely $k!$, and for each such $\tau$, $\sigma \tau$ runs over all of $sym(k+l)$ once and exactly once. Hence we have $$A(Af\otimes g)=k! \sum_{\gamma \in sym(k+l)}\operatorname{sign}(\gamma) \gamma (f\otimes g)=k! A(f\otimes g) $$
@@ -335,5 +335,127 @@ So $d$ in this case can be viewed as a map that takes $0-$forms (functions) and 
 
 Before we define the general exterior derivative for $k-$ forms, we will set up some notation.
 
-\defn{\label{space_of_k_forms}The space of $k-$ forms}{Let $\Omega$ be an open set in $\bbR^n$. The space of $k-$forms is denoted by $$\{\Omega, \Lambda^k(T\Omega)\} $$}
-\defn{Exterior derivative $d$}{$d:\{\Omega,\Lambda^k(T\Omega)\}\to \{\Omega,\Lambda^{k+1}\Omega\}$}
+\defn{\label{space_of_k_forms}The space of $k-$ forms}{Let $\Omega$ be an open set in $\bbR^n$. The space of $k-$forms is denoted by $$\{\Omega; \Lambda^k(T\Omega)\} $$ We also write the space of $k-$ forms as $$\Omega(\Lambda^k) $$}
+
+\defn{Exterior derivative $d$}{
+Let 
+$\omega \in \{\Omega;\Lambda^k(T\Omega)\}$ be a $k-$form given by (see \ref{index_notation}) $$\omega_p \equiv \sum_{I \in \mathscr T_k} \omega^I_p dx_p^I  $$    
+
+$d:\{\Omega;\Lambda^k(T\Omega)\}\to \{\Omega;\Lambda^{k+1}\Omega\}$ is the function given by (formally)
+\begin{equation}
+d\omega_p := \big{(} \sum_{i=1}^n \frac{\partial}{\partial x^i}\big{|}_p dx^i_p \big{)} \wedge \omega_p
+\end{equation}
+which is 
+\begin{equation}\label{Exterior_Derivative}
+\sum_{i=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^i}\big{|}_p dx^i_p \wedge dx^I_p     
+\end{equation}
+
+}
+
+\defn{Antiderivation}{Let $A=\oplus_{k=0}^{\infty} A^k$ be a graded algebra over a field $K$. An antiderivation is a map $D:A\to A$ such that 
+\begin{enumerate}
+    \item $D$ is $K-$linear
+    \item For all $a\in A^k$, $b\in A^l$, $$D(ab)=(D(a))b+(-1)^k a (D(b)) $$
+\end{enumerate}
+D is said to be an antiderivation of degree $m$ if $D|_{A^k}:A^k \to A^{k+m}$}
+
+\thmp{}{$d:\oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to\oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is an antiderivation of degree $1$ and $$d(\omega \wedge \tau)=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau $$ for all $\omega \in \Omega(
+    \Lambda^k)$ and $\tau \in \Omega(\Lambda^l)$}{That $d$ is linear is clear from formula \ref{Exterior_Derivative}. Let $\omega\equiv\sum_{I\in \mathscr T_k} w^I dx^I$ and $\tau\equiv \sum_{J\in \mathscr T_l}\tau^J dx^J$. $\omega \wedge \tau \equiv \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I \tau^J dx^I \wedge dx^J $ Applying $d$ gives us $$d(\omega \wedge \tau)=\big{(}\frac{\partial}{\partial x^i}\big{|}_p dx^i_p \big{)}\wedge (\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I_p \tau^J_p dx^I_p \wedge dx^J_p)=$$ 
+    
+    $$\sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \bigg{(}\frac{\partial \omega^I}{\partial x^i}\big{|}_p \tau^J_p + \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p\bigg{)}dx^i_p \wedge dx^I_p\wedge dx^J_p $$ 
+    
+    $$= d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^i_p \wedge dx^I_p \wedge dx^J_p$$ 
+    
+    $$=d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} (-1)^k\omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^I_p \wedge dx^i_p \wedge dx^J_p $$ $$=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau $$}
+    \lemp{}{$d^2=0$}{$$d\omega = \sum_{i=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^i} dx^i\wedge dx^I  $$ and $$d(d\omega)= \big{(}\sum_{i=1}^n\frac{\partial}{\partial x^i} dx^i \big{)}\wedge \big{(}\sum_{j=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^j} dx^j\wedge dx^I   \big{)} $$ $$= \sum_{i=1}^n \sum_{j=1}^n \sum_{I \in \mathscr T_k} \frac{\partial^2 \omega^I }{\partial x^ix^j } dx^i\wedge dx^j\wedge dx^I $$ Since $dx^i\wedge dx^j=-dx^j\wedge dx^i$ and $\frac{\partial^2 \omega^I}{\partial x^ix^j}=\frac{\partial^2 \omega^I}{\partial x^jx^i}$ we have that $d(d\omega)=0$. }
+
+    \subsection{Closed and Exact Forms}
+
+    \defn{Closed Form}{Let $\omega\in \Omega(\Lambda^k)$ be a $k-$form. We say $\omega$ is \emph{closed} if $d\omega=0$.}
+
+    \defn{Exact Form}{We say $k-$form $\omega \in \Omega(\Lambda^k)$ is \emph{exact} if there exists $\lambda\in \Omega(\Lambda^{k-1})$ such that $d\lambda=\omega$. }
+\begin{lemma}
+    \emph{Exact} forms are \emph{closed}.
+\end{lemma}
+
+\section{Vector Calculus}
+We set $n=3$, $U\subset \bbR^3$ and $k\in \{1,2,3\}$.
+
+\begin{enumerate}
+    \item \textbf{One forms:} $\omega: U\to \amalg_{p\in U} T_p^*(\bbR^3)$ with $\omega_{(p)}\in \Lambda^1(T_p(\bbR^3))\equiv T^*_p(\bbR^3)$ given by $$\omega_{(p)}\equiv \omega^x_{(p)}dx_{(p)}+\omega^y_{(p)}dy_{(p)}+\omega^z_{(p)}dz_{(p)} $$
+    \item \textbf{Two forms:} $\omega: U\to \amalg_{p\in U}\Lambda^2(T_p(\bbR^3)) $ with $\omega_{(p)}\in \Lambda^2(T_p(\bbR^3))$ given by $$\omega_{(p)}\equiv \sum_{1\leq i_1<i_2\leq 3} \omega^{i_1i_2}_{(p)} dx^{i_1}_{(p)}\wedge dx^{i_2}_{(p)} $$ $$= \omega^{z}_{(p)} dx_{(p)}\wedge dy_{(p)} +\omega^{x}_{(p)} dy_{(p)}\wedge dz_{(p)} +\omega^{y}_{(p)} dz_{(p)}\wedge dx_{(p)}   $$
+    \item \textbf{Three forms:} $\omega:U\to \amalg_{p\in U}\Lambda^3(T_p(\bbR^3)) $ with $\omega_{(p)}\in \Lambda^3(T_p(\bbR^3))$ given by $$\omega_{(p)}=w_{(p)} dx_{(p)}\wedge dy_{(p)}\wedge dz_{(p)} $$
+\end{enumerate}
+
+We immediately see a correspondence in table \ref{tab:vector_form}
+
+\begin{table}[ht]
+\centering
+\caption{Correspondence between vector fields and forms.}
+\label{tab:vector_form}
+\begin{tabular}{|l|l|}
+\hline
+Field & Form \\
+\hline
+Vector field: $[\omega^x, \omega^y,\omega^z] $  & $1-$form: $\omega^x_{(p)}dx_{(p)}+\omega^y_{(p)}dy_{(p)}+\omega^z_{(p)}dz_{(p)}  $ \\
+Vector field: $[\omega^x, \omega^y,\omega^z] $  & $2-$form: $\omega^x_{(p)} dy_{(p)}\wedge dz_{(p)}+ \omega^y_{(p)} dz_{(p)}\wedge dx_{(p)}+\omega^z_{(p)} dx_{(p)}\wedge dy_{(p)}$ \\
+Scalar field: $\omega $  & $3-$form: $\omega_{(p)}dx_{(p)}\wedge dy_{(p)} \wedge dz_{(p)} $ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Exterior Derivative of forms in $\mathbf{\bbR^3}$}
+\subsubsection{$0-$forms in $\bbR^3$}
+Let $f:U\to \bbR$. We know that $$df:U\to \amalg_{p\in U} \Lambda^1(T_p(U))$$
+given by $$df_{(p)}=\frac{\partial f}{\partial x}\big{|}_{(p)} dx_{(p)}+\frac{\partial}{\partial y}\big{|}_{(p)} dy_{(p)}+\frac{\partial}{\partial z}\big{|}_{(p)} dz_{(p)} $$
+Which, from the correspondence \ref{tab:vector_form}, can be identified with the vector field $$\bigg{[}\frac{\partial f}{\partial x}\big{|}_{(p)}, \frac{\partial f}{\partial y}\big{|}_{(p)}, \frac{\partial f}{\partial z}\big{|}_{(p)} \bigg{]}\equiv \nabla f (p)$$
+
+\subsubsection{$1-$forms in $\bbR^3$
+}
+Let $\omega\in \Omega(\Lambda^1(T\bbR^3))$ be a $1-$form, i.e. $$\omega_{(p)}\equiv \omega^x_{(p)}dx_{(p)}+\omega^y_{(p)}dy_{(p)}+\omega^z_{(p)}dz_{(p)} $$
+
+$$\text{(Symbolically) }d\omega_p=\bigg{(}\sum_{i=1}^3 \frac{\partial}{\partial x^i}\bigg{|}_p dx^i_{p} \bigg{)}\wedge \omega^x_{(p)}dx_{(p)}+\omega^y_{(p)}dy_{(p)}+\omega^z_{(p)}dz_{(p)} $$
+
+$$=\bigg{(}\frac{\partial}{\partial x}\bigg{|}_p dx_{p} + \frac{\partial}{\partial y}\bigg{|}_p dy_{p}+\frac{\partial}{\partial z}\bigg{|}_p dz_{p} \bigg{)}\wedge \omega^x_{(p)}dx_{(p)}+\omega^y_{(p)}dy_{(p)}+\omega^z_{(p)}dz_{(p)}   $$
+
+$$=\bigg{[}\frac{\partial \omega^y}{\partial x}\bigg{|}_p dx_{p}\wedge dy_{p} + \frac{\partial \omega^z}{\partial x}\bigg{|}_p dx_{p}\wedge dz_p\bigg{]} \ +\bigg{[} \frac{\partial \omega^x}{\partial y}\bigg{|}_p dy_{p} \wedge dx_p + \frac{\partial \omega^z}{\partial y}\bigg{|}_p dy_{p}\wedge dz_p\bigg{]} \ +\bigg{[}\frac{\partial \omega^x}{\partial z}\bigg{|}_p dz_{p}\wedge dx_p + \frac{\partial \omega^y}{\partial z}\bigg{|}_p dz_{p} \wedge dy_p\bigg{]} \ =$$
+
+$$  \bigg{(} \frac{\partial \omega^z}{\partial y}\bigg{|}_p- \frac{\partial \omega^y}{\partial z}\bigg{|}_p \bigg{)} dy_p \wedge dz_p + \bigg{(} \frac{\partial \omega^y}{\partial x}\bigg{|}_p- \frac{\partial \omega^x}{\partial y}\bigg{|}_p \bigg{)} dx_p \wedge dy_p + \bigg{(} \frac{\partial \omega^x}{\partial z}\bigg{|}_p- \frac{\partial \omega^z}{\partial x}\bigg{|}_p \bigg{)} dz_p \wedge dx_p  $$ which from the correspondence \ref{tab:vector_form} can be identified with the vector field $$\bigg{[}\bigg{(} \frac{\partial \omega^z}{\partial y}\bigg{|}_p- \frac{\partial \omega^y}{\partial z}\bigg{|}_p \bigg{)}, \bigg{(} \frac{\partial \omega^x}{\partial z}\bigg{|}_p- \frac{\partial \omega^z}{\partial x}\bigg{|}_p \bigg{)}, \bigg{(} \frac{\partial \omega^y}{\partial x}\bigg{|}_p- \frac{\partial \omega^x}{\partial y}\bigg{|}_p \bigg{)} \bigg{]} \equiv \nabla \times \omega(p)$$
+
+\subsubsection{$2-$forms in $\bbR^3$}
+Let $\omega \in \Omega(\Lambda^2(T\bbR^3))$ be a $2-$form i.e. $$ \omega_p\equiv \omega^x_p dy_p \wedge dz_p + \omega^y_p dz_p \wedge dx_p + \omega^z_p dx_p \wedge dy_p \in \Lambda^2(T_p(\bbR^3))$$
+
+$$d(\omega^x dy\wedge dz)_p=\frac{\partial \omega^x}{\partial x}\bigg{|}_p dx_p \wedge dy_p \wedge dz_p $$
+
+$$d(\omega^y dz\wedge dx)_p=\frac{\partial \omega^y}{\partial y}\bigg{|}_p dy_p \wedge dz_p \wedge dx_p $$
+
+$$d(\omega^z dx\wedge dy)_p=\frac{\partial \omega^z}{\partial z}\bigg{|}_p dz_p \wedge dx_p \wedge dy_p $$
+
+and hence $$d \omega_p \equiv \bigg{(}\frac{\partial \omega^x}{\partial x} \bigg{|}_p +\frac{\partial \omega^y}{\partial y} \bigg{|}_p +\frac{\partial \omega^z}{\partial z} \bigg{|}_p  \bigg{)}dx_p \wedge dy_p \wedge dz_p$$
+
+Which from the correspondence \ref{tab:vector_form} can be identified with the scalar field $$\frac{\partial \omega^x}{\partial x} \bigg{|}_p+\frac{\partial \omega^y}{\partial y} \bigg{|}_p+\frac{\partial \omega^z}{\partial z} \bigg{|}_p \equiv \nabla \cdot \omega(p) $$
+
+From these correspondences, we see that $d:\Omega(\Lambda^0)\to \Omega(\Lambda^1)$ is the gradient, $d:\Omega(\Lambda^1)\to \Omega(\Lambda^2)$ the curl and $d:\Omega(\Lambda^2)\to \Omega(\Lambda^3)$ is the divergence. From this we can see immediately that the well known identities $$\nabla \times (\nabla f)=0 $$ and $$\nabla \cdot (\nabla \times \omega)=0 $$ are just special cases of $d^2=0$. 
+
+\section{Hodge Star}
+Let $f$ be a $k-$form given by $$f\equiv \sum_{I\in \mathscr T_k} f^I dx^I $$
+We define the operation \emph{Hodge Star} as follows (defined first on basic $k-$forms, and then extended linearly for any $k-$form): 
+
+$$\star \ dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}={\operatorname{sign}(R(I,J))} dx^{j_1}\wedge dx^{j_2}\wedge \cdots \wedge dx^{j_{n-k}} $$ where \begin{enumerate}
+    \item $I\equiv \{i_1,i_2,\cdots, i_k\}\in \mathscr{T}_k$ and $J\equiv \{j_1,j_2,\cdots,j_{n-k}\}$ being the complementary increasing index set to $I$ (i.e. $J\cup I\equiv \{1,2,\cdots,n\}$ where $J$ is also increasingly ordered).
+    \item $R(I,J)\in sym(n)$ rearranges $\{i_1,i_2,\cdots,i_k, j_1, j_2,\cdots,j_{n-k}\}$ in its increasing order.
+    \item For any $f\equiv \sum_{I\in \mathscr T_k} f^I dx^I$ we have $$\star \ f := \sum_{I\in \mathscr T_k} f^{I} \star dx^I$$
+\end{enumerate}
+An alternate way to define the \emph{Hodge Star}: If $f$ and $g$ are $k-$forms, then $\star \ g$ is defined as the unique $(n-k)-$form such that $$f\wedge \star g=\langle f,g\rangle dx^1 \wedge dx^2 \wedge \cdots \wedge dx^n$$ 
+where $$\langle f,g\rangle:=\sum_{I\in \mathscr{T}_k} f^I g^I$$
+
+\lemp{}{Let $f\in \Omega(\Lambda^k)$. We then have $$\star \star f=(-1)^{k(n-k)} f$$ }{Since $\star$ is linear, it is enough to prove on basis elements. $$\star dx^I=\operatorname{sign}(R(I,J)) dx^J $$ where $J$ is the complement of $I$ relative to $\{1,2,\cdots,n\}$ and $R(I,J)$ is the permutation that rearranges $\{i_1,i_2,\cdots,i_k,j_1,j_2,\cdots,j_{n-k}\}\to \{1,2,\cdots,n\}$. 
+$$\star \star dx^I=\operatorname{sign}(R(I,J)) \star dx^J= \operatorname{sign}(R(I,J)) \operatorname{sign}(R(J,I))dx^I $$
+To compute the product of the signs we look at the map $\sigma$ that takes $(I,J)$, rearranges them to $\{1,2,\cdots,n\}$ and then rearranges them to $\{J,I\}$. This amounts to moving the first $k$ elements behind the last $n-k$ elements. This takes $k(n-k)$ transpositions, and hence the sign is $(-1)^{k(n-k)}$. Therefore, $$\star \star dx^I=(-1)^{k(n-k)} dx^I $$
+and the result follows for a general $k-$form from linearity. 
+}
+
+\lemp{}{For $f,g\in \Omega(\Lambda^k)$ $$\langle f,g\rangle=\langle \star f,\star g\rangle$$}{Since $f\wedge \star g=\langle f,g\rangle dV$ (where $dV$ is the volume form, in the Euclidean case, $dx^1\wedge dx^2\wedge \cdots \wedge dx^n$), we have $\star f \wedge \star \star g= (-1)^{k(n-k)}\star f \wedge g= \langle \star f,\star g\rangle dV$. Recall that $f\wedge g=(-1)^{kl} g \wedge f$ for $f\in \Omega\Lambda^k$ and $g\in \Omega\Lambda^l$. Since $\star f \in \Lambda^{n-k}$ and $g\in \Lambda^k$, we have $\star f \wedge g= (-1)^{k(n-k)} g \wedge \star f$. This gives us $$(-1)^{k(n-k)}\star f \wedge g= g \wedge \star f= \langle \star f,\star g\rangle dV $$
+But since $g \wedge \star f:= \langle g,f \rangle = \langle f,g\rangle $ (Real inner product), we have the result. 
+}
+\chapter{Manifolds}
