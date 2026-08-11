@@ -1,7 +1,7 @@
 % Created by Joel Sleeba, MSc 2021, Mathematics, IISER Thiruvananthapuram
 % Connect with me at joelsleeba.github.io or github.com/joelsleeba
 \documentclass[14pt]{report}
-\usepackage[margin=1in]{geometry} 
+\usepackage[margin=0.8in]{geometry} 
 \input{config/packages.tex}
 \input{config/options.tex}
 \input{config/colors.tex}
@@ -45,7 +45,8 @@
 %     \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
 % }
 % {\endMakeFramed}
-
+% code for white FFFFFF
+% code for light blue FAFFFF
 \newenvironment{leftbar}[1][\hsize]
 {%
     \def\FrameCommand
@@ -92,7 +93,7 @@
 % \newenvironment{Proof}[1][Proof]
 %   {\proof[#1]\leftskip=0.2cm }
 %   {\endproof}
-\renewcommand{\qedsymbol}{\rule{1.5ex}{2ex}}
+\renewcommand{\qedsymbol}{\rule{2ex}{2ex}}
 
 \newenvironment{Proof}[1][Proof]
 {
@@ -111,7 +112,35 @@
 \endleftbar
 }
 
+\newtheorem{corollary}[theorem]{Corollary}
 
+\newcommand{\cor}[1]{
+\begin{corollary}
+    #1
+\end{corollary}
+}
+
+\newcommand{\corp}[2]{
+\begin{corollary}
+    #1
+\end{corollary}
+\begin{Proof}\leftbar
+    #2
+\endleftbar\end{Proof}
+}
+
+
+\newtheorem{proposition}[theorem]{Proposition}
+
+
+\newcommand{\propp}[2]{
+\begin{proposition}
+    #1
+\end{proposition}
+\begin{Proof}\leftbar
+    #2
+\endleftbar\end{Proof}
+}
 
 
 \begin{document}
@@ -121,7 +150,7 @@
     %\include{00Intro/03_Certificate.tex}
     %\include{00Intro/04_Acknowledgement.tex}
     %\include{00Intro/05_Abstract.tex}
-    %\include{00Intro/06_ToC-LoF-LoA.tex}
+    \include{00Intro/06_ToC-LoF-LoA.tex}
 
     \pagenumbering{arabic} \setcounter{page}{1}
     % \include{01Chapters/prelim.tex}

@@ -126,8 +126,11 @@ Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon
     Let $e_1,e_2,\cdots,e_n$ be a basis for $V$. Then the vectors $\xi^1,\xi^2,\cdots,\xi^n \in \Lambda^1(V)$ defined by $\xi^i(e_j)=\delta_{ij}$ forms a basis for $\Lambda^1(V)$.
 \end{lemma}
 
-\defn{Multilinear Maps (Tensors)}{$$f:\underbrace{\bbR^n \times \bbR^n \times \cdots \times \bbR^n}_{k \text{ copies}} \to \bbR$$ is a \emph{k-tensor} if it is linear in each coordinate.
+\defn{Multilinear Maps (Tensors)}{$$f:\underbrace{V \times V \times \cdots \times V}_{k \text{ copies}} \to \bbR$$ is a \emph{k-tensor} if it is linear in each coordinate.
 \\\\ \textbf{Note:} The space of all tensors forms a vector space.}
+\begin{lemma}\label{basis for tensors}
+    For the space of all $k-$tensors from $V$, $\{dx^{i_1}\otimes dx^{i_2} \otimes \cdots \otimes dx^{i_k}: (i_1,i_2,\cdots,i_k)\in \{1,2,\cdots,n\}^k \}$ forms a basis. 
+\end{lemma}
 
 \defn{$\sigma f$}{Let $f$ be a $k-$ tensor and $\sigma \in Sym(k)$. We define $$\sigma f (v_1,v_2,\cdots,v_k):= f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)}) $$}
 
@@ -437,6 +440,145 @@ Which from the correspondence \ref{tab:vector_form} can be identified with the s
 
 From these correspondences, we see that $d:\Omega(\Lambda^0)\to \Omega(\Lambda^1)$ is the gradient, $d:\Omega(\Lambda^1)\to \Omega(\Lambda^2)$ the curl and $d:\Omega(\Lambda^2)\to \Omega(\Lambda^3)$ is the divergence. From this we can see immediately that the well known identities $$\nabla \times (\nabla f)=0 $$ and $$\nabla \cdot (\nabla \times \omega)=0 $$ are just special cases of $d^2=0$. 
 
+\section{Interior Product}
+
+For this particular discussion, let us work with abstract $n-$dimensional vector space $V$ over $\bbR$. 
+We start with the observation that $\{dx^I: I \in \mathscr T_k\}$ not only forms a basis for $\Lambda^k(V)$, but is also an orthonormal set, since $$\langle dx^I,dx^J\rangle=\begin{cases}
+    1\ \text{ if } I=J \\ 
+    0\ \text{ if } I\neq J
+ \end{cases}$$
+
+The wedge product $$\wedge: \Lambda^k(V) \times \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is bilinear. Suppose we have a fixed $k$ form $\alpha \in \Lambda^k(V)$, then $$\alpha \wedge (): \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is a linear map that \emph{raises} the degree of the form.
+For a $k-$form $\alpha$, we have the natural dual from the inner product given by: $$\langle (\alpha \wedge) \omega, \beta\rangle = \langle \omega, (\alpha \lrcorner) \beta \rangle $$
+where $\alpha \in \Lambda^k(V)$, $\omega\in \Lambda^{l-k}(V)$ and $\beta \in \Lambda^l$. From this definition it is clear that $$\alpha \lrcorner: \Lambda^{l}(V)\to \Lambda^{l-k}(V)$$
+\begin{corollary}\label{contraction_formula_basis}
+    If $k\geq l$ and $\alpha \in \Lambda^k(V)$ and $\beta \in \Lambda^l(V)$, then $\alpha \lrcorner \beta=0$.
+
+\end{corollary}
+On \emph{basis elements}, we have for $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $dx^w \in \Lambda^{l-k}(V)$ $$\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I \lrcorner dx^J\rangle $$ 
+
+
+\propp{For $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $l>k$, we have $$dx^I \lrcorner dx^J=\begin{cases} \operatorname{sign}(R(I,J/I)) dx^{J/I} \ \text{if } I\subseteq J \\ 0  \phantom{--------;;}\text{if } I\not\subseteq J\end{cases} $$ where $J/I$ denotes the ordered set of indices that are in $J$ but not in $I$ and $R(I,J/I)$ denotes the permutation that reorders the tuple $(I,J/I)$.}{\textbf{When }$\mathbf{I\not\subseteq J}$, we have some index of $dx^I$ not be in $dx^J$. Therefore, no matter our choice of $dx^w$, we must have that $$\langle dx^I \wedge dx^w,dx^J\rangle=0=\langle dx^w,dx^I \lrcorner dx^J\rangle $$ which means that $dx^I \lrcorner dx^J=0$. 
+\\\\ \textbf{When }$\mathbf{I\subseteq J}$, If $dx^w$ does not contain all the complementary elements of $J/I$, we must have that $\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I\lrcorner dx^J \rangle=0$. This means that $dx^I\lrcorner dx^J$ contains indices exclusively from $J/I$ (upto reordering). Let $dx^I \lrcorner dx^J=\lambda dx^{J/I}$. Choose $dx^w=dx^{J/I}$.  Note in that case that $dx^I \wedge dx^w=\operatorname{sgn}(R(I,J/I))dx^{J}$ where $R(I,J/I)$ is the permutation that rearranges $(I,J/I)$ to the canonically ordered tuple $J$.
+
+We therefore have  $$\langle dx^I \wedge dx^w, dx^J\rangle =\operatorname{sgn}(R(I,J/I))\langle dx^J, dx^J\rangle=\operatorname{sgn}(R(I,J/I)) $$
+$$=\langle dx^{J/I}, \lambda dx^{J/I}\rangle=\lambda $$
+This implies $\lambda= \operatorname{sgn}(R(I,J/I))$ and the proof is complete.  }
+
+Let $\alpha\in \Lambda^k(V)$, $\beta\in \Lambda^l(V)$. For $\omega\in \Lambda^m$ $L_{\alpha \wedge \beta}(\omega)=\alpha \wedge (\beta \wedge \omega)=L_{\alpha}\circ L_{\beta}(\omega)$. Therefore, the Adjoint must follow $$L_{\alpha \wedge \beta}^{\dagger}\equiv (L_{\alpha}\circ L_{\beta})^{\dagger}=L_{\beta}^{\dagger}\circ L_{\alpha}^{\dagger}$$ which implies $$(\alpha \wedge \beta)\lrcorner \gamma =\beta \lrcorner (\alpha \lrcorner \gamma) $$ 
+
+
+\subsection{The Musical Isomorphism and Interior Product}
+\textbf{The situation in }$\mathbf{\bbR^n:}$ 
+
+Given a $C^{\infty}$ vector field $X:U\to \amalg_{p\in U} T_p(U)$ given by $$X_{(p)}=\sum_{i=1}^n a^i(p) \frac{\partial}{\partial x^i}\bigg.{|}_{p} \in T_p(U) $$ we can find a differential $1-form$ given by \begin{equation}\label{one forms vs vectors}p \mapsto \sum_{i=1}^n a^i(p) dx^i_{(p)}\end{equation}
+
+\subsubsection{The $\flat$ map}
+For any general Manifold, the vector spaces $T_pM$ and $T_p^*M$ are merely of the same dimension, but there is no global way to identify $T_pM$ with $T_p^*M$. A metric changes this. 
+
+Let $g_p : T_p M \times T_p M \to \bbR$ be an inner product on $T_pM$. For a given vector $X \in T_pM$, define $X^{\flat}\in \Lambda^1(T_p(M))$ given by \begin{equation}\label{flat_isom}X^{\flat}(Y)=g(X,Y)\end{equation} for $Y\in T_p(M)$. Therefore, $\flat: T_p(M)\to T_p^*(M)$.
+This map is linear, and injective since $X^{\beta}(Y)=g(X,Y)=0, \text{ for every }Y\in T_p(M)$ implies $X=0$. Hence, $\flat:T_pM\to T^*_pM$ is an isomorphism.
+\\\\ Let $X\equiv \sum_{i=1}^n X^i \frac{\partial}{\partial x^i}$ be a vector field. $g$ being an inner product, is a $2-$tensor on $T_p(M)$.  
+
+By \ref{basis for tensors} we see then, that $$g\equiv \sum_{1\leq i,j\leq n} g_{ij}(p) dx_p^i \otimes dx_p^j:T_pM\times T_pM\to \bbR $$ and \ref{flat_isom} tells us that $$X^{\flat}_{p}= \sum_{1\leq i,j\leq n}g_{ij}(p)\sum_{s=1}^na^s(p)dx^i_p( \frac{\partial}{\partial x^s}\bigg.{|}_p) dx^j_p = \sum_{1\leq i\leq n}\sum_{1\leq j\leq n} g_{ij}(p)a^i(p)dx^j_p \in \Lambda^{1}(T_p(M))$$
+If we assume that $g_{ij}=\delta_{ij}$ we get back \ref{one forms vs vectors}.
+\\\\ \textbf{On Basis:} If $X\equiv \frac{\partial}{\partial x^q}$, then $X^{\flat}= g(X,())$ given by $$\sum_{i=1}^n \sum_{j=1}^n g_{ij} dx^i(\frac{\partial}{\partial x^q})dx^j=\sum_{j=1}^n g_{qj}dx^j$$
+Therefore, $$\Big{(}\frac{\partial}{\partial x^i}\Big{)}^{\flat}\equiv \sum_{j=1}^n g_{ij} dx^j $$
+If our metric $g$ were Euclidean ($g_{ij}=\delta_{ij}$) we would have that $$\Big{(}\frac{\partial}{\partial x^i}\Big{)}^{\flat}\equiv dx^i $$
+
+
+\subsubsection{The $\sharp$ map}
+We know that $\flat: T_pM\to T_p^*M$ is given by $\big{(}\frac{\partial}{\partial x^i}\bigg.{|}_p\big{)}^{\flat}= \sum_{j=1}^n g_{ij}dx_p^j$, so we have the matrix representation of $\flat$ as $$[X^{\flat}]_{\{dx_p^1,dx_p^2,\cdots,dx^n_p\}}= \begin{bmatrix}
+    g_{11} \ g_{21} \ \cdots \ g_{n1} \\
+    g_{12} \ g_{22} \ \cdots \ g_{n2} \\
+    \vdots \ \vdots \ \ddots \ \vdots \\
+    g_{1n} \ g_{2n} \ \cdots \ g_{nn}
+\end{bmatrix} [X]_{\{\partial_{x^1},\partial_{x^2},\cdots, \partial_{x^n}\}}=G_p [X]_{\{\partial_{x^1},\partial_{x^2},\cdots, \partial_{x^n}\}} $$
+from which we get the inverse map $\sharp:T_p^*M\to T_pM$ by $$(dx_p^i)^{\sharp}=\sum_{j=1}^n (G_p)^{-1}_{ij}\frac{\partial}{\partial x^j}\bigg{|}_p \in T_pM $$
+
+\subsubsection{Interior product of a vector and a $k-$form (in $\bbR^n$)}
+Let $X\equiv \frac{\partial}{\partial x^q}$. In $\bbR^n$ we have $X^{\flat}=dx^q$. For a basis $k-$form $dx^{i_1}\wedge dx^{i_2}\cdots \wedge dx^{i_k}$, $$X^{\flat} \lrcorner (dx^{i_1}\wedge dx^{i_2}\cdots \wedge dx^{i_k})=dx^q \lrcorner (dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}) $$ \begin{equation} \label{interior product as wedge}= \begin{cases}
+    (-1)^{r-1} dx^{i_1}\wedge dx^{i_2} \wedge \cdots \wedge \widehat{dx^{i_r}}\wedge \cdots \wedge dx^{i_k} & \text{ whenever }q=i_r \\ 
+    0 & \text{ whenever }q\not\in \{i_1,i_2,\cdots,i_k\}
+\end{cases} \end{equation}
+
+\defn{\label{actual_interior_defn}Interior product of a vector with a form ($\imath_X(\omega)$)}{Let $\omega\in \Omega(\Lambda^k)$ be a $k-$form. Let $X$ be a vector field. $\imath_X:\Omega(\Lambda^k)\to \Omega(\Lambda^{k-1})$ is given by $$\imath_X (\omega)(X_1,X_2,\cdots, X_{k-1})=\omega(X,X_1,X_2,\cdots,X_{k-1})$$}
+\begin{remark}\label{remark:interior_is_a_form}
+We see that $\imath_X(\omega)$ is a $k-1$ form. Hence, its action on basis vectors $\frac{\partial}{\partial x^i}$ tells us its action on arbitrary vectors by linearity. Moreover, $\imath_{X+cY}(\omega)=\imath_X(\omega)+c\imath_Y(\omega)$. So its action on $X=\frac{\partial}{\partial x^q}$ tells us its action on arbitrary $X$ by linearity.
+\end{remark}
+
+
+\thmp{}{In $\bbR^n$ equipped with the euclidean metric, we have $$\imath_X(\omega)=X^{\flat}\lrcorner \omega $$(\ref{interior product as wedge} and \ref{actual_interior_defn} are equivalent.) }{
+By \ref{remark:interior_is_a_form} it is enough to check equality on basis vectors. Let $X\equiv \frac{\partial}{\partial x^q}$ and let $\omega=dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}$ be a $k-$form. Let $X_1=\frac{\partial}{\partial x^{j_1}},X_2=\frac{\partial}{\partial x^{j_2}},\cdots, X_{k-1}=\frac{\partial}{\partial x^{j_{k-1}}}$ be $k-1$ subcollection of basis vectors. From \ref{interior product as wedge} we have 
+$$X^{\flat}\lrcorner(dx^{i_1}\wedge dx^{i_2}\cdots \wedge dx^{i_k})$$
+$$= \begin{cases}(-1)^{r-1}dx^{i_1}\wedge \cdots \widehat{ dx^{i_r}} \cdots \wedge dx^{i_k} & \text{whenever }q=i_r \\ 
+0 & \text{whenever }q \not\in \{i_1,i_2,\cdots,i_k\} \end{cases} $$
+So when evaluated on $\frac{\partial}{\partial x^{j_1}},\frac{\partial}{\partial x^{j_2}},\cdots,\frac{\partial}{\partial x^{j_{k-1}}}$ we have $$X^{\flat}\lrcorner(dx^{i_1}\wedge \cdots \wedge dx^{i_k})(\partial_{x^{j_1}},\partial_{x^{j_2}},\cdots,\partial_{x^{j_{k-1}}})= $$
+$$= \begin{cases}(-1)^{r-1}\det(\{dx^{i_s}(\partial_{x^{j_t}}): s\neq r, 1\leq t\leq k-1\}) & \text{whenever }q=i_r \\ 
+0 & \text{whenever }q \not\in \{i_1,i_2,\cdots,i_k\} \end{cases} $$
+Let us look at $\imath_{\partial_{x^{q}}}(dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k})(\partial_{x^{j_1}},\partial_{x^{j_2}},\cdots,\partial_{x^{j_{k-1}}})=\det(D) $ where $D$ is the matrix 
+$$\begin{bmatrix}
+dx^{i_1}(\partial_{x^q}) & dx^{i_1}(\partial_{x^{j_1}}) & \cdots & dx^{i_1}(\partial_{x^{j_{k-1}}}) \\ 
+dx^{i_2}(\partial_{x^q}) & dx^{i_2}(\partial_{x^{j_1}}) & \cdots & dx^{i_2}(\partial_{x^{j_{k-1}}}) \\
+\vdots & \vdots & \ddots & \vdots \\
+dx^{i_r}(\partial_{x^q}) & dx^{i_r}(\partial_{x^{j_1}}) & \cdots & dx^{i_r}(\partial_{x^{j_{k-1}}}) \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+dx^{i_k}(\partial_{x^q}) & dx^{i_k}(\partial_{x^{j_1}}) & \cdots & dx^{i_k}(\partial_{x^{j_{k-1}}}) \\ 
+\end{bmatrix} $$
+Assuming that $q=i_r$ we see that $D$ takes the form: 
+$$\begin{bmatrix}
+0 & dx^{i_1}(\partial_{x^{j_1}}) & \cdots & dx^{i_1}(\partial_{x^{j_{k-1}}}) \\ 
+0 & dx^{i_2}(\partial_{x^{j_1}}) & \cdots & dx^{i_2}(\partial_{x^{j_{k-1}}}) \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & 0 & \cdots & 0 \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+0 & dx^{i_k}(\partial_{x^{j_1}}) & \cdots & dx^{i_k}(\partial_{x^{j_{k-1}}}) \\ 
+\end{bmatrix} $$
+Whence we see that the determinant takes the following form: $$(-1)^{r-1} \det(\{ dx^{i_s}(\partial_{x^{j_t}}): s\neq r, 1\leq t\leq k-1 \}) $$ which agrees with $X^{\flat}\lrcorner (dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k})$.
+
+The case $q\not\in \{i_1,i_2,\cdots,i_k\}$ follows since $q\neq i_r$ implies that the first column in $D$ full of $0$, which makes the determinant $0$. 
+
+}
+
+\thmp{}{\label{identity_on_interior_of_wedge}Let $X$ be a vector field, $\omega \in \Omega\Lambda^k$ and $\eta \in \Omega\Lambda^l$. We then have $$\imath_X(\omega\wedge \eta)=\imath_X(\omega)\wedge \eta+(-1)^k \omega \wedge \imath_X(\eta)$$ 
+This tells us that $\imath_X: \oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to \oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is a rank $-1$ antiderivation. }{Let $X_{(p)}=\sum_{q=1}^n a^q(p)\frac{\partial}{\partial x^q}\big{|}_p$, $\omega=\sum_{I\in \mathscr T_k} \omega^I dx^I$ and $\eta=\sum_{J\in \mathscr T_l}\eta^J dx^J$.
+
+$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I \eta^J dx^I \wedge dx^J) $ which gives $$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \imath_{\partial_{x^{q}}}(dx^I \wedge dx^J)  $$
+If we suppose that the identity holds on basis elements i.e. $X=\partial_{x^q}$ $\omega=dx^I $ and $\eta=dx^J$, we then have
+$$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \Big{(}\imath_{\partial_{x^{q}}}(dx^I) \wedge dx^J +(-1)^k dx^I \imath_{\partial_{x^{q}}}(dx^J) \Big{)}  $$
+Which gives the result. Hence we need only to prove the identity for $X=\partial_{x^q}$, $\omega=dx^I$ and $\eta=dx^J$.
+\\\\ \textbf{Case 1:} $\mathbf{q \in I}\textbf{ and }\mathbf{I\cap J=\varnothing} $
+\\Suppose that $q=i_r \in I$. We have $i_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $$D=\begin{bmatrix}
+    dx^{i_1}(\partial_{x^q}) & dx^{i_1}(x_1) & \cdots & dx^{i_1}(x_{k+l-1}) \\
+    dx^{i_2}(\partial_{x^q}) & dx^{i_2}(x_1) &\cdots & dx^{i_2}(x_{k+l-1})\\
+    \vdots & \vdots & \ddots & \vdots \\
+    dx^{i_r}(\partial_{x^q}) & dx^{i_r}(x_1)& \cdots & dx^{i_r}(x_{k+l-1})\\
+    \vdots & \vdots & \ddots &\vdots \\
+    dx^{j_1}(\partial_{x^q}) & dx^{j_1}(x_1)&\cdots & dx^{j_1}(x_{k+l-1}) \\
+    \vdots &\vdots &\ddots&\vdots \\
+    dx^{j_l}(\partial_{x^q})& dx^{j_l}(x_1)& \cdots & dx^{j_l}(x_{k+l-1}) 
+\end{bmatrix}$$ which evaluates to (from Laplace's Formula) $$(-1)^{r-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \widehat{dx^{i_r}} \wedge \cdots \wedge dx^{i_k} \wedge dx^{j_1} \wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})= \imath_{\partial_{x^q}}(dx^I) \wedge dx^J$$
+If $J\cap I=\varnothing$ and $q=i_r \in I$, note that $dx^I \wedge i_{\partial_{x^q}}(dx^J)= dx^I \wedge (dx^q \lrcorner (dx^J))=0$ since $q$ is not in $J$ (see Formula \ref{contraction_formula_basis}). Therefore, we have the identity in this case.
+\\\\ \textbf{Case 2:} $\mathbf{q\in J}\textbf{ and }\mathbf{I\cap J=\varnothing}$
+\\ Let $q=j_s$ for some $j_s \in J$. We have $\imath_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $D$ is as in case $1$, but note that the only non zero element in the first column occurs in the $k+s$ row. The Laplace expansion thus reads $$(-1)^{k+s-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge dx^{j_2}\cdots \wedge \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})=(-1)^k dx^I \wedge \imath_{\partial_{x^q}}(dx^J) $$ 
+If $I \cap J=\varnothing$ and $q=j_s$ for some $j_s\in J$ then note that $\imath_{\partial_{x^q}}(dx^I)\wedge dx^J=(dx^q \lrcorner dx^I)\wedge dx^J=0 $ and likewise we have the identity. 
+\\\\ Note that in both case $1$ and case $2$ we only used the following fact: $q \in I $ (or $J$) and $q \not \in J$ (or $\not \in I$).
+\\\\ \textbf{Case 3:}
+$\mathbf{I\cap J\neq\varnothing}$ \textbf{ and }$\mathbf{q=i_r=j_s}$ 
+\\Note that the left hand side $\imath_{\partial_{x^q}}(dx^I\wedge dx^J)=0$. The first expression on the right hand side reads $\imath_{\partial_{x^q}}(dx^I) \wedge dx^J=(dx^q\lrcorner dx^I)\wedge dx^J$ and the second expression reads $(-1)^k dx^I \wedge (dx^q\lrcorner dx^J) $. Note that in case $3$, the matrix $D$ we get has two occurences of $1$ (and the rest $0$) in the first column: In the $r-$th and $(k+s)-$th rows. Laplace's expansion gives us the determinant of $D$ to be $$(-1)^{r-1}dx^{i_1}\wedge \cdots \wedge \widehat{dx^{i_r}}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ $$+ (-1)^{k+s-1}dx^{i_1}\wedge dx^{i_2}\wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ which is precisely $$\imath_{\partial_{x^q}}(dx^I)\wedge dx^J +(-1)^k dx^I \wedge (\imath_{\partial_{x^q}}dx^J ) $$ 
+Since the identity is true on basis, it is true in the general case through multilinearity. 
+}
+
+\lemp{}{$\imath$ is anticummutative, i.e. $$\imath_X \imath_Y=-\imath_Y \imath_X $$ }{This is easy to see since $\imath_X(\omega)(x_1,\cdots,x_{k-1})=\omega(X,x_1,\cdots,x_{k-1})$ and $\imath_Y\imath_X (\omega) (x_1,\cdots,x_{k-2})=\imath_X(\omega)(Y,x_1,x_2,\cdots,x_{k-2})=\omega(X,Y,x_1,\cdots,x_{k-2})=-\omega(Y,X,x_1,\cdots,x_{k-2})$ and the proof is complete.}
+\begin{corollary}
+    $\imath_X \circ \imath_X=0$
+\end{corollary}
+
+\thmp{}{Let $\xi \in \Omega(\Lambda^1)$, $\eta\in \Omega(\Lambda^k)$ be $1$ and $k$ forms respectively in $\bbR^n$ (with the Euclidean Metric). Then we have the following identity: $$||\xi||^2\eta=\xi \wedge (\xi \lrcorner \eta)+ \xi \lrcorner (\xi \wedge \eta) $$
+For vector fields we have: $$|X|^2 \eta=X^{\flat}\wedge \imath_X(\eta)+\imath_X(X^{\flat}\wedge \eta)$$}{Using the identity \ref{identity_on_interior_of_wedge} we have $\xi \lrcorner (\xi \wedge \eta)=(\xi \lrcorner \xi)\wedge \eta+ (-1) \xi \wedge (\xi \lrcorner \eta)$ which gives $$\xi \lrcorner (\xi \wedge \eta)+ \xi \wedge (\xi \lrcorner \eta)= (\xi \lrcorner \xi) \wedge \eta=\lambda \eta $$
+Note that $\xi \wedge 1=\xi$ and $\langle \xi \wedge 1,\beta \rangle = \langle 1,\xi \lrcorner \beta \rangle $. Choosing $\beta=\xi$ gives $$\langle 1,\xi \lrcorner \xi\rangle=\xi \lrcorner \xi=\langle \xi,\xi\rangle=||\xi||^2 $$
+So we have the identity.
+}
 \section{Hodge Star}
 Let $f$ be a $k-$form given by $$f\equiv \sum_{I\in \mathscr T_k} f^I dx^I $$
 We define the operation \emph{Hodge Star} as follows (defined first on basic $k-$forms, and then extended linearly for any $k-$form): 
@@ -459,3 +601,10 @@ and the result follows for a general $k-$form from linearity.
 But since $g \wedge \star f:= \langle g,f \rangle = \langle f,g\rangle $ (Real inner product), we have the result. 
 }
 \chapter{Manifolds}
+\section{Topological Manifolds}
+\defn{Topological Manifold of dimension $n$}{A Hausdorff, second countable topological space $M$ is said to be a \emph{Topological Manifold} of dimension $n$ if for every $p\in M$, there exists $U$ open in $M$ with $p\in U$, $\hat{U}\subset \bbR^n$ and a homeomorphism $\phi:U\to \hat U$. Such a pair $(U,\phi)$ is called a \emph{coordinate chart}, and a collection of such $(U_{\alpha},\phi_{\alpha})$ that covers $M$ is called an \emph{atlas}.}
+\begin{example}
+    \textbf{(Graph of a continuous function)}
+  Let $U\subset \bbR^n$ be open and $f:U\to \bbR^k$ be a continuous mapping. Let $\Gamma \subset \bbR^n \times \bbR^k$ be given by $$\Gamma:=\{(x,f(x))\in \bbR^k \times \bbR^n: x \in U\} $$
+  Let $\Gamma$ have the subspace topology and let $p\in \Gamma$ be some $(x_p,f(x_p))$. Define $\phi:\Gamma\to U$ by $$\phi(x,y)=x $$ This map is continuous, and has a continuous inverse $g(x)=(x,f(x))$. Hence $\phi$ is a homeomorphism and $\{(\Gamma,\phi)\}$ gives us an atlas.    
+\end{example}
