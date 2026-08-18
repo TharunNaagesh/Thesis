@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber main"] 1786182697.54468 "main.bcf" "main.bbl" "main" 1786443620.98646 0
-  "main.bcf" 1786443620 108591 dde9c4985ea5f52c95a836b634d6be0d "pdflatex"
+["biber main"] 1786182697.54468 "main.bcf" "main.bbl" "main" 1787024739.80326 0
+  "main.bcf" 1787024739 108591 dde9c4985ea5f52c95a836b634d6be0d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1786443618.40324 "c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex" "main.pdf" "main" 1786443620.98737 0
-  "00Intro/06_ToC-LoF-LoA.aux" 1786443620 4369 1ad0f00ab28dc888dc3aebb2ee5f4424 "pdflatex"
+["pdflatex"] 1787024737.15771 "c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex" "main.pdf" "main" 1787024739.8041 0
+  "00Intro/06_ToC-LoF-LoA.aux" 1787024739 4369 1ad0f00ab28dc888dc3aebb2ee5f4424 "pdflatex"
   "00Intro/06_ToC-LoF-LoA.tex" 1781494518 81 ad18af0739dc1a98f33c1f23f4d9905d ""
-  "02End/appendix.tex" 1786443617 81665 1b3ced5647b46b00ae5ca51bfe01a8bf ""
+  "02End/appendix.tex" 1787024733 94259 2057861312336bc3860aaed3e3aa2f01 ""
   "c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex" 1785590911 3555 45263ddc9f4823b5970805839b1d34ab ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1722272511 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1722260942 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -65,6 +65,7 @@
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1722260942 37912 07513ec114ac737ab54cea0152f4424b ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1722260942 36281 c355509802a035cadc5f15869451dcee ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1722260942 35752 024fb6c41858982481f6968b5fc26508 ""
+  "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1722260942 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1722260942 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1722260942 32762 7fee39e011c23b3589931effd97b9702 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1722260942 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -261,14 +262,14 @@
   "config/options.tex" 1781494518 1364 9174d099b466acd009ec2e8b696554c9 ""
   "config/packages.tex" 1781494518 2300 e751c0d9bc5f93cd948b491eb82e4b52 ""
   "config/theoremstyle.tex" 1781494518 2585 239f9b4a15eea8ffa473bb987d7dee5a ""
-  "main.aux" 1786443620 7381 57341b2a7b8682d451eed54f44966154 "pdflatex"
+  "main.aux" 1787024739 8622 73da8711a93cb8305ca145ccc64ac317 "pdflatex"
   "main.bbl" 1786182699 486 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.lof" 1786443620 90 1258fa74a74880edec024276afdeb416 "pdflatex"
-  "main.lot" 1786443620 216 41495c61ed10338b2c61e61450042739 "pdflatex"
-  "main.out" 1786443620 5987 6c624eac390caab5acbf11c72701dc3b "pdflatex"
-  "main.run.xml" 1786443620 2311 37fc0bd66e4a0cd9ced17472b7b64e63 "pdflatex"
+  "main.lof" 1787024739 90 1258fa74a74880edec024276afdeb416 "pdflatex"
+  "main.lot" 1787024739 216 41495c61ed10338b2c61e61450042739 "pdflatex"
+  "main.out" 1787024739 7024 d358c982cc0873ea2ac485e65731d21f "pdflatex"
+  "main.run.xml" 1787024739 2311 37fc0bd66e4a0cd9ced17472b7b64e63 "pdflatex"
   "main.tex" 1785590911 3555 45263ddc9f4823b5970805839b1d34ab ""
-  "main.toc" 1786443620 3449 c44e4809c773fa3cbc9b5f4823ee2da8 "pdflatex"
+  "main.toc" 1787024739 3927 6454603af93c3c1b49e2861683c419de "pdflatex"
   (generated)
   "00Intro/06_ToC-LoF-LoA.aux"
   "main.aux"
