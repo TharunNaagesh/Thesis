@@ -16,5 +16,109 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{CsatoDacorognaKneuss2012}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=218933fa12a4722bfe3b1f1f36d54557}{%
+           family={Csató},
+           familyi={C\bibinitperiod},
+           given={Gyula},
+           giveni={G\bibinitperiod}}}%
+        {{hash=e6908e0eeee954987c8751d41e2e6e7d}{%
+           family={Dacorogna},
+           familyi={D\bibinitperiod},
+           given={Bernard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9f6bb3303a1e40e482fb105805a12062}{%
+           family={Kneuss},
+           familyi={K\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser}%
+      }
+      \strng{namehash}{486e3f0997ca0dfbef6c22803f8199bd}
+      \strng{fullhash}{486e3f0997ca0dfbef6c22803f8199bd}
+      \strng{fullhashraw}{486e3f0997ca0dfbef6c22803f8199bd}
+      \strng{bibnamehash}{486e3f0997ca0dfbef6c22803f8199bd}
+      \strng{authorbibnamehash}{486e3f0997ca0dfbef6c22803f8199bd}
+      \strng{authornamehash}{486e3f0997ca0dfbef6c22803f8199bd}
+      \strng{authorfullhash}{486e3f0997ca0dfbef6c22803f8199bd}
+      \strng{authorfullhashraw}{486e3f0997ca0dfbef6c22803f8199bd}
+      \field{labelalpha}{CDK12}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-8176-8312-2}
+      \field{series}{Progress in Nonlinear Differential Equations and Their Applications}
+      \field{title}{The Pullback Equation for Differential Forms}
+      \field{volume}{83}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1007/978-0-8176-8313-9
+      \endverb
+    \endentry
+    \entry{Csato_2018}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=a499c2ce1c338157a9e99a1dc97a309d}{%
+           family={Csato},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4783513f8111683c173eab3fc5b3ca5c}{%
+           family={Dacorogna},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=220ed696d39c49b342307515269b5da7}{%
+           family={Sil},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{a6c5353e66971cb9ee607b0442af0d3d}
+      \strng{fullhash}{a6c5353e66971cb9ee607b0442af0d3d}
+      \strng{fullhashraw}{a6c5353e66971cb9ee607b0442af0d3d}
+      \strng{bibnamehash}{a6c5353e66971cb9ee607b0442af0d3d}
+      \strng{authorbibnamehash}{a6c5353e66971cb9ee607b0442af0d3d}
+      \strng{authornamehash}{a6c5353e66971cb9ee607b0442af0d3d}
+      \strng{authorfullhash}{a6c5353e66971cb9ee607b0442af0d3d}
+      \strng{authorfullhashraw}{a6c5353e66971cb9ee607b0442af0d3d}
+      \field{labelalpha}{CDS18}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0022-1236}
+      \field{journaltitle}{Journal of Functional Analysis}
+      \field{month}{1}
+      \field{number}{2}
+      \field{title}{On the best constant in Gaffney inequality}
+      \field{volume}{274}
+      \field{year}{2018}
+      \field{pages}{461\bibrangedash 503}
+      \range{pages}{43}
+      \verb{doi}
+      \verb 10.1016/j.jfa.2017.10.006
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.jfa.2017.10.006
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.jfa.2017.10.006
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
