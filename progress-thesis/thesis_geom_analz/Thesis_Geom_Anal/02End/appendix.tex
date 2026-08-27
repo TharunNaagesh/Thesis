@@ -297,7 +297,7 @@ Then $$Xf:U\to \bbR $$ is again a $C^{\infty}$ function.
 
 We start with defining what are $1-$forms.
 
-\defn{$1-$forms}{A function $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_{p}(\bbR^n)) $$ such that $\omega(p)\in \Lambda^1(T_p(\bbR^n))\equiv T^*_p(\bbR^n)$ is called a $1-$form.
+\defn{$1-$forms}{A function $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_{p}(\bbR^n)) $$ such that $\omega(p)\in \Lambda^1(T_p(\bbR^n))\equiv T^*_p(\bbR^n)$ is called a $1-$form. 
 }
 
 \textbf{Note:} Let $f:U\to \bbR$ be any $C^{\infty}$ function. We can construct a $1-$form from $f$ as follows: 
@@ -338,6 +338,7 @@ Since $\Lambda^k(T_p(\bbR^n))$ is spanned by vectors of the kind (for $1\leq i_1
 \end{enumerate}
     
 \end{example}
+
 
 \subsection{Exterior Derivative}
 
@@ -393,7 +394,7 @@ which is
 \end{enumerate}
 D is said to be an antiderivation of degree $m$ if $D|_{A^k}:A^k \to A^{k+m}$}
 
-\thmp{}{$d:\oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to\oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is an antiderivation of degree $1$ and $$d(\omega \wedge \tau)=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau $$ for all $\omega \in \Omega(
+\thmp{}{\label{exterior_derivative_antiderivation}$d:\oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to\oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is an antiderivation of degree $1$ and $$d(\omega \wedge \tau)=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau $$ for all $\omega \in \Omega(
     \Lambda^k)$ and $\tau \in \Omega(\Lambda^l)$}{That $d$ is linear is clear from formula \ref{Exterior_Derivative}. Let $\omega\equiv\sum_{I\in \mathscr T_k} w^I dx^I$ and $\tau\equiv \sum_{J\in \mathscr T_l}\tau^J dx^J$. $\omega \wedge \tau \equiv \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I \tau^J dx^I \wedge dx^J $ Applying $d$ gives us $$d(\omega \wedge \tau)=\big{(}\frac{\partial}{\partial x^i}\big{|}_p dx^i_p \big{)}\wedge (\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I_p \tau^J_p dx^I_p \wedge dx^J_p)=$$ 
     
     $$\sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \bigg{(}\frac{\partial \omega^I}{\partial x^i}\big{|}_p \tau^J_p + \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p\bigg{)}dx^i_p \wedge dx^I_p\wedge dx^J_p $$ 
@@ -631,7 +632,7 @@ $$\star \ dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}={\operatorname{si
     \item $R(I,J)\in sym(n)$ rearranges $\{i_1,i_2,\cdots,i_k, j_1, j_2,\cdots,j_{n-k}\}$ in its increasing order.
     \item For any $f\equiv \sum_{I\in \mathscr T_k} f^I dx^I$ we have $$\star \ f := \sum_{I\in \mathscr T_k} f^{I} \star dx^I$$
 \end{enumerate}
-An alternate way to define the \emph{Hodge Star}: If $f$ and $g$ are $k-$forms, then $\star \ g$ is defined as the unique $(n-k)-$form such that $$f\wedge \star g=\langle f,g\rangle dx^1 \wedge dx^2 \wedge \cdots \wedge dx^n$$ 
+An alternate way to define the \emph{Hodge Star}: If $f$ and $g$ are $k-$forms, then $\star \ g$ is defined as the unique $(n-k)-$form such that \begin{equation}\label{hodge_and_inner}f\wedge \star g=\langle f,g\rangle dx^1 \wedge dx^2 \wedge \cdots \wedge dx^n\end{equation} 
 where the inner product is $$\langle f,g\rangle:=\sum_{I\in \mathscr{T}_k} f^I g^I$$
 
 \lemp{}{Let $f\in \Omega(\Lambda^k)$. We then have \begin{equation}\label{hodge_double_star_identity}\star \star f=(-1)^{k(n-k)} f\end{equation} }{Since $\star$ is linear, it is enough to prove on basis elements. $$\star dx^I=\operatorname{sign}(R(I,J)) dx^J $$ where $J$ is the complement of $I$ relative to $\{1,2,\cdots,n\}$ and $R(I,J)$ is the permutation that rearranges $\{i_1,i_2,\cdots,i_k,j_1,j_2,\cdots,j_{n-k}\}\to \{1,2,\cdots,n\}$. 
@@ -717,6 +718,13 @@ Which agrees with \ref{pullback_of_basis_k_form_determinant_form}. Hence we have
 F^*(dy^{i_1}\wedge dy^{i_2}\wedge \cdots \wedge dy^{i_k})=d(F^*y^{i_1})\wedge d(F^*y^{i_2})\wedge \cdots \wedge d(F^*y^{i_k})
 \end{equation}
 
+\begin{corollary}\label{Change of variables for top forms}
+    If $F:U_{\subset \bbR^n}\to V_{\subset \bbR^n}$ is a smooth Diffeomorphism, and coordinates for $U$ are given by $x^1,x^2,\cdots,x^n$, and those for $V$ given by $y^1,y^2,\cdots,y^n$, we have a change of variables formula for $k-$forms (In view of formula \ref{pullback_of_basis_k_form_determinant_form}) given by: $$F^*(dy^1\wedge dy^2\wedge \cdots \wedge dy^n)_p=\det\Big{(}(\frac{\partial F^j}{\partial x^i})_{1\leq i,j\leq n}\Big{)}dx^1\wedge dx^2 \wedge \cdots dx^n $$
+\end{corollary}
+\begin{remark}
+    The proof of \ref{Change of variables for top forms} is simply an application of \ref{pullback_of_basis_k_form_determinant_form}. This is the \textbf{change of variables formula} for \emph{top forms}. 
+\end{remark}
+
 \thmp{(Pullback of Wedge)}{Let $\alpha \in \Omega(V,\Lambda^k)$ be a $k-$form on $V\subset \bbR^m$ and let $\beta\in \Omega(V,\Lambda^l)$ be an $l-$form on $V$. For smooth function $F:U\subset \bbR^n \to V$ we have $$F^*(\alpha \wedge \beta)=F^*(\alpha)\wedge F^*(\beta) $$ }{Recall $F^*(\alpha \wedge \beta)_p(v_1,v_2,\cdots,v_k,v_{k+1},\cdots,v_{k+l})=(\alpha \wedge \beta)_{F(p)}\big{(}DF_p(v_1),\cdots,DF_p(v_{k+l})\big{)}=$ $$\sum_{\sigma \in sym(k,l)}\operatorname{sign}(\sigma) \alpha_{F(p)}(DF_p(v_{\sigma(1)}),DF_p(v_{\sigma(2)}),\cdots,DF_p(v_{\sigma(k)}))\beta_{F(p)}(DF_p(v_{\sigma(k+1)}),\cdots,DF_p(v_{\sigma(k+l)}))$$
 $$=\sum_{\sigma \in sym(k,l)}\operatorname{sign}(\sigma) F^*(\alpha)_p(v_{\sigma(1)},\cdots,v_{\sigma(k)})F^*(\beta)_p(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) =F^*(\alpha)\wedge F^{*}(\beta)$$
 }
@@ -724,13 +732,50 @@ $$=\sum_{\sigma \in sym(k,l)}\operatorname{sign}(\sigma) F^*(\alpha)_p(v_{\sigma
 If $\omega=\sum_{I\in \mathscr T_k} \omega^I dy^I$ is a general $k-$form on $V\subseteq \bbR^m$, then we have \begin{equation}\label{pullback_of_arbitrary_k_form}F^*(\sum_I \omega^I dy^I)_p=\sum_I \omega^I_{F(p)} dF^I_p \end{equation}
 Where $dF^I_p=dF^{i_1}_p \wedge dF^{i_2}_p\wedge \cdots \wedge dF^{i_k}_p$.
 
-\lemp{($F^*$ commutes with $d$)}{Let $F:U_{\subset \bbR^n}\to V_{\subset \bbR^m}$ be smooth, and $\omega$ a $k-$form on $V$. We then have that $$F^*(d\omega)=d(F^*\omega)$$}{If $\omega=\sum_{I\in \mathscr T_k} \omega^I dy^I$
+\lemp{($F^*$ commutes with $d$)}{\label{pullback_commutes_with_derivative}Let $F:U_{\subset \bbR^n}\to V_{\subset \bbR^m}$ be smooth, and $\omega$ a $k-$form on $V$. We then have that $$F^*(d\omega)=d(F^*\omega)$$}{If $\omega=\sum_{I\in \mathscr T_k} \omega^I dy^I$
 From \ref{pullback_of_arbitrary_k_form} we have that $$F^*(\omega)_p=\sum_I \omega^I_{F(p)}dF^{i_1}_p\wedge dF^{i_2}_p \cdots \wedge dF^{i_k}_p$$ When we apply the exterior derivative to this expression we have (and recalling the antiderivation property) $$d(F^*(\omega))_p=\sum_I d(\omega^I \circ F)_p \wedge dF^{i_1}_p \wedge dF^{i_2}_p \cdots dF^{i_k}_p + (\omega^I\circ F) d(dF^{i_1}\wedge dF^{i_2}\cdots \wedge dF^{i_k})_p $$
 The second term vanishes because $d^2=0$. This gives $$ d(F^*(\omega))_p = \sum_I \sum_{i=1}^n\frac{\partial (\omega^I \circ F)}{\partial x^i}|_p dx_p^i\wedge dF^{i_1}_p \wedge dF^{i_2}_p\wedge \cdots \wedge dF^{i_k}_p=\sum_I d(\omega^I\circ F)\wedge dF^I_p $$ 
 Now, if $\omega=\sum_{I} \omega^I dy^I$, we have $d\omega=\sum_I d\omega^I \wedge dy^I$. Pulling this back gives us $$F^*(d\omega)= \sum_I F^*(d\omega^I)\wedge F^*(dy^I)=\sum_I d(\omega^I \circ F) \wedge dF^I $$ Which establishes equality. 
 }
+\subsubsection{Pullback and Interior Product}
+\begin{remark}
+    For a smooth map $F \colon M \to N$, the identity $i_X (F^*\omega) = F^* (i_Y \omega)$ is ill-defined for generic vector fields since $X$ is a vector field from $M$ and $Y$ is a vector field on $N$. Naturality under pullbacks holds precisely when $X$ and $Y$ are $F$-related, which motivates the next definition.
+\end{remark}
+\defn{$F-$related Vector Fields}{Let $F:M\to N$ be smooth. Vector fields $X$ on $M$ is said to be $\mathbf{F}$-\textbf{related} to a vector field $Y$ on $N$ if $$dF_p(X_p)=Y_{F(p)}$$ for every $p\in M$.}
+\thmp{}{
+Let $F \colon M \to N$ be a smooth map. If $X$ is a vector field on $M$ and $Y$ on $N$ are $F$-related, then for any differential form $\omega \in \Omega^k(N)$,
+\[
+i_X (F^*\omega) = F^* (i_Y \omega).
+\]
+}{
+Evaluating the left-hand side at $p \in M$ on vectors $v_1, \dots, v_{k-1} \in T_p M$ yields:
+\begin{align*}
+(i_X F^*\omega)_p (v_1, \dots, v_{k-1}) 
+&= (F^*\omega)_p (X_p, v_1, \dots, v_{k-1}) \\
+&= \omega_{F(p)} (dF_p X_p, dF_p v_1, \dots, dF_p v_{k-1}) \\
+&= \omega_{F(p)} (Y_{F(p)}, dF_p v_1, \dots, dF_p v_{k-1}) \\
+&= (F^* i_Y \omega)_p (v_1, \dots, v_{k-1}). \qedhere
+\end{align*}
+}
 
-{\color{red} !!MORE LEMMAS LEFT!!}
+\lemp{}{Let $U\subseteq \bbR^n$ be an open connected set and $f:U\to \bbR$ be a smooth function. Then $df=0$ if and only if $f$ is constant on $U$.}{$\implies$) Let $f$ be constant on $U$. Then $\frac{\partial f}{\partial x^i}=0$ for all $i\leq n$, and hence $df_p=\sum_{i=1}^n \frac{\partial f}{\partial x^i}|_p dx^i_p=0$.
+\\\\ $\impliedby)$ Say $df_p=0$ for all $p\in U$. Let $x$ and $y$ be arbitrary fixed points in $U$ and let $c:[a,b]\to U $ be any smooth curve connecting $x$ and $y$ (Such a curve exists because $U$ is path-connected, and hence continuity is guarenteed. Smoothening of the polygon edges with smooth curves guarentees smoothness). Note that $c^*f\equiv f \circ c:[a,b]\to \bbR$ is a smooth $0$ form on $[a,b]$. $d(c^*f)=d(f\circ c)= \frac{d (f\circ c (t))}{dt} dt=c^* df=0$ (from \ref{pullback_commutes_with_derivative}). Therefore $d(c^*f)=0$, so $f\circ c(a)=f\circ c(b)$ which gives $f(x)=f(y)$.  }
+
+\section{Integration of $1-$forms}
+Let $U\subseteq \bbR^n$ be an open set and $\alpha$ be a $1-$form. 
+
+\defn{Parametrized Paths}{Any map $c:[a,b]\to U\subset \bbR^n$ that is smooth is said to be a \emph{path} from $c(a)$ to $c(b)$. }
+
+The pullback of $\alpha$ given by $c^* \alpha$ is a $1-$form on $[a,b]$. Suppose $c^*\alpha=h dt$ where $t$ is the coordinate function of $[a,b]$ and $h$ a real valued smooth function.
+\defn{Integral of a $1-$form over a curve}{\begin{equation}\int_c \alpha= \int_{[a,b]}c^*\alpha=\int_a^b h(t)dt \end{equation} where the right most equality makes sense in the standard way. Moreover, if $\alpha=\sum_{i=1}^n f^i dx^i$, we have $c^*(\sum_{i=1}^n f^i dx^i)=\sum_{i=1}^nc^*(f^i)d(c^* x^i)=\sum_{i=1}^n (f^i \circ c)\frac{dc^i}{dt}dt$ where $c^i=x^i \circ c$. Its integral would then be \begin{equation}
+ \int_c \alpha=\int_a^b c^*\alpha=\sum_{i=1}^n\int_a^b f^i\circ c(t) \frac{d c^i}{dt}(t)dt=\int_a^b \sum_{i=1}^n f^i(c(t))(c^i)'(t)dt   
+\end{equation}
+Which can be suggestively written as 
+\begin{equation}
+    \int_a^b \alpha^{\sharp}(c(t))\cdot c'(t)dt
+\end{equation} where $\alpha^{\sharp}$ is the vector field associated with the $1-$form $\alpha$ via the inner product. 
+}
+
 
 \section{Boundary Calculus and Tangential and Normal Components}
 

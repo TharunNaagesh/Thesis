@@ -1,5 +1,225 @@
 % TeX root = ../main.tex
 
 \chapter{Prelimnaries}
+{\color{red} WORK IN PROGRESS!!!}
 
 
+Thus far, we have been speaking about $C^{\infty}$ differential forms, but we can define differential forms in more general spaces.
+
+\section{Function Spaces of Differential Forms}
+
+Throughout this section, let $\Omega\subset\mathbb R^n$ be an open set and let
+$0\leq k\leq n$. Since $\Omega$ is an open subset of $\mathbb R^n$, we identify
+$T_p\Omega\simeq\mathbb R^n$ for every $p\in\Omega$. Consequently, every
+$differential\ k$-form may be viewed as a map
+\[
+f:\Omega\longrightarrow\Lambda^k(\mathbb R^n).
+\]
+
+With respect to the standard basis of $\Lambda^k(\mathbb R^n)$, every
+$k$-form admits a unique expansion of the form
+\[
+f=\sum_{I\in\mathscr T_k}f^I\,dx^I
+=\sum_{1\leq i_1<\cdots<i_k\leq n}
+f^{i_1\cdots i_k}\,
+dx^{i_1}\wedge\cdots\wedge dx^{i_k},
+\]
+where each coefficient
+$f^I:\Omega\to\mathbb R$ is a real-valued function.
+
+\begin{remark}
+Since $\Lambda^k(\mathbb R^n)$ is a finite-dimensional vector space of dimension
+$\binom{n}{k}$, a differential $k$-form may equivalently be regarded as a
+$\binom{n}{k}$-tuple of scalar-valued functions. All regularity notions are
+defined coefficientwise.
+\end{remark}
+
+\begin{definition}[$L^p$ differential forms]
+Let $1\leq p\leq\infty$. We write
+\[
+f\in L^p(\Omega;\Lambda^k)
+\]
+if and only if every coefficient function satisfies
+\[
+f^I\in L^p(\Omega),\qquad I\in\mathscr T_k.
+\]
+Equivalently,
+\[
+L^p(\Omega;\Lambda^k)
+=
+L^p(\Omega;\mathbb R^{\binom{n}{k}}).
+\]
+\end{definition}
+
+The pointwise inner product on $\Lambda^k(\mathbb R^n)$ is defined by
+\[
+\langle f,g\rangle
+=
+\sum_{I\in\mathscr T_k}f^Ig^I,
+\]
+with associated pointwise norm
+\[
+|f|^2=\langle f,f\rangle
+=
+\sum_{I\in\mathscr T_k}(f^I)^2.
+\]
+
+The $L^p$ norm of a differential form is obtained by integrating the pointwise
+norm:
+\[
+\|f\|_{L^p(\Omega;\Lambda^k)}
+=
+\left(
+\int_\Omega |f(x)|^p\,dx
+\right)^{1/p},
+\]
+with the usual modification when $p=\infty$. In particular,
+\[
+\|f\|_{L^2(\Omega;\Lambda^k)}^2
+=
+\int_\Omega
+\sum_{I\in\mathscr T_k}(f^I)^2\,dx.
+\]
+
+\begin{definition}[Sobolev differential forms]
+Let $1\leq p<\infty$. We write
+\[
+f\in W^{1,p}(\Omega;\Lambda^k)
+\]
+if and only if every coefficient satisfies
+\[
+f^I\in W^{1,p}(\Omega),
+\qquad I\in\mathscr T_k.
+\]
+Thus a differential form belongs to $W^{1,p}$ precisely when all of its
+coefficients possess weak first-order partial derivatives lying in $L^p(\Omega)$.
+\end{definition}
+
+For a differential form
+$f=\sum_I f^I dx^I$, its gradient is defined coefficientwise by
+\[
+\nabla f
+=
+\sum_{i=1}^n\sum_{I\in\mathscr T_k}
+\frac{\partial f^I}{\partial x^i}
+\,dx^i\otimes dx^I,
+\]
+and its pointwise norm is
+\[
+|\nabla f|^2
+=
+\sum_{i=1}^n
+\sum_{I\in\mathscr T_k}
+\left(
+\frac{\partial f^I}{\partial x^i}
+\right)^2.
+\]
+
+The Sobolev norm is therefore
+\[
+\|f\|_{W^{1,p}(\Omega;\Lambda^k)}
+=
+\left(
+\|f\|_{L^p(\Omega;\Lambda^k)}^p
++
+\|\nabla f\|_{L^p(\Omega;\Lambda^k)}^p
+\right)^{1/p},
+\]
+and, in particular,
+\[
+\|f\|_{W^{1,2}(\Omega;\Lambda^k)}^2
+=
+\|f\|_{L^2(\Omega;\Lambda^k)}^2
++
+\|\nabla f\|_{L^2(\Omega;\Lambda^k)}^2.
+\]
+
+\begin{definition}[Classical regularity spaces]
+For an integer $r\geq0$, we write
+\[
+f\in C^r(\Omega;\Lambda^k)
+\]
+if and only if every coefficient function belongs to $C^r(\Omega)$.
+
+Similarly,
+\[
+f\in C^{r,\alpha}(\Omega;\Lambda^k),
+\qquad 0<\alpha\leq1,
+\]
+if every coefficient belongs to the Hölder space
+$C^{r,\alpha}(\Omega)$.
+\end{definition}
+
+Recall that the Hölder seminorm of a scalar-valued function $u$ is
+\[
+[u]_{C^{0,\alpha}(\Omega)}
+=
+\sup_{\substack{x,y\in\Omega\\x\neq y}}
+\frac{|u(x)-u(y)|}{|x-y|^\alpha},
+\]
+and the $C^{r,\alpha}$ norm is
+\[
+\|u\|_{C^{r,\alpha}(\Omega)}
+=
+\sum_{|\beta|\leq r}
+\sup_{x\in\Omega}|D^\beta u(x)|
++
+\sum_{|\beta|=r}
+[D^\beta u]_{C^{0,\alpha}(\Omega)}.
+\]
+The corresponding norm for differential forms is again defined
+componentwise.
+
+\begin{definition}[Spaces on the closure]
+We write
+\[
+f\in C^r(\overline{\Omega};\Lambda^k)
+\]
+if every coefficient extends continuously to $\overline{\Omega}$ together
+with all derivatives of order at most $r$.
+
+Likewise,
+\[
+f\in C^{r,\alpha}(\overline{\Omega};\Lambda^k)
+\]
+if every coefficient extends to a function in
+$C^{r,\alpha}(\overline{\Omega})$.
+\end{definition}
+
+\begin{remark}
+The distinction between $C^{r,\alpha}(\Omega)$ and
+$C^{r,\alpha}(\overline{\Omega})$ is important. Functions in
+$C^{r,\alpha}(\Omega)$ are only required to satisfy the Hölder condition in the
+interior of $\Omega$, whereas elements of
+$C^{r,\alpha}(\overline{\Omega})$ possess continuous extensions, together with
+their derivatives up to order $r$, to the boundary $\partial\Omega$. Boundary
+conditions such as $\nu\wedge f=0$ or $\nu\lrcorner f=0$ are naturally stated in
+the latter setting.
+\end{remark}
+
+\begin{remark}
+Since $\Lambda^k(\mathbb R^n)$ is finite dimensional, all norms on
+$\Lambda^k(\mathbb R^n)$ are equivalent. Consequently, the particular choice of
+Euclidean norm used to define the spaces above is immaterial, and all resulting
+$L^p$, Sobolev and Hölder norms are equivalent.
+\end{remark}
+
+Let $\alpha \in \Omega\Lambda^{k-1}$ and $\beta \in \Omega\Lambda^k$. From \ref{hodge_double_star_identity} we have 
+$$\langle d\alpha,\beta \rangle vol=\langle d\alpha, (-1)^{k(n-k)}\star\star \beta\rangle vol = (-1)^{k(n-k)}\langle d\alpha,\star (\star \beta)\rangle vol$$ where $\star \beta$ is an $n-k$ form. Here we can invoke the definition of the Hodge star (\ref{hodge_and_inner}) to get $$\langle d\alpha,\beta\rangle vol=(-1)^{k(n-k)} d\alpha \wedge (\star \beta) $$
+$$\int_{\Omega} \langle d\alpha,\beta\rangle vol=(-1)^{k(n-k)}\int_{\Omega} \Big{(}d\alpha \wedge (\star \beta)+(-1)^{k-1}\alpha \wedge d(\star \beta)+(-1)^k \alpha \wedge d(\star \beta) \Big{)}$$
+Using the Antiderivation identity \ref{exterior_derivative_antiderivation}
+we get 
+\begin{equation}
+    \langle d\alpha,\beta\rangle vol=(-1)^{k(n-k)} d\alpha \wedge (\star \beta) $$
+$$\int_{\Omega} \langle d\alpha,\beta\rangle vol=(-1)^{k(n-k)}\int_{\Omega} \Big{(}d(\alpha \wedge \star \beta)+(-1)^k \alpha \wedge d(\star \beta) \Big{)}
+\end{equation}
+$$\int_{\Omega} \langle d\alpha,\beta\rangle vol=(-1)^{k(n-k)} \Big{(}\int_{\partial\Omega} \alpha \wedge (\star \beta)+(-1)^k\int_{\Omega} \alpha \wedge d(\star \beta) \Big{)} $$
+Since $\star \beta$ is a $n-k$ form and $d(\star \beta)$ is an $n-(k-1)$ form, we apply the definition of Hodge star again to replace $\alpha \wedge d(\star \beta)$ with $\langle \alpha,\star d\star \beta \rangle vol$ to get: 
+\begin{equation}\label{diff_codiff_boundary_integral}\int_{\Omega} \langle d\alpha,\beta\rangle vol=(-1)^{k(n-k)} \Big{(}\int_{\partial\Omega} \alpha \wedge (\star \beta)+(-1)^k\int_{\Omega} \langle \alpha, \star d(\star \beta) \rangle vol\Big{)} \end{equation}
+
+\defn{Codifferential}{\label{codiff}We define a map $\delta: \oplus_{k=0}^{\infty}\Omega\Lambda^k\to \oplus_{k=0}^{\infty}\Omega\Lambda^k$ given by \begin{equation}
+\delta(\omega):=(-1)^{k(n-k+1)}\star d\star (\omega)
+\end{equation} for a $k-$form $\omega$.}
+Using \ref{codiff} in \eqref{diff_codiff_boundary_integral} we immediately see that \begin{equation}\label{diff_codiff_boundary_integral_final}
+    \int_{\Omega} \langle d\alpha,\beta\rangle=\int_{\Omega} \langle \alpha,\delta\beta\rangle + (-1)^{k(n-k)}\int_{\partial\Omega}\alpha\wedge \star \beta
+\end{equation}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  22 AUG 2026 12:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  28 AUG 2026 00:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -904,9 +904,9 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 \@quotereset=\count466
 
 LaTeX Warning: Unused global option(s):
-    [14pt].
+    [13pt].
 
-(./main.aux (./00Intro/06_ToC-LoF-LoA.aux))
+(./main.aux (./00Intro/06_ToC-LoF-LoA.aux) (./01Chapters/prelim.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 147.
@@ -1053,8 +1053,24 @@ File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 [5
 
 ]
+\openout2 = `01Chapters/prelim.aux'.
+
+ (./01Chapters/prelim.tex
+Chapter 1.
+
 
 [1
+
+
+
+
+]
+
+[2])
+
+[3]
+
+[4
 
 
 
@@ -1074,7 +1090,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[2
+[5
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 27--27
@@ -1083,7 +1099,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
 
 
-[3]
+[6]
 Overfull \hbox (9.02522pt too wide) in paragraph at lines 30--30
 \OT1/cmr/m/n/10 where $\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 S\OMS/cmsy/m/n/10 j$ \OT1/cmr/m/n/10 is the vol-ume of the sub-rect-an-gle $\OML/cmm/m/it/10 S$\OT1/cmr/m/n/10 . For con-ve-nience, we de-note $[][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ by $\OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 )$ and $[][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
  []
@@ -1095,14 +1111,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--54
 
 
 
-[4]
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 70--70
  
  []
 
 
 
-[5]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 90--90
  
  []
@@ -1136,11 +1152,11 @@ LaTeX Warning: Command \SS invalid in math mode on input line 90.
 
 
 
-[6]
+[9]
 
-[7]
+[10]
 
-[8]
+[11]
 Appendix B.
 
 Underfull \hbox (badness 10000) in paragraph at lines 136--136
@@ -1161,7 +1177,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[9
+[12
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 166--166
@@ -1185,57 +1201,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 177--177
 
 
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
- 
- []
-
-
-
-[11]
-
-[12]
-
 [13]
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+ 
+ []
+
+
 
 [14]
+
+[15]
+
+[16]
+
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 251--251
  
  []
 
 
 
-[15]
+[18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 262.
@@ -1250,7 +1266,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[16]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 273--273
 
  []
@@ -1277,88 +1293,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 290--290
 
 
 
-[17]
-
-[18]
-
-[19]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 326.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 326.
-
-
-
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 368--368
- 
- []
-
-
 
 [21]
 
 [22]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 326.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 441.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 326.
 
 
 
 [23]
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 497--497
+Underfull \hbox (badness 10000) in paragraph at lines 369--369
  
  []
 
 
 
+[24]
+
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 510--513
 
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 442.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--516
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 442.
 
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 442.
 
 
 
 [26]
 
 [27]
+Underfull \hbox (badness 10000) in paragraph at lines 498--498
+ 
+ []
+
+
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
- 
+Underfull \hbox (badness 10000) in paragraph at lines 511--514
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
- 
- []
+Underfull \hbox (badness 10000) in paragraph at lines 515--517
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 613--613
- 
  []
 
 
@@ -1368,86 +1358,127 @@ Underfull \hbox (badness 10000) in paragraph at lines 613--613
 [30]
 
 [31]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 661.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 661.
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
+ 
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 673.
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
+ 
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 673.
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
+ 
+ []
 
 
 
 [32]
 
+[33]
+
+[34]
+
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 687.
+(hyperref)                removing `math shift' on input line 662.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 687.
+(hyperref)                removing `math shift' on input line 662.
 
 
-Overfull \hbox (37.95299pt too wide) detected at line 691
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 674.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 674.
+
+
+
+[35]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 688.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 688.
+
+
+Overfull \hbox (37.95299pt too wide) detected at line 692
 \OML/cmm/m/it/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 dy[]\OT1/cmr/m/n/10 )([]\OMS/cmsy/m/n/10 j[]\OML/cmm/m/it/10 ; []\OMS/cmsy/m/n/10 j[]\OML/cmm/m/it/10 ; []  ; []\OMS/cmsy/m/n/10 j[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 dy[][] [] []\OMS/cmsy/m/n/10 j[][]j[]\OML/cmm/m/it/10 ; [] []\OMS/cmsy/m/n/10 j[][]j[]\OML/cmm/m/it/10 ; []  ; [] []\OMS/cmsy/m/n/10 j[][]j[][]
  []
 
 
 
-[33]
-
-[34]
-
-[35]
-
 [36]
+
+[37]
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 762--762
+ 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 764.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 764.
+
+
+
+[39]
+
+[40]
 Appendix C.
 
 
-[37
+[41
 
 ]
 Appendix D.
 )
 
-[38
+[42
 
 ]
 
-[39
+[43
 
-] (./main.aux (./00Intro/06_ToC-LoF-LoA.aux))
+] (./main.aux (./00Intro/06_ToC-LoF-LoA.aux) (./01Chapters/prelim.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FAD7AD022BACBC5A43647B4034C4BFCC;7941.
+(rerunfilecheck)             Checksum: 9709F462F6F8BBAB308064293F53E90A;8470.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34773 strings out of 473584
- 669830 string characters out of 5732363
- 1958908 words of memory out of 5000000
- 56826 multiletter control sequences out of 15000+600000
+ 34846 strings out of 473584
+ 671384 string characters out of 5732363
+ 1959908 words of memory out of 5000000
+ 56859 multiletter control sequences out of 15000+600000
  587690 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,10n,111p,1691b,2215s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (43 pages, 473177 bytes).
+Output written on main.pdf (47 pages, 493171 bytes).
 PDF statistics:
- 802 PDF objects out of 1000 (max. 8388607)
- 698 compressed objects within 7 object streams
- 259 named destinations out of 1000 (max. 500000)
- 341 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 874 PDF objects out of 1000 (max. 8388607)
+ 765 compressed objects within 8 object streams
+ 291 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

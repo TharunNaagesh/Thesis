@@ -1,16 +1,18 @@
 # Fdb version 4
-["biber main"] 1787342779.37593 "main.bcf" "main.bbl" "main" 1787383016.49726 0
+["biber main"] 1787342779.37593 "main.bcf" "main.bbl" "main" 1787856942.29468 0
   "02End/math.bib" 1787287772 9406 8686945ee28af5adb57db2fdafa35cc4 ""
-  "main.bcf" 1787383016 108800 9cb5b0813e6f74625b886122d5b41862 "pdflatex"
+  "main.bcf" 1787856941 108800 9cb5b0813e6f74625b886122d5b41862 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1787383013.81879 "c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex" "main.pdf" "main" 1787383016.49864 0
-  "00Intro/06_ToC-LoF-LoA.aux" 1787383015 4367 3052948e4c44d22148aebd1b60c11a32 "pdflatex"
+["pdflatex"] 1787856939.1135 "c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex" "main.pdf" "main" 1787856942.29581 0
+  "00Intro/06_ToC-LoF-LoA.aux" 1787856941 4367 3052948e4c44d22148aebd1b60c11a32 "pdflatex"
   "00Intro/06_ToC-LoF-LoA.tex" 1781494518 81 ad18af0739dc1a98f33c1f23f4d9905d ""
-  "02End/appendix.tex" 1787383007 101155 45c13213bfa6a068a96119331ec6ece4 ""
-  "c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex" 1787375373 3594 9bde90eb452502337545d1e3972dde64 ""
+  "01Chapters/prelim.aux" 1787856941 4672 f9d19d25daad805959b8886cd887fb4d "pdflatex"
+  "01Chapters/prelim.tex" 1787856934 7572 da2664f8caa53040637e341c99f64429 ""
+  "02End/appendix.tex" 1787850154 105429 14dd36bb853cfb55100fb8915f6c77b8 ""
+  "c:/Users/steve/thesis_prog/Thesis/progress-thesis/thesis_geom_analz/Thesis_Geom_Anal/main.tex" 1787825454 3593 f57ffaab8b3960e083f32b67a7704fac ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1722272511 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1722260942 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1722260942 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -267,16 +269,17 @@
   "config/options.tex" 1781494518 1364 9174d099b466acd009ec2e8b696554c9 ""
   "config/packages.tex" 1781494518 2300 e751c0d9bc5f93cd948b491eb82e4b52 ""
   "config/theoremstyle.tex" 1781494518 2585 239f9b4a15eea8ffa473bb987d7dee5a ""
-  "main.aux" 1787383016 9960 0f88e01c28d8b020a6ff4b63ebf6d9b7 "pdflatex"
+  "main.aux" 1787856941 10551 eeefaaeb4142bb531b1c93b6536ad608 "pdflatex"
   "main.bbl" 1787342788 4387 c7647c99e10d07d5c262fe39ad6be00b "biber main"
-  "main.lof" 1787383016 110 a51cfa89ef63f1755f6c9a71705a96e5 "pdflatex"
-  "main.lot" 1787383016 236 51c313442e14025f5bd8cfcaae4e3062 "pdflatex"
-  "main.out" 1787383016 7941 fad7ad022bacbc5a43647b4034c4bfcc "pdflatex"
-  "main.run.xml" 1787383016 2311 37fc0bd66e4a0cd9ced17472b7b64e63 "pdflatex"
-  "main.tex" 1787375373 3594 9bde90eb452502337545d1e3972dde64 ""
-  "main.toc" 1787383016 4286 75d155826ea14710144edc7249b6e101 "pdflatex"
+  "main.lof" 1787856941 130 f826c84079cca262924fc91efb7dde9a "pdflatex"
+  "main.lot" 1787856941 256 5e1fa14a35fd9fe507839f906e8a9c92 "pdflatex"
+  "main.out" 1787856941 8470 9709f462f6f8bbab308064293f53e90a "pdflatex"
+  "main.run.xml" 1787856941 2311 37fc0bd66e4a0cd9ced17472b7b64e63 "pdflatex"
+  "main.tex" 1787825454 3593 f57ffaab8b3960e083f32b67a7704fac ""
+  "main.toc" 1787856941 4622 2a92cda9e95a8d76ad163ee625d399d7 "pdflatex"
   (generated)
   "00Intro/06_ToC-LoF-LoA.aux"
+  "01Chapters/prelim.aux"
   "main.aux"
   "main.bcf"
   "main.lof"
