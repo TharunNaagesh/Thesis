@@ -118,6 +118,39 @@
       \verb http://dx.doi.org/10.1016/j.jfa.2017.10.006
       \endverb
     \endentry
+    \entry{Jost2017}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=9dad1ae12f6d3956f7a954184d05d6b7}{%
+           family={Jost},
+           familyi={J\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{fullhash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{fullhashraw}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{bibnamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authorbibnamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authornamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authorfullhash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authorfullhashraw}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \field{labelalpha}{Jos17}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{isbn}{978-3-319-61859-3}
+      \field{series}{Universitext}
+      \field{title}{Riemannian Geometry and Geometric Analysis}
+      \field{year}{2017}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
