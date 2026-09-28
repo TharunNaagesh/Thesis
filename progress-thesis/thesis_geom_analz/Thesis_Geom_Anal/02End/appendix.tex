@@ -663,93 +663,6 @@ Since $\gamma$ was arbitrary, we have $$\omega\lrcorner\eta=(-1)^{(l-k)(n-l)}\st
 \end{corollary}
 
 
-\section{The Stokes Theorem}
-\defn{Lipschitz and $C^k$ Set}{\label{def:Lipshitz_set_Cr_set}Let $\Omega\subseteq \bbR^n$ be an open domain and let $\partial \Omega$ denote its boundary. $\Omega$ is said to be a \emph{Lipschitz set} ($C^k$ set) if for every point $p\in \partial\Omega$ there exists a hyperplane $H$ of dimension $n-1$ passing through $p$, a Lipschitz continuous ($C^k$) function $g:H\to \bbR$ and reals $r>0,h>0$ such that: 
-\begin{enumerate}
-    \item $\Omega \cap C=\{x+y\hat n \ : \ x\in B_r(p)\cap H \text{ and }-h<y<g(x) \}$
-    \item $\partial \Omega \cap H=\{x+y\hat n \ : \ x\in B_r(p)\cap H \text{ and }y=g(x)\}$
-\end{enumerate}
-Where \begin{enumerate}
-    \item $\hat n$ is the unit normal to $H$.
-    \item $B_r(p)$ is the ball of radius $r$ at $p$.
-    \item $C:=\{x+y\hat n: x\in B_r(p)\cap H \text{ and } -h<y<h\}$ (Cylinder of height $2h$ and radius $r$ at $p$)
-\end{enumerate}
-}
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-    scale=0.8,
-    >=Stealth,
-    rotate=12,
-    pdot/.style={circle, fill=black, inner sep=1.6pt},
-    dimline/.style={<->, >=stealth, thin, black}
-]
-
-    % --- Geometric Parameters ---
-    \def\r{2.2}
-    \def\h{1.6}
-    \def\rx{2.2}
-    \def\ry{0.4}
-
-    % --- 1. Shaded Region (\Omega \cap C) ---
-    \begin{scope}
-        % Clip inside the cylinder boundaries
-        \path[clip] (-\r, -\h) -- (-\r, \h) arc (180:360:\rx cm and \ry cm) -- (\r, -\h) arc (360:180:\rx cm and \ry cm);
-        % Fill the region under y = g(x) down to -h
-        \fill[gray!18] 
-            (-\r, -\h) -- 
-            plot[domain=-\r:\r, samples=100] (\x, {0.2*\x + 0.35*sin(\x*110)}) -- 
-            (\r, -\h) -- cycle;
-    \end{scope}
-
-    % --- 2. Hyperplane H ---
-    \draw[thick, black] (-3.6, 0) -- (3.6, 0) node[right, font=\small\bfseries] {$H$};
-
-    % --- 3. Boundary Curve \partial\Omega (Graph y = g(x)) ---
-    \draw[very thick, black] 
-        plot[domain=-3.3:3.3, samples=120] (\x, {0.2*\x + 0.35*sin(\x*110)})
-        node[right, font=\small] {$\partial\Omega \quad (y = g(x))$};
-
-    % --- 4. Cylinder C ---
-    % Bottom ellipse (dashed back, solid front)
-    \draw[black, thick, dashed] (\r, -\h) arc (0:180:\rx cm and \ry cm);
-    \draw[black, thick] (-\r, -\h) arc (180:360:\rx cm and \ry cm);
-    
-    % Top ellipse
-    \draw[black, thick] (0, \h) ellipse (\rx cm and \ry cm);
-    
-    % Vertical walls
-    \draw[black, thick] (-\r, -\h) -- (-\r, \h);
-    \draw[black, thick] (\r, -\h) -- (\r, \h) node[midway, right=2pt, font=\small\bfseries] {$C$};
-
-    % --- 5. Normal Vector \hat{n} ---
-    \draw[->, line width=1.1pt, black] (0, 0) -- (0, \h + 1.1) node[above] {$\hat{n}$};
-
-    % --- 6. Base Point p ---
-    \node[pdot] at (0,0) {};
-    \node[below left=2pt, font=\small] at (0,0) {$p$};
-
-    % --- 7. Dimension Indicators (h and r) ---
-    % Height h indicators on the left
-    \draw[dimline] (-\r - 0.4, 0) -- (-\r - 0.4, \h) node[midway, left, font=\scriptsize] {$h$};
-    \draw[dimline] (-\r - 0.4, 0) -- (-\r - 0.4, -\h) node[midway, left, font=\scriptsize] {$h$};
-    \draw[black!60, thin] (-\r, \h) -- (-\r - 0.5, \h);
-    \draw[black!60, thin] (-\r, -\h) -- (-\r - 0.5, -\h);
-    \draw[black!60, thin] (-\r, 0) -- (-\r - 0.5, 0);
-
-    % Radius r indicators on H
-    \draw[dimline] (0, -0.25) -- (\r, -0.25) node[midway, below, font=\scriptsize] {$r$};
-    \draw[dimline] (0, -0.25) -- (-\r, -0.25) node[midway, below, font=\scriptsize] {$r$};
-
-    % Shaded Region Label
-    \node[font=\small, black] at (0.6*\r, -0.65*\h) {$\Omega \cap C$};
-
-\end{tikzpicture}
-\caption{Cylinder around a boundary point $p\in \partial\Omega$. See definition \ref{def:Lipshitz_set_Cr_set}}
-\label{fig:lipschitz_set}
-\end{figure}
-
-
 \section{Pullback of Forms}
 Let $F:U\to V$, where $U\subseteq \bbR^n$ and $V\subseteq \bbR^m$. If $F$ is smooth, the Frechet derivative at $p$ is defined as the unique linear map $DF_p:\bbR^n\to\bbR^m$ satisfying $$\lim_{|h|\to 0} \frac{||F(p+h)-F(p)-DF_p(h)||_m}{||h||_n}=0 $$
 We have $DF_p:T_pU\to T_{f(p)}V$ where $DF_p(v)\in T_{f(p)}V$ such that $$DF_p(v) (g)=v(g \circ F)$$ Where $g\in C^{\infty}_{f(p)}(V)$. 
@@ -866,6 +779,94 @@ Which can be suggestively written as
     \int_a^b \alpha^{\sharp}(c(t))\cdot c'(t)dt
 \end{equation} where $\alpha^{\sharp}$ is the vector field associated with the $1-$form $\alpha$ via the inner product. 
 }
+
+
+
+\section{The Stokes Theorem}
+\defn{Lipschitz and $C^k$ Set}{\label{def:Lipshitz_set_Cr_set}Let $\Omega\subseteq \bbR^n$ be an open domain and let $\partial \Omega$ denote its boundary. $\Omega$ is said to be a \emph{Lipschitz set} ($C^k$ set) if for every point $p\in \partial\Omega$ there exists a hyperplane $H$ of dimension $n-1$ passing through $p$, a Lipschitz continuous ($C^k$) function $g:H\to \bbR$ and reals $r>0,h>0$ such that: 
+\begin{enumerate}
+    \item $\Omega \cap C=\{x+y\hat n \ : \ x\in B_r(p)\cap H \text{ and }-h<y<g(x) \}$
+    \item $\partial \Omega \cap H=\{x+y\hat n \ : \ x\in B_r(p)\cap H \text{ and }y=g(x)\}$
+\end{enumerate}
+Where \begin{enumerate}
+    \item $\hat n$ is the unit normal to $H$.
+    \item $B_r(p)$ is the ball of radius $r$ at $p$.
+    \item $C:=\{x+y\hat n: x\in B_r(p)\cap H \text{ and } -h<y<h\}$ (Cylinder of height $2h$ and radius $r$ at $p$)
+\end{enumerate}
+}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    scale=0.8,
+    >=Stealth,
+    rotate=12,
+    pdot/.style={circle, fill=black, inner sep=1.6pt},
+    dimline/.style={<->, >=stealth, thin, black}
+]
+
+    % --- Geometric Parameters ---
+    \def\r{2.2}
+    \def\h{1.6}
+    \def\rx{2.2}
+    \def\ry{0.4}
+
+    % --- 1. Shaded Region (\Omega \cap C) ---
+    \begin{scope}
+        % Clip inside the cylinder boundaries
+        \path[clip] (-\r, -\h) -- (-\r, \h) arc (180:360:\rx cm and \ry cm) -- (\r, -\h) arc (360:180:\rx cm and \ry cm);
+        % Fill the region under y = g(x) down to -h
+        \fill[gray!18] 
+            (-\r, -\h) -- 
+            plot[domain=-\r:\r, samples=100] (\x, {0.2*\x + 0.35*sin(\x*110)}) -- 
+            (\r, -\h) -- cycle;
+    \end{scope}
+
+    % --- 2. Hyperplane H ---
+    \draw[thick, black] (-3.6, 0) -- (3.6, 0) node[right, font=\small\bfseries] {$H$};
+
+    % --- 3. Boundary Curve \partial\Omega (Graph y = g(x)) ---
+    \draw[very thick, black] 
+        plot[domain=-3.3:3.3, samples=120] (\x, {0.2*\x + 0.35*sin(\x*110)})
+        node[right, font=\small] {$\partial\Omega \quad (y = g(x))$};
+
+    % --- 4. Cylinder C ---
+    % Bottom ellipse (dashed back, solid front)
+    \draw[black, thick, dashed] (\r, -\h) arc (0:180:\rx cm and \ry cm);
+    \draw[black, thick] (-\r, -\h) arc (180:360:\rx cm and \ry cm);
+    
+    % Top ellipse
+    \draw[black, thick] (0, \h) ellipse (\rx cm and \ry cm);
+    
+    % Vertical walls
+    \draw[black, thick] (-\r, -\h) -- (-\r, \h);
+    \draw[black, thick] (\r, -\h) -- (\r, \h) node[midway, right=2pt, font=\small\bfseries] {$C$};
+
+    % --- 5. Normal Vector \hat{n} ---
+    \draw[->, line width=1.1pt, black] (0, 0) -- (0, \h + 1.1) node[above] {$\hat{n}$};
+
+    % --- 6. Base Point p ---
+    \node[pdot] at (0,0) {};
+    \node[below left=2pt, font=\small] at (0,0) {$p$};
+
+    % --- 7. Dimension Indicators (h and r) ---
+    % Height h indicators on the left
+    \draw[dimline] (-\r - 0.4, 0) -- (-\r - 0.4, \h) node[midway, left, font=\scriptsize] {$h$};
+    \draw[dimline] (-\r - 0.4, 0) -- (-\r - 0.4, -\h) node[midway, left, font=\scriptsize] {$h$};
+    \draw[black!60, thin] (-\r, \h) -- (-\r - 0.5, \h);
+    \draw[black!60, thin] (-\r, -\h) -- (-\r - 0.5, -\h);
+    \draw[black!60, thin] (-\r, 0) -- (-\r - 0.5, 0);
+
+    % Radius r indicators on H
+    \draw[dimline] (0, -0.25) -- (\r, -0.25) node[midway, below, font=\scriptsize] {$r$};
+    \draw[dimline] (0, -0.25) -- (-\r, -0.25) node[midway, below, font=\scriptsize] {$r$};
+
+    % Shaded Region Label
+    \node[font=\small, black] at (0.6*\r, -0.65*\h) {$\Omega \cap C$};
+
+\end{tikzpicture}
+\caption{Cylinder around a boundary point $p\in \partial\Omega$ from definition \ref{def:Lipshitz_set_Cr_set}}
+\label{fig:lipschitz_set}
+\end{figure}
 
 
 \section{The Codifferential $\delta$}

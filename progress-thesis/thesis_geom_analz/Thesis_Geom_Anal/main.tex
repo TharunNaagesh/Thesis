@@ -48,8 +48,12 @@
 %     \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
 % }
 % {\endMakeFramed}
+
 % code for white FFFFFF
 % code for light blue FAFFFF
+
+%FAFAFA fro light gray
+
 \newenvironment{leftbar}[1][\hsize]
 {%
     \def\FrameCommand
@@ -57,7 +61,7 @@
         {\color{black}\vrule width 1pt}%
         \hspace{0pt}
         \fboxsep=\FrameSep
-        \colorbox[HTML]{FAFFFF}%
+        \colorbox[HTML]{FAFAFA}%
     }%
     \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
 }
