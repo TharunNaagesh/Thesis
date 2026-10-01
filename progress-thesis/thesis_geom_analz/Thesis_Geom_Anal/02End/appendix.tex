@@ -474,8 +474,8 @@ From these correspondences, we see that $d:\Omega(\Lambda^0)\to \Omega(\Lambda^1
 
 \section{Interior Product}
 We start with the observation that $\{dx^I: I \in \mathscr T_k\}$ not only forms a basis for $\Lambda^k(V)$, but is also an orthonormal set: $$\langle dx^I,dx^J\rangle=\begin{cases}
-    1\ \text{ if } I=J \\ 
-    0\ \text{ if } I\neq J
+    1& \text{ if } I=J \\ 
+    0& \text{ if } I\neq J
  \end{cases}$$
 This is a natural consequence of the definition $\langle f,g\rangle=\sum_{I\in \mathscr T_k} f^Ig^I$. In the case of a Riemannian manifold with a given $g_p:T_pM\times T_pM\to \bbR$, there is a natural choice for $\langle f,g\rangle_g$ given by   \begin{equation}
     \langle f,g\rangle_g:=\sum_{I,J\in \mathscr T_k} f^I g^J \det(g^{i_a,j_b}_p)
@@ -490,7 +490,7 @@ where $\alpha \in \Lambda^k(V)$, $\omega\in \Lambda^{l-k}(V)$ and $\beta \in \La
 On \emph{basis elements}, we have for $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $dx^w \in \Lambda^{l-k}(V)$ $$\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I \lrcorner dx^J\rangle $$ 
 
 
-\propp{For $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $l>k$, we have $$dx^I \lrcorner dx^J=\begin{cases} \operatorname{sign}(R(I,J/I)) dx^{J/I} \ \text{if } I\subseteq J \\ 0  \phantom{--------;;}\text{if } I\not\subseteq J\end{cases} $$ where $J/I$ denotes the ordered set of indices that are in $J$ but not in $I$ and $R(I,J/I)$ denotes the permutation that reorders the tuple $(I,J/I)$.}{\textbf{When }$\mathbf{I\not\subseteq J}$, we have some index of $dx^I$ not be in $dx^J$. Therefore, no matter our choice of $dx^w$, we must have that $$\langle dx^I \wedge dx^w,dx^J\rangle=0=\langle dx^w,dx^I \lrcorner dx^J\rangle $$ which means that $dx^I \lrcorner dx^J=0$. 
+\propp{\label{prop:inner_product_formula_for_euclidean}For $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $l>k$, we have $$dx^I \lrcorner dx^J=\begin{cases} \operatorname{sign}(R(I,J/I)) dx^{J/I} \ \text{if } I\subseteq J \\ 0  \phantom{--------;;}\text{if } I\not\subseteq J\end{cases} $$ where $J/I$ denotes the ordered set of indices that are in $J$ but not in $I$ and $R(I,J/I)$ denotes the permutation that reorders the tuple $(I,J/I)$.}{\textbf{When }$\mathbf{I\not\subseteq J}$, we have some index of $dx^I$ not be in $dx^J$. Therefore, no matter our choice of $dx^w$, we must have that $$\langle dx^I \wedge dx^w,dx^J\rangle=0=\langle dx^w,dx^I \lrcorner dx^J\rangle $$ which means that $dx^I \lrcorner dx^J=0$. 
 \\\\ \textbf{When }$\mathbf{I\subseteq J}$, If $dx^w$ does not contain all the complementary elements of $J/I$, we must have that $\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I\lrcorner dx^J \rangle=0$. This means that $dx^I\lrcorner dx^J$ contains indices exclusively from $J/I$ (upto reordering). Let $dx^I \lrcorner dx^J=\lambda dx^{J/I}$. Choose $dx^w=dx^{J/I}$.  Note in that case that $dx^I \wedge dx^w=\operatorname{sgn}(R(I,J/I))dx^{J}$ where $R(I,J/I)$ is the permutation that rearranges $(I,J/I)$ to the canonically ordered tuple $J$.
 
 We therefore have  $$\langle dx^I \wedge dx^w, dx^J\rangle =\operatorname{sgn}(R(I,J/I))\langle dx^J, dx^J\rangle=\operatorname{sgn}(R(I,J/I)) $$
@@ -505,7 +505,7 @@ Let $\alpha\in \Lambda^k(V)$, $\beta\in \Lambda^l(V)$. For $\omega\in \Lambda^m$
 
 Given a $C^{\infty}$ vector field $X:U\to \amalg_{p\in U} T_p(U)$ given by $$X_{(p)}=\sum_{i=1}^n a^i(p) \frac{\partial}{\partial x^i}\bigg.{|}_{p} \in T_p(U) $$ we can find a differential $1-form$ given by \begin{equation}\label{one forms vs vectors}p \mapsto \sum_{i=1}^n a^i(p) dx^i_{(p)}\end{equation}
 
-\subsubsection{The $\flat$ map}
+\subsubsection{\label{section:flat_map}The $\flat$ map}
 For any general Manifold, the vector spaces $T_pM$ and $T_p^*M$ are merely of the same dimension, but there is no global way to identify $T_pM$ with $T_p^*M$. A metric changes this. 
 
 Let $g_p : T_p M \times T_p M \to \bbR$ be an inner product on $T_pM$. For a given vector $X \in T_pM$, define $X^{\flat}\in \Lambda^1(T_p(M))$ given by \begin{equation}\label{flat_isom}X^{\flat}(Y)=g(X,Y)\end{equation} for $Y\in T_p(M)$. Therefore, $\flat: T_p(M)\to T_p^*(M)$.
@@ -519,7 +519,7 @@ Therefore, $$\Big{(}\frac{\partial}{\partial x^i}\Big{)}^{\flat}\equiv \sum_{j=1
 If our metric $g$ were Euclidean ($g_{ij}=\delta_{ij}$) we would have that $$\Big{(}\frac{\partial}{\partial x^i}\Big{)}^{\flat}\equiv dx^i $$
 
 
-\subsubsection{The $\sharp$ map}
+\subsubsection{\label{section:sharp_map}The $\sharp$ map}
 We know that $\flat: T_pM\to T_p^*M$ is given by $\big{(}\frac{\partial}{\partial x^i}\bigg.{|}_p\big{)}^{\flat}= \sum_{j=1}^n g_{ij}dx_p^j$, so we have the matrix representation of $\flat$ as $$[X^{\flat}]_{\{dx_p^1,dx_p^2,\cdots,dx^n_p\}}= \begin{bmatrix}
     g_{11} \ g_{21} \ \cdots \ g_{n1} \\
     g_{12} \ g_{22} \ \cdots \ g_{n2} \\
@@ -646,7 +646,7 @@ But since $g \wedge \star f:= \langle g,f \rangle = \langle f,g\rangle $ (Real i
 }
 
 \subsection{Hodge Star and Interior}
-\lemp{}{Let $\omega$ be a $k-$form and $\eta$ an $l-$form. We have the following identity: \begin{equation}\label{interior_in_terms_of_hodge}\omega \lrcorner \eta= (-1)^{(n-l)(l-k)} \star (\omega \wedge \star \eta) \end{equation}
+\lemp{}{\label{interior_in_terms_of_star_euclid}Let $\omega$ be a $k-$form and $\eta$ an $l-$form. We have the following identity: \begin{equation}\label{interior_in_terms_of_hodge}\omega \lrcorner \eta= (-1)^{(n-l)(l-k)} \star (\omega \wedge \star \eta) \end{equation}
 If $\omega$ were a $1$ form, this formula reads: \begin{equation}
     \omega \lrcorner \eta=(-1)^{n(l-1)}\star(\omega \wedge \star \eta)
 \end{equation} }{Let $\gamma$ be an arbitrary $(l-k)-$form. 
@@ -662,6 +662,118 @@ Since $\gamma$ was arbitrary, we have $$\omega\lrcorner\eta=(-1)^{(l-k)(n-l)}\st
     Let $X$ be a vector field and $\omega$ a $k-$form. $$\imath_X(\omega)=(-1)^{(n-k)(k-1)}\star(X^{\flat}\wedge \star \omega) \equiv (-1)^{n(l-1)}\star (X^{\flat}\wedge \star \omega)$$
 \end{corollary}
 
+\section{Brief Look at Riemannian Manifolds}
+\defn{Riemannian Manifold}{\label{defn:Riemann_Manifold_and_metric}A Smooth $n-$dimensional manifold $(M,\mathscr A)$ is said to be a \emph{Riemannian Manifold} of dimension $n$ if for every $p\in M$ there exists an inner product $g_p:T_pM\times T_pM\to \bbR$ (smoothly depending on $p$) that is positive definite. Such a $g$ is called the \emph{metric}.}
+
+We recall the fact (\ref{basis for tensors}) that the space of covariant--$2$ tensors has a basis given by $\{dx^i\otimes dx^j: i,j\leq n\}$. This then lets us write the metric in the following useful form: 
+\begin{equation}
+    g_p=\sum_{i,j=1}^n g_{ij}dx^i\otimes dx^j
+\end{equation}
+Where $g_{ij}=g(\frac{\partial}{\partial x^i},\frac{\partial}{\partial x^j})$.
+
+We also recall the musical isomorphisms (\ref{section:flat_map}) here:
+
+\subsubsection{The $\flat$ map}
+Let $X$ be a vector field on $M$. Define the $\flat$ map that takes vector fields to $1-$forms as follows: $$X^{\flat}:=g(X,\cdot) $$
+Let $X\equiv \frac{\partial}{\partial x^q}$, then \begin{equation}(\frac{\partial}{\partial x^q})^{\flat}=\sum_{i\leq n}\sum_{j\leq n} g_{ij} dx^i(\frac{\partial}{\partial x^q})dx^j =\sum_{j\leq n} g_{qj} dx^j\end{equation}
+And for $\omega=\sum_{q=1}^n \omega^q \frac{\partial}{\partial x^q}$ we have \begin{equation}
+    (\omega)^{\flat}=\sum_{j\leq n} (\sum_{q=1}^n g_{qj} \omega^q )dx^j
+\end{equation}
+
+\subsubsection{The $\sharp$ map}
+Since $g$ was positive--definite, we have that the matrix $g_{ij}$ is invertible. Hence, we have the inverse of the $\flat$ map, called $\sharp$ map that takes $1-$forms to vector fields as follows: Let $\alpha=\sum_{i=1}^n \alpha^i dx^i$. Then \begin{equation}
+    \alpha^{\sharp}=\sum_{j=1}^n(\sum_{q=1}^n g^{qj}\alpha^q)\frac{\partial}{\partial x^j}
+\end{equation}
+Where $g^{ij}=\bigg.([g_{ij}]^{-1}\bigg.)_{ij}$
+
+\subsection{Natural Inner Product on Forms, Hodge Star and Interior Product}
+Let $M$ be an $n$ dimensional Riemannian Manifold with metric $g$. Let $\alpha=v_1\wedge v_2\cdots \wedge v_k$ be a $k$ form generated by wedging $1-$forms $v_1,v_2,\cdots,v_k$. Likewise let $\beta=w_1\wedge w_2\wedge \cdots \wedge w_k$. We define the inner product on $k-$forms as follows: \begin{equation}
+    \langle  \alpha,\beta\rangle_g:=\det\Bigg{(}\begin{bmatrix}
+    g(v_1^{\sharp},w_1^{\sharp}) & g(v_1^{\sharp},w_2^{\sharp}) & \cdots & g(v_1^{\sharp},w_k^{\sharp})\\  g(v_2^{\sharp},w_1^{\sharp}) & g(v_2^{\sharp},w_2^{\sharp}) & \cdots & g(v_2^{\sharp},w_k^{\sharp}) \\ \vdots & \vdots & \ddots & \vdots \\     g(v_k^{\sharp},w_1^{\sharp}) & g(v_k^{\sharp},w_2^{\sharp}) & \cdots & g(v_k^{\sharp},w_k^{\sharp}) 
+    \end{bmatrix}\Bigg{)}
+\end{equation}
+And we extend it bilinearly to all $k-$ forms. 
+
+\lemp{(A formula for $g(v_1^{\sharp},v_2^{\sharp})$)}{Let $v_1=\sum_{i=1}^n v_1^i dx^i$ and $v_2=\sum_{j=1}^n v_2^j dx^j$ be $1-$forms. We then have that 
+\begin{equation}
+    g(v_1^{\sharp},v_2^{\sharp})=\sum_{i,j=1}^n v_1^i g^{ij} v_2^j
+\end{equation}
+}{$v_1^{\sharp}=\sum_{q=1}^n (\sum_{r_1=1}^n g^{q{r_1}}v_1^{r_1}) \frac{\partial}{\partial x^q}$ and $v_2^{\sharp}=\sum_{s=1}^n (\sum_{r_2=1}^n g^{s{r_2}}v_2^{r_2}) \frac{\partial}{\partial x^s}$. Thus we have $$g(v_1^{\sharp},v_2^{\sharp})= \sum_{r_1=1}^n\sum_{r_2=1}^n v_1^{r_1}v_2^{r_2} (\sum_{q=1}^n\sum_{s=1}^n g^{qr_1}g^{sr_2}g_{qs})=\sum_{r_1=1}^n\sum_{r_2=1}^n v_1^{r_1} g^{r_1r_2}v_2^{r_2} $$ Which is the desired result. }
+\subsubsection{Orientability}
+\defn{Orientable Manifold}{A differentiable manifold $M$ is said to be orientable if there exists an atlas $\mathscr A$ such that for any two charts $(U,\varphi)$ and $(V,\psi)$ in $\mathscr A$, the Jacobian determinant of the transition maps $\psi \circ \varphi^{-1}$ is positive. If we denote our charts as $x=(x^1,x^2,\cdots,x^n)$ and $y=(y^1,y^2,\cdots,y^n)$ respectively, we can suggestively then write $\det(\frac{\partial x^i}{\partial y^j})>0$ }
+
+Note that, if $x$
+and $y$ are coordinate charts around a point $p$, $T_pM$ has bases $\{\frac{\partial }{\partial x^i}\}_{i\leq n}$ and $\{\frac{\partial}{\partial y^j}\}_{j\leq n}$. Chain rule lets us write $\frac{\partial}{\partial x^i}=\sum_{j=1}^n \frac{\partial y^j}{\partial x^i} \frac{\partial}{\partial y^j}$, and hence the transformation $A$ that takes the basis $\{\frac{\partial}{\partial x^i}\}_{i\leq n}$ to $\{\frac{\partial}{\partial y^j}\}_{j\leq n}$ is of positive determinant.
+
+\subsubsection{Orthonormal frames and co-frames}
+Choose a frame $E_1,E_2,\cdots,E_n$ (from Gram-Schmidt process) that forms an orthonormal basis with respect to $g$, i.e. $g(E_i,E_j)=\delta_{ij}$. Consider the co-frame $\xi^1,\xi^2,\cdots,\xi^n$ dual to $E_1,E_2,\cdots, E_n$ in $T_p^*M$. $(\xi^i)^{\sharp}=\sum_j \xi_i^j E_j=\sum_j g({\xi^i}^{\sharp},E_j)E_j$. Note that $g({\xi^i}^{\sharp},E_j)={{\xi^i}^{\sharp}}^{\flat}(E_j)=\xi^i(E_j)=\delta_{ij}$ which gives us that ${\xi^i}^{\sharp}=E_i$, and hence we have $$\langle(\xi^i)^{\sharp},(\xi^j)^\sharp\rangle_g=\delta_{ij} $$
+Which tells us that the co-frame is also orthonormal with respect to the natural inner product $\langle \cdot ,\cdot \rangle_g$. We collect this result in the following lemma:
+
+\begin{lemma}{\label{lemma:co_frame_orthogonal} If $E_1,E_2,\cdots,E_n$ is an orthonormal frame with respect to $g$, then the dual co-frame $\xi^1,\xi^2,\cdots,\xi^n$ is also orthonormal with respect to the natural inner product $\langle\cdot,\cdot \rangle_g  $.}\end{lemma}
+
+These $\xi^i$ in \ref{lemma:co_frame_orthogonal} form an orthonormal basis for $T_p^*M$, and hence the collection $\{\xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}:1\leq i_1<i_2<\cdots<i_k\leq n\}$ forms a basis for $\Lambda^k(T_pM)$. Let $\alpha=\sum_{I\in \mathscr T_k} \alpha^I \xi^I$ and $\beta=\sum_{I\in \mathscr T_k} \beta^I \xi^I$ be two $k-$forms written in this basis. Then we have \begin{equation}\label{eq:inner_product_of_k_forms_in_ON_basis}
+    \langle \alpha,\beta\rangle_g=\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_k}\langle\xi^I,\xi^J\rangle_g\alpha^I\beta^J=\sum_{I\in \mathscr T_k}\alpha^I\beta^I
+\end{equation}
+
+\subsubsection{The Volume Form}
+Let $M$ be an orientable manifold and let $E_1,E_2,\cdots,E_k$ be a positively oriented orthonormal frame with respect to $g$. We define the volume form as the unique $n$ form such that: \begin{equation}\label{def:volume_form_for_riemannian_manifold}
+    \mathrm{vol}_g(E_1,E_2,\cdots,E_n)=1
+\end{equation}
+
+Let $F_1,F_2,\cdots,F_n$ be another positively oriented (not necessarily orthonormal) frame. Suppose $\{E_i\}$ are related to $\{F_j\}$ via the orthogonal transformation $A$, i.e. $F_i=\sum_j A_i^j E_j$. Then we have \begin{equation}
+    \mathrm{vol}_g(F_1,F_2,\cdots,F_n)=\det(A)
+\end{equation} 
+$\det(A)$ can be found as follows:
+$$g(F_i,F_k)=g(\sum_i A_j^i E_i,\sum_m A_k^m E_m)=\sum_i\sum_m A^i_j A^m_k \delta_{im}=\sum_i A^i_j A^i_k =(A^TA)_{jk}$$
+Therefore, $$\sqrt{\det(\{g(F_i,F_k)\}_{i,k\leq n})}=\det(A)$$
+Let $x=(x^1,x^2,\cdots,x^n)$ and $y=(y^1,y^2,\cdots,y^n)$ be two coordinate charts around $p\in M$, such that $\{\frac{\partial}{\partial x^i}\}_{i\leq n}$ and $\{\frac{\partial}{\partial y^j}\}_{j\leq n}$ are both positively oriented. We then have that \begin{equation}
+    \mathrm{vol}_g(\frac{\partial}{\partial x^1},\frac{\partial}{\partial x^2},\cdots,\frac{\partial}{\partial x^n})=\sqrt{ \det \Big{(} \bigg.{(} g(\frac{\partial}{\partial x^i},\frac{\partial}{\partial x^j})  \bigg.{)}\Big{)} }
+\end{equation}
+And \begin{equation}
+    \mathrm{vol}_g=\sqrt{ \det \Big{(} \bigg.{(} g(\frac{\partial}{\partial x^i},\frac{\partial}{\partial x^j})  \bigg.{)}\Big{)} }dx^1\wedge dx^2\wedge \cdots \wedge dx^n
+\end{equation}
+\subsubsection{Hodge Star on Riemannian Manifolds}
+\defn{Hodge Star for Riemannian Manifolds}{Let $\beta\in \Lambda^k$ be a $k-$form on an orientable Riemannian manifold $(M,g)$. We define the Hodge Star $\star \beta$ as the \emph{unique} $n-k$ form such that for every test $k$ form $\alpha$ the following holds: \begin{equation}
+    \alpha \wedge \star \beta=\langle \alpha,\beta\rangle_g \mathrm{vol}_g
+\end{equation} }
+
+\lemp{}{Let $E_1,E_2,\cdots,E_n$ be a given positively oriented orthonormal frame. Let $\xi^1,\xi^2,\cdots,\xi^n$ be the dual co-frame. Then \begin{equation}
+    \star (\xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k})=\operatorname{sign}(R(I,I^c)) \xi^{j_1}\wedge \xi^{j_2}\wedge \cdots \wedge \xi^{j_{n-k}}
+\end{equation} Where $R(I,I^c)$ is the perumtation that rearranges $\{I,I^c\}$ to its natural order, and $j_1,j_2,\cdots,j_{n-k}$ are the canonically ordered incides of $I^c$.}{The proof follows from the following observations: 
+\begin{enumerate}
+    \item The volume form is $\xi^1\wedge \xi^2\wedge \cdots \wedge \xi^n$
+    \item  $\operatorname{sign}(R(I,I^c))\xi^{i_1}\wedge \xi^{i_2}\cdots \wedge \xi^{i_k} \wedge \xi^{j_1}\wedge \cdots \wedge \xi^{j_{n-k}}=\mathrm{vol}_g$.
+    \item $\langle \xi^{i_1}\wedge \cdots \wedge \xi^{i_k},\xi^{i_1}\wedge \cdots \wedge \xi^{i_k}\rangle_g=1$
+\end{enumerate}}
+\thmp{(Double Star Identity)}{\label{thm:double_star}Let $f$ be a $k-$form. Then \begin{equation}
+    \star \star f=(-1)^{k(n-k)f}
+\end{equation}}{Because the star is linear, it is enough to prove the identity on basis elements. Let $E_1,\cdots,E_n$ be a positively oriented orthonormal frame and $\xi^1,\cdots,\xi^n$ be its dual co-frame. $\star \star (\xi^{i_1}\wedge \xi^{i_2}\cdots \wedge \xi^{i_k})=\mathrm{sign}(R(I,I^c))\star (\xi^{I^c})=\mathrm{sign}(R(I,I^c))\mathrm{sign}(R(I^c,I))\xi^I$. The proof is done once we see that the product $\mathrm{sign}(R(I,I^c))\mathrm{sign}(R(I^c,I))$ is the sign of the permutation that takes swaps the first $k$ terms in $[I,I^c]$ behind the last $n-k$ terms, which amounts to a sign of $(-1)^{k(n-k)}$. }
+\thmp{(Hodge Star is an isometry)}{The Hodge Star $\star:\Lambda^k\to \Lambda^{n-k}$ is an isometric isomorphism between Normed Linear Spaces.}{Note that the Hodge Star is linear. Since the dimensions of $\Lambda^k$ and $\Lambda^{n-k}$ are the same, it is enough to show that $\star$ is an isometry, i.e. $\langle \star \alpha,\star \beta \rangle_{g,n-k}=\langle \alpha,\beta \rangle_{g,k}$. 
+Let $\xi^1,\xi^2,\cdots,\xi^n$ be the co-frame of the orthonormal frame $E_1,E_2,\cdots,E_n$. We saw in \ref{lemma:co_frame_orthogonal} that these too, are orthonormal with respect to the natural inner product. Let $\alpha=\sum_{I\in \mathscr T_k} \alpha^I \xi^I$ and $\beta=\sum_{I\in \mathscr T_k} \beta^I \xi^I$. From \ref{eq:inner_product_of_k_forms_in_ON_basis} we have $\langle \alpha,\beta\rangle_g=\sum_{I\in \mathscr T_k} \alpha^I\beta^I$. $\langle \star \alpha,\star \beta\rangle= \star \alpha \wedge \star \star \beta=(-1)^{k(n-k)}\star \star \beta \wedge \star \alpha =(-1)^{k(n-k)}\langle \alpha,\star\star \beta\rangle_g=\langle \alpha,\beta\rangle_g$ from the double star identity \ref{thm:double_star}.
+
+}
+
+\subsubsection{Interior Product and Hodge Star}
+\defn{Interior Product}{Let $M$ be an oriented manifold. We define \emph{the interior product} as the adjoint of the wedge product with respect to the natural inner product, i.e. for every $\alpha \in \Lambda^k$, $\beta\in \Lambda^l$ and $\eta \in \Lambda^{l-k}$ \begin{equation}
+\label{eq:interior_product_defn_riemannian} \langle \alpha \wedge \eta,\beta\rangle_g=\langle \eta,\alpha \lrcorner \beta \rangle_g
+\end{equation}}
+\lemp{}{Let $E_1,E_2,\cdots,E_n$ be a positively oriented orthonormal basis and $\xi^1,\xi^2,\cdots,\xi^n$ be its dual co-frame. We then have: $$\xi^I \lrcorner \xi^J=\begin{cases}
+    0 & \text{if }I\not\subseteq J\\
+    \mathrm{sign}(R(I,J\setminus I)) \xi^{J\setminus I} & \text{if }I\subseteq J 
+\end{cases} $$}{The proof is the same as the euclidean case \ref{prop:inner_product_formula_for_euclidean}, since the co-frame is orthonormal with respect to the inner product $\langle \cdot,\cdot \rangle_g$.}
+
+\thmp{}{Let $\alpha \in \Lambda^k$ $\beta \in \Lambda^l$. We then have $\alpha \lrcorner \beta= (-1)^{(n-l)(l-k)}\star (\alpha \wedge \star \beta) $}{The proof is the same as the euclidean case \ref{interior_in_terms_of_star_euclid}.}
+\begin{theorem}
+    Let $X$ be a vector field and $\omega\in \Lambda^k$ and $\eta\in \Lambda^l$. We then have \begin{equation}\imath_X(\omega \wedge \eta)=\imath_X(\omega)\wedge \eta+ (-1)^k \omega \wedge \imath_X(\eta)\end{equation}
+\end{theorem}
+\begin{corollary}
+{Let $\xi\in \Lambda^1$ and $\eta\in \Lambda^k$. Then we have the following identity:
+\begin{equation}
+    ||\xi||^2\eta=\xi\wedge(\xi\lrcorner \eta)+\xi\lrcorner(\xi\wedge \eta)
+\end{equation}
+}
+    
+\end{corollary}
 
 \section{Pullback of Forms}
 Let $F:U\to V$, where $U\subseteq \bbR^n$ and $V\subseteq \bbR^m$. If $F$ is smooth, the Frechet derivative at $p$ is defined as the unique linear map $DF_p:\bbR^n\to\bbR^m$ satisfying $$\lim_{|h|\to 0} \frac{||F(p+h)-F(p)-DF_p(h)||_m}{||h||_n}=0 $$
@@ -953,6 +1065,8 @@ Where the notation $\omega^{q,I}$ is understood form the equation \ref{definitio
 \begin{remark}
     This is the formula persented in \cite{Csato_2018} pg. 465, 2 (vii).
 \end{remark}
+
+
 
 \section{Boundary Calculus and Tangential and Normal Components}
 
