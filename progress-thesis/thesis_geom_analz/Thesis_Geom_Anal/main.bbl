@@ -19,6 +19,43 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{BartleSherbert2011}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=421cdd5790e26e6ffad05f66854de4a5}{%
+           family={Bartle},
+           familyi={B\bibinitperiod},
+           given={Robert\bibnamedelima G.},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=736bd79fe9aae665ca4859140f26146c}{%
+           family={Sherbert},
+           familyi={S\bibinitperiod},
+           given={Donald\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken, NJ}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{68833160d6616076f1ae445615374a99}
+      \strng{fullhash}{68833160d6616076f1ae445615374a99}
+      \strng{fullhashraw}{68833160d6616076f1ae445615374a99}
+      \strng{bibnamehash}{68833160d6616076f1ae445615374a99}
+      \strng{authorbibnamehash}{68833160d6616076f1ae445615374a99}
+      \strng{authornamehash}{68833160d6616076f1ae445615374a99}
+      \strng{authorfullhash}{68833160d6616076f1ae445615374a99}
+      \strng{authorfullhashraw}{68833160d6616076f1ae445615374a99}
+      \field{labelalpha}{BS11}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{isbn}{978-0-471-43331-6}
+      \field{title}{Introduction to Real Analysis}
+      \field{year}{2011}
+    \endentry
     \entry{CsatoDacorognaKneuss2012}{book}{}{}
       \name{author}{3}{}{%
         {{hash=218933fa12a4722bfe3b1f1f36d54557}{%
@@ -150,6 +187,78 @@
       \field{series}{Universitext}
       \field{title}{Riemannian Geometry and Geometric Analysis}
       \field{year}{2017}
+    \endentry
+    \entry{RudFA}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=33be2fc2739d3493c6d6cc5d56a4c41e}{%
+           family={Rudin},
+           familyi={R\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \strng{fullhash}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \strng{fullhashraw}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \strng{bibnamehash}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \strng{authorbibnamehash}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \strng{authornamehash}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \strng{authorfullhash}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \strng{authorfullhashraw}{33be2fc2739d3493c6d6cc5d56a4c41e}
+      \field{labelalpha}{Rud91}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{0-07-054236-8}
+      \field{series}{International Series in Pure and Applied Mathematics}
+      \field{title}{Functional Analysis}
+      \field{year}{1991}
+    \endentry
+    \entry{SchaeferWolff1999}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=3f23732f014e6703b4e0b240aa835fe4}{%
+           family={Schaefer},
+           familyi={S\bibinitperiod},
+           given={Helmut\bibnamedelima H.},
+           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=f896d35b6f6715414191fc300d80af00}{%
+           family={Wolff},
+           familyi={W\bibinitperiod},
+           given={Manfred\bibnamedelima P.},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e43b0ae1f0863c34739501ae1353b665}
+      \strng{fullhash}{e43b0ae1f0863c34739501ae1353b665}
+      \strng{fullhashraw}{e43b0ae1f0863c34739501ae1353b665}
+      \strng{bibnamehash}{e43b0ae1f0863c34739501ae1353b665}
+      \strng{authorbibnamehash}{e43b0ae1f0863c34739501ae1353b665}
+      \strng{authornamehash}{e43b0ae1f0863c34739501ae1353b665}
+      \strng{authorfullhash}{e43b0ae1f0863c34739501ae1353b665}
+      \strng{authorfullhashraw}{e43b0ae1f0863c34739501ae1353b665}
+      \field{labelalpha}{SW99}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-0-387-98726-2}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Topological Vector Spaces}
+      \field{volume}{3}
+      \field{year}{1999}
     \endentry
   \enddatalist
 \endrefsection
