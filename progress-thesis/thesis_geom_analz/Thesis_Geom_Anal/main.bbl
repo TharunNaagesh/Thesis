@@ -19,6 +19,37 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{Brezis2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=31e0c25a6fb0297f0536bede27a04cd4}{%
+           family={Brezis},
+           familyi={B\bibinitperiod},
+           given={Haim},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{fullhash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{fullhashraw}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{bibnamehash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{authorbibnamehash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{authornamehash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{authorfullhash}{31e0c25a6fb0297f0536bede27a04cd4}
+      \strng{authorfullhashraw}{31e0c25a6fb0297f0536bede27a04cd4}
+      \field{labelalpha}{Bre11}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-387-70913-0}
+      \field{title}{Functional Analysis, Sobolev Spaces and Partial Differential Equations}
+      \field{year}{2011}
+    \endentry
     \entry{BartleSherbert2011}{book}{}{}
       \name{author}{2}{}{%
         {{hash=421cdd5790e26e6ffad05f66854de4a5}{%

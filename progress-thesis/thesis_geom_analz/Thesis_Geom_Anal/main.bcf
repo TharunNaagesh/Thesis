@@ -2381,6 +2381,8 @@
     <bcf:citekey order="7" intorder="1">RudFA</bcf:citekey>
     <bcf:citekey order="8" intorder="1">BartleSherbert2011</bcf:citekey>
     <bcf:citekey order="9" intorder="1">SchaeferWolff1999</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">Brezis2011</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">Brezis2011</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

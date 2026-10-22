@@ -1,5 +1,4 @@
 % TeX root = ../main.tex
-{\color{red}
 \chapter{Some results from Calculus on $\bbR^n$}
 \section{Results from Differentiation}
 
@@ -21,6 +20,8 @@ And it is easy to see that $\det{DF(a,b)}=det M\neq 0$. Therefore, from Inverse 
 \thmp{(A corollary of \ref{Implicit function theorem}) }{Let $f:\bbR^n\to \bbR^p (p\leq n)$ be continuously differentiable in an open set containing $a\in \bbR^n$. If $f(a)=0$ and the matrix $D_j(f^i(a))_{p\times n}$ has rank $p$, then there exists an open neighbourhood $A$ of $a$ and a diffeomorphism $h:A\to h(A)\subset \bbR^n$ such that $f\circ h (x_1,x_2\cdots x_n)=(x_{n-p+1},x_{n-p+2}\cdots ,x_{n})$.}{Consider $f:\bbR^{n-p}\times \bbR^p \to \bbR^p$. Suppose that the matrix $Q=D_{n-p+i}(f^j); i,j\leq p$ be invertible ($\det{Q}\neq 0$). Let, as before, $F:\bbR^{n-p}\times \bbR^p \to \bbR^{n-p}\times \bbR^p$ given by $$F(p,q)=(p,f(p,q))$$ Since $\det{DF}\neq 0$, there exists, around $a=(a^1,a^2,\cdots,a^{n-p},a^{n-p+1},\cdots a^{n})$ a neighbourhood $A_{n-p}\times A_{p}\subset \bbR^{n-p}\times \bbR^{p}$ and a neighbourhood $W \subset \bbR^{n-p}\times \bbR^{p}$ containing $F(a)=(a_1,a_2\cdots a_{n-p},0)$ such that $F: A_{n-p}\times A_p \to W$ is invertible and whose inverse is continuously differentiable. Note that, the inverse of $F$ ought to be of the form $F^{-1}(x_1,x_2,\cdots,x_{n-p},y_{n-p+1},\cdots, y_{n})=(\vec{x},b(\vec{x},\vec{y}))$ (let $\vec x =(x_1,x_2,\cdots x_{n-p})\in \bbR^{n-p}$ and $\vec y=(y_{n-p+1},y_{n-p+2},\cdots,y_n) \in \bbR^{p}$) where it is understood that $b:\bbR^n\to \bbR^p$ is continuously differentiable. Also note that $\pi_2 \circ F\equiv f$. We have that $$f \circ F^{-1}(x_1,x_2\cdots x_{n-p},x_{n-p+1},\cdots x_n)=$$ $$\pi_2 (x_1,x_2,\cdots x_{n-p},x_{n-p+1},\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_{n})$$ 
 \textbf{Case 2}: If the indices where the matrix $\{(\partial_i f^j(a)); 1\leq j\leq p, i=i_1,i_2,\cdots i_p\}$ is not the last $p$ indices, we write the linear transformation $\operatorname{Swap}:\bbR^{n}\to \bbR^{n}$ that takes these $p$ indices to the last $p$ indices. This is a linear transformation that is invertible since it takes basis elements to basis elements. If we look then, at $f \circ \operatorname{Swap}: \bbR^{n}\to \bbR^p$, we see that this is a function of the form of Case 1, so we have a $h$ such that $f\circ \operatorname{Swap}\circ h(x_1,x_2,\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots x_n)$ which means our desired function is $\operatorname{Swap}\circ h$.  }
 
+%%%BIGGGGGGG COMMENTTTTTTINGGGGGGGG
+\begin{comment}
 \section{Results from Integration}
 \subsection{The Riemann Integral}
 \defn{Partition}{For closed interval $[a,b]$ in $\bbR$, a partition is simply a collection of sub-intervals $[a_i,a_{i+1}]$ so that $a_0=a<a_1<a_2<\cdots a_k=b$.
@@ -120,10 +121,13 @@ Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon
 \end{lemma}
 
 }
-\chapter{Differential Forms}
-{\color{red}: !!INCOMPLETE!! 
 
-primary sources: Tu Intro manifolds, Csato Dacorogna pullback equation for differential forms, Csato Dacorogna Sil "best constant for gaffney inequality", Do Carmo Differential forms and applications, Lecture notes: https://sites.google.com/view/reyersjamaar/manifolds-and-differential-forms}
+\end{comment}
+%%BIGGGGGGG COMMENTTTTTTTINGGGGE ENDDDD
+
+
+
+\chapter{Differential Forms}
 
 \section{Exterior Algebra: Definitions and Results}
 
@@ -877,6 +881,9 @@ Evaluating the left-hand side at $p \in M$ on vectors $v_1, \dots, v_{k-1} \in T
 \lemp{}{Let $U\subseteq \bbR^n$ be an open connected set and $f:U\to \bbR$ be a smooth function. Then $df=0$ if and only if $f$ is constant on $U$.}{$\implies$) Let $f$ be constant on $U$. Then $\frac{\partial f}{\partial x^i}=0$ for all $i\leq n$, and hence $df_p=\sum_{i=1}^n \frac{\partial f}{\partial x^i}|_p dx^i_p=0$.
 \\\\ $\impliedby)$ Say $df_p=0$ for all $p\in U$. Let $x$ and $y$ be arbitrary fixed points in $U$ and let $c:[a,b]\to U $ be any smooth curve connecting $x$ and $y$ (Such a curve exists because $U$ is path-connected, and hence continuity is guarenteed. Smoothening of the polygon edges with smooth curves guarentees smoothness). Note that $c^*f\equiv f \circ c:[a,b]\to \bbR$ is a smooth $0$ form on $[a,b]$. $d(c^*f)=d(f\circ c)= \frac{d (f\circ c (t))}{dt} dt=c^* df=0$ (from \ref{pullback_commutes_with_derivative}). Therefore $d(c^*f)=0$, so $f\circ c(a)=f\circ c(b)$ which gives $f(x)=f(y)$.  }
 
+\section{Manifolds with Boundary}
+{\color{red}{PENDING}}
+We ask the question: What does it mean for a function to be smooth on an \emph{arbitrary} set $S\subset \bbR^n$
 \section{Integration of $1-$forms}
 Let $U\subseteq \bbR^n$ be an open set and $\alpha$ be a $1-$form. 
 
@@ -894,7 +901,7 @@ Which can be suggestively written as
 
 
 
-\section{The Stokes Theorem}
+\section{The Stokes', Green's and Gauss' Theorems}
 \defn{Lipschitz and $C^k$ Set}{\label{def:Lipshitz_set_Cr_set}Let $\Omega\subseteq \bbR^n$ be an open domain and let $\partial \Omega$ denote its boundary. $\Omega$ is said to be a \emph{Lipschitz set} ($C^k$ set) if for every point $p\in \partial\Omega$ there exists a hyperplane $H$ of dimension $n-1$ passing through $p$, a Lipschitz continuous ($C^k$) function $g:H\to \bbR$ and reals $r>0,h>0$ such that: 
 \begin{enumerate}
     \item $\Omega \cap C=\{x+y\hat n \ : \ x\in B_r(p)\cap H \text{ and }-h<y<g(x) \}$
@@ -1079,29 +1086,7 @@ Where the notation $\omega^{q,I}$ is understood form the equation \ref{definitio
 \end{enumerate}
 }
 
-\section{Integration Theorems}
-
-{\color{red} 
-!!Not complete!!
-
-Ideal case scenario-- develop the theory of integration of forms-- Do Carmo and Frenkel
-
-\begin{enumerate}
-    \item use pullbacks 
-    \item partitions of unity
-    \item proof of stokes (long shot)
-    \item corollaries (gauss and green)
-\end{enumerate}
-}
-
-\section{A little bit of Riemannian Geometry}
-{\color{red}: 
--- Not Complete--
-\begin{enumerate}
-    \item To ideally develop metric dependent hodge star and interior product.
-    \item Define principle curvature, mean curvature, gauss curvature, geodesics etc. 1st and 2nd Fundamental forms etc.
-\end{enumerate}
-}
+%%%%%%chapter on MEASURE THEORY, FUNCTIONAL ANAL AND SOBOLEV SPACES%%%%%
 
 \chapter{Measure Theory, Functional Analysis and Sobolev Spaces}
 
@@ -1159,6 +1144,17 @@ A Hausdorff locally convex topological vector space is metrizable iff its topolo
 This is easily seen to be a genuine \emph{norm}. Moreover, this space is complete with respect to this norm; See Theorem 8.2.3 in \cite{BartleSherbert2011}.
 
 \end{example}
+\begin{remark}\label{remark:C^k_on_compact}
+    \textbf{A word of caution:} \emph{What does it mean for a function to be \textbf{differentiable} on a \textbf{compact set}?} We consider the following notion of differentiability: We say a function $f$ is of class $C^k$ on a compact set $K$ if there is an open set $U\subseteq \bbR^n$ with $K\subset U$ and a function $\tilde f:U\to \bbR^m$ of class $C^k$ such that $\tilde f=f$ when restricted on $K$.
+\end{remark}
+\begin{remark}
+    There is, however, a different notion by which we mean $C^k(\bar{\Omega})$. This is given below:
+\end{remark}
+\defn{$C^{k}(\bar{\Omega})$}{\label{def:C^kOmega}Let $\Omega$ be a bounded domain. The collection of all functions $f$ of class $C^{k}$ on $\Omega$ whose derivatives $D^{\alpha}f$ extends continuously to the boundary of $\Omega$. }
+\begin{remark}
+    Note that, even though $\bar\Omega$ is compact for a bounded domain in $\bbR^n$, the two notions \ref{def:C^kOmega} and \ref{remark:C^k_on_compact} are \emph{not the same}. We require additional regularity on the set $\Omega$ for the two notions to be equal. 
+\end{remark}
+
 
 \subsubsection{Frechet Topology of $C^k(\Omega)$}
 Let $\Omega$ be an open set in $\bbR^n$. We consider an exhaustion $\{K_i\}$ of $\Omega$ consisting of compact sets (e.g. $\{x\in \Omega:||x||\leq n \text{ and } \mathrm{dist}(x,\Omega^c)\geq 1/n \}$). We define $p_i(u):=||u||_{C^k(K_i)}$ (as defined in \ref{example:C^kK}). This forms a countable collection of semi-norms, and hence can be topologised as in \ref{Example:Seminorm_topology_generated}. A cauchy sequence is such that for every $i\in \bbN$, $$p_i(u_n-u_m)\to 0$$ as $n,m \to \infty$. This means that in $C^k(K_i)$, $u_n|_{K_i}$ is cauchy and thus convergent (as $C^k(K_i)$ is Banach).  Therefore, $C^k(\Omega)$ is a Frechet space. 
@@ -1225,16 +1221,123 @@ Consider the space $C^k_c(\Omega)$ (with an exhaustion $\{K_j\}$ of $\Omega$), w
 Let $u_n$ be a sequence converging to $u$ in $E=C^k_c(\Omega)$. This means that (from the characterisation in \ref{defn:convergence_in_LF}) there exists a large enough $q$ such that $\{u_n\}_{n\in \bbN} \subset E_q$, or rather, the supports of $u_n$ are in $K_q$, and $u_n\to u$ in the norm sense, in $E_q$. This means, $$||u_n-u||_{C^k(K_q)}=\sum_{|\alpha|=0}^k |D^{\alpha}(u_n)-D^{\alpha}(u)|_{L^{\infty}(K_q)}\to 0$$ which amounts to (since $E_q$ is Banach) $D^{\alpha}(u)|_{K_q}\to D^{\alpha}u|_{K_q}$ uniformly in $K_q$ for all $\alpha\in \{0,1,\cdots,k\}$.    
 \end{example}
 
+\subsection{Continuous linear maps on LCTVS}
+\defn{Sequentially Continuous}{A map $f:X\to Y$ between topological spaces is \emph{sequentially continuous} if for every $x_n\to x$ in $X$, we have $f(x_n)\to f(x)$ in $Y$.}
+
+\begin{proposition}
+    A map from a \emph{first countable} topological space $X$ to a topological space $Y$ is continuous iff it is sequentially continuous.
+\end{proposition}
+
+We now describe what it means for a linear map between Frechet spaces to be continuous:
+\subsubsection{Continuity on Frechet space}
+\begin{proposition}
+    Let $E$ and $F$ be Frechet spaces and $\{p_i\}_{i\in \bbN}$ and $\{q_i\}_{i\in \bbN}$ the associated countable family of seminorms. A linear map $T:E\to F$ is continuous if and only if for every $i\in \bbN$, there exists $j\in \bbN$, and a constant $C=C(i)$ such that $q_i(Tx)\leq Cp_j(x)$ for every $x\in E$.
+\end{proposition}
+
+\begin{proposition}
+    Let $E$ be a Frechet space with a countable family $\{p_i\}$ of seminorms generating its topology. A linear map $T:E\to \bbK$ is continuous iff for each integer $i\in \bbN$, there exists a constant $C=C(i)$ such that $$|Tx|\leq Cp_i(x)\ \text{for all }x\in E$$ 
+\end{proposition}
+
+\subsubsection{Continuity on LF space}
+Let $E=\cup_i E_i$ where $\{E_i\}$ is an increasing collection of Frechet spaces, with $E_1\hookrightarrow E_2 \hookrightarrow \cdots \hookrightarrow E $ being isomorphisms of TVS. We begin with an observation that the Frechet topology on $E_i$ is the same as the topology induced from $E$. This amounts to the following:
+
+\begin{proposition}
+    Let $E$ be an LF space with $E=\cup_i E_i$. Then any convex subset $U\subset E$ containing the origin is a neighbourhood of $0$ if and only if for each $n\in \bbN$, $U\cap E_n$ is a neighbourhood of $0$ in $E_n$.
+\end{proposition}
+
+We can now characterise continuous linear maps, with the following proposition: 
+
+\begin{proposition}
+    Let $E$ be an $LF$ space with $E=cup_i E_i$, an increasing limit of a sequence of Frechet spaces. Let $F$ be any LCTVS. A linear map $T:E\to F$ is continuous if and only if for each $n\in \bbN$, $$ T|_{E_n}\to F$$ is continuous in the Frechet sense.
+\end{proposition}
 
 
+\section{Dual Spaces, Weak and Weak* Topologies of Normed Linear Spaces}
+\subsection{Weak topology}
+\defn{Dual space $X^*$}{Let $X$ be a normed linear space over $\bbK$. The \emph{topological dual space}(generally referred to as \emph{the dual space}) is defined as the space of all \emph{continuous linear functionals on }$X$. }
+
+We set up some notation: Let $X$ be a normed linear space and $X^*$ its topological dual. We can make a bilinear pairing $$
+    \langle,\rangle: X^*\times X\to \bbK
+$$
+by \begin{equation}
+    \langle f,x\rangle:=f(x)
+\end{equation} and we will choose to write $\langle f,x\rangle$ in place of $f(x)$. 
+
+\defn{The weak topology on $X$ ($\sigma(X,X^*)$)}{The weak topology on $X$, denoted $\sigma(X,X^*)$ is the \emph{coarsest} topology that makes the collection $\{f:X\to \bbK: f\in X^*\}$ continuous.}
+\begin{theorem}\label{thm:Basis_for_weak}\textbf{(Basis for Weak Topology)}
+    $\sigma(X,X^{*})$ is generated by the collection $$\{\cap_{i=1}^n f^{-1}_i(U_i): f_i \in X^*, U_i \text{ open in }\bbK, n\in \bbN\}$$
+\end{theorem}
+
+\begin{proposition}
+    Let $X$ be a normed linear space. $x_n\in X$ converges to $x\in X$ in the weak topology iff $\phi(x_n)\to\phi(x)$ for all $\phi\in X^*$ 
+\end{proposition}
+Convergence in the weak topology is called as \emph{weak convergence}. 
+
+We gather a few facts about weak topology $\sigma(X,X^*)$ (without proof):
+\begin{lemma}
+    The weak topology $\sigma(X,X^*)$ is Hausdorff. 
+\end{lemma}
+The proof comes from a direct application of the geometric form of the \emph{Hahn-Banach Theorem}.
+\begin{proposition}
+    Let $X$ be a NLS and $\sigma(X,X^*)$ the weak topology on $X$. This has a basis of the form $V(f_1,f_2,\cdots,f_k;x_0,\varepsilon)$ (where $\{f_i\}_{i=1}^k$ are elements of $X^*$, $x_0\in X$, and $\varepsilon>0$) given by $$V(f_1,f_2,\cdots,f_k;x_0,\varepsilon):=\{x\in X: |\langle f,x-x_0\rangle|<\varepsilon \text{ for all }i\in \{1,\cdots,k\}\} $$
+\end{proposition}
+\begin{remark} We make some important remarks:
+    \begin{enumerate}
+        \item Being weakly closed (complement of an open set in weak topology) \emph{does not} imply being weakly \emph{sequentially} closed (every weakly convergent sequence converges in the set itself).
+        \item In general, weakly closed implies weakly sequentially closed.
+        \item $C$ being weakly closed \emph{always} implies that $C$ is strongly closed (recall that that the weak topology is indeed weaker than the strong norm topology), but \emph{the converse is not always true}. For convex sets however, the coverse holds true.
+    \end{enumerate}
+\end{remark}
+
+\begin{lemma}
+    Let $C\subset X$ be a convex set that is strongly closed. Then $C$ is weakly closed.
+\end{lemma}
+\emph{The proof is again an application of the geomeric form of Hahn-Banach theorem}.
+
+\begin{theorem}{\label{thm:characterisation_of_weak_convergence}
+\textbf{Characterisation of weak convergence \cite{Brezis2011}}    
+\begin{enumerate}
+    \item $x_n \rightharpoonup x$ if and only if $f(x_n)\to f(x)$ for all $f\in X^*$.
+    \item Strong convergence in $X$ implies weak convergence in $X,\sigma(X,X^*)$.
+    \item If $x_n \rightharpoonup x$, then $||x_n||$ is bounded and $||x||\leq \liminf ||x_n||$.
+    \item If $x_n\rightharpoonup x$ and $f_n\to f$ strongly in $X^*$, then $\langle f_n,x_n\rangle \to \langle f,x\rangle$.
+\end{enumerate}}\end{theorem}
+
+\subsection{Weak* topology}
+\subsubsection{The $J$ map}
+Consider for every $x$ a map $J_x \in X^{**}$ whose action on a given linear functional $f\in X^*$ is given by \begin{equation}
+    J_x(f):=\langle f,x\rangle
+\end{equation}
+The map $x\mapsto J_x$ as a map from $X\to X^{**}$ is easily seen to be linear. Moreover, if $J_x=J_y$, then we would have $\langle f,x\rangle=\langle f,y\rangle$ for all $f\in X^*$ which implies $x=y$. Therefore, $J:X\to X^{**}$ is \emph{injectlve}. Give $X^{**}$ the operator norm topology, from which we get $$||J_x||:= \sup_{f\in X^*, ||f||_{op}=1} |J_x(f)|= \sup_{f\in X^*, ||f||_{op}=1} |\langle f,x\rangle|=||x||_{X}$$ from Hahn-Banach.
+Therefore, $J$ is actually an \emph{isometry} of Normed Linear Spaces, which means we can see $X$ as an isometric subspace of $X^{**}$. We collect this result in the following theorem:
+\begin{theorem}\label{thm:X_isometry_to_X**}
+Let $X$ be a normed linear space and $J:X\to X^{**}$ be given by $J_x(f):=\langle f,x\rangle$ for all $f\in X^*$. Then $x\mapsto J_x$ is linear, continuous and an isometry of normed linear spaces.    
+\end{theorem}
+
+\defn{Weak* topology on $X^*$($\sigma(X^*,X)$)}{We define the \emph{weak*} topology on $X^*$ to be the coarsest topology on $X^*$ that makes each $J_x:X^*\to \bbK$ continuous. }
+\begin{remark}
+ This is easily seen to be \emph{weaker} than the weak topology on $X^*$, as we require less maps to be continuous.
+
+\end{remark}
+We now describe a useful basis for the weak* topology on $X^*$.
+\begin{proposition}
+    Let $X$ be a NLS. $X^*$ with the topology $\sigma(X^*,X)$ has a basis of the following form (with $x_1,x_2,\cdots,x_k \in X$, $\varepsilon>0$ and $f_0\in X^*$): $$V(x_1,x_2,\cdots,x_k;\varepsilon,f_0):=\{f\in X^*: |\langle f-f_0,x_i\rangle|<\varepsilon, \text{ with }i\in\{1,\cdots,k\}\}$$
+\end{proposition}
+
+\textbf{Notation for weak* convergence:} When a sequence $f_n\in X^*$ converges to $f$ in the \emph{weak* topology}, we denote it by: $$f_n \overset{\ast}{\rightharpoonup} f $$
+
+\begin{theorem}
+    \textbf{Characterisations of weak* convergence\cite{Brezis2011}}
+    \begin{enumerate}
+        \item $f_n\overset{\ast}{\rightharpoonup} f$ iff $\langle f_n,x\rangle\to \langle f,x\rangle$ for all $x\in X$. 
+        \item $f_n\to f$ in the operator norm implies $f_n \overset{\ast}{\rightharpoonup} f$ in $\sigma(X^*,X)$. Moreover, if $f_n \rightharpoonup f$ in $\sigma(X^*,X^{**})$, then $f\overset{\ast}{\rightharpoonup} f$ in $\sigma(X^*,X)$.
+        \item If $f_n \overset{\ast}{\rightharpoonup} f$, then $||f_n||$ is bounded and $||f||\leq \liminf ||f_n||$.
+        \item If $f_n\overset{\ast}{\rightharpoonup}f$ and $x_x\to x$ strongly, then $\langle f_n,x_n\rangle \to \langle f,x\rangle$.
+    \end{enumerate}
+\end{theorem}
 
 
-
-
-
-
-
-
+\begin{comment}
 {\color{red}
 \chapter{Manifolds}
 \section{Topological Manifolds}
@@ -1245,3 +1348,5 @@ Let $u_n$ be a sequence converging to $u$ in $E=C^k_c(\Omega)$. This means that 
   Let $\Gamma$ have the subspace topology and let $p\in \Gamma$ be some $(x_p,f(x_p))$. Define $\phi:\Gamma\to U$ by $$\phi(x,y)=x $$ This map is continuous, and has a continuous inverse $g(x)=(x,f(x))$. Hence $\phi$ is a homeomorphism and $\{(\Gamma,\phi)\}$ gives us an atlas.    
 \end{example}
 }
+
+\end{comment}
