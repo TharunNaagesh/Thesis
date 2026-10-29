@@ -1,24 +1,79 @@
 % TeX root = ../main.tex
+
+
 \chapter{Some results from Calculus on $\bbR^n$}
 \section{Results from Differentiation}
 
-\thmp{\label{Taylor}(Taylor's Theorem)}{Let $f:U\to \bbR$ be $C^1$ in a neighbourhood $U$ of $p\in \bbR^n$ that is star shaped. Then there exists $g_1,g_2,\cdots g_n$ such that $$f(x)=f(p)+\sum_{i=1}^n g_i(x)(x^i-p^i) $$ where $g_i(p)=\frac{\partial}{\partial x^i}|_{p}f $}{Let $x\in U$. Since $U$ is star shaped, we have $\gamma(t)=p+t(x-p)\in U$ for $t\in[0,1]$. Consider $\frac{d}{dt} (f\circ \gamma(t))=Df(\gamma(t))\cdot \gamma'(t)=\sum_{i=1}^n \frac{\partial}{\partial x^i}f(\gamma(t))(x^i-p^i)$. Integrate both sides to get 
-$$\int_{t=0}^{t=1}\frac{d}{dt}(f\circ \gamma(t)) dt=f(x)-f(p)=\sum_{i=1}^n (x^i-p^i) \int_{t=0}^{t=1}\frac{\partial f}{\partial x^i}(p+t(x-p))dt $$ And let $g_i(x):=\int_{t=0}^{t=1} \frac{\partial f}{\partial x^i}(p+t(x-p))dt$ whence it is easy to verify that $g_i(p)=\frac{\partial f}{\partial x^i}(p)$.
+\thmp{\label{Taylor}(Taylor's Theorem)}{Let $f:U\to \bbR$ be $C^1$ on an open set $U\ni p$ that is star shaped about $p$. Then there exist $g_1,g_2,\cdots,g_n:U\to\bbR$ such that
+$$f(x)=f(p)+\sum_{i=1}^n g_i(x)(x^i-p^i)$$
+where $g_i(p)=\frac{\partial f}{\partial x^i}(p)$. Moreover, if $f$ is $C^{\infty}$, so are the $g_i$.}{Let $x\in U$. Since $U$ is star shaped, $\gamma(t)=p+t(x-p)\in U$ for $t\in[0,1]$. By the chain rule,
+$$\frac{d}{dt}(f\circ \gamma)(t)=\sum_{i=1}^n \frac{\partial f}{\partial x^i}(\gamma(t))(x^i-p^i)$$
+Integrating both sides from $0$ to $1$ gives
+$$f(x)-f(p)=\sum_{i=1}^n (x^i-p^i)\int_0^1\frac{\partial f}{\partial x^i}(p+t(x-p))\,dt$$
+Let $g_i(x):=\int_0^1 \frac{\partial f}{\partial x^i}(p+t(x-p))\,dt$, whence it is easy to verify that $g_i(p)=\frac{\partial f}{\partial x^i}(p)$. If $f$ is $C^{\infty}$, we can differentiate under the integral sign as many times as we like, so $g_i$ is $C^{\infty}$.
 }
 
-\begin{theorem} (\textbf{Inverse Function Theorem}) Let $f:\bbR^n\to \bbR^n$ be continuously differentiable. Suppose that $\det{Df(a)}\neq 0$ for a given $a\in \bbR^n$.
-Then, there exists $U$ and $V$ open in $\bbR^n$ such that $a\in U$, $f(a)\in V$ and $f|_{U}:U\to V$ is a diffeomorphism.   
+\begin{theorem} (\textbf{Inverse Function Theorem}) Let $f:\bbR^n\to \bbR^n$ be continuously differentiable in an open set containing $a$, and suppose $\det Df(a)\neq 0$.
+Then there exist open sets $U,V\subset\bbR^n$ with $a\in U$, $f(a)\in V$ such that $f|_{U}:U\to V$ is a diffeomorphism.
 \end{theorem}
 
-\thmp{\label{Implicit function theorem}(Implicit Function Theorem)}{Let $f:\bbR^n \times \bbR^m \to \bbR^m $ be continuously differentiable in an open set of $(a,b)$ and let $f(a,b)=0$. Let $M$ be the $m \times m $ matrix $$D_{n+j}f^i(a,b) ; 1 \leq i,j\leq m $$ and suppose $\det{M}\neq 0$. Then there exists open sets $A \subset \bbR^n$, $B \subset \bbR^n$ with $a\in A, b\in B$ such that for all $x\in A$ there is a unique $g(x)\in B$ so that $f(x,g(x))=0$, and the $g$ so obtained is differentiable.}{Define $F:\bbR^n\times \bbR^m \to \bbR^n \times \bbR^m$ given by $F(x,y):=(x,f(x,y))$. This function is clearly differentiable, and moreover, $$DF=\begin{pmatrix} \frac{\partial x^1}{\partial x^1} \ \frac{\partial x^1}{\partial x^2} \ \cdots \ \frac{\partial x^1}{\partial x^n} \ \frac{\partial x^1}{\partial y^1} \ \frac{\partial x^1}{\partial y^2} \ \cdots \ \frac{\partial x^1}{\partial y^m} \\
-\frac{\partial x^2}{\partial x^1} \ \frac{\partial x^2}{\partial x^2} \ \cdots \ \frac{\partial x^2}{\partial x^n} \ \frac{\partial x^2}{\partial y^1} \ \frac{\partial x^2}{\partial y^2} \ \cdots \ \frac{\partial x^2}{\partial y^m} \\ \vdots \ \vdots \ \ddots \ \vdots \ \vdots \ \vdots \ \ddots \ \vdots \\ \frac{\partial x^n}{\partial x^1} \ \frac{\partial x^n}{\partial x^2} \ \cdots \ \frac{\partial x^n}{\partial x^n} \ \frac{\partial x^n}{\partial y^1} \ \frac{\partial x^n}{\partial y^2} \ \cdots \ \frac{\partial x^n}{\partial y^m} \\ \frac{\partial f^1}{\partial x^1} \ \frac{\partial f^1}{\partial x^2} \ \cdots \ \frac{\partial f^1}{\partial x^n} \ \frac{\partial f^1}{\partial y^1} \ \frac{\partial f^1}{\partial y^2} \ \cdots \ \frac{\partial f^1}{\partial y^m} \\ \vdots \ \vdots \ \ddots \ \vdots \ \vdots \ \vdots \ \ddots \ \vdots \\ \frac{\partial f^m}{\partial x^1}\ \frac{\partial f^m}{\partial x^2} \ \cdots  \ \frac{\partial f^m}{\partial x^n} \ \frac{\partial f^m}{\partial y^1} \ \frac{\partial f^m}{\partial y^2}\ \cdots \ \frac{\partial f^m}{\partial y^m}
-    
-\end{pmatrix}$$
-And it is easy to see that $\det{DF(a,b)}=det M\neq 0$. Therefore, from Inverse function theorem (with litte modification), there exists an open set $A \times B $ of $\bbR^n \times \bbR^m$, and an open set $W \subset \bbR^n \times \bbR^m$ such that $(a,b)\in A\times B$, $(a,0)\in W$ and $F:A \times B\to W$ is a diffeomorphism. $F^{-1}:W\to A\times B$ is also a diffeomorphism. Moreover, note that $F^{-1}(p,q)$ is of the form $(p,k(p,q))$ for some differentiable function $k:\bbR^n \times \bbR^m \to \bbR^m $. $\pi \circ F(x,y)= \pi \circ (x,f(x,y))=f(x,y)$ so $\pi \circ F\equiv f$. Look at $f \circ (p,k(p,q))=f \circ F^{-1}(p,q)=\pi(p,q)=q$ so $f \circ(p,k(p,0))=0$. Our $g(p)$ is given by $k(p,0)$, and it is differentiable as a composition of differentiable functions.
+\thmp{\label{thm:implicit}(Implicit Function Theorem)}{Let $f:\bbR^n \times \bbR^m \to \bbR^m$ be continuously differentiable in an open set containing $(a,b)$, with $f(a,b)=0$. Let $M$ be the $m \times m$ matrix $$M:=\big(D_{n+j}f^i(a,b)\big)_{1 \leq i,j\leq m}$$ and suppose $\det M\neq 0$. Then there exist open sets $A \subset \bbR^n$, $B \subset \bbR^m$ with $a\in A$, $b\in B$ such that for every $x\in A$ there is a unique $g(x)\in B$ with $f(x,g(x))=0$, and the $g$ so obtained is differentiable.}{Define $F:\bbR^n\times \bbR^m \to \bbR^n \times \bbR^m$ by $F(x,y):=(x,f(x,y))$. This is $C^1$, and
+$$DF=\begin{pmatrix} I_n & 0 \\ D_xf & D_yf \end{pmatrix}$$
+so $\det DF(a,b)=\det M\neq 0$. By the Inverse Function Theorem there is an open $A\times B\ni(a,b)$ such that $F:A\times B\to W$ is a diffeomorphism onto an open $W\ni(a,0)$ (shrink to a product neighbourhood if needed). Shrinking $A$ if necessary, we can also assume $(x,0)\in W$ for every $x\in A$.
+
+Since $F$ preserves the first coordinate, $F^{-1}(u,v)=(u,k(u,v))$ for some differentiable $k$. Look at $f\circ F^{-1}(u,v)=\pi_2(u,v)=v$ (where $\pi_2\circ F\equiv f$), so $f(x,k(x,0))=0$ for $x\in A$. Our $g$ is $g(x):=k(x,0)$, which is differentiable as a composition of differentiable functions. For uniqueness, if $f(x,y)=0=f(x,y')$ with $y,y'\in B$ then $F(x,y)=(x,0)=F(x,y')$, and injectivity of $F$ on $A\times B$ gives $y=y'$.
 }
 
-\thmp{(A corollary of \ref{Implicit function theorem}) }{Let $f:\bbR^n\to \bbR^p (p\leq n)$ be continuously differentiable in an open set containing $a\in \bbR^n$. If $f(a)=0$ and the matrix $D_j(f^i(a))_{p\times n}$ has rank $p$, then there exists an open neighbourhood $A$ of $a$ and a diffeomorphism $h:A\to h(A)\subset \bbR^n$ such that $f\circ h (x_1,x_2\cdots x_n)=(x_{n-p+1},x_{n-p+2}\cdots ,x_{n})$.}{Consider $f:\bbR^{n-p}\times \bbR^p \to \bbR^p$. Suppose that the matrix $Q=D_{n-p+i}(f^j); i,j\leq p$ be invertible ($\det{Q}\neq 0$). Let, as before, $F:\bbR^{n-p}\times \bbR^p \to \bbR^{n-p}\times \bbR^p$ given by $$F(p,q)=(p,f(p,q))$$ Since $\det{DF}\neq 0$, there exists, around $a=(a^1,a^2,\cdots,a^{n-p},a^{n-p+1},\cdots a^{n})$ a neighbourhood $A_{n-p}\times A_{p}\subset \bbR^{n-p}\times \bbR^{p}$ and a neighbourhood $W \subset \bbR^{n-p}\times \bbR^{p}$ containing $F(a)=(a_1,a_2\cdots a_{n-p},0)$ such that $F: A_{n-p}\times A_p \to W$ is invertible and whose inverse is continuously differentiable. Note that, the inverse of $F$ ought to be of the form $F^{-1}(x_1,x_2,\cdots,x_{n-p},y_{n-p+1},\cdots, y_{n})=(\vec{x},b(\vec{x},\vec{y}))$ (let $\vec x =(x_1,x_2,\cdots x_{n-p})\in \bbR^{n-p}$ and $\vec y=(y_{n-p+1},y_{n-p+2},\cdots,y_n) \in \bbR^{p}$) where it is understood that $b:\bbR^n\to \bbR^p$ is continuously differentiable. Also note that $\pi_2 \circ F\equiv f$. We have that $$f \circ F^{-1}(x_1,x_2\cdots x_{n-p},x_{n-p+1},\cdots x_n)=$$ $$\pi_2 (x_1,x_2,\cdots x_{n-p},x_{n-p+1},\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_{n})$$ 
-\textbf{Case 2}: If the indices where the matrix $\{(\partial_i f^j(a)); 1\leq j\leq p, i=i_1,i_2,\cdots i_p\}$ is not the last $p$ indices, we write the linear transformation $\operatorname{Swap}:\bbR^{n}\to \bbR^{n}$ that takes these $p$ indices to the last $p$ indices. This is a linear transformation that is invertible since it takes basis elements to basis elements. If we look then, at $f \circ \operatorname{Swap}: \bbR^{n}\to \bbR^p$, we see that this is a function of the form of Case 1, so we have a $h$ such that $f\circ \operatorname{Swap}\circ h(x_1,x_2,\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots x_n)$ which means our desired function is $\operatorname{Swap}\circ h$.  }
+\thmp{(A corollary of \ref{thm:implicit})}{Let $f:\bbR^n\to \bbR^p$ ($p\leq n$) be continuously differentiable in an open set containing $a\in \bbR^n$. If $f(a)=0$ and the $p\times n$ matrix $\big(D_jf^i(a)\big)$ has rank $p$, then there exist an open set $W\subset\bbR^n$ and a diffeomorphism $h:W\to h(W)\subset \bbR^n$ with $a\in h(W)$ such that
+$$f\circ h(x_1,x_2,\cdots,x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_n)$$}{\textbf{Case 1:} Suppose the $p\times p$ matrix $Q:=\big(D_{n-p+j}f^i(a)\big)_{1\leq i,j\leq p}$ is invertible. Write points of $\bbR^n$ as $(u,v)\in\bbR^{n-p}\times\bbR^p$ and let $F(u,v):=(u,f(u,v))$. Exactly as before $\det DF(a)=\det Q\neq 0$, so there is an open neighbourhood $A$ of $a$ such that $F:A\to W$ is a diffeomorphism onto an open $W\subset\bbR^n$. Let $h:=F^{-1}$. Since $\pi_2\circ F\equiv f$, we have $$f\circ h=\pi_2\circ F\circ F^{-1}=\pi_2$$ on $W$, which is the map $(x_1,\cdots,x_n)\mapsto(x_{n-p+1},\cdots,x_n)$. Also $a=h(F(a))\in h(W)$.
+\\\\ \textbf{Case 2:} Since the matrix has rank $p$, some $p$ columns $i_1,\cdots,i_p$ of it are linearly independent. Let $\operatorname{Swap}:\bbR^n\to\bbR^n$ be the linear map that permutes the coordinates so that these $p$ indices go to the last $p$ indices. It is invertible since it takes basis elements to basis elements. Then $f\circ\operatorname{Swap}$ is a function as in Case 1 (at the point $\operatorname{Swap}^{-1}(a)$), so there is a diffeomorphism $h$ with $f\circ\operatorname{Swap}\circ h=\pi_2$, and our desired function is $\operatorname{Swap}\circ h$.}
+
+\defn{Locally finite collection}{Let $X$ be a topological space. We say a collection of subsets $\{A_{\alpha}\}_{\alpha\in \Lambda}$ is \emph{locally finite} if for every $x\in X$, there exists a neighbourhood $V_x$ such that $V_x \cap A_{\alpha}=\varnothing$ for all but finitely many $\alpha\in \Lambda$. }
+
+\begin{theorem}\textbf{(Partition of unity in $\mathbf{\bbR^n}$)\label{thm:partition of unity}}
+\cite{Spivak1965} Let $A\subset \bbR^n$ and $\mathscr O$ be an open cover of $A$. Then there exists a collection $\Phi$ of $C^{\infty}$ functions $\phi$ (defined on an open set containing $A$) such that: 
+\begin{enumerate}
+    \item For each $x\in A$, we have $0\leq\varphi(x)\leq1$.
+
+    \item For each $x\in A$, there is an open set $V$ containing $x$
+    such that all but finitely many $\varphi\in\Phi$ vanish on $V$.
+
+    \item For each $x\in A$,
+    \[
+    \sum_{\varphi\in\Phi}\varphi(x)=1.
+    \]
+
+    \item For each $\varphi\in\Phi$, there is an open set
+    $U\in\mathscr O$ such that $\varphi$ vanishes outside some
+    closed set contained in $U$.
+\end{enumerate}
+\end{theorem}
+
+%%THIS IS THE BEGINNING OF MY OWN WRITING, REPLACED BY CLEANER CODE ABOVE%%
+
+% \chapter{Some results from Calculus on $\bbR^n$}
+% \section{Results from Differentiation}
+
+% \thmp{\label{Taylor}(Taylor's Theorem)}{Let $f:U\to \bbR$ be $C^1$ in a neighbourhood $U$ of $p\in \bbR^n$ that is star shaped. Then there exists $g_1,g_2,\cdots g_n$ such that $$f(x)=f(p)+\sum_{i=1}^n g_i(x)(x^i-p^i) $$ where $g_i(p)=\frac{\partial}{\partial x^i}|_{p}f $}{Let $x\in U$. Since $U$ is star shaped, we have $\gamma(t)=p+t(x-p)\in U$ for $t\in[0,1]$. Consider $\frac{d}{dt} (f\circ \gamma(t))=Df(\gamma(t))\cdot \gamma'(t)=\sum_{i=1}^n \frac{\partial}{\partial x^i}f(\gamma(t))(x^i-p^i)$. Integrate both sides to get 
+% $$\int_{t=0}^{t=1}\frac{d}{dt}(f\circ \gamma(t)) dt=f(x)-f(p)=\sum_{i=1}^n (x^i-p^i) \int_{t=0}^{t=1}\frac{\partial f}{\partial x^i}(p+t(x-p))dt $$ And let $g_i(x):=\int_{t=0}^{t=1} \frac{\partial f}{\partial x^i}(p+t(x-p))dt$ whence it is easy to verify that $g_i(p)=\frac{\partial f}{\partial x^i}(p)$.
+% }
+
+% \begin{theorem} (\textbf{Inverse Function Theorem}) Let $f:\bbR^n\to \bbR^n$ be continuously differentiable. Suppose that $\det{Df(a)}\neq 0$ for a given $a\in \bbR^n$.
+% Then, there exists $U$ and $V$ open in $\bbR^n$ such that $a\in U$, $f(a)\in V$ and $f|_{U}:U\to V$ is a diffeomorphism.   
+% \end{theorem}
+
+% \thmp{\label{Implicit function theorem}(Implicit Function Theorem)}{Let $f:\bbR^n \times \bbR^m \to \bbR^m $ be continuously differentiable in an open set of $(a,b)$ and let $f(a,b)=0$. Let $M$ be the $m \times m $ matrix $$D_{n+j}f^i(a,b) ; 1 \leq i,j\leq m $$ and suppose $\det{M}\neq 0$. Then there exists open sets $A \subset \bbR^n$, $B \subset \bbR^n$ with $a\in A, b\in B$ such that for all $x\in A$ there is a unique $g(x)\in B$ so that $f(x,g(x))=0$, and the $g$ so obtained is differentiable.}{Define $F:\bbR^n\times \bbR^m \to \bbR^n \times \bbR^m$ given by $F(x,y):=(x,f(x,y))$. This function is clearly differentiable, and moreover, $$DF=\begin{pmatrix} \frac{\partial x^1}{\partial x^1} \ \frac{\partial x^1}{\partial x^2} \ \cdots \ \frac{\partial x^1}{\partial x^n} \ \frac{\partial x^1}{\partial y^1} \ \frac{\partial x^1}{\partial y^2} \ \cdots \ \frac{\partial x^1}{\partial y^m} \\
+% \frac{\partial x^2}{\partial x^1} \ \frac{\partial x^2}{\partial x^2} \ \cdots \ \frac{\partial x^2}{\partial x^n} \ \frac{\partial x^2}{\partial y^1} \ \frac{\partial x^2}{\partial y^2} \ \cdots \ \frac{\partial x^2}{\partial y^m} \\ \vdots \ \vdots \ \ddots \ \vdots \ \vdots \ \vdots \ \ddots \ \vdots \\ \frac{\partial x^n}{\partial x^1} \ \frac{\partial x^n}{\partial x^2} \ \cdots \ \frac{\partial x^n}{\partial x^n} \ \frac{\partial x^n}{\partial y^1} \ \frac{\partial x^n}{\partial y^2} \ \cdots \ \frac{\partial x^n}{\partial y^m} \\ \frac{\partial f^1}{\partial x^1} \ \frac{\partial f^1}{\partial x^2} \ \cdots \ \frac{\partial f^1}{\partial x^n} \ \frac{\partial f^1}{\partial y^1} \ \frac{\partial f^1}{\partial y^2} \ \cdots \ \frac{\partial f^1}{\partial y^m} \\ \vdots \ \vdots \ \ddots \ \vdots \ \vdots \ \vdots \ \ddots \ \vdots \\ \frac{\partial f^m}{\partial x^1}\ \frac{\partial f^m}{\partial x^2} \ \cdots  \ \frac{\partial f^m}{\partial x^n} \ \frac{\partial f^m}{\partial y^1} \ \frac{\partial f^m}{\partial y^2}\ \cdots \ \frac{\partial f^m}{\partial y^m}
+    
+% \end{pmatrix}$$
+% And it is easy to see that $\det{DF(a,b)}=det M\neq 0$. Therefore, from Inverse function theorem (with litte modification), there exists an open set $A \times B $ of $\bbR^n \times \bbR^m$, and an open set $W \subset \bbR^n \times \bbR^m$ such that $(a,b)\in A\times B$, $(a,0)\in W$ and $F:A \times B\to W$ is a diffeomorphism. $F^{-1}:W\to A\times B$ is also a diffeomorphism. Moreover, note that $F^{-1}(p,q)$ is of the form $(p,k(p,q))$ for some differentiable function $k:\bbR^n \times \bbR^m \to \bbR^m $. $\pi \circ F(x,y)= \pi \circ (x,f(x,y))=f(x,y)$ so $\pi \circ F\equiv f$. Look at $f \circ (p,k(p,q))=f \circ F^{-1}(p,q)=\pi(p,q)=q$ so $f \circ(p,k(p,0))=0$. Our $g(p)$ is given by $k(p,0)$, and it is differentiable as a composition of differentiable functions.
+% }
+
+% \thmp{(A corollary of \ref{Implicit function theorem}) }{Let $f:\bbR^n\to \bbR^p (p\leq n)$ be continuously differentiable in an open set containing $a\in \bbR^n$. If $f(a)=0$ and the matrix $D_j(f^i(a))_{p\times n}$ has rank $p$, then there exists an open neighbourhood $A$ of $a$ and a diffeomorphism $h:A\to h(A)\subset \bbR^n$ such that $f\circ h (x_1,x_2\cdots x_n)=(x_{n-p+1},x_{n-p+2}\cdots ,x_{n})$.}{Consider $f:\bbR^{n-p}\times \bbR^p \to \bbR^p$. Suppose that the matrix $Q=D_{n-p+i}(f^j); i,j\leq p$ be invertible ($\det{Q}\neq 0$). Let, as before, $F:\bbR^{n-p}\times \bbR^p \to \bbR^{n-p}\times \bbR^p$ given by $$F(p,q)=(p,f(p,q))$$ Since $\det{DF}\neq 0$, there exists, around $a=(a^1,a^2,\cdots,a^{n-p},a^{n-p+1},\cdots a^{n})$ a neighbourhood $A_{n-p}\times A_{p}\subset \bbR^{n-p}\times \bbR^{p}$ and a neighbourhood $W \subset \bbR^{n-p}\times \bbR^{p}$ containing $F(a)=(a_1,a_2\cdots a_{n-p},0)$ such that $F: A_{n-p}\times A_p \to W$ is invertible and whose inverse is continuously differentiable. Note that, the inverse of $F$ ought to be of the form $F^{-1}(x_1,x_2,\cdots,x_{n-p},y_{n-p+1},\cdots, y_{n})=(\vec{x},b(\vec{x},\vec{y}))$ (let $\vec x =(x_1,x_2,\cdots x_{n-p})\in \bbR^{n-p}$ and $\vec y=(y_{n-p+1},y_{n-p+2},\cdots,y_n) \in \bbR^{p}$) where it is understood that $b:\bbR^n\to \bbR^p$ is continuously differentiable. Also note that $\pi_2 \circ F\equiv f$. We have that $$f \circ F^{-1}(x_1,x_2\cdots x_{n-p},x_{n-p+1},\cdots x_n)=$$ $$\pi_2 (x_1,x_2,\cdots x_{n-p},x_{n-p+1},\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_{n})$$ 
+% \textbf{Case 2}: If the indices where the matrix $\{(\partial_i f^j(a)); 1\leq j\leq p, i=i_1,i_2,\cdots i_p\}$ is not the last $p$ indices, we write the linear transformation $\operatorname{Swap}:\bbR^{n}\to \bbR^{n}$ that takes these $p$ indices to the last $p$ indices. This is a linear transformation that is invertible since it takes basis elements to basis elements. If we look then, at $f \circ \operatorname{Swap}: \bbR^{n}\to \bbR^p$, we see that this is a function of the form of Case 1, so we have a $h$ such that $f\circ \operatorname{Swap}\circ h(x_1,x_2,\cdots x_n)=(x_{n-p+1},x_{n-p+2},\cdots x_n)$ which means our desired function is $\operatorname{Swap}\circ h$.  }
+
+%%THIS IS THE END OF MY OWN WRITING, REPLACED BY CLEANER CODE%%
+
 
 %%%BIGGGGGGG COMMENTTTTTTINGGGGGGGG
 \begin{comment}
@@ -127,7 +182,7 @@ Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon
 
 
 
-\chapter{Differential Forms}
+\chapter{Differential Forms Prerequisites}
 
 \section{Exterior Algebra: Definitions and Results}
 
@@ -136,7 +191,7 @@ Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon
     Let $e_1,e_2,\cdots,e_n$ be a basis for $V$. Then the vectors $\xi^1,\xi^2,\cdots,\xi^n \in \Lambda^1(V)$ defined by $\xi^i(e_j)=\delta_{ij}$ forms a basis for $\Lambda^1(V)$.
 \end{lemma}
 
-\defn{Multilinear Maps (Tensors)}{$$f:\underbrace{V \times V \times \cdots \times V}_{k \text{ copies}} \to \bbR$$ is a \emph{k-tensor} if it is linear in each coordinate.
+\defn{Multilinear Maps (Tensors)}{$$f:\underbrace{V \times V \times \cdots \times V}_{k \text{ copies}} \to \bbR$$ is a \emph{k-tensor} if it is linear in each coordinate. More precisely, maps from $\underbrace{V\times V\times \cdots \times V}_{k \text{ copies}}$ into $\bbR$ are called a \emph{covariant} tensor.
 \\\\ \textbf{Note:} The space of all tensors forms a vector space.}
 \begin{lemma}\label{basis for tensors}
     For the space of all $k-$tensors from $V$, $\{dx^{i_1}\otimes dx^{i_2} \otimes \cdots \otimes dx^{i_k}: (i_1,i_2,\cdots,i_k)\in \{1,2,\cdots,n\}^k \}$ forms a basis (Here we have adopted the notational choice of writing $dx^i$ in place $\xi^i$).
@@ -257,7 +312,7 @@ We now note that each choice of $1\leq j_1,j_2,\cdots,j_k\leq n$ tuple is some $
 \lemp{}{Let $\beta^i\in \Lambda^1(V)$ for $1\leq i\leq k$ and let $\gamma^i\in \Lambda^1(V)$ and if $$\beta^i=\sum_{j=1}^k \alpha^i_j \gamma^j$$ then $$\beta^1\wedge \beta^2\wedge \cdots \wedge \beta^k=\det(\alpha^i_j) \gamma^1\wedge \gamma^2 \wedge \cdots \gamma^k$$ }{$$\beta^1\wedge \cdots \wedge \beta^k=\sum_{j_1=1}^k\sum_{j_2=1}^k \cdots \sum_{j_k=1}^k (\alpha^1_{j_1}\alpha^2_{j_2}\cdots \alpha^k_{j_k}) (\gamma^{j_1}\wedge \gamma^{j_2}\wedge \cdots \wedge \gamma^{j_k})$$
 $$=\sum_{\substack{1\leq j_1<\cdots<j_k\leq k\\ j_r \text{ distinct} }} (\alpha^1_{j_1}\alpha^2_{j_2}\cdots \alpha^k_{j_k}) \gamma^{j_1}\wedge \gamma^{j_2}\cdots \wedge \gamma^{j_k} $$ $$=\sum_{1\leq j_1<\cdots<j_k\leq k} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \alpha^1_{j_1} \cdots \alpha^{k}_{j_k} \gamma^1\wedge \gamma^2 \cdots \gamma^k $$ $$=\det(\alpha^i_j) \gamma^1\wedge \gamma^2 \wedge \cdots \wedge \gamma^k $$}
 
-\lemp{}{Let $f\in \Lambda^k(V)$ and let $u_1,u_2,\cdots,u_k $ and $v_1,v_2,\cdots,v_k \in V$ be related by $$ u_i=\sum_{j=1}^n a^i_j v_j $$ Then $$f(u_1,u_2,\cdots,u_k) =\det(a^i_j) f(v_1,v_2,\cdots,v_k) $$ }{$ f(\sum_{j_1=1}^n a^1_{j_1}v_{j_1}, \sum_{j_2=1}^k a^2_{j_2}v_{j_k},\cdots, \sum_{j_k=1}^n a^k_{j_k} v_j )$ $$=\sum_{\substack{ j_1,j_2,\cdots,j_k \\ each distinct}} a^1_{j_1}a^2_{j_2}\cdots a^k_{j_k} f(v_{j_1},v_{j_2},\cdots, v_{j_k})  $$ $$=\sum_{\substack{1\leq j_1<j_2<\cdots<j_k\leq k\\ each distinct}} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) a^1_{\sigma(1)}a^2(\sigma(2))\cdots a^k_{\sigma(k)} f(v_1,v_2,\cdots,v_k)=$$ $$\det(a^i_j) f(v_1,v_2,\cdots, v_k) $$}
+\lemp{}{Let $f\in \Lambda^k(V)$ and let $u_1,u_2,\cdots,u_k $ and $v_1,v_2,\cdots,v_k \in V$ be related by $$ u_i=\sum_{j=1}^n a^i_j v_j $$ Then $$f(u_1,u_2,\cdots,u_k) =\det(a^i_j) f(v_1,v_2,\cdots,v_k) $$ }{$ f(\sum_{j_1=1}^n a^1_{j_1}v_{j_1}, \sum_{j_2=1}^k a^2_{j_2}v_{j_k},\cdots, \sum_{j_k=1}^n a^k_{j_k} v_j )$ $$=\sum_{\substack{ j_1,j_2,\cdots,j_k \\ \text{each distinct}}} a^1_{j_1}a^2_{j_2}\cdots a^k_{j_k} f(v_{j_1},v_{j_2},\cdots, v_{j_k})  $$ $$=\sum_{\substack{1\leq j_1<j_2<\cdots<j_k\leq k\\ \text{each distinct}}} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) a^1_{\sigma(1)}a^2(\sigma(2))\cdots a^k_{\sigma(k)} f(v_1,v_2,\cdots,v_k)=$$ $$\det(a^i_j) f(v_1,v_2,\cdots, v_k) $$}
 
 \textbf{Notation:} Let $\mathscr T_k$ denote the set \begin{equation}\label{index_notation}\mathscr{T}_k:=\{I\equiv (i_1,i_2,\cdots,i_k): 1\leq i_1<i_2<\cdots<i_k\leq n\} \end{equation} Suppose that $E_1,E_2,\cdots, E_n $ are the basis for $V$, and $\xi^1,\xi^2,\cdots,\xi^n$ be the dual basis for $\Lambda^1(V)$. Then, for $I=(i_1,i_2,\cdots,i_k)$ we have the notation \begin{equation} \xi^I:= \xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}\end{equation} and hence for any $k-$form $f:V\times V\times \cdots \times V\to \bbR$ we have the notation for the expansion \begin{equation}f:=\sum_{I\in \mathscr{T}_k} f^I \xi^I \end{equation}  
 
@@ -484,7 +539,7 @@ We start with the observation that $\{dx^I: I \in \mathscr T_k\}$ not only forms
 This is a natural consequence of the definition $\langle f,g\rangle=\sum_{I\in \mathscr T_k} f^Ig^I$. In the case of a Riemannian manifold with a given $g_p:T_pM\times T_pM\to \bbR$, there is a natural choice for $\langle f,g\rangle_g$ given by   \begin{equation}
     \langle f,g\rangle_g:=\sum_{I,J\in \mathscr T_k} f^I g^J \det(g^{i_a,j_b}_p)
 \end{equation} 
-where $\{g^{pq}\}$ is the inverse of the matrix $\{g_{pq}\}$. We work predominantly in $\bbR^n$ with $g_{ij}=\delta_{ij}$ unless stated otherwise. The wedge product $$\wedge: \Lambda^k(V) \times \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is bilinear. Suppose we have a fixed $k$ form $\alpha \in \Lambda^k(V)$, then $$\alpha \wedge (): \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is a linear map that \emph{raises} the degree of the form.
+where $\{g^{pq}\}$ is the inverse of the matrix $\{g_{pq}\}$. Note, however, that in such a case, $\{dx^I:I\in \mathscr T_k\}$ need \emph{not be} \textbf{\emph{orthonormal}}. We work predominantly in $\bbR^n$ with $g_{ij}=\delta_{ij}$ unless stated otherwise. The wedge product $$\wedge: \Lambda^k(V) \times \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is bilinear. Suppose we have a fixed $k$ form $\alpha \in \Lambda^k(V)$, then $$\alpha \wedge (): \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is a linear map that \emph{raises} the degree of the form.
 For a $k-$form $\alpha$, we have the natural dual from the inner product given by: $$\langle (\alpha \wedge) \omega, \beta\rangle = \langle \omega, (\alpha \lrcorner) \beta \rangle $$
 where $\alpha \in \Lambda^k(V)$, $\omega\in \Lambda^{l-k}(V)$ and $\beta \in \Lambda^l$. From this definition it is clear that $$\alpha \lrcorner: \Lambda^{l}(V)\to \Lambda^{l-k}(V)$$
 \begin{corollary}\label{contraction_formula_basis}
@@ -494,7 +549,7 @@ where $\alpha \in \Lambda^k(V)$, $\omega\in \Lambda^{l-k}(V)$ and $\beta \in \La
 On \emph{basis elements}, we have for $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $dx^w \in \Lambda^{l-k}(V)$ $$\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I \lrcorner dx^J\rangle $$ 
 
 
-\propp{\label{prop:inner_product_formula_for_euclidean}For $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $l>k$, we have $$dx^I \lrcorner dx^J=\begin{cases} \operatorname{sign}(R(I,J/I)) dx^{J/I} \ \text{if } I\subseteq J \\ 0  \phantom{--------;;}\text{if } I\not\subseteq J\end{cases} $$ where $J/I$ denotes the ordered set of indices that are in $J$ but not in $I$ and $R(I,J/I)$ denotes the permutation that reorders the tuple $(I,J/I)$.}{\textbf{When }$\mathbf{I\not\subseteq J}$, we have some index of $dx^I$ not be in $dx^J$. Therefore, no matter our choice of $dx^w$, we must have that $$\langle dx^I \wedge dx^w,dx^J\rangle=0=\langle dx^w,dx^I \lrcorner dx^J\rangle $$ which means that $dx^I \lrcorner dx^J=0$. 
+\propp{\label{prop:inner_product_formula_for_euclidean}For $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $l>k$, we have $$dx^I \lrcorner dx^J=\begin{cases} \operatorname{sign}(R(I,J/I)) dx^{J/I} & \text{if } I\subseteq J \\ 0  &\text{if } I\not\subseteq J\end{cases} $$ where $J/I$ denotes the ordered set of indices that are in $J$ but not in $I$ and $R(I,J/I)$ denotes the permutation that reorders the tuple $(I,J/I)$.}{\textbf{When }$\mathbf{I\not\subseteq J}$, we have some index of $dx^I$ not be in $dx^J$. Therefore, no matter our choice of $dx^w$, we must have that $$\langle dx^I \wedge dx^w,dx^J\rangle=0=\langle dx^w,dx^I \lrcorner dx^J\rangle $$ which means that $dx^I \lrcorner dx^J=0$. 
 \\\\ \textbf{When }$\mathbf{I\subseteq J}$, If $dx^w$ does not contain all the complementary elements of $J/I$, we must have that $\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I\lrcorner dx^J \rangle=0$. This means that $dx^I\lrcorner dx^J$ contains indices exclusively from $J/I$ (upto reordering). Let $dx^I \lrcorner dx^J=\lambda dx^{J/I}$. Choose $dx^w=dx^{J/I}$.  Note in that case that $dx^I \wedge dx^w=\operatorname{sgn}(R(I,J/I))dx^{J}$ where $R(I,J/I)$ is the permutation that rearranges $(I,J/I)$ to the canonically ordered tuple $J$.
 
 We therefore have  $$\langle dx^I \wedge dx^w, dx^J\rangle =\operatorname{sgn}(R(I,J/I))\langle dx^J, dx^J\rangle=\operatorname{sgn}(R(I,J/I)) $$
@@ -588,33 +643,232 @@ For a given $j \in \{1,\cdots,n\}$, $dx^j \lrcorner dx^I\neq 0$ only for those $
 
 
 
-\thmp{}{\label{identity_on_interior_of_wedge}Let $X$ be a vector field, $\omega \in \Omega\Lambda^k$ and $\eta \in \Omega\Lambda^l$. We then have \begin{equation}\imath_X(\omega\wedge \eta)=\imath_X(\omega)\wedge \eta+(-1)^k \omega \wedge \imath_X(\eta)\end{equation}
-This tells us that $\imath_X: \oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to \oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is a rank $-1$ antiderivation. }{Let $X_{(p)}=\sum_{q=1}^n a^q(p)\frac{\partial}{\partial x^q}\big{|}_p$, $\omega=\sum_{I\in \mathscr T_k} \omega^I dx^I$ and $\eta=\sum_{J\in \mathscr T_l}\eta^J dx^J$.
+% \thmp{}{\label{identity_on_interior_of_wedge}Let $X$ be a vector field, $\omega \in \Omega\Lambda^k$ and $\eta \in \Omega\Lambda^l$. We then have \begin{equation}\imath_X(\omega\wedge \eta)=\imath_X(\omega)\wedge \eta+(-1)^k \omega \wedge \imath_X(\eta)\end{equation}
+% This tells us that $\imath_X: \oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to \oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is a rank $-1$ antiderivation. }{
+    
+% Let $X_{(p)}=\sum_{q=1}^n a^q(p)\frac{\partial}{\partial x^q}\big{|}_p$, $\omega=\sum_{I\in \mathscr T_k} \omega^I dx^I$ and $\eta=\sum_{J\in \mathscr T_l}\eta^J dx^J$.
 
-$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I \eta^J dx^I \wedge dx^J) $ which gives $$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \imath_{\partial_{x^{q}}}(dx^I \wedge dx^J)  $$
-If we suppose that the identity holds on basis elements i.e. $X=\partial_{x^q}$ $\omega=dx^I $ and $\eta=dx^J$, we then have
-$$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \Big{(}\imath_{\partial_{x^{q}}}(dx^I) \wedge dx^J +(-1)^k dx^I \imath_{\partial_{x^{q}}}(dx^J) \Big{)}  $$
-Which gives the result. Hence we need only to prove the identity for $X=\partial_{x^q}$, $\omega=dx^I$ and $\eta=dx^J$.
-\\\\ \textbf{Case 1:} $\mathbf{q \in I}\textbf{ and }\mathbf{I\cap J=\varnothing} $
-\\Suppose that $q=i_r \in I$. We have $i_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $$D=\begin{bmatrix}
-    dx^{i_1}(\partial_{x^q}) & dx^{i_1}(x_1) & \cdots & dx^{i_1}(x_{k+l-1}) \\
-    dx^{i_2}(\partial_{x^q}) & dx^{i_2}(x_1) &\cdots & dx^{i_2}(x_{k+l-1})\\
-    \vdots & \vdots & \ddots & \vdots \\
-    dx^{i_r}(\partial_{x^q}) & dx^{i_r}(x_1)& \cdots & dx^{i_r}(x_{k+l-1})\\
-    \vdots & \vdots & \ddots &\vdots \\
-    dx^{j_1}(\partial_{x^q}) & dx^{j_1}(x_1)&\cdots & dx^{j_1}(x_{k+l-1}) \\
-    \vdots &\vdots &\ddots&\vdots \\
-    dx^{j_l}(\partial_{x^q})& dx^{j_l}(x_1)& \cdots & dx^{j_l}(x_{k+l-1}) 
-\end{bmatrix}$$ which evaluates to (from Laplace's Formula) $$(-1)^{r-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \widehat{dx^{i_r}} \wedge \cdots \wedge dx^{i_k} \wedge dx^{j_1} \wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})= \imath_{\partial_{x^q}}(dx^I) \wedge dx^J$$
-If $J\cap I=\varnothing$ and $q=i_r \in I$, note that $dx^I \wedge i_{\partial_{x^q}}(dx^J)= dx^I \wedge (dx^q \lrcorner (dx^J))=0$ since $q$ is not in $J$ (see Formula \ref{contraction_formula_basis}). Therefore, we have the identity in this case.
-\\\\ \textbf{Case 2:} $\mathbf{q\in J}\textbf{ and }\mathbf{I\cap J=\varnothing}$
-\\ Let $q=j_s$ for some $j_s \in J$. We have $\imath_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $D$ is as in case $1$, but note that the only non zero element in the first column occurs in the $k+s$ row. The Laplace expansion thus reads $$(-1)^{k+s-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge dx^{j_2}\cdots \wedge \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})=(-1)^k dx^I \wedge \imath_{\partial_{x^q}}(dx^J) $$ 
-If $I \cap J=\varnothing$ and $q=j_s$ for some $j_s\in J$ then note that $\imath_{\partial_{x^q}}(dx^I)\wedge dx^J=(dx^q \lrcorner dx^I)\wedge dx^J=0 $ and likewise we have the identity. 
-\\\\ Note that in both case $1$ and case $2$ we only used the following fact: $q \in I $ (or $J$) and $q \not \in J$ (or $\not \in I$).
-\\\\ \textbf{Case 3:}
-$\mathbf{I\cap J\neq\varnothing}$ \textbf{ and }$\mathbf{q=i_r=j_s}$ 
-\\Note that the left hand side $\imath_{\partial_{x^q}}(dx^I\wedge dx^J)=0$. The first expression on the right hand side reads $\imath_{\partial_{x^q}}(dx^I) \wedge dx^J=(dx^q\lrcorner dx^I)\wedge dx^J$ and the second expression reads $(-1)^k dx^I \wedge (dx^q\lrcorner dx^J) $. Note that in case $3$, the matrix $D$ we get has two occurences of $1$ (and the rest $0$) in the first column: In the $r-$th and $(k+s)-$th rows. Laplace's expansion gives us the determinant of $D$ to be $$(-1)^{r-1}dx^{i_1}\wedge \cdots \wedge \widehat{dx^{i_r}}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ $$+ (-1)^{k+s-1}dx^{i_1}\wedge dx^{i_2}\wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ which is precisely $$\imath_{\partial_{x^q}}(dx^I)\wedge dx^J +(-1)^k dx^I \wedge (\imath_{\partial_{x^q}}dx^J ) $$ 
-Since the identity is true on basis, it is true in the general case through multilinearity. 
+% $\imath_X(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I \eta^J dx^I \wedge dx^J) $ which gives $$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \imath_{\partial_{x^{q}}}(dx^I \wedge dx^J)  $$
+% If we suppose that the identity holds on basis elements i.e. $X=\partial_{x^q}$ $\omega=dx^I $ and $\eta=dx^J$, we then have
+% $$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \Big{(}\imath_{\partial_{x^{q}}}(dx^I) \wedge dx^J +(-1)^k dx^I \imath_{\partial_{x^{q}}}(dx^J) \Big{)}  $$
+% Which gives the result. Hence we need only to prove the identity for $X=\partial_{x^q}$, $\omega=dx^I$ and $\eta=dx^J$.
+% \\\\ \textbf{Case 1:} $\mathbf{q \in I}\textbf{ and }\mathbf{I\cap J=\varnothing} $
+% \\Suppose that $q=i_r \in I$. We have $i_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $$D=\begin{bmatrix}
+%     dx^{i_1}(\partial_{x^q}) & dx^{i_1}(x_1) & \cdots & dx^{i_1}(x_{k+l-1}) \\
+%     dx^{i_2}(\partial_{x^q}) & dx^{i_2}(x_1) &\cdots & dx^{i_2}(x_{k+l-1})\\
+%     \vdots & \vdots & \ddots & \vdots \\
+%     dx^{i_r}(\partial_{x^q}) & dx^{i_r}(x_1)& \cdots & dx^{i_r}(x_{k+l-1})\\
+%     \vdots & \vdots & \ddots &\vdots \\
+%     dx^{j_1}(\partial_{x^q}) & dx^{j_1}(x_1)&\cdots & dx^{j_1}(x_{k+l-1}) \\
+%     \vdots &\vdots &\ddots&\vdots \\
+%     dx^{j_l}(\partial_{x^q})& dx^{j_l}(x_1)& \cdots & dx^{j_l}(x_{k+l-1}) 
+% \end{bmatrix}$$ which evaluates to (from Laplace's Formula) $$(-1)^{r-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \widehat{dx^{i_r}} \wedge \cdots \wedge dx^{i_k} \wedge dx^{j_1} \wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})= \imath_{\partial_{x^q}}(dx^I) \wedge dx^J$$
+% If $J\cap I=\varnothing$ and $q=i_r \in I$, note that $dx^I \wedge i_{\partial_{x^q}}(dx^J)= dx^I \wedge (dx^q \lrcorner (dx^J))=0$ since $q$ is not in $J$ (see Formula \ref{contraction_formula_basis}). Therefore, we have the identity in this case.
+% \\\\ \textbf{Case 2:} $\mathbf{q\in J}\textbf{ and }\mathbf{I\cap J=\varnothing}$
+% \\ Let $q=j_s$ for some $j_s \in J$. We have $\imath_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $D$ is as in case $1$, but note that the only non zero element in the first column occurs in the $k+s$ row. The Laplace expansion thus reads $$(-1)^{k+s-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge dx^{j_2}\cdots \wedge \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})=(-1)^k dx^I \wedge \imath_{\partial_{x^q}}(dx^J) $$ 
+% If $I \cap J=\varnothing$ and $q=j_s$ for some $j_s\in J$ then note that $\imath_{\partial_{x^q}}(dx^I)\wedge dx^J=(dx^q \lrcorner dx^I)\wedge dx^J=0 $ and likewise we have the identity. 
+% \\\\ Note that in both case $1$ and case $2$ we only used the following fact: $q \in I $ (or $J$) and $q \not \in J$ (or $\not \in I$).
+% \\\\ \textbf{Case 3:}
+% $\mathbf{I\cap J\neq\varnothing}$ \textbf{ and }$\mathbf{q=i_r=j_s}$ 
+% \\Note that the left hand side $\imath_{\partial_{x^q}}(dx^I\wedge dx^J)=0$. The first expression on the right hand side reads $\imath_{\partial_{x^q}}(dx^I) \wedge dx^J=(dx^q\lrcorner dx^I)\wedge dx^J$ and the second expression reads $(-1)^k dx^I \wedge (dx^q\lrcorner dx^J) $. Note that in case $3$, the matrix $D$ we get has two occurences of $1$ (and the rest $0$) in the first column: In the $r-$th and $(k+s)-$th rows. Laplace's expansion gives us the determinant of $D$ to be $$(-1)^{r-1}dx^{i_1}\wedge \cdots \wedge \widehat{dx^{i_r}}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ $$+ (-1)^{k+s-1}dx^{i_1}\wedge dx^{i_2}\wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ which is precisely $$\imath_{\partial_{x^q}}(dx^I)\wedge dx^J +(-1)^k dx^I \wedge (\imath_{\partial_{x^q}}dx^J ) $$ 
+% Since the identity is true on basis, it is true in the general case through multilinearity. 
+% }
+
+\thmp{}{
+\label{identity_on_interior_of_wedge}
+Let $X$ be a vector field, $\omega \in \Omega\Lambda^k$ and
+$\eta \in \Omega\Lambda^l$. We then have
+\begin{equation}
+    \imath_X(\omega\wedge\eta)
+    =
+    \imath_X(\omega)\wedge\eta
+    +
+    (-1)^k\omega\wedge\imath_X(\eta).
+\end{equation}
+This tells us that
+\[
+\imath_X:
+\bigoplus_{k=0}^{\infty}\Omega(\Lambda^k)
+\to
+\bigoplus_{k=0}^{\infty}\Omega(\Lambda^k)
+\]
+is a rank $-1$ antiderivation.
+}{
+Let
+\[
+X_{(p)}
+=
+\sum_{q=1}^n a^q(p)
+\frac{\partial}{\partial x^q}\Big|_p,
+\qquad
+\omega
+=
+\sum_{I\in\mathscr T_k}\omega^I\,dx^I,
+\qquad
+\eta
+=
+\sum_{J\in\mathscr T_l}\eta^J\,dx^J.
+\]
+
+By linearity,
+\[
+\begin{aligned}
+\imath_X(\omega\wedge\eta)
+&=
+\sum_{q=1}^n
+\sum_{I\in\mathscr T_k}
+\sum_{J\in\mathscr T_l}
+a^q\omega^I\eta^J
+\imath_{\partial_{x^q}}
+(dx^I\wedge dx^J).
+\end{aligned}
+\]
+
+Thus, it suffices to prove the identity for basis elements, i.e.
+\[
+X=\partial_{x^q},
+\qquad
+\omega=dx^I,
+\qquad
+\eta=dx^J.
+\]
+
+\medskip
+\noindent
+\textbf{Case 1:} $\mathbf{q\in I}$ and $\mathbf{I\cap J=\varnothing}$.
+
+Suppose that $q=i_r\in I$. By the contraction formula on basis forms,
+\[
+\imath_{\partial_{x^q}}(dx^I)
+=
+(-1)^{r-1}
+dx^{i_1}\wedge\cdots\wedge
+\widehat{dx^{i_r}}\wedge\cdots\wedge dx^{i_k}.
+\]
+
+Since $q\notin J$,
+\[
+\imath_{\partial_{x^q}}(dx^J)=0.
+\]
+On the other hand, applying the contraction formula to
+$dx^I\wedge dx^J$ gives
+\[
+\begin{aligned}
+\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
+&=
+(-1)^{r-1}
+dx^{i_1}\wedge\cdots\wedge
+\widehat{dx^{i_r}}\wedge\cdots\wedge
+dx^{i_k}\wedge dx^{j_1}\wedge\cdots\wedge dx^{j_l}
+\\
+&=
+\imath_{\partial_{x^q}}(dx^I)\wedge dx^J.
+\end{aligned}
+\]
+Therefore,
+\[
+\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
+=
+\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
++
+(-1)^k dx^I\wedge
+\imath_{\partial_{x^q}}(dx^J).
+\]
+
+\medskip
+\noindent
+\textbf{Case 2:} $\mathbf{q\in J}$ and $\mathbf{I\cap J=\varnothing}$.
+
+Let $q=j_s$ for some $j_s\in J$. Then
+\[
+\imath_{\partial_{x^q}}(dx^I)=0,
+\]
+while
+\[
+\imath_{\partial_{x^q}}(dx^J)
+=
+(-1)^{s-1}
+dx^{j_1}\wedge\cdots\wedge
+\widehat{dx^{j_s}}\wedge\cdots\wedge dx^{j_l}.
+\]
+
+Applying the contraction formula to $dx^I\wedge dx^J$ gives
+\[
+\begin{aligned}
+\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
+&=
+(-1)^{k+s-1}
+dx^{i_1}\wedge\cdots\wedge dx^{i_k}
+\wedge
+dx^{j_1}\wedge\cdots\wedge
+\widehat{dx^{j_s}}\wedge\cdots\wedge dx^{j_l}
+\\
+&=
+(-1)^k dx^I\wedge
+\imath_{\partial_{x^q}}(dx^J).
+\end{aligned}
+\]
+Hence,
+\[
+\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
+=
+\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
++
+(-1)^k dx^I\wedge
+\imath_{\partial_{x^q}}(dx^J).
+\]
+
+\medskip
+\noindent
+Note that in both Case 1 and Case 2, we only used the fact that
+$q\in I$ (or $J$) and $q\notin J$ (or $I$).
+
+\medskip
+\noindent
+\textbf{Case 3:} $\mathbf{I\cap J\neq\varnothing}$ and
+$\mathbf{q=i_r=j_s}$.
+
+In this case,
+\[
+dx^I\wedge dx^J=0,
+\]
+and hence
+\[
+\imath_{\partial_{x^q}}(dx^I\wedge dx^J)=0.
+\]
+
+On the other hand,
+\[
+\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
+=
+(-1)^{r-1}
+dx^{i_1}\wedge\cdots\wedge
+\widehat{dx^{i_r}}\wedge\cdots\wedge
+dx^{i_k}\wedge dx^J,
+\]
+while
+\[
+(-1)^k dx^I\wedge
+\imath_{\partial_{x^q}}(dx^J)
+=
+(-1)^{k+s-1}
+dx^I\wedge
+dx^{j_1}\wedge\cdots\wedge
+\widehat{dx^{j_s}}\wedge\cdots\wedge dx^{j_l}.
+\]
+
+Since $i_r=j_s=q$, the two terms are the same $(k+l-1)$-form
+up to opposite signs. Hence
+\[
+\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
++
+(-1)^k dx^I\wedge
+\imath_{\partial_{x^q}}(dx^J)
+=0.
+\]
+
+Thus the identity holds on basis elements, and hence, by multilinearity,
+it holds in the general case.
 }
 
 \lemp{}{$\imath$ is anticummutative, i.e. $$\imath_X \imath_Y=-\imath_Y \imath_X $$ }{This is easy to see since $\imath_X(\omega)(x_1,\cdots,x_{k-1})=\omega(X,x_1,\cdots,x_{k-1})$ and $\imath_Y\imath_X (\omega) (x_1,\cdots,x_{k-2})=\imath_X(\omega)(Y,x_1,x_2,\cdots,x_{k-2})=\omega(X,Y,x_1,\cdots,x_{k-2})=-\omega(Y,X,x_1,\cdots,x_{k-2})$ and the proof is complete.}
@@ -667,6 +921,26 @@ Since $\gamma$ was arbitrary, we have $$\omega\lrcorner\eta=(-1)^{(l-k)(n-l)}\st
 \end{corollary}
 
 \section{Brief Look at Riemannian Manifolds}
+\defn{Smooth Manifold}{\label{defn:smooth_manifold}
+A smooth manifold of dimension $n$ is a topological space $M$ that is \emph{Hausdorff} and \emph{second countable}, together with a collection of pairs
+\[
+\{(U_\alpha,\varphi_\alpha)\}_{\alpha\in\Lambda},
+\]
+where the sets $U_\alpha\subseteq M$ are open and cover $M$, and each
+\[
+\varphi_\alpha:U_\alpha\longrightarrow \varphi_\alpha(U_\alpha)\subseteq\mathbb{R}^n
+\]
+is a homeomorphism onto an open subset of $\mathbb{R}^n$.
+
+Furthermore, whenever $U_\alpha\cap U_\beta\neq\varnothing$, the transition map
+\[
+\varphi_\beta\circ\varphi_\alpha^{-1}:
+\varphi_\alpha(U_\alpha\cap U_\beta)
+\longrightarrow
+\varphi_\beta(U_\alpha\cap U_\beta)
+\]
+is smooth.}
+
 \defn{Riemannian Manifold}{\label{defn:Riemann_Manifold_and_metric}A Smooth $n-$dimensional manifold $(M,\mathscr A)$ is said to be a \emph{Riemannian Manifold} of dimension $n$ if for every $p\in M$ there exists an inner product $g_p:T_pM\times T_pM\to \bbR$ (smoothly depending on $p$) that is positive definite. Such a $g$ is called the \emph{metric}.}
 
 We recall the fact (\ref{basis for tensors}) that the space of covariant--$2$ tensors has a basis given by $\{dx^i\otimes dx^j: i,j\leq n\}$. This then lets us write the metric in the following useful form: 
@@ -779,6 +1053,10 @@ Let $\xi^1,\xi^2,\cdots,\xi^n$ be the co-frame of the orthonormal frame $E_1,E_2
     
 \end{corollary}
 
+\subsection{Briefly on the shape operator and the principal curvatures
+}
+{\color{red} Incomplete- to develop the idea of the 2nd fundaemntal form, what the shape operator does, and to develop the principal directions and principle curvatures, and form a basis on the boundary}
+
 \section{Pullback of Forms}
 Let $F:U\to V$, where $U\subseteq \bbR^n$ and $V\subseteq \bbR^m$. If $F$ is smooth, the Frechet derivative at $p$ is defined as the unique linear map $DF_p:\bbR^n\to\bbR^m$ satisfying $$\lim_{|h|\to 0} \frac{||F(p+h)-F(p)-DF_p(h)||_m}{||h||_n}=0 $$
 We have $DF_p:T_pU\to T_{f(p)}V$ where $DF_p(v)\in T_{f(p)}V$ such that $$DF_p(v) (g)=v(g \circ F)$$ Where $g\in C^{\infty}_{f(p)}(V)$. 
@@ -791,72 +1069,282 @@ Where $\{\frac{\partial F^j}{\partial x^i}|_p: 1\leq i\leq n, 1\leq j\leq m\}$ i
 
 \defn{Pullback of a $k-$form}{Let $\omega:V\to \amalg_{q\in V}\Lambda^{k}(T_q(V)) $ be a $k-$form on $V\subset \bbR^m$. We can get a $k-$form on $U\subseteq \bbR^n$ via $F$ as $F^*\omega_p \in \Lambda^k(T_p(U)) $ given by $$F^*\omega_p (v_1,v_2,\cdots,v_k)=\omega_{f(p)}\big{(}DF_p(v_1),DF_p(v_2),\cdots,DF_p(v_k)\big{)} $$}
 
-\subsection{Pullback of a $1-$form}
-Let $\omega=dy^q$ be a basis $1-form$ in $V\subset \bbR^m $. $$F^*(dy^q)_p(v)=dy^q_{F(p)}(DF_p(v))$$
-Which gives  $$dy^q_{F(p)}(\sum_{i=1}^n\sum_{j=1}^m \frac{\partial F^j}{\partial x^i}|_pv^i \frac{\partial}{\partial y^j}|_{F(p)}) $$
-$$= \sum_{i=1}^n\sum_{j=1}^m \frac{\partial F^j}{\partial x^i}|_p v^i \delta_{jq}= \sum_{i=1}^n \frac{\partial F^q}{\partial x^i}|_p v^i= \sum_{i=1}^n \frac{\partial F^q}{\partial x^i}|_p dx^i_p(v)$$
-Therefore we can set up the equivalence \begin{equation}\label{pullback_of_1_form}
-    F^*(dy^q)_p \equiv \sum_{i=1}^n \frac{\partial F^q}{\partial x^i}|_p dx^i_p 
+\subsection{Pullback of a $1$-form}
+
+Let $\omega=dy^q$ be a basis $1$-form on $V\subset\bbR^m$. By definition,
+\[
+F^*(dy^q)_p(v)
+=
+dy^q_{F(p)}\bigl(DF_p(v)\bigr).
+\]
+Writing
+\[
+v=\sum_{i=1}^n v^i
+\frac{\partial}{\partial x^i}\Big|_p,
+\]
+we have
+\[
+DF_p(v)
+=
+\sum_{i=1}^n\sum_{j=1}^m
+\frac{\partial F^j}{\partial x^i}\Big|_p
+v^i
+\frac{\partial}{\partial y^j}\Big|_{F(p)}.
+\]
+Therefore,
+\[
+\begin{aligned}
+F^*(dy^q)_p(v)
+&=
+dy^q_{F(p)}
+\left(
+\sum_{i=1}^n\sum_{j=1}^m
+\frac{\partial F^j}{\partial x^i}\Big|_p
+v^i
+\frac{\partial}{\partial y^j}\Big|_{F(p)}
+\right)
+\\
+&=
+\sum_{i=1}^n\sum_{j=1}^m
+\frac{\partial F^j}{\partial x^i}\Big|_p
+v^i
+\delta_{jq}
+\\
+&=
+\sum_{i=1}^n
+\frac{\partial F^q}{\partial x^i}\Big|_p
+v^i
+\\
+&=
+\sum_{i=1}^n
+\frac{\partial F^q}{\partial x^i}\Big|_p
+dx^i_p(v).
+\end{aligned}
+\]
+Hence,
+\begin{equation}
+\label{pullback_of_1_form}
+F^*(dy^q)_p
+=
+\sum_{i=1}^n
+\frac{\partial F^q}{\partial x^i}\Big|_p
+dx^i_p.
 \end{equation}
 
-Note that $F^* y^q= y^q \circ F\equiv F^q$, and its exterior derivative $$dF^q=d(F^*(y^q))=(\sum_{i=1}^n\frac{\partial}{\partial x^i}_{p} dx^i)\wedge (F^*(y^q))=\sum_{i=1}^n \frac{\partial y^q \circ F}{\partial x^i}|_p dx^i_p$$
-And hence we see that for basis $1-$forms $$d(F^*(y^q))=F^*(dy^q)$$
+Note that
+\[
+F^*(y^q)=y^q\circ F=F^q.
+\]
+Taking the exterior derivative, we obtain
+\[
+d(F^*(y^q))
+=
+dF^q
+=
+\sum_{i=1}^n
+\frac{\partial F^q}{\partial x^i}\Big|_p
+dx^i_p.
+\]
+Comparing this with \eqref{pullback_of_1_form}, we see that, for the
+basis $1$-forms,
+\[
+d(F^*(y^q))=F^*(dy^q).
+\]
 
-If $\omega:V\to \amalg_{q\in V} T^*_q(V)$ is any general one form given by $$\omega \equiv \sum_{j=1}^m \omega^j dy^j $$ then we have $$F^*(\omega)_p(v):=\omega_{F(p)}(DF_p(v))=\sum_{j=1}^m \omega^j dy^j_{F(p)}(DF_p(v))$$ which yields $$ \sum_{j=1}^m \omega^j{(F(p))} \sum_{i=1}^n \frac{\partial F^j}{\partial x^i}|_p dx^i_p (v)= \sum_{j=1}^m \omega^j_{(F(p))}dF^j_p(v) $$ which gives us an expansion of the form $$F^*(\omega)_p \equiv \sum_{i=1}^n \sum_{j=1}^m \frac{\partial F^j}{\partial x^i}|_p \omega^j_{F(p)}dx^i_p \equiv \sum_{j=1}^m \omega^j_{(F(p))} dF^j_p$$
-Yet another suggestive way to write this would be $$F^*(\omega)_{p}=F^*(\sum_{j=1}^m \omega^j dy^j)_{p}=\sum_{j=1}^m (\omega^j\circ F)_{(p)} dF^j_p $$
+Now let $\omega$ be a general $1$-form on $V$, given by
+\[
+\omega
+=
+\sum_{j=1}^m \omega^j\,dy^j.
+\]
+Then
+\[
+F^*(\omega)_p(v)
+:=
+\omega_{F(p)}\bigl(DF_p(v)\bigr)
+=
+\sum_{j=1}^m
+\omega^j(F(p))
+dy^j_{F(p)}\bigl(DF_p(v)\bigr).
+\]
+Using \eqref{pullback_of_1_form},
+\[
+\begin{aligned}
+F^*(\omega)_p(v)
+&=
+\sum_{j=1}^m
+\omega^j(F(p))
+\sum_{i=1}^n
+\frac{\partial F^j}{\partial x^i}\Big|_p
+dx^i_p(v)
+\\
+&=
+\sum_{j=1}^m
+\omega^j(F(p))\,dF^j_p(v).
+\end{aligned}
+\]
+Hence,
+\[
+F^*(\omega)_p
+=
+\sum_{i=1}^n\sum_{j=1}^m
+\frac{\partial F^j}{\partial x^i}\Big|_p
+\omega^j(F(p))\,dx^i_p
+=
+\sum_{j=1}^m
+\omega^j(F(p))\,dF^j_p.
+\]
 
-\subsection{Pullback of a $k-$form}
-Let $\omega=dy^I=dy^{i_1}\wedge dy^{i_2}\cdots \wedge dy^{i_k} \in \Omega(V,\Lambda^k)$ be a $k$ form on $V\subset \bbR^m$. 
-$$F^*(dy^I)_p(\sum_{j_1=1}^n v_1^{j_1}\frac{\partial}{\partial x^{j_1}}|_p,\sum_{j_2=1}^n v_2^{j_2}\frac{\partial}{\partial x^{j_2}}|_p,\cdots,\sum_{j_k=1}^n v_k^{j_k}\frac{\partial}{\partial x^{j_k}}|_p)$$ \begin{equation}\label{pullback_of_wedge_form}=\sum_{1\leq j_1,j_2,\cdots,j_k\leq n} (v_1^{j_1}v_2^{j_2}\cdots v_k^{j_k}) F^*(dy^I)_p (\frac{\partial}{\partial x^{j_1}}|_p,\frac{\partial}{\partial x^{j_2}}|_p,\cdots,\frac{\partial}{\partial x^{x^{j_k}}}|_p)\end{equation}
-$$F^*(dy^I)_p (\frac{\partial}{\partial x^{j_1}}|_p,\frac{\partial}{\partial x^{j_2}}|_p,\cdots, \frac{\partial}{\partial x^{j_k}}|_p,)= dy^I_{F(p)}(DF_p(\frac{\partial}{\partial x^{j_1}}|_p),DF_p(\frac{\partial}{\partial x^{j_2}}|_p),\cdots,DF_p(\frac{\partial}{\partial x^{j_k}}|_p))$$
-From \ref{DF_p of basis} we see that $$F^*(dy^I)(\frac{\partial}{\partial x^{j_1}}|_p,\frac{\partial}{\partial x^{j_2}}|_p,\cdots,\frac{\partial}{\partial x^{j_k}}|_p)=dy^I_{F(p)}\Big{(}\sum_{q_1=1}^m \frac{\partial F^{q_1}}{\partial x^{j_1}}|_p \frac{\partial }{\partial y^{q_1}}|_{F(p)},\sum_{q_2=1}^m \frac{\partial F^{q_2}}{\partial x^{j_2}}|_p \frac{\partial }{\partial y^{q_2}}|_{F(p)},\cdots,\sum_{q_k=1}^m \frac{\partial F^{q_k}}{\partial x^{j_k}}|_p \frac{\partial }{\partial y^{q_k}}|_{F(p)} \Big{)} $$
+Yet another suggestive way to write this is
+\[
+F^*(\omega)_p
+=
+F^*\left(\sum_{j=1}^m\omega^j\,dy^j\right)_p
+=
+\sum_{j=1}^m
+(\omega^j\circ F)(p)\,dF^j_p.
+\]
 
-$$=\sum_{1\leq q_1,q_2,\cdots,q_k\leq m}\Big{(}\frac{\partial F^{q_1}}{\partial x^{j_1}}|_p \cdot \frac{\partial F^{q_2}}{\partial x^{j_2}}|_p\cdots \frac{\partial F^{q_k}}{\partial x^{j_k}}|_p  \Big{)} dy^I_{F(p)}(\frac{\partial}{\partial y^{q_1}}|_{F(p)},\frac{\partial}{\partial y^{q_2}}|_{F(p)},\cdots,\frac{\partial}{\partial y^{q_k}}|_{F(p)})$$ $$=\sum_{1\leq q_1,q_2,\cdots,q_k\leq m}\Big{(}\frac{\partial F^{q_1}}{\partial x^{j_1}}|_p \cdot \frac{\partial F^{q_2}}{\partial x^{j_2}}|_p\cdots \frac{\partial F^{q_k}}{\partial x^{j_k}}|_p  \Big{)}\det\Big{(}(\delta_{i_s}^{q_t}):1\leq s,t\leq k\Big{)}$$
-Combining this with \ref{pullback_of_wedge_form} gives us 
+
+
+```latex
+\subsection{Pullback of a $k$-form}
+
+Let $\omega=dy^I=dy^{i_1}\wedge dy^{i_2}\cdots\wedge dy^{i_k}\in\Omega(V,\Lambda^k)$ be a $k$-form on $V\subset\bbR^m$. Then
+\begin{equation}\label{pullback_of_wedge_form}
+F^*(dy^I)_p(v_1,\ldots,v_k)=\sum_{1\leq j_1,\ldots,j_k\leq n}(v_1^{j_1}\cdots v_k^{j_k})F^*(dy^I)_p\left(\frac{\partial}{\partial x^{j_1}}\Big|_p,\ldots,\frac{\partial}{\partial x^{j_k}}\Big|_p\right).
+\end{equation}
+By definition of the pullback,
+\[
+F^*(dy^I)_p\left(\frac{\partial}{\partial x^{j_1}}\Big|_p,\ldots,\frac{\partial}{\partial x^{j_k}}\Big|_p\right)
+=dy^I_{F(p)}\left(DF_p\left(\frac{\partial}{\partial x^{j_1}}\Big|_p\right),\ldots,DF_p\left(\frac{\partial}{\partial x^{j_k}}\Big|_p\right)\right).
+\]
+From \ref{DF_p of basis}, we have
+\[
+DF_p\left(\frac{\partial}{\partial x^{j_r}}\Big|_p\right)=\sum_{q_r=1}^m\frac{\partial F^{q_r}}{\partial x^{j_r}}\Big|_p\frac{\partial}{\partial y^{q_r}}\Big|_{F(p)}.
+\]
+Hence
+\[
+F^*(dy^I)_p\left(\frac{\partial}{\partial x^{j_1}}\Big|_p,\ldots,\frac{\partial}{\partial x^{j_k}}\Big|_p\right)
+=\sum_{1\leq q_1,\ldots,q_k\leq m}\left(\prod_{r=1}^k\frac{\partial F^{q_r}}{\partial x^{j_r}}\Big|_p\right)dy^I_{F(p)}\left(\frac{\partial}{\partial y^{q_1}}\Big|_{F(p)},\ldots,\frac{\partial}{\partial y^{q_k}}\Big|_{F(p)}\right).
+\]
+Since $dy^I=dy^{i_1}\wedge\cdots\wedge dy^{i_k}$,
+\[
+dy^I\left(\frac{\partial}{\partial y^{q_1}},\ldots,\frac{\partial}{\partial y^{q_k}}\right)=\det\Big((\delta_{i_s}^{q_t})_{1\leq s,t\leq k}\Big).
+\]
+Combining this with \ref{pullback_of_wedge_form} gives
 \begin{equation}\label{pullback_of_basis_k_form_expansion}
-F^*(dy^I)(v_1,\cdots,v_k)=\sum_{\substack{1\leq j_1,j_2,\cdots,j_k\leq n \\ 1\leq q_1,q_2,\cdots,q_k\leq m}}(v_1^{j_1}v_2^{j_2}\cdots v_k^{j_k})\Big{(}\frac{\partial F^{q_1}}{\partial x^{j_1}}|_p \cdot \frac{\partial F^{q_2}}{\partial x^{j_2}}|_p\cdots \frac{\partial F^{q_k}}{\partial x^{j_k}}|_p  \Big{)}\det\Big{(}(\delta_{i_s}^{q_t})_{1\leq s,t\leq k}\Big{)}
+F^*(dy^I)_p(v_1,\ldots,v_k)=\sum_{\substack{1\leq j_1,\ldots,j_k\leq n\\1\leq q_1,\ldots,q_k\leq m}}(v_1^{j_1}\cdots v_k^{j_k})\left(\prod_{r=1}^k\frac{\partial F^{q_r}}{\partial x^{j_r}}\Big|_p\right)\det\Big((\delta_{i_s}^{q_t})_{1\leq s,t\leq k}\Big).
 \end{equation}
-$$= \sum_{1\leq j_1,j_2,\cdots,j_k\leq n} (v_1^{j_1}v_2^{j_2}\cdots v_k^{j_k}) \sum_{\sigma\in sym(k)}\operatorname{sign}(\sigma)\Big{(}\frac{\partial F^{i_{\sigma(1)}}}{\partial x^{j_1}}|_p\cdot \frac{\partial F^{i_{\sigma(2)}}}{\partial x^{j_2}}|_p \cdots \frac{\partial F^{i_{\sigma(k)}}}{\partial x^{j_k}}|_p \Big{)} $$
-$$=\sum_{1\leq j_1,\cdots,j_k\leq n} \Big{(}dx^{j_1}(v_1)dx^{j_2}(v_2)\cdots dx^{j_k}(v_k)\Big{)}\det\big{(}(\frac{\partial F^{i_r}}{\partial x^{j_s}}|_p)_{1\leq r,s\leq k}\big{)} $$
-$$=\sum_{1\leq j_1<j_2<\cdots<j_k\leq n}\sum_{\sigma \in sym(k)} \Big{(}dx^{j_{\sigma(1)}}(v_1)dx^{j_{\sigma(2)}}(v_2)\cdots dx^{j_{\sigma(k)}}(v_k)\Big{)}\det\big{(}(\frac{\partial F^{i_r}}{\partial x^{j_{\sigma(s)}}}|_p)_{1\leq s,r\leq k}\big{)} $$
-$$=\sum_{1\leq j_1<j_2<\cdots<j_k\leq n}\det \big{(}(\frac{\partial F^{i_r}}{\partial x^{j_s}}|_p)_{1\leq r,s\leq k}\big{)} \sum_{\sigma \in sym(k)}\operatorname{sign}(\sigma) dx^{j_{\sigma(1)}}(v_1)dx^{j_{\sigma(2)}}(v_2)\cdots dx^{j_{\sigma(k)}}(v_k)$$
-
-Which finally yields \begin{equation}\label{pullback_of_basis_k_form_determinant_form}
-    F^*(dy^I)_p=\sum_{1\leq j_1<j_2<\cdots<j_k\leq n}\det \big{(}(\frac{\partial F^{i_r}}{\partial x^{j_s}}|_p)_{1\leq r,s\leq k}\big{)}dx_p^{j_1}\wedge dx_p^{j_2}\cdots dx_p^{j_k}
+The determinant is nonzero precisely when $(q_1,\ldots,q_k)=(i_{\sigma(1)},\ldots,i_{\sigma(k)})$ for some $\sigma\in\operatorname{Sym}(k)$. Therefore,
+\[
+F^*(dy^I)_p(v_1,\ldots,v_k)=\sum_{1\leq j_1,\ldots,j_k\leq n}(v_1^{j_1}\cdots v_k^{j_k})\sum_{\sigma\in\operatorname{Sym}(k)}\operatorname{sign}(\sigma)\prod_{r=1}^k\frac{\partial F^{i_{\sigma(r)}}}{\partial x^{j_r}}\Big|_p.
+\]
+Since $dx^{j_r}_p(v_r)=v_r^{j_r}$, this gives
+\[
+F^*(dy^I)_p(v_1,\ldots,v_k)=\sum_{1\leq j_1,\ldots,j_k\leq n}\left(\prod_{r=1}^kdx^{j_r}_p(v_r)\right)\det\Bigg(\left(\frac{\partial F^{i_r}}{\partial x^{j_s}}\Big|_p\right)_{1\leq r,s\leq k}\Bigg).
+\]
+Collecting the terms corresponding to $1\leq j_1<\cdots<j_k\leq n$, we obtain
+\[
+\begin{aligned}
+F^*(dy^I)_p(v_1,\ldots,v_k)
+&=\sum_{1\leq j_1<\cdots<j_k\leq n}\det\Bigg(\left(\frac{\partial F^{i_r}}{\partial x^{j_s}}\Big|_p\right)_{1\leq r,s\leq k}\Bigg)\\
+&\qquad\cdot\sum_{\sigma\in\operatorname{Sym}(k)}\operatorname{sign}(\sigma)\prod_{r=1}^kdx^{j_{\sigma(r)}}_p(v_r).
+\end{aligned}
+\]
+The second sum is precisely $(dx^{j_1}\wedge\cdots\wedge dx^{j_k})_p(v_1,\ldots,v_k)$. Hence
+\begin{equation}\label{pullback_of_basis_k_form_determinant_form}
+F^*(dy^I)_p=\sum_{1\leq j_1<\cdots<j_k\leq n}\det\Bigg(\left(\frac{\partial F^{i_r}}{\partial x^{j_s}}\Big|_p\right)_{1\leq r,s\leq k}\Bigg)dx^{j_1}_p\wedge dx^{j_2}_p\cdots\wedge dx^{j_k}_p.
 \end{equation}
 
-We now look at $d(F^*y^{i_1})_p\wedge d(F^*y^{i_2})_p\cdots \wedge d(F^*y^{i_k})_p=dF^{i_1}\wedge dF^{i_2}\cdots dF^{i_k}$.
-$$=\Big{(}\sum_{j_1=1}^n \frac{\partial F^{i_1}}{\partial x^{j_1}}|_p dx^{j_1}\Big{)}\wedge \Big{(}\sum_{j_2=1}^n \frac{\partial F^{i_2}}{\partial x^{j_2}}|_p dx^{j_2}\Big{)}\wedge \cdots \wedge \Big{(}\sum_{j_k=1}^n \frac{\partial F^{i_k}}{\partial x^{j_k}}|_p dx^{j_k}\Big{)} $$
-$$=\sum_{1\leq j_1,j_2,\cdots, j_k\leq n} \Big{(}\frac{\partial F^{i_1} }{\partial x^{j_1}}|_p \cdot \frac{\partial F^{i_2} }{\partial x^{j_2}}|_p\cdots \frac{\partial F^{i_k} }{\partial x^{j_k}}|_p \Big{)} dx^{j_1}\wedge \cdots \wedge dx^{j_k} $$
-$$=\sum_{1\leq j_1<j_2<\cdots<j_k\leq n} dx^{j_1}\wedge dx^{j_2}\cdots \wedge dx^{j_k} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \Big{(}\frac{\partial F^{i_1 } }{\partial x^{j_{\sigma(1)}}}|_p \cdot \frac{\partial F^{i_2} }{\partial x^{j_{\sigma(2)}}}|_p\cdots \frac{\partial F^{i_k} }{\partial x^{j_{\sigma(k)}}}|_p \Big{)} $$
-
+We now look at
+\[
+d(F^*y^{i_1})_p\wedge d(F^*y^{i_2})_p\wedge\cdots\wedge d(F^*y^{i_k})_p=dF^{i_1}_p\wedge dF^{i_2}_p\wedge\cdots\wedge dF^{i_k}_p.
+\]
+Using
+\[
+dF^{i_r}_p=\sum_{j_r=1}^n\frac{\partial F^{i_r}}{\partial x^{j_r}}\Big|_pdx^{j_r}_p,
+\]
+we get
+\[
+dF^{i_1}_p\wedge\cdots\wedge dF^{i_k}_p=\sum_{1\leq j_1,\ldots,j_k\leq n}\left(\prod_{r=1}^k\frac{\partial F^{i_r}}{\partial x^{j_r}}\Big|_p\right)dx^{j_1}_p\wedge\cdots\wedge dx^{j_k}_p.
+\]
+Collecting terms with $j_1<\cdots<j_k$ gives
+\[
+dF^{i_1}_p\wedge\cdots\wedge dF^{i_k}_p=\sum_{1\leq j_1<\cdots<j_k\leq n}\det\Bigg(\left(\frac{\partial F^{i_r}}{\partial x^{j_s}}\Big|_p\right)_{1\leq r,s\leq k}\Bigg)dx^{j_1}_p\wedge\cdots\wedge dx^{j_k}_p.
+\]
+This agrees with \ref{pullback_of_basis_k_form_determinant_form}. Hence,
 \begin{equation}
-    =\sum_{1\leq j_1<j_2<\cdots<j_k\leq n} dx^{j_1}\wedge \cdots \wedge dx^{j_k} \det \Big{(}(\frac{\partial F^{i_r}}{\partial x^{j_s}}|_p)_{1\leq r,s\leq k}\Big{)}
-\end{equation}
-Which agrees with \ref{pullback_of_basis_k_form_determinant_form}. Hence we have the following identity: 
-\begin{equation}
-F^*(dy^{i_1}\wedge dy^{i_2}\wedge \cdots \wedge dy^{i_k})=d(F^*y^{i_1})\wedge d(F^*y^{i_2})\wedge \cdots \wedge d(F^*y^{i_k})
+F^*(dy^{i_1}\wedge dy^{i_2}\wedge\cdots\wedge dy^{i_k})=d(F^*y^{i_1})\wedge d(F^*y^{i_2})\wedge\cdots\wedge d(F^*y^{i_k}).
 \end{equation}
 
 \begin{corollary}\label{Change of variables for top forms}
-    If $F:U_{\subset \bbR^n}\to V_{\subset \bbR^n}$ is a smooth Diffeomorphism, and coordinates for $U$ are given by $x^1,x^2,\cdots,x^n$, and those for $V$ given by $y^1,y^2,\cdots,y^n$, we have a change of variables formula for $k-$forms (In view of formula \ref{pullback_of_basis_k_form_determinant_form}) given by: $$F^*(dy^1\wedge dy^2\wedge \cdots \wedge dy^n)_p=\det\Big{(}(\frac{\partial F^j}{\partial x^i})_{1\leq i,j\leq n}\Big{)}dx^1\wedge dx^2 \wedge \cdots dx^n $$
+If $F:U_{\subset\bbR^n}\to V_{\subset\bbR^n}$ is a smooth diffeomorphism, with coordinates $x^1,\ldots,x^n$ on $U$ and $y^1,\ldots,y^n$ on $V$, then
+\[
+F^*(dy^1\wedge dy^2\wedge\cdots\wedge dy^n)_p=\det\Bigg(\left(\frac{\partial F^j}{\partial x^i}\Big|_p\right)_{1\leq i,j\leq n}\Bigg)dx^1_p\wedge dx^2_p\wedge\cdots\wedge dx^n_p.
+\]
 \end{corollary}
+
 \begin{remark}
-    The proof of \ref{Change of variables for top forms} is simply an application of \ref{pullback_of_basis_k_form_determinant_form}. This is the \textbf{change of variables formula} for \emph{top forms}. 
+The proof of \ref{Change of variables for top forms} is simply an application of \ref{pullback_of_basis_k_form_determinant_form}. This is the \textbf{change of variables formula} for \emph{top forms}.
 \end{remark}
 
-\thmp{(Pullback of Wedge)}{Let $\alpha \in \Omega(V,\Lambda^k)$ be a $k-$form on $V\subset \bbR^m$ and let $\beta\in \Omega(V,\Lambda^l)$ be an $l-$form on $V$. For smooth function $F:U\subset \bbR^n \to V$ we have $$F^*(\alpha \wedge \beta)=F^*(\alpha)\wedge F^*(\beta) $$ }{Recall $F^*(\alpha \wedge \beta)_p(v_1,v_2,\cdots,v_k,v_{k+1},\cdots,v_{k+l})=(\alpha \wedge \beta)_{F(p)}\big{(}DF_p(v_1),\cdots,DF_p(v_{k+l})\big{)}=$ $$\sum_{\sigma \in sym(k,l)}\operatorname{sign}(\sigma) \alpha_{F(p)}(DF_p(v_{\sigma(1)}),DF_p(v_{\sigma(2)}),\cdots,DF_p(v_{\sigma(k)}))\beta_{F(p)}(DF_p(v_{\sigma(k+1)}),\cdots,DF_p(v_{\sigma(k+l)}))$$
-$$=\sum_{\sigma \in sym(k,l)}\operatorname{sign}(\sigma) F^*(\alpha)_p(v_{\sigma(1)},\cdots,v_{\sigma(k)})F^*(\beta)_p(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) =F^*(\alpha)\wedge F^{*}(\beta)$$
+\thmp{(Pullback of Wedge)}
+{Let $\alpha\in\Omega(V,\Lambda^k)$ be a $k$-form on $V\subset\bbR^m$ and let $\beta\in\Omega(V,\Lambda^l)$ be an $l$-form on $V$. For a smooth function $F:U\subset\bbR^n\to V$, we have
+\[
+F^*(\alpha\wedge\beta)=F^*(\alpha)\wedge F^*(\beta).
+\]}
+{Recall that
+\[
+\begin{aligned}
+F^*(\alpha\wedge\beta)_p(v_1,\ldots,v_k,v_{k+1},\ldots,v_{k+l})
+&=\sum_{\sigma\in\operatorname{Sym}(k,l)}\operatorname{sign}(\sigma)\alpha_{F(p)}(DF_p(v_{\sigma(1)}),\ldots,DF_p(v_{\sigma(k)}))\\
+&\qquad\cdot\beta_{F(p)}(DF_p(v_{\sigma(k+1)}),\ldots,DF_p(v_{\sigma(k+l)}))\\
+&=\sum_{\sigma\in\operatorname{Sym}(k,l)}\operatorname{sign}(\sigma)F^*(\alpha)_p(v_{\sigma(1)},\ldots,v_{\sigma(k)})F^*(\beta)_p(v_{\sigma(k+1)},\ldots,v_{\sigma(k+l)})\\
+&=(F^*(\alpha)\wedge F^*(\beta))_p(v_1,\ldots,v_{k+l}).
+\end{aligned}
+\]
 }
 
-If $\omega=\sum_{I\in \mathscr T_k} \omega^I dy^I$ is a general $k-$form on $V\subseteq \bbR^m$, then we have \begin{equation}\label{pullback_of_arbitrary_k_form}F^*(\sum_I \omega^I dy^I)_p=\sum_I \omega^I_{F(p)} dF^I_p \end{equation}
-Where $dF^I_p=dF^{i_1}_p \wedge dF^{i_2}_p\wedge \cdots \wedge dF^{i_k}_p$.
+If $\omega=\sum_{I\in\mathscr T_k}\omega^I dy^I$ is a general $k$-form on $V\subseteq\bbR^m$, then
+\begin{equation}\label{pullback_of_arbitrary_k_form}
+F^*(\omega)_p=\sum_{I\in\mathscr T_k}\omega^I(F(p))\,dF^I_p,
+\end{equation}
+where $dF^I_p=dF^{i_1}_p\wedge dF^{i_2}_p\wedge\cdots\wedge dF^{i_k}_p$.
 
-\lemp{($F^*$ commutes with $d$)}{\label{pullback_commutes_with_derivative}Let $F:U_{\subset \bbR^n}\to V_{\subset \bbR^m}$ be smooth, and $\omega$ a $k-$form on $V$. We then have that $$F^*(d\omega)=d(F^*\omega)$$}{If $\omega=\sum_{I\in \mathscr T_k} \omega^I dy^I$
-From \ref{pullback_of_arbitrary_k_form} we have that $$F^*(\omega)_p=\sum_I \omega^I_{F(p)}dF^{i_1}_p\wedge dF^{i_2}_p \cdots \wedge dF^{i_k}_p$$ When we apply the exterior derivative to this expression we have (and recalling the antiderivation property) $$d(F^*(\omega))_p=\sum_I d(\omega^I \circ F)_p \wedge dF^{i_1}_p \wedge dF^{i_2}_p \cdots dF^{i_k}_p + (\omega^I\circ F) d(dF^{i_1}\wedge dF^{i_2}\cdots \wedge dF^{i_k})_p $$
-The second term vanishes because $d^2=0$. This gives $$ d(F^*(\omega))_p = \sum_I \sum_{i=1}^n\frac{\partial (\omega^I \circ F)}{\partial x^i}|_p dx_p^i\wedge dF^{i_1}_p \wedge dF^{i_2}_p\wedge \cdots \wedge dF^{i_k}_p=\sum_I d(\omega^I\circ F)\wedge dF^I_p $$ 
-Now, if $\omega=\sum_{I} \omega^I dy^I$, we have $d\omega=\sum_I d\omega^I \wedge dy^I$. Pulling this back gives us $$F^*(d\omega)= \sum_I F^*(d\omega^I)\wedge F^*(dy^I)=\sum_I d(\omega^I \circ F) \wedge dF^I $$ Which establishes equality. 
+\lemp{($F^*$ commutes with $d$)}
+{\label{pullback_commutes_with_derivative}
+Let $F:U_{\subset\bbR^n}\to V_{\subset\bbR^m}$ be smooth, and let $\omega$ be a $k$-form on $V$. We then have
+\[
+F^*(d\omega)=d(F^*\omega).
+\]}
+{If $\omega=\sum_{I\in\mathscr T_k}\omega^I dy^I$, then from \ref{pullback_of_arbitrary_k_form},
+\[
+F^*(\omega)=\sum_I(\omega^I\circ F)dF^I.
+\]
+Applying the exterior derivative and using the antiderivation property,
+\[
+d(F^*\omega)=\sum_I d(\omega^I\circ F)\wedge dF^I+\sum_I(\omega^I\circ F)d(dF^I).
+\]
+The second term vanishes because $d^2=0$. Hence
+\[
+d(F^*\omega)=\sum_I d(\omega^I\circ F)\wedge dF^I.
+\]
+On the other hand,
+\[
+d\omega=\sum_I d\omega^I\wedge dy^I.
+\]
+Pulling this back and using the pullback-of-wedge property gives
+\[
+F^*(d\omega)=\sum_I F^*(d\omega^I)\wedge F^*(dy^I)=\sum_I d(\omega^I\circ F)\wedge dF^I.
+\]
+Therefore,
+\[
+F^*(d\omega)=d(F^*\omega).
+\]
 }
+
+
 \subsubsection{Pullback and Interior Product}
 \begin{remark}
     For a smooth map $F \colon M \to N$, the identity $i_X (F^*\omega) = F^* (i_Y \omega)$ is ill-defined for generic vector fields since $X$ is a vector field from $M$ and $Y$ is a vector field on $N$. Naturality under pullbacks holds precisely when $X$ and $Y$ are $F$-related, which motivates the next definition.
@@ -898,6 +1386,8 @@ Which can be suggestively written as
     \int_a^b \alpha^{\sharp}(c(t))\cdot c'(t)dt
 \end{equation} where $\alpha^{\sharp}$ is the vector field associated with the $1-$form $\alpha$ via the inner product. 
 }
+
+{\color{red} Incomplete- Pending further development, poincare lemma in $\bbR^3$ and $\bbR^n$, and further developments with integration of $k-$forms.}
 
 
 
@@ -987,6 +1477,7 @@ Where \begin{enumerate}
 \label{fig:lipschitz_set}
 \end{figure}
 
+{\color{red} Incomplete- Pullback invariance, boundary orientation charts, etc}
 
 \section{The Codifferential $\delta$}
 \subsection{Motivation}
@@ -1184,6 +1675,11 @@ This forms a countable family of seminorms that separate points, and hence $C^{\
 Let $\{K_i\}$ be an exhaustion of $\Omega\subset \bbR^n$. Let $$p_{i,j}(u):=||u||_{C^{j-1}(K_i)}$$
 This yields a countable family of seminorms that separate points, and hence makes $C^{\infty}(\Omega)$ a Frechet space. 
 
+\subsubsection{Frechet Topology of $L^p_{\mathrm{loc}}(\Omega)$}
+Let $\Omega$ be an open set and let $\{K_i\}_{i\in \bbN}$ be an exhaustion. We define $L^p_{\mathrm{loc}}(\Omega)$ to be the space of all measureable functions $f: \Omega\to \bbK$ such that \begin{equation}
+    \big.(\int_{\Omega'} |f|^p d\mu(x)\big.)^{\frac{1}{p}}<\infty
+\end{equation}
+We define $p_m(u):=\Bigg.(\int_{K_m}|u|^{p} d\mu \Bigg.)^{\frac{1}{p}} $ which gives us a sequence of seminorms for $L^p_{\mathrm{loc}}(\Omega)$, making it a Frechet space.
 \subsection{Inductive Limit Topologies}
 \defn{Inductive Limit of Frechet Spaces (LF spaces)}{These are complete topological vector spaces (in the sense of cauchy nets or cauchy filters. cf.\cite{SchaeferWolff1999}) that are a union of of an increasing sequence $E_n$ of Frechet spaces such that $E_n \hookrightarrow E_{n+1} $ is an isomorphism of topological vector spaces. $X=\cup_i E_i$ and we say a set $E$ in $X$ is open if and only if $E_i \cap E$ is open in $E_i$.}
 \begin{remark}
@@ -1336,6 +1832,102 @@ We now describe a useful basis for the weak* topology on $X^*$.
     \end{enumerate}
 \end{theorem}
 
+\section{Distributions}
+\defn{Distributions}{Let $\Omega\subset \bbR^n$ be open. A \emph{distribution} is a \textbf{continuous linear functional} on the LCTVS $C^{\infty}_c(\Omega)$. The space of all distributions is denoted $\mathscr D'(\Omega)$.}
+\begin{theorem}\label{thm:characterise_distributions}
+    \textbf{Characterisation theorem for distributions:}
+
+    TFAE:
+    \begin{enumerate}
+        \item $T:C^{\infty}_c(\Omega)\to \bbR$ is a \emph{distribution}.
+        \item For every compact set $K\subset \Omega$, there exists a constant $C=C(K)$ and an integer $m=m(K)$ such that $$|T(\psi)|\leq C||\psi||_{C^m(K)} \text{ for all }\psi \in C^{\infty}(\Omega)\text{ with }\mathrm{supp}(\psi) \subset K.$$
+        \item $\mathbf{T}$ \textbf{is sequentially continuous}. For a sequence $\psi_n$ converging to $\psi$ in $C^{\infty}_c(\Omega)$ (which is tantamount to saying the following: For a fixed exhaustion $\{K_i\}$, there is an $E_j:=\{\psi\in C^{\infty}_c(\Omega): \mathrm{supp}(\psi) \subset K_j \}$ such that $\psi_n$ is in $E_j$, and converges to $\psi$ in the Frechet sense.), we have $$T(\psi_n)\to T(\psi).$$
+    \end{enumerate}
+
+\end{theorem}
+
+\defn{$L^1_{\mathrm{loc}}(\Omega)$}{The space of all Lebesgue measurable functions $f:\Omega\to \bbR$ that \emph{locally integrable},i.e. functions for which we have for every compact set $K\subset \Omega$ $$\int_K |f(x)|d\mu(x)<\infty $$}
+
+Given $f\in L^1_{\mathrm{loc}}(\Omega)$, we define \begin{equation}\label{eq:T_f}
+    T_f(\phi):=\int_{\Omega} f(x)\phi(x)d\mu(x) \text{ for all }\phi\in C^{\infty}_c(\Omega)
+\end{equation}
+We immediately see that $T_f$ is a linear operator on $C^{\infty}_c(\Omega)$.
+That it is continuous is evident from the following: Let $K$ be a compact set. $$|T_f(\varphi)|\leq \int_K |f(x)||\varphi(x)|d\mu(x)\leq \Big(\int_K |f(x)|d\mu(x)\Big)||\varphi||_{C^0(K)}$$
+
+\subsection{Convolutions and Mollifiers}
+\defn{Convolution}{Let $f,g:\bbR^n\to \bbR$ be measurable. The \emph{convolution} of $f$ and $g$, denoted $f\ast g$ is defined as: \begin{equation}
+    f\ast g (z):=\int_{\bbR^n} f(z-t)g(t)dt
+\end{equation}}
+We list without proof some properties of convolutions: 
+\begin{enumerate}
+    \item $\ast$ is commutative, i.e. $f\ast g=g\ast f$.
+    \item $\ast$ is associative. $(f\ast g)\ast h=f \ast (g\ast h)$.
+    \item $\mathrm{supp}(f\ast g)\subset \overline{\mathrm{supp}(f)+\mathrm{supp}(g)}$.
+\end{enumerate}
+\begin{theorem}\textbf{(General H\"{o}lder inequality)} \label{thm:Holder_for_many_functions}
+Let $f_1,f_2,\cdots,f_k:\Omega \to \bbR$ be measurable functions in $L^{p_1}(\Omega),L^{p_2}(\Omega),\cdots,L^{p_k}(\Omega)$ respectively, such that $$1/p_1+1/p_2+\cdots+1/p_k=1.$$ Then we have $$\int_{\Omega}|f_1||f_2|\cdots|f_k|d\mu \leq ||f_1||_{p_1}||f_2||_{p_2}\cdots||f_k||_{p_k}  $$   
+\end{theorem}
+
+\thmp{(Young's inequality for convolutions)}{Let $p,q \geq 1$ with $f\in L^p(\bbR^n)$, $g\in L^q(\bbR^n)$ and let $r\geq 1$ be such that $$1/p+1/q=1+1/r. $$ Then \begin{equation}
+    f\ast g \in L^r(\bbR^n) \text{ and }||f\ast g||_r \leq ||f||_p ||g||_q
+\end{equation} }{Without loss of generality, assume $f$ and $g$ are positive. 
+We have
+$$f(z-t)g(t)=\Big(f(z-t)^p g(t)^q\Big)^{1/r}(f(z-t)^p)^{1/p-1/r}(g(t)^q)^{1/q-1/r}$$ 
+Since the exponents $r$, $rp/r-p$ and $rq/r-q$ are conjugate, we can apply \ref{thm:Holder_for_many_functions}
+to get $$f\ast g (z)=\int_{\bbR^n} f(z-t)g(t)dt \leq \Big(\int_{\bbR^n}f(z-t)^p g(t)^q dt\Big)^{1/r}  ||f||_p^{1-p/r}||g||_q^{1-q/r}  $$
+\begin{align*}||f\ast g||_r&=\Big(\int_{\bbR^n} (f\ast g(z))^r dz\Big)^{1/r} \\ &\leq \Big(\int_{\bbR^n} \int_{\bbR^n} ||f||_p^{r-p}||g||_q^{r-q} f(z-t)^p g(t)^q dt dz\Big)^{1/r}\\ &=\Big(||f||_p^{r-p}||g||_q^{r-q}||f||_p^p||g||_q^q\Big)^{1/r} \leq ||f||_p||g||_q \end{align*}
+And we have the result.
+}
+\begin{proposition}
+    If $f\in L^{1}(\bbR^n)$ and $g\in C^{k}(\bbR^n)$ with $D^{\alpha}g \in L^{\infty}(\bbR^n)$ for all $|\alpha|\leq k$, then $f\ast g \in C^{k}(\bbR^n)$ and $$D^{\alpha}(f\ast g)(x)=f \ast D^{\alpha}g (x) $$ for each multiindex $\alpha$ with $|\alpha|\leq k$.
+\end{proposition}
+\vspace{2pt}
+
+A slightly different version of the proposition is given below:
+\begin{proposition}
+    If $f\in L^1_{\mathrm{loc}}(\bbR^n)$ and $g\in C^k_c(\bbR^n)$, then $f\ast g\in C^k(\bbR^n)$ and $$D^{\alpha}(f\ast g)=f\ast D^{\alpha}g $$ for each multiindex $\alpha$ with $|\alpha|\leq k$. 
+\end{proposition}
+
+\subsection{Mollifiers}
+\defn{Mollifying kernel}{A function $\phi:\bbR^n\to \bbR$ is a \emph{mollifying kernel} if \begin{enumerate}
+    \item $\phi\in C^{\infty}_c(\bbR^n)$.
+    \item $\mathrm{supp}(\phi)\subset \overline{B_1(0)}$.
+    \item $\phi\geq 0$ and non-vanishing.
+    \item For some finite real number $a\in \bbR$ with $a> 0$ we have $$\int_{\bbR^n} \phi(x) dx=a $$
+\end{enumerate}}
+Given a Mollifying kernel $\phi$ such that $$\int_{\bbR^n} \phi(x)dx =1 \text{ and }\mathrm{supp}(\phi)=\overline{B_1(0)},$$  we can construct a \emph{sequence of mollifiers} $\phi_{\epsilon}\in C^{\infty}_c(\bbR^n)$ corresponding to $\phi$ given by \begin{equation}\label{eqn:mollifiers}
+    \phi_{\epsilon}(x)=1/\epsilon^n \phi(x/\epsilon) \text{ for all }x\in \bbR^n
+\end{equation}  
+for every $\epsilon>0$.
+For this sequence of mollifiers, the following holds: 
+\begin{proposition}
+    For every $\epsilon>0$, $\phi_{\epsilon}$ defined as in \ref{eqn:mollifiers} satisfies $$\int_{\bbR^n}\phi_{\epsilon}(x)dx =1 \text{ and }\mathrm{supp}(\phi_{\epsilon})=\overline{B_{\epsilon}(0)}.$$ Moreover, $$\lim_{\epsilon\to 0}\phi_{\epsilon}(x)=0 \text{ whenever }x\neq 0.$$ 
+\end{proposition}
+
+\begin{theorem}\textbf{(Mollification theorem)}\label{thm:mollification}
+    Let $\phi$ be a mollifying kernel (assuming $a=1$) and $\{\phi_k\}$ be a sequence of mollifiers given by $$\phi_k(x)=k^n \phi(kx).$$ Then, the following holds:
+    \begin{enumerate}
+        \item For $1\leq p<\infty$, let $f\in L^p(\bbR^n)$. Then we have that $f_k(x):=\phi_k \ast f \in C^{\infty}(\bbR^n)$ for each $k \in \bbN$, and $$||f_k-f||_p \to 0 \text{ as }k\to \infty. $$
+        \item Let $f\in C(\bbR^n)$. Then $f_k:=\phi_k \ast f\in C^{\infty}(\bbR^n)$ for all $k\in \bbN$, and $$f_k\to f \text{ uniformly on any compact subset }K\subset \bbR^n$$
+        \item Let $f\in C^k(\bbR^n)$. Then $f_s:=\phi_s \ast f \in C^{\infty}(\bbR^n)$ for each $s\in \bbN$ and $$D^{\alpha}f_s \to D^{\alpha}f \text{ uniformly on every compact set }K \subset \bbR^n, \text{ for all }\alpha \text{ such that }|\alpha|\leq k. $$ 
+    \end{enumerate}
+
+\end{theorem}
+
+We present now a crucial result which can be proved with the tools we have developed thus far: 
+
+\thmp{\label{thm:fundamental_lemma_of_CV}(Fundamental lemma of calculus of variations)}{Let $\Omega\subset \bbR^n$ be open and $u\in L^1_{\mathrm{loc}}(\Omega)$ be such that for every $\phi \in C^{\infty}_c(\Omega)$ $$\int_{\Omega} u(x)\phi(x)dx=0 $$ Then $u=0 \ a.e. \ x \in \Omega$.}{Let $K$ be an arbitrary compact set. Let $$\nu:=\begin{cases}
+    \mathrm{sgn} (u) & \text{if }x\in K \\
+    0 & \text{else} 
+\end{cases}$$
+Note that $\nu$ is in $L^1_{\mathrm{loc}}(\Omega)$, and $\|\nu\|_{\infty}=1$. Since we can find a compact exhaustion for $\Omega$, there is always a larger compact set $K'$ such that $K\subset K'\subset \Omega$. We mollify $\nu$ and obtain a sequence $\nu_q$. That this is in  $C^{\infty}_c(\Omega)$ is seen by the following argument: Indeed,  $$\mathrm{supp}(\nu_q)\subset \overline{\mathrm{supp}(\phi_k)+\mathrm{supp}(\nu)}\subset \overline{\mathrm{supp}(\phi_k)+K}.$$ If $k$ is large enough (and dependent only on $K$ and $\Omega$) we will eventually have $\mathrm{supp}(v_q)\subset K'$.
+We have that $\|\nu_q\|_{\infty}\leq \|\nu\|_{\infty}=1$, and $\nu_q\to \nu$ in the $L^1$ sense. From the hypothesis, we have for all $s\in \bbN$: $$\int_{\Omega} u(x) \nu_s(x)dx=0 $$
+From dominated convergence theorem, we can pass to the limit inside the integral to obtain $$\int_K u(x) \mathrm{sgn}(u)(x)dx=\int_K |u(x)|dx=0 $$ which gives $u(x)=0 \ a.e. x \in K$. Since $K $ was arbitrary, we have the result.
+}
+A simple corollary of \ref{thm:fundamental_lemma_of_CV} is the following:
+\begin{proposition}
+    Let $f,g\in L^1_{\mathrm{loc}}(\Omega)$, and let $T_f$ and $T_g$ be defined as \ref{eq:T_f}. If $T_f=T_g$, then $f=g a.e. x\in \Omega$. 
+\end{proposition}
 
 \begin{comment}
 {\color{red}
