@@ -49,6 +49,11 @@ $$f\circ h(x_1,x_2,\cdots,x_n)=(x_{n-p+1},x_{n-p+2},\cdots,x_n)$$}{\textbf{Case 
 \end{enumerate}
 \end{theorem}
 
+\begin{theorem}\cite{Spivak1965}
+    \label{thm:change_of_variable}
+Let $A\subset \bbR^n$ be an open set and $g:A\to \bbR^n$ a $C^1$ function such that $\det (g')\neq 0$ for all $x\in A$. If $f:g(A)\to \bbR$ is integable, then $$\int_{g(A)} f=\int_A f\circ g |\det(g')| $$   
+\end{theorem}
+
 %%THIS IS THE BEGINNING OF MY OWN WRITING, REPLACED BY CLEANER CODE ABOVE%%
 
 % \chapter{Some results from Calculus on $\bbR^n$}
@@ -342,8 +347,9 @@ This operator is \emph{Linear} and follows the property $$D_{p,v}(f \cdot g)= (D
 \\\\ \textbf{Injectivity:} Let $D_{p,v}(f)=\sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\big{|}_{p} (f)\equiv 0$ for all $f \in C^{\infty}_p$
 Let $f=x^{j}:\bbR^n\to \bbR$ that picks out the $j-$th coordinate. Then $D_{p,v}(x^j)= \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\big{|}_{p} (x^j)=v^j=0$. Therefore, $v=0$ and hence, the nullspace is trivial.
 \\\\ \textbf{Surjectivity:} Let $f \in C^{\infty}_p$. We have $f(x)=f(p)+\sum_{i=1}^n g_i(x)(x^i-p^i)$ where $g^{i}(p)=\frac{\partial f}{\partial x^i}(p)$ (From \ref{Taylor}) 
-\\\\ Let $D\in \mathscr{D}_p(\bbR^n)$. $$D(f(x))=D(f(p))+\sum_{i=1}^n D(g_i(x)\cdot (x^i-p^i))$$
-$$=0+\sum_{i=1}^n D(g_i(x))(0)+D(x^i-p^i)\frac{\partial f}{\partial x^i}(p)= \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p f $$ Which means $$D\equiv \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p\equiv D_{p,<D(x^1),D(x^2)\cdots,D(x^n)>} $$ 
+\\\\ Let $D\in \mathscr{D}_p(\bbR^n)$. \begin{align*}D(f(x))&=D(f(p))+\sum_{i=1}^n D(g_i(x)\cdot (x^i-p^i))\\ &=0+\sum_{i=1}^n D(g_i(x))(0)+D(x^i-p^i)\frac{\partial f}{\partial x^i}(p)= \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p f \end{align*}
+
+Which means $$D\equiv \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p\equiv D_{p,<D(x^1),D(x^2)\cdots,D(x^n)>} $$ 
 \\\\ And hence, the map $v\mapsto D_{p,v}$ is surjective.
 
 }
@@ -454,13 +460,21 @@ which is
 D is said to be an antiderivation of degree $m$ if $D|_{A^k}:A^k \to A^{k+m}$}
 
 \thmp{}{\label{exterior_derivative_antiderivation}$d:\oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to\oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is an antiderivation of degree $1$ and $$d(\omega \wedge \tau)=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau $$ for all $\omega \in \Omega(
-    \Lambda^k)$ and $\tau \in \Omega(\Lambda^l)$}{That $d$ is linear is clear from formula \ref{Exterior_Derivative}. Let $\omega\equiv\sum_{I\in \mathscr T_k} w^I dx^I$ and $\tau\equiv \sum_{J\in \mathscr T_l}\tau^J dx^J$. $\omega \wedge \tau \equiv \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I \tau^J dx^I \wedge dx^J $ Applying $d$ gives us $$d(\omega \wedge \tau)=\big{(}\frac{\partial}{\partial x^i}\big{|}_p dx^i_p \big{)}\wedge (\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I_p \tau^J_p dx^I_p \wedge dx^J_p)=$$ 
+    \Lambda^k)$ and $\tau \in \Omega(\Lambda^l)$}{That $d$ is linear is clear from formula \ref{Exterior_Derivative}. Let $\omega\equiv\sum_{I\in \mathscr T_k} w^I dx^I$ and $\tau\equiv \sum_{J\in \mathscr T_l}\tau^J dx^J$. $\omega \wedge \tau \equiv \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I \tau^J dx^I \wedge dx^J $ Applying $d$ gives us 
     
-    $$\sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \bigg{(}\frac{\partial \omega^I}{\partial x^i}\big{|}_p \tau^J_p + \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p\bigg{)}dx^i_p \wedge dx^I_p\wedge dx^J_p $$ 
+    \begin{align*}d(\omega \wedge \tau)&=\big{(}\frac{\partial}{\partial x^i}\big{|}_p dx^i_p \big{)}\wedge (\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I_p \tau^J_p dx^I_p \wedge dx^J_p)
+        %%%%%%%% and%%% 
+    \\&=\sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \bigg{(}\frac{\partial \omega^I}{\partial x^i}\big{|}_p \tau^J_p + \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p\bigg{)}dx^i_p \wedge dx^I_p\wedge dx^J_p  
+    %%%%%%%and 
+    \\&= d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^i_p \wedge dx^I_p \wedge dx^J_p 
+    %%%%%%%%%and
+    \\ &=d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} (-1)^k\omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^I_p \wedge dx^i_p \wedge dx^J_p 
+    %%%%%%and
+    \\ &=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau \end{align*}
     
-    $$= d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^i_p \wedge dx^I_p \wedge dx^J_p$$ 
-    
-    $$=d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} (-1)^k\omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^I_p \wedge dx^i_p \wedge dx^J_p $$ $$=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau $$}
+    }
+
+
     \lemp{}{$d^2=0$}{$$d\omega = \sum_{i=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^i} dx^i\wedge dx^I  $$ and $$d(d\omega)= \big{(}\sum_{i=1}^n\frac{\partial}{\partial x^i} dx^i \big{)}\wedge \big{(}\sum_{j=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^j} dx^j\wedge dx^I   \big{)} $$ $$= \sum_{i=1}^n \sum_{j=1}^n \sum_{I \in \mathscr T_k} \frac{\partial^2 \omega^I }{\partial x^ix^j } dx^i\wedge dx^j\wedge dx^I $$ Since $dx^i\wedge dx^j=-dx^j\wedge dx^i$ and $\frac{\partial^2 \omega^I}{\partial x^ix^j}=\frac{\partial^2 \omega^I}{\partial x^jx^i}$ we have that $d(d\omega)=0$. }
 
     \subsection{Closed and Exact Forms}
@@ -870,6 +884,10 @@ up to opposite signs. Hence
 Thus the identity holds on basis elements, and hence, by multilinearity,
 it holds in the general case.
 }
+\begin{corollary} (\textbf{Cartan's relation}) \label{eq:cartan_relation} \begin{equation}dx^i \wedge \imath_{\partial_{x^j}}(\cdot)+\imath_{\partial_{x^j}}(dx^i\wedge \cdot)=\delta_{ij}\end{equation}
+    
+\end{corollary}
+\pf{Take $\omega=dx^i$ and $X=\partial_{x^j}$ in \ref{identity_on_interior_of_wedge}.}
 
 \lemp{}{$\imath$ is anticummutative, i.e. $$\imath_X \imath_Y=-\imath_Y \imath_X $$ }{This is easy to see since $\imath_X(\omega)(x_1,\cdots,x_{k-1})=\omega(X,x_1,\cdots,x_{k-1})$ and $\imath_Y\imath_X (\omega) (x_1,\cdots,x_{k-2})=\imath_X(\omega)(Y,x_1,x_2,\cdots,x_{k-2})=\omega(X,Y,x_1,\cdots,x_{k-2})=-\omega(Y,X,x_1,\cdots,x_{k-2})$ and the proof is complete.}
 \begin{corollary}
@@ -1004,7 +1022,7 @@ Let $F_1,F_2,\cdots,F_n$ be another positively oriented (not necessarily orthono
 $\det(A)$ can be found as follows:
 $$g(F_i,F_k)=g(\sum_i A_j^i E_i,\sum_m A_k^m E_m)=\sum_i\sum_m A^i_j A^m_k \delta_{im}=\sum_i A^i_j A^i_k =(A^TA)_{jk}$$
 Therefore, $$\sqrt{\det(\{g(F_i,F_k)\}_{i,k\leq n})}=\det(A)$$
-Let $x=(x^1,x^2,\cdots,x^n)$ and $y=(y^1,y^2,\cdots,y^n)$ be two coordinate charts around $p\in M$, such that $\{\frac{\partial}{\partial x^i}\}_{i\leq n}$ and $\{\frac{\partial}{\partial y^j}\}_{j\leq n}$ are both positively oriented. We then have that \begin{equation}
+Let $x=(x^1,x^2,\cdots,x^n)$ a coordinate chart around $p\in M$, such that $\{\frac{\partial}{\partial x^i}\}_{i\leq n}$ is positively oriented. We then have that \begin{equation}
     \mathrm{vol}_g(\frac{\partial}{\partial x^1},\frac{\partial}{\partial x^2},\cdots,\frac{\partial}{\partial x^n})=\sqrt{ \det \Big{(} \bigg.{(} g(\frac{\partial}{\partial x^i},\frac{\partial}{\partial x^j})  \bigg.{)}\Big{)} }
 \end{equation}
 And \begin{equation}
@@ -1370,9 +1388,37 @@ Evaluating the left-hand side at $p \in M$ on vectors $v_1, \dots, v_{k-1} \in T
 \\\\ $\impliedby)$ Say $df_p=0$ for all $p\in U$. Let $x$ and $y$ be arbitrary fixed points in $U$ and let $c:[a,b]\to U $ be any smooth curve connecting $x$ and $y$ (Such a curve exists because $U$ is path-connected, and hence continuity is guarenteed. Smoothening of the polygon edges with smooth curves guarentees smoothness). Note that $c^*f\equiv f \circ c:[a,b]\to \bbR$ is a smooth $0$ form on $[a,b]$. $d(c^*f)=d(f\circ c)= \frac{d (f\circ c (t))}{dt} dt=c^* df=0$ (from \ref{pullback_commutes_with_derivative}). Therefore $d(c^*f)=0$, so $f\circ c(a)=f\circ c(b)$ which gives $f(x)=f(y)$.  }
 
 \section{Manifolds with Boundary}
-{\color{red}{PENDING}}
-We ask the question: What does it mean for a function to be smooth on an \emph{arbitrary} set $S\subset \bbR^n$
-\section{Integration of $1-$forms}
+The following section discusses manifolds with boundary, which is crucial for the sequel on integration. Much of the discussion is taken from \cite{Tu2011}.
+
+We ask the question: What does it mean for a function to be smooth on an \emph{arbitrary} set $S\subset \bbR^n$? We define it in the following way: 
+\defn{Smooth functions for non-open sets}{Let $S\subset \bbR^n$. We say a function $f:S\to \bbR^m$ is \emph{smooth} at $p$ if there is a neighbourhood $U$ of $p$ and a $C^{\infty}$ function $\tilde{f}:U\to \bbR^m$ such that $f\equiv \tilde{f}$ on $U\cap S$. The function is \emph{smooth} on $S$ if it is smooth at every point of $S$. }
+\thmp{(Invariance of domain)}{Let $U\subset \bbR^n$ be an open set, $S\subset \bbR^n$ an arbitrary set and $f:U\to S$ a diffeomorphism. Then $S$ is open in $\bbR^n$.}{Let $p\in U$. There is an open set $V$ containing $S$ and a $C^{\infty}$ map $g:V\to \bbR^n$ such that $g|_{S}\equiv f^{-1}$. Since $f$ maps $U$ onto $S$, we have $g \circ f \equiv \mathrm{1}_U$. From chain rule, we have $Dg(f(p)) \circ Df(p)\equiv \mathrm{1}_{T_pU}$. We have $Df$ to be of non zero determinant at $p$. From the inverse function theorem, $f$ is locally invertible at $p$. $f:U_p\to V_{f(p)}\subset V$ is a diffeomorphism for neighbourhoods $U_p$ of $p$ and $V_{f(p)}$ of $f(p)$. This gives us that $V_{f(p)}\subset f(U)=S$, and hence we have $S$ to be open in $V$, and hence in $\bbR^n$. }
+\begin{lemma}(\textbf{\cite{Tu2011} pg 212, Proposition 21.4.})
+    Let $U $ and $V$ be open subsets of $\bbH^n:=\{(x^1,x^2,\cdots,x^n): x^n\geq 0\}$ and $f:U\to V$ a diffeomorphism. Then $f$ maps interior points to interior points and boundary points to boundary points. 
+\end{lemma}
+\defn{Manifold with boundary}{A topological n-manifold with boundary is a second countable Hausdorff space locally homeomorphic to $\bbH^n$.
+
+For each point $p\in M$ we have an open set $U\subset M$ and a homeomorphism $$\phi:U \to \phi(U)\subset \bbH^n$$ with $\phi(U)$ open in $\bbH^n$.
+
+A collection of charts $\{U,\phi\}$ is an atlas if for any two cahrts $(U,\phi)$, $(V,\psi)$
+$$\psi\circ \phi^{-1}:\phi(U\cap V) \to \psi(V\cap U)\subset \bbH^n $$ is $C^{\infty}$ (in the sense of smooth functions on non open sets).
+
+A point $p$ is \emph{interior} if in a chart $(U,\phi)$, $\phi(p)$ is interior in $\bbH^n$. Similarly, $p$ is a boundary point if $\phi(p)$ is boundary point in $\bbH^n$. The set of all boundary points is defined as $\partial M$. 
+}
+\begin{remark}
+    \begin{enumerate}
+        \item A function $f:M\to \bbR$ is $C^{\infty}$ at a boundary point $p\in \partial M$ if there is a chart $(U,\phi)$ such that $f\circ \phi^{-1}$ is $C^{\infty}$ at $p\in \bbH^n$, which implies that $f\circ \phi^{-1}$  extends as a $C^{\infty}$ function to an open neighbourhood of $\phi(p)$ in $\bbR^n$.
+        \item The topological boundary ($cls(M)-int(M)$) is different from the manifold boundary $\partial M$, though, when the context is clear, we will use the same notation for both. For example, the open unit disc in $\bbR^2$ has empty manifold bonudary, but non empty topological boundary.
+    \end{enumerate}
+\end{remark}
+\subsection{Boundary of a manifold}
+Let $M$ be an $n$ dimensional manifold with boundary $\partial M$. If $(U,\phi)$ a chart, let $\phi'\equiv \phi|_{U\cap \partial M}$. $$\phi':\partial M \cap U\to \partial \bbH^n\cong \bbR^{n-1} $$
+and if $(U,\phi)$ and $(V,\psi)$ are two charts for $M$, then $$\psi' \circ (\phi')^{-1}: \phi'(U\cap V\cap \partial M)\to \psi'(U\cap V\cap \partial M) $$ is $C^{\infty}$. Therefore, an atlas $\{(U,\phi)\}$ for $M$ gives rise to an induced atlas for $\partial M$ given by $\{(U\cap \partial M, \phi|_{U\cap \partial M})\}$ for $\partial M$, making $\partial M$ a manifold of $n-1$ dimension. 
+
+We define tangent spaces as we did previously, as the space of all derivations on the algebra $C^{\infty}_p$ of germs of smooth functions.
+\\\\ For a manifold $M$ with boundary, we say a vector $X_p$ is \emph{inward pointing} if $X_p \not \in T_p(\partial M)$ and there is a curve $c:[0,1)\to M$ such that $c(0)=p$, $c((0,1))\subset M^{\circ}$ (in the manifold sense) and $\frac{dc}{dt}|_{t=0}=X_p$.
+
+\section{Integration of forms}
 Let $U\subseteq \bbR^n$ be an open set and $\alpha$ be a $1-$form. 
 
 \defn{Parametrized Paths}{Any map $c:[a,b]\to U\subset \bbR^n$ that is smooth is said to be a \emph{path} from $c(a)$ to $c(b)$. }
@@ -1387,8 +1433,36 @@ Which can be suggestively written as
 \end{equation} where $\alpha^{\sharp}$ is the vector field associated with the $1-$form $\alpha$ via the inner product. 
 }
 
-{\color{red} Incomplete- Pending further development, poincare lemma in $\bbR^3$ and $\bbR^n$, and further developments with integration of $k-$forms.}
+\defn{Integral of $n-$forms in $\bbR^n$}{Let $U\subset \bbR^n $. Let $\omega=f(x)dx^1\wedge dx^2 \cdots dx^n$ be a top form. We define its integral as \begin{equation}\label{eq:defn_integral_forms_Rn}
+ \int_{U}\omega:=\int_U f(x) dx^1 dx^2 \cdots dx^n   
+\end{equation} in the usual Riemann sense. }
 
+Let $T:U\subset \bbR^n \to V\subset \bbR^n$ be a diffeomorphism and $\omega=f(y)dy^1\wedge \cdots \wedge dy^n$ a top form on $V$. Let $x^1,\cdots,x^n$ be the coordinates of $U$, and $y^1,\cdots, y^n$ that of $V$. Defining $T^i$ as $y^i\circ T$, we have from \ref{Change of variables for top forms} \begin{equation}
+    dT^1\wedge dT^2 \cdots \wedge dT^n=\det \bigg{(}\frac{\partial T^i}{\partial x^j}_{1\leq i,j\leq n} \bigg{)} dx^1\wedge dx^2 \cdots \wedge dx^n
+\end{equation}
+Therefore, \begin{align}\label{eq:discussion_invariance_pullback_1}
+    \int_U T^*\omega &=\int_U T^*(f) T^*(dy^1)\wedge T^*(dy^2)\cdots \wedge T^*(dy^n)
+    \nonumber\\ &= \int_U f\circ T(x) \det (J(T)) dx^1\wedge \cdots \wedge dx^n
+    \nonumber \\ &=\int_U f(T(x))dx^1 dx^2 \cdots dx^n
+\end{align}
+Meanwhile, \begin{align}\label{eq:discussion_invariance_pullback_2}
+    \int_V \omega:=\int_V f(y)dy^1\wedge \cdots dy^n&=\int_V f(y) dy^1dy^2 \cdots dy^n
+    \nonumber \\&=\int_U f(T(x))|\det(J(T))|dx^1dx^2\cdots dx^n
+\end{align}
+If we have that $T$ is \emph{orientation-preserving}, we must have that $\det(J(T))>0$, whence we see equality in \ref{eq:discussion_invariance_pullback_1} and \ref{eq:discussion_invariance_pullback_2}. This motivates us to the following construction:
+Let $M$ be an oriented $n-$manifold, and $\omega$ a compactly supported top form. 
+Given a chart $U,\phi$ and supposing that $\mathrm{supp}(\omega)\subset U$, we can define \begin{equation}
+    \int_U \omega:=\int_{\phi(U)}(\phi^{-1})^* \omega 
+\end{equation}
+That this is independent of the chart is clear from the fact that for any other chart $(U,\psi)$, $\phi\circ \psi^{-1}:\psi(U)\to \phi(U)$ is an orientation preserving diffeomorphism (assuming that the charts are taken from the \emph{oriented atlas}). 
+\\\\ Let $\omega$ be a top form compactly supported in $M$. Let $\rho_{\alpha}$ be a partition of unity subordinate to $U_{\alpha}$ coming from the oriented atlas. One can then write \begin{equation}
+    \omega=\sum_{\alpha} \rho_{\alpha} \omega
+\end{equation} since this is always a finite sum (due to the finite intersection property of partitions of unity).
+Since $\mathrm{supp}(\rho_{\alpha} \omega)\subset U_{\alpha}$, we can define 
+\begin{equation}\label{eq:defn:integral_of_n_forms}
+    \int_M \omega:=\sum_{\alpha} \int_{U_{\alpha}}\rho_{\alpha}\omega 
+\end{equation}
+We do not show that this is independent of the choice of the partition of unity. For details, refer pg. 266, \cite{Tu2011}.
 
 
 \section{The Stokes', Green's and Gauss' Theorems}
@@ -1403,10 +1477,10 @@ Where \begin{enumerate}
     \item $C:=\{x+y\hat n: x\in B_r(p)\cap H \text{ and } -h<y<h\}$ (Cylinder of height $2h$ and radius $r$ at $p$)
 \end{enumerate}
 }
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-    scale=0.8,
+    scale=0.65,
     >=Stealth,
     rotate=12,
     pdot/.style={circle, fill=black, inner sep=1.6pt},
@@ -1477,7 +1551,24 @@ Where \begin{enumerate}
 \label{fig:lipschitz_set}
 \end{figure}
 
-{\color{red} Incomplete- Pullback invariance, boundary orientation charts, etc}
+For $C^1$ sets, one can find an explicit formula for the unit normal at the boundary. Let $x_0\in \partial \Omega$. Indeed, from the definition, we have an open neighbourhood $V$ of $x_0$, an open set $U\subset \bbR^{n-1}$ and a function $g:U\to \bbR$ such that the following holds (after a suitable rotation and translation of coordinates, assume that we are viewing the function $g$ from the reference frame $H$-- the hyperplane.): $$\partial \Omega \cap V= \{(x',g(x')):x'\in U\} \text{ and }\Omega \cap V:=\{(x',x^n):-h<x^n<g(x')\} $$
+Writing the boundary (locally) as $f(x)=x_n-g(x^1,x^2,\cdots,x^{n-1})=0$, we get the unit normal at $x_0$ as \begin{equation}\nu(x_0)=\frac{(-\nabla'g (x'),1)}{\sqrt{1+|\nabla'g (x')|^2}}. \end{equation}
+For Lipschitz boundaries, the normal is still defined almost everywhere (Theorem 3.2 (\textbf{Rademacher}), \cite{EvansGariepy2015}), but even so, we lose out on the continuity of $\nu$.
+
+We now present the celebrated \emph{Stokes'} theorem, whose proof is adapted from \cite{Taylor2010PDE1}: 
+\thmp{(Stokes)\cite{Taylor2010PDE1}}{\label{thm:stokes}Let $M$ be an oriented $n-$dimensional $C^2$ manifold with boundary, and $\beta$ be a $C^1$ class $n-1$ form that is compactly supported on $M$. Then \begin{equation}
+    \int_M d\beta=\int_{\partial M}\beta
+\end{equation} }{We need only consider the case when $M$ is $\bbR^n$ (or $\bbH^n$). Indeed, if the theorem were to be true for $\bbR^n$(or $\bbH^n$), then it is true for charts $U_{\alpha}$ (since $\phi_{\alpha}$ are diffeomorphisms) and one can invoke the partition of unity to prove the result for $M$. 
+
+To this end, let $M=\{(x^1,x^2,\cdots,x^n):x^n\leq 0\}$ and hence $\partial M=\{(x^1,\cdots,x^{n-1})\}$. If \begin{equation}\label{throwaway_for_proof}\beta:=b_j(x)dx^1 \wedge dx^2 \cdots \wedge \widehat{dx^j}\wedge \cdots \wedge dx^n\end{equation} is an $n-1$ form that is compactly supported on $M$, we have $$d\beta=(-1)^{j-1} \frac{\partial b_j(x)}{dx^j} dx^1 \wedge \cdots \wedge dx^n $$ which is also bounded. (Note that it is enough to consider forms of the kind \ref{throwaway_for_proof} by linearity).
+
+When $j<n$, we have $$\int_M d\beta:=\int dx^1 dx^2 \widehat{dx^j}\cdots dx^n \int_{-\infty}^{\infty} \frac{\partial b_j(x)}{dx^j} dx^j =0 $$
+
+On the other hand, if $\iota:\partial M\hookrightarrow M$ is the inclusion, we see that $D\iota (v\in T_p(\partial M))\in T_p(\partial M)$. This implies $\iota^*\beta=0$ since $$\iota^* dx^n(v\in T_p(\partial M))=dx^n(D\iota(v))=0$$ since $D\iota (v)\in T_p(\partial M)$.
+
+When $j=n$, we have $d\beta=(-1)^{n-1} \partial_n b_n(x) dx^1 \wedge \cdots \wedge dx^n$, while the positively oriented boundary volume form takes the form $(-1)^{n-1} dx^1 \wedge \cdots \wedge dx^{n-1}$(Recall that the boundary orientation form comes from the interior product of the orientation form for $M$ with the outward unit normal). We thus have \begin{align*}\int_M d\beta=(-1)^{n-1}\int dx^1dx^2 \cdots dx^{n-1}\int_{-\infty}^{0} \frac{\partial b_n(x)}{\partial x^n}dx^n&=(-1)^{n-1}\int b_n(x',0)dx'\\&=\int_{\partial M} \beta \end{align*}
+which proves the result.
+}
 
 \section{The Codifferential $\delta$}
 \subsection{Motivation}
@@ -1501,7 +1592,9 @@ Using \ref{codiff} in \eqref{diff_codiff_boundary_integral} we immediately see t
 This is called the \emph{integration by parts formula} for forms.
 \begin{remark}
 1. Under the conventions of \ref{codiff}, the formula \ref{diff_codiff_boundary_integral_final} takes the above form. But if we propose that $\delta=(-1)^{nk+n+1}\star d \star$, or $(-1)^{k(n-k+1)}\star d\star$, we see different possible factors in \ref{diff_codiff_boundary_integral_final}.
-\\2. If we assume that our set either has no boundary or that the forms vanish on the boundary, the formula \ref{diff_codiff_boundary_integral_final} yields $$\int_{\Omega} \langle d\alpha,\beta\rangle + \int_{\Omega}\langle \alpha,\delta \beta \rangle=0$$
+\\2. If we assume that our set either has no boundary or that the forms vanish on the boundary, the formula \ref{diff_codiff_boundary_integral_final} yields \begin{equation}\label{diff_codiff_compact}
+    \int_{\Omega} \langle d\alpha,\beta\rangle + \int_{\Omega}\langle \alpha,\delta \beta \rangle=0
+\end{equation}
 \end{remark}
 
 \subsection{Coordinate formulas for the Codifferential}
@@ -1564,9 +1657,67 @@ Where the notation $\omega^{q,I}$ is understood form the equation \ref{definitio
     This is the formula persented in \cite{Csato_2018} pg. 465, 2 (vii).
 \end{remark}
 
+\subsubsection{Two identities involving the codifferential}
+There is an analogous identity to the antiderivation property of the exterior derivative with wedges, involving the codifferential and the interior. Recall that $d(f\wedge g)=df\wedge g+(-1)^k f\wedge dg$. We present that analogous result below: 
+\thmp{}{Let $f$ be a $k-$form and $g$ an $l-$form. We then have the following identity \begin{equation}
+    \delta(f\lrcorner g)=(-1)^k (df\lrcorner g+f\lrcorner \delta g).
+\end{equation}  }{Recall for compactly supported forms, we have from \ref{diff_codiff_compact} \begin{equation}\label{throwaway_for_13.6}\int_{\Omega}\langle d\alpha,\beta \rangle=-\int_{\Omega}\langle \alpha, \delta \beta \rangle \tag{A}\end{equation} where $\alpha$ is a $k-1$ form and $\beta$ is a $k$ form. 
+
+Let $h$ be an arbitrary form of degree $l-k-1$. Suppose also that $h$ is compactly supported. From the adjoint definition of interior we have:  
+$$ \int_{\Omega}\langle f\wedge h,g \rangle=\int_{\Omega} \langle h, f\lrcorner g\rangle$$
+Consider \begin{align} \int_{\Omega} \langle d(f\wedge h),g\rangle=\int_{\Omega} \langle df\wedge h,g\rangle + (-1)^k\int_{\Omega} \langle f\wedge dh,g\rangle &= - \int_{\Omega} \langle f\wedge h, \delta g\rangle \tag{From \ref{throwaway_for_13.6}}\\ &=-\int_{\Omega} \langle h,f\lrcorner \delta g\rangle\nonumber \end{align}
+Simplifying the left sum yields the following equality
+$$\int_{\Omega} \langle h,df \lrcorner g\rangle +(-1)^{k+1}\int_{\Omega} \langle h,\delta(f\lrcorner g)\rangle=-\int_{\Omega} \langle h,f\lrcorner \delta g\rangle $$
+Since $h$ was an arbitrary compactly supported form, Fundamental lemma of Calculus of Variation gives us: 
+$$df\lrcorner g+ f\lrcorner \delta g = (-1)^k\delta (f\lrcorner g)$$
+}
+We now give the second identity: 
+\thmp{}{\label{identity:codifferential-2}Let $\omega$ be a $k-$form. By our conventions, $\delta$ has the following form: \begin{equation}
+    \delta \omega= \sum_{j=1}^n \imath_{\partial_{x^j}}(\partial_{x^j}\omega)
+\end{equation}}{Recall from \ref{interior_in_terms_of_star_euclid} that $$\imath_{e_j} \omega=(-1)^{(n-k)(k-1)}\star (dx^j \wedge \star \omega)=(-1)^{n(k-1)}\star (dx^j \wedge \star \omega).$$
+Recall that $\delta \omega:= (-1)^{n(k-1)}\star d\star \omega$. From the definition of the exterior derivative, we have (in the Euclidean setting) $$d(\star \omega)=\sum_{j=1}^n dx^j \wedge \partial_j(\star \omega)=\sum_{j=1}^n dx^j \wedge \star (\partial_j \omega) $$ and consequently $$\delta (\omega)=(-1)^{n(k-1)}\star (\sum_{j=1}^n dx^j \wedge \star (\partial_j \omega))=\sum_{j=1}^n (-1)^{n(k-1)} \star (dx^j \wedge \star (\partial_j \omega))$$ which is precisely $$\sum_{j=1}^n \imath_{e^j}(\partial_j \omega)$$ and hence we have the identity. }
+\subsection{The Laplacian $\Delta$}
+With the tools we have developed thus far (exterior differentiation and codifferentiation), we can now define the Laplacian on forms. 
+\defn{Laplacian $\Delta$ for forms}{Let $\omega$ be a $k-$form, with a local basis expansion given by $\sum_I \omega^I dx^I$. We define the Laplacian on $\omega$ as \begin{equation}
+    \Delta \omega:= \sum_I \Delta \omega^I dx^I
+\end{equation} where $\Delta \omega^I$ is the usual Laplacian on $C^2$ functions.}
+
+
+\thmp{}{Let $\omega$ be a $k-$form. We have that \begin{equation}
+    (d\delta +\delta d)\omega=\Delta \omega.
+\end{equation}}{We have from \ref{identity:codifferential-2}and the definition of exterior differentiation that 
+\begin{equation}
+    \delta \omega=\sum_{j=1}^n \imath_{e^j}(\partial_j \omega) \text{  and }d \omega=\sum_{j=1}^n dx^j \wedge \partial_j(\omega).
+\end{equation}
+
+Let us compute $d\delta$ and $\delta d$ separately:
+
+\begin{align}
+    d\delta (\omega)= \sum_{j=1}^n dx^j \wedge \partial_j (\sum_{i=1}^n \imath_{e^i}(\partial_i \omega))=\sum_{j=1}^n \sum_{i=1}^n dx^j \wedge (\imath_{e^i}(\partial_{ij}\omega)).
+\end{align}
+On the other hand \begin{align}
+    \delta d(\omega)=\sum_{i=1}^n \imath_{e^i}(\partial_i (\sum_{j=1}^n dx^j\wedge \partial_j\omega))=\sum_{i=1}^n\sum_{j=1}^n \imath_{e^i}(dx^j \wedge \partial_{ij}\omega)
+\end{align}
+And hence \begin{equation}(d\delta +\delta d)\omega= \sum_{i=1}^n\sum_{j=1}^n \Big{(}dx^j\wedge (\imath_{e^i}(\partial_{ij}\omega))+\imath_{e^i}(dx^j\wedge \partial_{ij}\omega)\Big{)}\end{equation}
+From the antiderivation property of interiors, we have $$\imath_{e^i}(dx^j\wedge \partial_{ij}\omega)+dx^j\wedge (\imath_{e^i}(\partial_{ij}\omega))=\imath_{e^i}(dx^j)\wedge \partial_{ij}\omega =\delta_{ij}\partial_{ij}\omega$$
+Therefore, $$(d\delta+\delta d)\omega= \sum_{i,j=1}^n \delta_{ij}\partial_{ij}\omega=\Delta \omega.$$
+}
 
 
 \section{Boundary Calculus and Tangential and Normal Components}
+\subsection{Tangential and Normal components}
+\defn{Admissible boundary coordinate system}{Let $U,V$ and $\Omega$ be open in $\bbR^n$. Let $\Omega$ be atleast a $C^1$ set. A coordinate system $\phi:U\to V$ around a boundary point is said to be an \emph{admissible boundary coordinate system} if the following holds: 
+\begin{enumerate}
+    \item $\phi$ is $C^1$ diffeomorphism.
+    \item The boundary is locally $\partial \bbH^n$, i.e.  $$\partial \Omega\cap V=\{\phi(y',0):(y',0)\in U\}$$
+    \item For every $1\leq i\leq n$ and for all $(y',0)\in U$, $$\langle \partial_{y^i}\phi(y',0),\partial_{y^n}\phi(y',0)\rangle=\delta_{in} $$
+\end{enumerate}
+ }
+\begin{remark}
+    Suppose $\phi$ is such a boundary chart. Then for any $p\in \partial \Omega$, $p=\phi(y',0)$. Let $\gamma$ be a curve on $\partial \Omega$ passing $p$ at $t_0$. $\gamma(t)=\phi(y'(t),0)$ for a curve $y'(t)$ on $\bbR^{n-1}$. Taking the derivative of the curve at $t_0$, we note that (since $T_p(\partial \Omega)$ is $n-1$ dimensioned) $\partial_{y^1}\phi(y',0),\partial_{y^2}\phi(y',0),\cdots,\partial_{y^{n-1}}\phi(y',0)$ forms a basis for $T_p(\partial \Omega)$. From the 3rd condition of the definition, we see that the unit normal at $p$, $\nu(p)$ is $\pm\partial_{y^n}(\phi)$.
+\end{remark}
+
+
 
 {\color{red} 
 !!Not complete!!
@@ -1673,7 +1824,7 @@ This forms a countable family of seminorms that separate points, and hence $C^{\
 
 \subsubsection{Frechet Topology of $C^{\infty}(\Omega)$}
 Let $\{K_i\}$ be an exhaustion of $\Omega\subset \bbR^n$. Let $$p_{i,j}(u):=||u||_{C^{j-1}(K_i)}$$
-This yields a countable family of seminorms that separate points, and hence makes $C^{\infty}(\Omega)$ a Frechet space. 
+This yields a countable family of seminorms that separate points. With this topology, $C^{\infty}(\Omega)$ is a Frechet space (we omit the proof of completeness). 
 
 \subsubsection{Frechet Topology of $L^p_{\mathrm{loc}}(\Omega)$}
 Let $\Omega$ be an open set and let $\{K_i\}_{i\in \bbN}$ be an exhaustion. We define $L^p_{\mathrm{loc}}(\Omega)$ to be the space of all measureable functions $f: \Omega\to \bbK$ such that \begin{equation}
@@ -1704,7 +1855,7 @@ In the Banach space setting, the criteria for convergence is quite simple: $u_n\
 
 The following proposition characterises convergence in Frechet spaces:
 \begin{proposition}
-Let $E$ be a Frechet space with a countable collection of seminorms $\{p_i\}$. A sequence $u_n$ converges to $u$ if and only if for each $i\in \bbN$, $$p_i(u_n-u)\to u$$ as $n\to\infty$.    
+Let $E$ be a Frechet space with a countable collection of seminorms $\{p_i\}$. A sequence $u_n$ converges to $u$ if and only if for each $i\in \bbN$, $$p_i(u_n-u)\to 0$$ as $n\to\infty$.    
 \end{proposition}
 
 The following proposition characeterises convergence in LF spaces:
@@ -1744,7 +1895,7 @@ Let $E=\cup_i E_i$ where $\{E_i\}$ is an increasing collection of Frechet spaces
 We can now characterise continuous linear maps, with the following proposition: 
 
 \begin{proposition}
-    Let $E$ be an $LF$ space with $E=cup_i E_i$, an increasing limit of a sequence of Frechet spaces. Let $F$ be any LCTVS. A linear map $T:E\to F$ is continuous if and only if for each $n\in \bbN$, $$ T|_{E_n}\to F$$ is continuous in the Frechet sense.
+    Let $E$ be an $LF$ space with $E=\cup_i E_i$, an increasing limit of a sequence of Frechet spaces. Let $F$ be any LCTVS. A linear map $T:E\to F$ is continuous if and only if for each $n\in \bbN$, $$ T|_{E_n}\to F$$ is continuous in the Frechet sense.
 \end{proposition}
 
 
@@ -1765,7 +1916,7 @@ by \begin{equation}
 \end{theorem}
 
 \begin{proposition}
-    Let $X$ be a normed linear space. $x_n\in X$ converges to $x\in X$ in the weak topology iff $\phi(x_n)\to\phi(x)$ for all $\phi\in X^*$ 
+    Let $X$ be a normed linear space. $x_n\in X$ converges to $x\in X$ in the weak topology if and only if $\phi(x_n)\to\phi(x)$ for all $\phi\in X^*$ 
 \end{proposition}
 Convergence in the weak topology is called as \emph{weak convergence}. 
 
@@ -1779,7 +1930,6 @@ The proof comes from a direct application of the geometric form of the \emph{Hah
 \end{proposition}
 \begin{remark} We make some important remarks:
     \begin{enumerate}
-        \item Being weakly closed (complement of an open set in weak topology) \emph{does not} imply being weakly \emph{sequentially} closed (every weakly convergent sequence converges in the set itself).
         \item In general, weakly closed implies weakly sequentially closed.
         \item $C$ being weakly closed \emph{always} implies that $C$ is strongly closed (recall that that the weak topology is indeed weaker than the strong norm topology), but \emph{the converse is not always true}. For convex sets however, the coverse holds true.
     \end{enumerate}
@@ -1926,8 +2076,223 @@ From dominated convergence theorem, we can pass to the limit inside the integral
 }
 A simple corollary of \ref{thm:fundamental_lemma_of_CV} is the following:
 \begin{proposition}
-    Let $f,g\in L^1_{\mathrm{loc}}(\Omega)$, and let $T_f$ and $T_g$ be defined as \ref{eq:T_f}. If $T_f=T_g$, then $f=g a.e. x\in \Omega$. 
+    Let $f,g\in L^1_{\mathrm{loc}}(\Omega)$, and let $T_f$ and $T_g$ be defined as \ref{eq:T_f}. If $T_f=T_g$, then $f=g \ a.e. x\in \Omega$. 
 \end{proposition}
+\subsubsection{Differentiation of distributions}
+\defn{Differential of a distribution}{Let $T:C^{\infty}_c(\Omega)\to \bbR$ be a distribution. We define the \emph{distributional derivative} of $T$ as follows:
+\begin{equation}
+    \Big(D^{\alpha}T\Big)(\phi):=(-1)^{|\alpha|}T \big(D^{\alpha}\phi\big)
+\end{equation}
+}
+
+The reason for defining the derivative of a distribution with a factor of $-1$ is due to the integartion by parts formula:
+
+Indeed, if $T=T_f$ for some $C^1$ function, we have \begin{align*}\Big(\frac{\partial}{\partial x^i}T_f \Big)(\phi):=-T_f(\frac{\partial}{\partial x^i}\phi)=-\int_{\Omega} f(x)\frac{\partial \phi}{\partial x^i}(x) dx&=\int_{\Omega} \frac{\partial f}{\partial x^i}(x) \phi(x)dx \\ &= T_{\partial_i f}(\phi)  \end{align*}
+And in general, $$D^{\alpha}T_f\equiv T_{D^{\alpha}f}. $$
+
+
+
+\section{Briefly on the space of H\"{o}lder continuous functions}
+Let $\Omega\subset\mathbb{R}^n$ be an open set and let
+$0<\alpha\leq 1$.
+\defn{$C^{0,\alpha}(\Omega)$}{
+We define
+\[
+C^{0,\alpha}(\Omega)
+=
+\left\{
+u\in C(\Omega)\cap L^{\infty}(\Omega):
+[u]_{C^{0,\alpha}(\Omega)}<\infty
+\right\},
+\]
+where
+\[
+[u]_{C^{0,\alpha}(\Omega)}
+=
+\sup_{\substack{x,y\in\Omega\\x\neq y}}
+\frac{|u(x)-u(y)|}{|x-y|^\alpha}
+\]
+is the Hölder seminorm of $u$. The corresponding norm for $C^{0,\alpha}(\Omega)$ is
+\[
+\|u\|_{C^{0,\alpha}(\Omega)}
+=
+\|u\|_{L^\infty(\Omega)}
++
+[u]_{C^{0,\alpha}(\Omega)}.
+\]}
+
+\defn{$C^{0,\alpha}(\overline{\Omega})$.}{
+We define
+\[
+C^{0,\alpha}(\overline{\Omega})
+=
+\left\{
+u\in C(\overline{\Omega})\cap L^{\infty}(\overline{\Omega}):
+[u]_{C^{0,\alpha}(\overline{\Omega})}<\infty
+\right\},
+\]
+where
+\[
+[u]_{C^{0,\alpha}(\overline{\Omega})}
+=
+\sup_{\substack{x,y\in\overline{\Omega}\\x\neq y}}
+\frac{|u(x)-u(y)|}{|x-y|^\alpha}.
+\] The corresponding norm for $C^{0,\alpha}(\overline{\Omega})$ is
+\[
+\|u\|_{C^{0,\alpha}(\overline{\Omega})}
+=
+\|u\|_{L^\infty(\overline{\Omega})}
++
+[u]_{C^{0,\alpha}(\overline{\Omega})}.
+\]
+}
+\begin{remark}
+\begin{enumerate}
+\item There is no distinction between the two spaces, as H\"{o}lder continuous functions on $\Omega$ extend uniformly to the boundary $\overline{\Omega}$. \emph{But}, this is only true when $k=0$ and not for general $C^{k,\alpha}(\Omega)$.
+\item $\alpha=1$ corresponds to the \emph{Lipschitz class} of functions.
+\item If $\Omega$ is connected, $C^{0,\alpha}$ for $\alpha>1$ only contains constant functions. Indeed, if $\alpha>1$, we would have that derivatives \emph{exist} at each point $x\in \Omega$ and are zero.    
+\end{enumerate}
+\end{remark}
+
+\defn{$C^{k,\alpha}(\Omega)$}{
+For $k\in\mathbb{N}$, we define
+\[
+C^{k,\alpha}(\Omega)
+=
+\left\{
+u\in C^k(\Omega):
+D^\beta u\in L^\infty(\Omega)\text{ for all }|\beta|\leq k,\
+[D^\beta u]_{C^{0,\alpha}(\Omega)}<\infty
+\text{ for all }|\beta|=k
+\right\},
+\]
+where $\beta=(\beta_1,\ldots,\beta_n)$ is a multi-index and
+\[
+D^\beta u
+=
+\frac{\partial^{|\beta|}u}
+{\partial x_1^{\beta_1}\cdots\partial x_n^{\beta_n}},
+\qquad
+|\beta|=\beta_1+\cdots+\beta_n.
+\]
+The standard norm on this space is
+\[
+\|u\|_{C^{k,\alpha}(\Omega)}
+=
+\sum_{|\beta|\leq k}
+\|D^\beta u\|_{L^\infty(\Omega)}
++
+\sum_{|\beta|=k}
+[D^\beta u]_{C^{0,\alpha}(\Omega)}.
+\]}
+
+\defn{$C^{k,\alpha}(\overline{\Omega})$}{
+Similarly, we define
+\[
+C^{k,\alpha}(\overline{\Omega})
+=
+\left\{
+u\in C^k(\overline{\Omega}):
+D^\beta u\in L^\infty(\Omega)\text{ for all }|\beta|\leq k,\
+[D^\beta u]_{C^{0,\alpha}(\overline{\Omega})}<\infty
+\text{ for all }|\beta|=k
+\right\},
+\]
+with norm
+\[
+\|u\|_{C^{k,\alpha}(\overline{\Omega})}
+=
+\sum_{|\beta|\leq k}
+\|D^\beta u\|_{L^\infty(\overline{\Omega})}
++
+\sum_{|\beta|=k}
+[D^\beta u]_{C^{0,\alpha}(\overline{\Omega})}.
+\]
+Here, $C^k(\overline{\Omega})$ is understood in the usual up-to-the-boundary
+sense: the derivatives up to order $k$ extend continuously to
+$\overline{\Omega}$.}
+
+
+\defn{Local Hölder spaces}
+{We also define
+\[
+C^{k,\alpha}_{\mathrm{loc}}(\Omega)
+=
+\left\{
+u\in C^k(\Omega):
+u\in C^{k,\alpha}(K)
+\text{ for every compact }K\subset\Omega
+\right\}.
+\]
+In other words, all derivatives of order $k$ are locally Hölder
+continuous with exponent $\alpha$. The corresponding local seminorms are \[
+\|u\|_{C^{k,\alpha}(K)}
+=
+\sum_{|\beta|\leq k}
+\|D^\beta u\|_{L^\infty(K)}
++
+\sum_{|\beta|=k}
+[D^\beta u]_{C^{0,\alpha}(K)},
+\]
+where
+\[
+[D^\beta u]_{C^{0,\alpha}(K)}
+=
+\sup_{\substack{x,y\in K\\x\neq y}}
+\frac{|D^\beta u(x)-D^\beta u(y)|}{|x-y|^\alpha}.
+\] 
+Fix a compact exhaustion $K_i$ of $\Omega$ and let $p_i(u):=\|u\|_{C^{k,\alpha}(K_i)}$ be a collection of semi-norms. This collection separates points and hence metrizes $C^{k,\alpha}_{\mathrm{loc}}(\Omega)$. With this collection of semi-norms, $C^{k,\alpha}_{\mathrm{loc}}(\Omega)$ becomes a \emph{Frechet space}. }
+\begin{theorem}
+    H\"{o}lder spaces are complete metric spaces.
+\end{theorem}
+
+\section{Sobolev spaces}
+
+
+
+
+\section{Compactness: Arzelà--Ascoli, Banach--Alaoglu, and Eberlein--Šmulian}
+We now digress to look at three results that pertain to compactness in various spaces of continuous functions. 
+\subsection{Arzelà--Ascoli compactness theorem}
+
+\defn{Equicontinuity}{Let $X$ be a metric space. We say a collection $\mathcal F$ of functions $f:X\to \bbR$ \emph{equicontinuous} if for every $x\in X$ and every $\varepsilon>0$, there exists a $\delta(x,\varepsilon)>0$ such that $$d_X(x,y)<\delta\implies |f(x)-f(y)|<\varepsilon,\ \text{for all } f\in \mathcal F. $$ 
+If $\delta$ is independent of $x$, we say $\mathcal F$ is \emph{uniformly equicontinuous} }
+\begin{lemma}
+    For a compact metric space $X$, equicontinuity $\implies$ uniform equicontinuity. 
+\end{lemma}
+\begin{lemma}\label{lem:equivalence_of_compactness_CX}
+    For a compact metric space $X$ and a collection $\mathcal F \subset C(X)\equiv CB(X)$, the following are equivalent:
+    \begin{enumerate}
+        \item $\mathcal F$ is relatively compact (has compact closure).
+        \item $\mathcal F$ is precompact (totally-bounded).
+        \item For every sequence $f_n$ of continuous functions in $\mathcal F$, there is a uniformly convergent subsequence convergent to $f\in \mathcal F$.
+    \end{enumerate}
+
+\end{lemma}
+\begin{remark}
+    Note that the result \ref{lem:equivalence_of_compactness_CX} is simply a version of the \emph{Heine-Borel} property for metric spaces in disguise. Indeed, in metric spaces, (compact) $\iff$ (sequentially compact) $\iff$ (complete and totally bounded). The proof of the above follows quite closely to the proof of the general statement. 
+\end{remark}
+
+\begin{theorem}\label{thm:AA}
+\textbf{(Arzelà--Ascoli)}
+{Let $X$ be a compact metric space and $\mathcal F$ a collection of \emph{equicontinuous} functions in $C(X)$ such that \begin{equation}\label{eq:boundedness_in_AA_thm}
+    \text{For every }x\in X, \ \sup_{f\in \mathcal F}|f(x)|<\infty
+\end{equation}
+then, $\mathcal F$ is relatively compact in $C(X)$.}
+    
+\end{theorem}
+\begin{remark}
+1. Note that, this is tantamount to saying that given a sequence of equicontinuous functions with sufficient boundedness properties (\ref{eq:boundedness_in_AA_thm}), we can always extract a uniformly convergent subseqence. 
+\\\\2. We also note that the condition \ref{eq:boundedness_in_AA_thm}, along with equicontinuity, actually implies uniform boundedness. 
+\end{remark}
+
+\pf{(\emph{of} \ref{thm:AA}) We give a sketch of the proof: Let $\delta>0$ be arbitrary. $X$ can be covered by finitely many balls $$X\subset \cup_{i=1}^{N_{\delta}} B_{\delta}(x_i) $$ for $\{x_1,x_2,\cdots,x_{N_{\delta}}\} \subset X$. The sequence $f_1(x_1),f_2(x_1)\cdots f_j(x_1)\cdots$ is bounded by pointwise boundedness, and by Bolzano--Weierstrass, we can extract a convergent subsequence $f(x_1)$. For $x_2$, we can extract a further subsequence (which we do not relabel) such that $f_i(x_1)\to f(x_1)$ and $f_i(x_2)\to f(x_2)$. We continue as such to get a subsequence (which we do not relabel) $f_n(x_j)\to f(x_j)$ for each $j\leq N_{\delta}$.
+\\\\Now let $x\in X$, $x_i$ be the closest to $x$. Let $\varepsilon>0$ be arbitrary. Recall that our collection is \emph{uniformly equicontinuous}. Thus, if $\delta$ is sufficiently small, equicontinuity of $f_n$ yields $$|f_n(x)-f_n(x_i)|<\varepsilon/3 \text{ for all }n\in \bbN $$
+Recall that $f_n(x_i)$ was convergent for every $i$, therefore Cauchy for each $i$: $$|f_n(x_i)-f_m(x_i)|<\varepsilon/3 \text{ for all }i\leq N_{\delta} $$
+We then have, $$|f_n(x)-f_m(x)|\leq |f_n(x)-f_n(x_i)|+|f_n(x_i)-f_m(x_i)|+|f_m(x_i)-f_m(x)|<\varepsilon $$ by 1. Equicontinuity and 2. Extraction of a convergent subsequence. The key idea is that the large enough $N$ \emph{does not} depend on $x$ (due to uniform equicontinuity). We have, therefore, extracted a uniformly cauchy subsequence (since $x$ was arbitrary and $N$ was independent of $x$). Completeness of $C(X)$ implies that $f_n$ converges to $f$.
+
+}
+
 
 \begin{comment}
 {\color{red}

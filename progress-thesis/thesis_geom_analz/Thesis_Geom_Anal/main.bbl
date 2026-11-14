@@ -186,6 +186,44 @@
       \verb http://dx.doi.org/10.1016/j.jfa.2017.10.006
       \endverb
     \endentry
+    \entry{EvansGariepy2015}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=0d72932a7775f85a51622d3af75ae26e}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Lawrence\bibnamedelima C.},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=87414fcdc0942b6b841dc38860476d90}{%
+           family={Gariepy},
+           familyi={G\bibinitperiod},
+           given={Ronald\bibnamedelima F.},
+           giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton, FL}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \strng{fullhash}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \strng{fullhashraw}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \strng{bibnamehash}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \strng{authorbibnamehash}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \strng{authornamehash}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \strng{authorfullhash}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \strng{authorfullhashraw}{e332b68e2d60bbfa99c7ec5ef339003f}
+      \field{labelalpha}{EG15}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Revised}
+      \field{isbn}{978-1-4822-4238-6}
+      \field{series}{Textbooks in Mathematics}
+      \field{title}{Measure Theory and Fine Properties of Functions}
+      \field{year}{2015}
+    \endentry
     \entry{Jost2017}{book}{}{}
       \name{author}{1}{}{%
         {{hash=9dad1ae12f6d3956f7a954184d05d6b7}{%
@@ -320,6 +358,76 @@
       \field{title}{Topological Vector Spaces}
       \field{volume}{3}
       \field{year}{1999}
+    \endentry
+    \entry{Taylor2010PDE1}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=4c44c7867a4cbff4b11374c295add4d7}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Michael\bibnamedelima E.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science+Business Media}%
+      }
+      \strng{namehash}{4c44c7867a4cbff4b11374c295add4d7}
+      \strng{fullhash}{4c44c7867a4cbff4b11374c295add4d7}
+      \strng{fullhashraw}{4c44c7867a4cbff4b11374c295add4d7}
+      \strng{bibnamehash}{4c44c7867a4cbff4b11374c295add4d7}
+      \strng{authorbibnamehash}{4c44c7867a4cbff4b11374c295add4d7}
+      \strng{authornamehash}{4c44c7867a4cbff4b11374c295add4d7}
+      \strng{authorfullhash}{4c44c7867a4cbff4b11374c295add4d7}
+      \strng{authorfullhashraw}{4c44c7867a4cbff4b11374c295add4d7}
+      \field{labelalpha}{Tay10}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{isbn}{978-1-4419-7055-8}
+      \field{series}{Applied Mathematical Sciences}
+      \field{title}{Partial Differential Equations I: Basic Theory}
+      \field{volume}{115}
+      \field{year}{2010}
+      \verb{doi}
+      \verb 10.1007/978-1-4419-7056-5
+      \endverb
+    \endentry
+    \entry{Tu2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=bd797f5054139f44f22b71934a7e9d84}{%
+           family={Tu},
+           familyi={T\bibinitperiod},
+           given={Loring\bibnamedelima W.},
+           giveni={L\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{bd797f5054139f44f22b71934a7e9d84}
+      \strng{fullhash}{bd797f5054139f44f22b71934a7e9d84}
+      \strng{fullhashraw}{bd797f5054139f44f22b71934a7e9d84}
+      \strng{bibnamehash}{bd797f5054139f44f22b71934a7e9d84}
+      \strng{authorbibnamehash}{bd797f5054139f44f22b71934a7e9d84}
+      \strng{authornamehash}{bd797f5054139f44f22b71934a7e9d84}
+      \strng{authorfullhash}{bd797f5054139f44f22b71934a7e9d84}
+      \strng{authorfullhashraw}{bd797f5054139f44f22b71934a7e9d84}
+      \field{labelalpha}{Tu11}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-1-4419-7399-3}
+      \field{series}{Universitext}
+      \field{title}{An Introduction to Manifolds}
+      \field{year}{2011}
     \endentry
   \enddatalist
 \endrefsection

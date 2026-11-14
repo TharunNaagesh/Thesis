@@ -187,6 +187,8 @@ INPUT config/theoremstyle.tex
 INPUT ./config/mathletters.tex
 INPUT ./config/mathletters.tex
 INPUT config/mathletters.tex
+INPUT c:/texlive/2024/texmf-dist/tex/latex/float/float.sty
+INPUT c:/texlive/2024/texmf-dist/tex/latex/float/float.sty
 INPUT c:/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
 INPUT c:/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
 INPUT c:/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def
