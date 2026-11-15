@@ -1706,7 +1706,7 @@ Therefore, $$(d\delta+\delta d)\omega= \sum_{i,j=1}^n \delta_{ij}\partial_{ij}\o
 
 \section{Boundary Calculus and Tangential and Normal Components}
 \subsection{Tangential and Normal components}
-\defn{Admissible boundary coordinate system}{Let $U,V$ and $\Omega$ be open in $\bbR^n$. Let $\Omega$ be atleast a $C^1$ set. A coordinate system $\phi:U\to V$ around a boundary point is said to be an \emph{admissible boundary coordinate system} if the following holds: 
+\defn{Admissible boundary coordinate system}{Let $U,V$ and $\Omega$ be open in $\bbR^n$. Let $\Omega$ be at least a $C^1$ set. A coordinate system $\phi:U\to V$ around a boundary point is said to be an \emph{admissible boundary coordinate system} if the following holds: 
 \begin{enumerate}
     \item $\phi$ is $C^1$ diffeomorphism.
     \item The boundary is locally $\partial \bbH^n$, i.e.  $$\partial \Omega\cap V=\{\phi(y',0):(y',0)\in U\}$$
@@ -1716,7 +1716,31 @@ Therefore, $$(d\delta+\delta d)\omega= \sum_{i,j=1}^n \delta_{ij}\partial_{ij}\o
 \begin{remark}
     Suppose $\phi$ is such a boundary chart. Then for any $p\in \partial \Omega$, $p=\phi(y',0)$. Let $\gamma$ be a curve on $\partial \Omega$ passing $p$ at $t_0$. $\gamma(t)=\phi(y'(t),0)$ for a curve $y'(t)$ on $\bbR^{n-1}$. Taking the derivative of the curve at $t_0$, we note that (since $T_p(\partial \Omega)$ is $n-1$ dimensioned) $\partial_{y^1}\phi(y',0),\partial_{y^2}\phi(y',0),\cdots,\partial_{y^{n-1}}\phi(y',0)$ forms a basis for $T_p(\partial \Omega)$. From the 3rd condition of the definition, we see that the unit normal at $p$, $\nu(p)$ is $\pm\partial_{y^n}(\phi)$.
 \end{remark}
-
+We now present a theorem that speaks to the existence of admissible boundary coordinates. The proof is adapted from \cite{CsatoDacorognaKneuss2012}:
+\thmp{}{Let $r\geq 1$ be an integer, $0\leq \alpha\leq 1$, $\Omega\subset \bbR^n$ be an open $C^{r,\alpha}$ set and let $a\in \partial \Omega$. Then there exists an open set $U\subset \bbR^n$, a neighbourhood $V\subset \bbR^n$ of $a$, and an admissible boundary coorinate system $\phi:U\to V$ such that $\phi\in \mathrm{Diff}^{r,\alpha}(U;V)$. }{By the definition of a $C^{r,\alpha}$ set, there is a neighbourhood $U$ in $\bbR^n$ and a neighbourhood $V$ of $a$ such that $$\psi(U\cap \partial\bbH^n)=V\cap \partial \Omega$$ with $\psi(U;V)\in \mathrm{Diff}^{r,\alpha}(U;V)$. Let $g_{ij}\in C^{r-1,\alpha}(U)$ be given by $$g_{ij}(x):=\big\langle\frac{\partial \psi}{\partial x^i}(x),\frac{\partial \psi}{\partial x^j}(x) \big\rangle $$ for $1\leq i,j \leq n$. Let $g(x)$ denote the associated $n\times n$ matrix. Note that we already have that the vectors $\{\frac{\partial \psi}{\partial x^i}(x):1\leq i\leq n-1\}$ forms a basis for $T_{\psi(x)}\partial \Omega$ for $x\in U\cap \partial\bbH^n$.
+\\ We have that $g$ is symmetric and positive definite for all $x\in U$ (not just the boundary). Indeed, let $J(x)=D\psi(x)$. By definition, $g=J^T J $ which yields symmetry. 
+\\ Let $v$ be any vector in $\bbR^n$: $$v^T g v =\langle Jv,Jv \rangle=|Jv|^2\geq 0.$$ 
+Now suppose that $v^T gv=0$. Then by the previous equation, $Jv=0$. Since $\psi$ is a $C^1$ diffeomorphism from $U$ onto $V$, we have that $D\psi $ is invertible on all of $U$, making $v=0$. This gives us positive definiteness. 
+\\\\ Note that, apriori, we have neither the orthogonality condition nor normality (since $\langle \partial_i\psi(x),\partial_n\psi(x)\rangle $ need not be $\delta_{in}$). Let $N=\sum_{i=1}^n a^i \frac{\partial \psi}{\partial x^i}(x)$. If $N$ were to be \emph{perpendicular} to the first $n-1$ vectors $\partial_i \psi $, we would have to have \begin{align*}
+    0=\sum_{i=1}^n a^i \langle \partial_i \psi,\partial_k \psi\rangle=\sum_{i=1}^n g_{ki}a^i
+\end{align*}
+for each $k\leq n-1$. This is tantamount to saying $$[g][a] =\lambda e_n $$ where $[g]$ is the $n\times n$ matrix associated to $g_{ij}$, $[a]$ is the column vector $[a^1,a^2,\cdots,a^n]^T$ and $e_n=[0,0,\cdots,1]^T$. Since $[g]$ is invertible, $[a]=\lambda g^{-1} e_n$.
+We see then that, if we were to construct a vector $N$ that is perpendicular to $\{\partial_i \psi: i\leq n-1\}$, the coeffecients $a^i$ would have to be \emph{proportional} to the last column of $g^{-1}$.
+\\\\ To this end, let $$d(x')=\Big{[}0,0,\cdots,0,1/\sqrt{(g^{-1})_{nn}(x',0)}\Big{]}$$ for $x'\in B\cap \partial\bbH^n$ and $$f(x'):=g^{-1}(x',0) \circ d(x'). $$
+By construction, $f\in C^{{r-1},\alpha}(U \cap \partial \bbH^n;\bbR^n)$ and the $n-$th coordinate of $f$ is $$\sqrt{(g^{-1})_{nn}(x',0)} \text{ for }x'\in \partial \bbH^n.$$
+We extend $f$ to all of $\bbR^{n-1}$ (This is not trivial in general, cf. Lemma 6.37 in \cite{GilbargTrudinger2001})
+and define $\phi=(\phi^1,\phi^2,\cdots,\phi^n)$ through $$\phi^i(x):=x_i + x_n \int_{\bbR^{n-1}} \eta(y')f_i(x'-x_ny')dy', \ 1\leq i\leq n-1$$
+$$\phi^n(x):=x_n\int_{\bbR^{n-1}}\eta(y')f_n(x'-x_n y')dy', $$
+where $\eta$ is a smooth mollifier with compact support on $\bbR^{n-1}$. $\phi\in C^{r,\alpha}(\bbR^n;\bbR^n)$ and on $\partial \bbH^n$ ($x_n=0$) the following holds: $$\frac{\partial \phi^i}{\partial x^l}=\begin{cases}
+    \delta_{il} & 1\leq l\leq n-1 \\
+    f_i & l=n
+\end{cases} $$
+We have in particular that $\det (\nabla \phi(0))\neq 0$, which implies (from the inverse function theorem) that there is a small enough neighbourhood $W$ of $0$ such that $\phi(W)\subset U$ and $\phi\in \mathrm{Diff}^{r,\alpha}(W,\phi(W))$. 
+\\\\ Now we proceed to construct our chart: Define $\gamma$ by $$\gamma(x):=\psi(\phi(x)) $$
+Indeed, since $\phi$ maps $\partial \bbH^n$ to itself identically, and since $\psi$ was a boundary chart, the first two properties of the definition are satisfied. We need only check the third.
+Let $1\leq l\leq n-1$. $$\Big{\langle} \frac{\partial \gamma}{\partial x^l}(x),\frac{\partial \gamma}{\partial x^n}(x)\Big{\rangle} $$
+ 
+}
 
 
 {\color{red} 

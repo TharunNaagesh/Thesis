@@ -224,6 +224,43 @@
       \field{title}{Measure Theory and Fine Properties of Functions}
       \field{year}{2015}
     \endentry
+    \entry{GilbargTrudinger2001}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=d91d04ccf8e51f30c6f9eb4b6bc0ccc1}{%
+           family={Gilbarg},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7d500e0b463a2ce688322509a10db6c5}{%
+           family={Trudinger},
+           familyi={T\bibinitperiod},
+           given={Neil\bibnamedelima S.},
+           giveni={N\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{fullhash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{fullhashraw}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{bibnamehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{authorbibnamehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{authornamehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{authorfullhash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{authorfullhashraw}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \field{labelalpha}{GT01}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Reprint of the 1998 edition}
+      \field{series}{Classics in Mathematics}
+      \field{title}{Elliptic Partial Differential Equations of Second Order}
+      \field{year}{2001}
+    \endentry
     \entry{Jost2017}{book}{}{}
       \name{author}{1}{}{%
         {{hash=9dad1ae12f6d3956f7a954184d05d6b7}{%

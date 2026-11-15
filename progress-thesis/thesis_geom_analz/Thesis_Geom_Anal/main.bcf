@@ -2386,11 +2386,13 @@
     <bcf:citekey order="12" intorder="1">Jost2017</bcf:citekey>
     <bcf:citekey order="13" intorder="1">CsatoDacorognaKneuss2012</bcf:citekey>
     <bcf:citekey order="14" intorder="1">Csato_2018</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">RudFA</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">BartleSherbert2011</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">SchaeferWolff1999</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">Brezis2011</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">Brezis2011</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">CsatoDacorognaKneuss2012</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">GilbargTrudinger2001</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">RudFA</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">BartleSherbert2011</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">SchaeferWolff1999</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">Brezis2011</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">Brezis2011</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">
