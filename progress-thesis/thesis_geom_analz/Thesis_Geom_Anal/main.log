@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  17 NOV 2026 16:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  17 NOV 2026 16:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1366,7 +1366,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 593--595
 [29]
 
 [30]
-Overfull \hbox (3.20639pt too wide) in paragraph at lines 1042--1042
+Overfull \hbox (3.20639pt too wide) in paragraph at lines 1043--1043
 [][]\OT1/cmr/bx/n/10 Lemma B.7.5. []\OT1/cmr/m/it/10 If $\OML/cmm/m/it/10 E[]; E[]; []  ; E[]$ \OT1/cmr/m/it/10 is an or-thonor-mal frame with re-spect to $\OML/cmm/m/it/10 g$\OT1/cmr/m/it/10 , then the dual co-frame $\OML/cmm/m/it/10 ^^X[]; ^^X[]; []  ; ^^X[]$
  []
 
@@ -1379,55 +1379,55 @@ Overfull \hbox (3.20639pt too wide) in paragraph at lines 1042--1042
 [33]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1124.
+(hyperref)                removing `math shift' on input line 1125.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1124.
+(hyperref)                removing `math shift' on input line 1125.
 
 
 
 [34]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1263.
+(hyperref)                removing `math shift' on input line 1264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1263.
+(hyperref)                removing `math shift' on input line 1264.
 
 
 
 [35]
 
 [36]
-Overfull \hbox (13.60463pt too wide) detected at line 1359
+Overfull \hbox (13.60463pt too wide) detected at line 1360
 [][]
  []
 
 
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
+Underfull \hbox (badness 10000) in paragraph at lines 1423--1423
  
  []
 
 
-Overfull \hbox (2.57773pt too wide) in paragraph at lines 1430--1432
+Overfull \hbox (2.57773pt too wide) in paragraph at lines 1431--1433
 [][]\OT1/cmr/bx/n/10 Lemma B.9.3. []\OT1/cmr/m/it/10 (\OT1/cmr/bx/it/10 [[][]Tu11[][]] pg 212, Propo-si-tion 21.4.\OT1/cmr/m/it/10 ) Let $\OML/cmm/m/it/10 U$ \OT1/cmr/m/it/10 and $\OML/cmm/m/it/10 V$ \OT1/cmr/m/it/10 be open sub-sets of $\U/msb/m/n/10 H[] \OT1/cmr/m/n/10 := \OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; x[]; []  ; x[]\OT1/cmr/m/n/10 ) :
  []
 
 
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1452--1454
+Underfull \hbox (badness 10000) in paragraph at lines 1453--1455
 
  []
 
 
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1490--1492
+Underfull \hbox (badness 10000) in paragraph at lines 1491--1493
 
  []
 
@@ -1438,15 +1438,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1490--1492
 [41]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1607.
+(hyperref)                removing `math shift' on input line 1608.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 1607.
+(hyperref)                removing `\delta' on input line 1608.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1607.
+(hyperref)                removing `math shift' on input line 1608.
 
 
 
@@ -1458,56 +1458,56 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1712 ...ega)$$ and hence we have the identity. }
+l.1713 ...ega)$$ and hence we have the identity. }
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1712 ...ega)$$ and hence we have the identity. }
+l.1713 ...ega)$$ and hence we have the identity. }
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1712 ...ega)$$ and hence we have the identity. }
+l.1713 ...ega)$$ and hence we have the identity. }
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1712 ...ega)$$ and hence we have the identity. }
+l.1713 ...ega)$$ and hence we have the identity. }
                                                   
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1713.
+(hyperref)                removing `math shift' on input line 1714.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Delta' on input line 1713.
+(hyperref)                removing `\Delta' on input line 1714.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1713.
+(hyperref)                removing `math shift' on input line 1714.
 
 
 
 [45]
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+Underfull \hbox (badness 10000) in paragraph at lines 1789--1789
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+Underfull \hbox (badness 10000) in paragraph at lines 1789--1789
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+Underfull \hbox (badness 10000) in paragraph at lines 1789--1789
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+Underfull \hbox (badness 10000) in paragraph at lines 1789--1789
  
  []
 
@@ -1516,12 +1516,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
 [47]
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1920--1920
+Underfull \hbox (badness 10000) in paragraph at lines 1921--1921
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1920--1920
+Underfull \hbox (badness 10000) in paragraph at lines 1921--1921
  
  []
 
@@ -1530,24 +1530,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 1920--1920
 [49]
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 2014--2014
+Underfull \hbox (badness 10000) in paragraph at lines 2015--2015
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2014--2014
+Underfull \hbox (badness 10000) in paragraph at lines 2015--2015
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2014--2014
+Underfull \hbox (badness 10000) in paragraph at lines 2015--2015
  
  []
 
 
 
 [51{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 2025--2025
+Underfull \hbox (badness 10000) in paragraph at lines 2026--2026
  
  []
 
@@ -1578,14 +1578,14 @@ Appendix C.
 [61]
 
 [62]
-Underfull \hbox (badness 10000) in paragraph at lines 2586--2588
+Underfull \hbox (badness 10000) in paragraph at lines 2587--2589
 
  []
 
 
 
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 2595--2595
+Underfull \hbox (badness 10000) in paragraph at lines 2596--2596
  
  []
 
