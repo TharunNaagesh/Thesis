@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  15 NOV 2026 23:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.30)  17 NOV 2026 16:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1318,34 +1318,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 434--434
 [19]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 515.
+(hyperref)                removing `math shift' on input line 520.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 515.
+(hyperref)                removing `superscript' on input line 520.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 515.
+(hyperref)                removing `math shift' on input line 520.
 
 
 
 [20]
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 571--571
+Underfull \hbox (badness 10000) in paragraph at lines 576--576
  
  []
 
 
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 584--587
+Underfull \hbox (badness 10000) in paragraph at lines 589--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--590
+Underfull \hbox (badness 10000) in paragraph at lines 593--595
 
  []
 
@@ -1366,7 +1366,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 588--590
 [29]
 
 [30]
-Overfull \hbox (3.20639pt too wide) in paragraph at lines 1008--1008
+Overfull \hbox (3.20639pt too wide) in paragraph at lines 1042--1042
 [][]\OT1/cmr/bx/n/10 Lemma B.7.5. []\OT1/cmr/m/it/10 If $\OML/cmm/m/it/10 E[]; E[]; []  ; E[]$ \OT1/cmr/m/it/10 is an or-thonor-mal frame with re-spect to $\OML/cmm/m/it/10 g$\OT1/cmr/m/it/10 , then the dual co-frame $\OML/cmm/m/it/10 ^^X[]; ^^X[]; []  ; ^^X[]$
  []
 
@@ -1376,58 +1376,58 @@ Overfull \hbox (3.20639pt too wide) in paragraph at lines 1008--1008
 
 [32]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1090.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1090.
-
-
-
 [33]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1124.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1124.
+
+
 
 [34]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1229.
+(hyperref)                removing `math shift' on input line 1263.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1229.
+(hyperref)                removing `math shift' on input line 1263.
 
 
 
 [35]
-Overfull \hbox (13.60463pt too wide) detected at line 1325
+
+[36]
+Overfull \hbox (13.60463pt too wide) detected at line 1359
 [][]
  []
 
 
 
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 1388--1388
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
  
  []
 
 
-
-[37]
-Overfull \hbox (2.57773pt too wide) in paragraph at lines 1396--1398
+Overfull \hbox (2.57773pt too wide) in paragraph at lines 1430--1432
 [][]\OT1/cmr/bx/n/10 Lemma B.9.3. []\OT1/cmr/m/it/10 (\OT1/cmr/bx/it/10 [[][]Tu11[][]] pg 212, Propo-si-tion 21.4.\OT1/cmr/m/it/10 ) Let $\OML/cmm/m/it/10 U$ \OT1/cmr/m/it/10 and $\OML/cmm/m/it/10 V$ \OT1/cmr/m/it/10 be open sub-sets of $\U/msb/m/n/10 H[] \OT1/cmr/m/n/10 := \OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; x[]; []  ; x[]\OT1/cmr/m/n/10 ) :
  []
 
 
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1418--1420
+Underfull \hbox (badness 10000) in paragraph at lines 1452--1454
 
  []
 
 
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1456--1458
+Underfull \hbox (badness 10000) in paragraph at lines 1490--1492
 
  []
 
@@ -1435,81 +1435,131 @@ Underfull \hbox (badness 10000) in paragraph at lines 1456--1458
 
 [40]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1573.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 1573.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1573.
-
-
-
 [41]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1607.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delta' on input line 1607.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1607.
+
+
 
 [42]
 
 [43]
 
-[44
+[44]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1678 ...ega)$$ and hence we have the identity. }
-                                                  ]
+<to be read again> 
+                   \relax 
+l.1712 ...ega)$$ and hence we have the identity. }
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1712 ...ega)$$ and hence we have the identity. }
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1712 ...ega)$$ and hence we have the identity. }
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.B.12.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1712 ...ega)$$ and hence we have the identity. }
+                                                  
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1679.
+(hyperref)                removing `math shift' on input line 1713.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Delta' on input line 1679.
+(hyperref)                removing `\Delta' on input line 1713.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1679.
+(hyperref)                removing `math shift' on input line 1713.
 
 
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1743--1743
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1743--1743
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1743--1743
- 
- []
-
-
 
 [46]
+Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+ 
+ []
+
+
 
 [47]
-Appendix C.
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 1920--1920
+ 
+ []
 
 
-[48
+Underfull \hbox (badness 10000) in paragraph at lines 1920--1920
+ 
+ []
 
-]
+
 
 [49]
 
 [50]
+Underfull \hbox (badness 10000) in paragraph at lines 2014--2014
+ 
+ []
 
-[51]
+
+Underfull \hbox (badness 10000) in paragraph at lines 2014--2014
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2014--2014
+ 
+ []
+
+
+
+[51{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 2025--2025
+ 
+ []
+
+
 
 [52]
+Appendix C.
 
-[53]
+
+[53
+
+]
 
 [54]
 
@@ -1518,22 +1568,32 @@ Appendix C.
 [56]
 
 [57]
-Underfull \hbox (badness 10000) in paragraph at lines 2309--2311
+
+[58]
+
+[59]
+
+[60]
+
+[61]
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 2586--2588
 
  []
 
 
 
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 2318--2318
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 2595--2595
  
  []
 
 Excluding 'comment' comment.)
 
-[59]
+[64]
 
-[60
+[65
 
 ] (./main.aux (./00Intro/06_ToC-LoF-LoA.aux) (./01Chapters/prelim.aux))
  ***********
@@ -1547,18 +1607,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38445 strings out of 473584
- 764766 string characters out of 5732363
- 1958908 words of memory out of 5000000
- 60155 multiletter control sequences out of 15000+600000
- 591339 words of font info for 156 fonts, out of 8000000 for 9000
+ 38490 strings out of 473584
+ 765577 string characters out of 5732363
+ 1957908 words of memory out of 5000000
+ 60169 multiletter control sequences out of 15000+600000
+ 591674 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,111p,1693b,2190s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on main.pdf (64 pages, 626011 bytes).
+ 99i,16n,111p,1693b,2190s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
+Output written on main.pdf (69 pages, 654072 bytes).
 PDF statistics:
- 1361 PDF objects out of 1440 (max. 8388607)
- 1222 compressed objects within 13 object streams
- 532 named destinations out of 1000 (max. 500000)
+ 1429 PDF objects out of 1440 (max. 8388607)
+ 1283 compressed objects within 13 object streams
+ 561 named destinations out of 1000 (max. 500000)
  493 words of extra memory for PDF output out of 10000 (max. 10000000)
 

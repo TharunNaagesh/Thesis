@@ -449,6 +449,11 @@ which is
 \end{equation}
 
 }
+\defn{(An equivalent characterization of the exterior derivative)}{Let $f$ be a $k-$form. We can equivalently write the exterior derivative as \begin{equation}
+    df:=\sum_{j=1}^n dx^j \wedge \partial_j f
+\end{equation} where $\partial_j f$ is the $j-$th partial derivative of $f$.}
+\defn{Gradient of a $k-$form}{\label{def:gradient_of_a_k_form}Let $f$ be a $k-$form. We define its \emph{gradient} as the $(k+1)$ tensor $\nabla f$ given by $$\nabla f:= \sum_{j=1}^n dx^j \otimes \partial_j f.$$}
+
 \begin{lemma}{Let $\omega=\sum_{I\in \mathscr T_k}\omega^I dx^I$ be a $k-$form. Then \begin{equation}
     d\omega=\sum_{i=1}^n \sum_{I\in \mathscr T_k}\frac{\partial\omega^I}{\partial x^i} dx^i\wedge dx^I= \sum_{I\in \mathscr T_{k+1}}\sum_{\gamma=1}^{k+1}(-1)^{\gamma-1}\frac{\partial\omega^{I_{\hat i_{\gamma}}}}{\partial x^{i_{\gamma}}} dx^I
 \end{equation}}\end{lemma}
@@ -646,7 +651,7 @@ The case $q\not\in \{i_1,i_2,\cdots,i_k\}$ follows since $q\neq i_r$ implies tha
 }
 
 
-\lemp{(Expression for interior product of a $1-$form and a $k-$form)}{Let $\nu=\sum_{j=1}^n v^j dx^j \in \Lambda^1$ and $\omega\in \Lambda^k$. We have \begin{equation}\nu \lrcorner \omega=\sum_{j=1}^n \sum_{I\in \mathscr T_k} v^j \omega^I dx^j\lrcorner dx^I = \sum_{I\in \mathscr T_k}\sum_{j\in I} v^j \omega^I (\operatorname{sign}[j,I_{\hat j}])dx^{I_{\hat j}}= \sum_{j=1}^n\sum_{I\in \mathscr T_{k-1}} v^j \omega^{ji_1i_2\cdots i_{k-1}}dx^I  \end{equation}
+\lemp{(Expression for interior product of a $1-$form and a $k-$form)}{\label{eqn:coordinate_expression_for_interior}Let $\nu=\sum_{j=1}^n v^j dx^j \in \Lambda^1$ and $\omega\in \Lambda^k$. We have \begin{equation}\nu \lrcorner \omega=\sum_{j=1}^n \sum_{I\in \mathscr T_k} v^j \omega^I dx^j\lrcorner dx^I = \sum_{I\in \mathscr T_k}\sum_{j\in I} v^j \omega^I (\operatorname{sign}[j,I_{\hat j}])dx^{I_{\hat j}}= \sum_{j=1}^n\sum_{I\in \mathscr T_{k-1}} v^j \omega^{ji_1i_2\cdots i_{k-1}}dx^I  \end{equation}
 \textbf{Caution:} The notation used here is adopted from \cite{Csato_2018} and \cite{CsatoDacorognaKneuss2012} wherein, for non-increasing indices, we define \begin{equation}\label{definition_extension_to_non_increasing_indices}
 \omega^{I}=\operatorname{sign}([I])\omega^{[I]} 
 \end{equation} where $I$ is an arbitrary multi-index set and $[I]$ is (by abuse of notation) both the permutation that rearranges $I$ to be increasing and the increasing index set.
@@ -899,6 +904,36 @@ For vector fields we have: $$|X|^2 \eta=X^{\flat}\wedge \imath_X(\eta)+\imath_X(
 Note that $\xi \wedge 1=\xi$ and $\langle \xi \wedge 1,\beta \rangle = \langle 1,\xi \lrcorner \beta \rangle $. Choosing $\beta=\xi$ gives $$\langle 1,\xi \lrcorner \xi\rangle=\xi \lrcorner \xi=\langle \xi,\xi\rangle=||\xi||^2 $$
 So we have the identity.
 }
+
+We present now an identity that will come to use later. This identity relates the gradient (see \ref{def:gradient_of_a_k_form}) and the interior product:
+Recall the coordinate expansion of the interior \ref{eqn:coordinate_expression_for_interior}. specifically \begin{equation}
+    \nu \lrcorner \omega=\sum_{j=1}
+^n \sum_{I\in \mathscr T_{k-1}}v^j \omega^{j i_1 \cdots i_{k-1}}dx^I \end{equation} where it is understood $\omega^I:=\mathrm{sign}([I])dx^{[I]}$. Therefore, the $(\nu\lrcorner \omega)_{i_2 i_3\cdots i_k}=\sum_{j=1}^n v^j \omega^{j i_2 i_3 \cdots i_k}.$
+
+\begin{proposition}\textbf{(Leibniz rule for interior product)}\label{prop:leibniz_rule_for_interior} Let $U\subset\bbR^n$ be open, $k\ge 1$, and let $f\in C^1(U;\Lambda^k)$ and
+$Y\in C^1(U;\bbR^n)$ be a vector field. For $X\in\bbR^n$ (or a continuous vector field $X$ on $U$) define
+\[
+\nabla_X f:=\sum_{|I|=k}X(f_I)\,dx^I
+\quad\text{if } f=\sum_{|I|=k} f_I\,dx^I,
+\qquad
+\nabla_X Y:=\sum_{i=1}^n X(Y^i)\,e_i
+\quad\text{if } Y=\sum_{i=1}^n Y^i e_i .
+\]
+Then, at every point of $U$,
+\begin{equation}\label{eq:leibniz-interior}
+\nabla_X(\imath_Y f)=\imath_{\nabla_X Y}f+\imath_Y(\nabla_X f).
+\end{equation}
+In particular, \eqref{eq:leibniz-interior} holds with $X=e_a$ for any
+$a$ (and, since both sides depend only on the value of $X$ at the point, for any local frame $e_a$).    
+\end{proposition}
+\pf{By linearity, it is enough to consider $X=\partial_{x^i}$, $Y=g e_j$ (for some function $g$), and $f=h dx^I$ (for some function $h$). \begin{align*}
+    \nabla_{\partial_{x^i}}(\imath_{ge_j}(hdx^I)) &= \nabla_{\partial_{x^i}}(gh dx^j\lrcorner dx^I) \\
+    &= \partial_{x^i}(gh) dx^j \lrcorner dx^I \\
+    &= \partial_{x^i}g \cdot h dx^j \lrcorner dx^I + \partial_{x^i}h \cdot g dx^j \lrcorner dx^I \\
+    &= \imath_{\nabla_{e_i}Y}f + \imath_{Y}(\nabla_{e^i}f)
+\end{align*}
+which concludes the result. }
+
 \section{Hodge Star}
 Let $f$ be a $k-$form given by $$f\equiv \sum_{I\in \mathscr T_k} f^I dx^I $$
 We define the operation \emph{Hodge Star} as follows (defined first on basic $k-$forms, and then extended linearly for any $k-$form): 
@@ -1685,7 +1720,7 @@ With the tools we have developed thus far (exterior differentiation and codiffer
 
 \thmp{}{Let $\omega$ be a $k-$form. We have that \begin{equation}
     (d\delta +\delta d)\omega=\Delta \omega.
-\end{equation}}{We have from \ref{identity:codifferential-2}and the definition of exterior differentiation that 
+\end{equation}}{We have from \ref{identity:codifferential-2} and the definition of exterior differentiation that 
 \begin{equation}
     \delta \omega=\sum_{j=1}^n \imath_{e^j}(\partial_j \omega) \text{  and }d \omega=\sum_{j=1}^n dx^j \wedge \partial_j(\omega).
 \end{equation}
@@ -1703,9 +1738,14 @@ From the antiderivation property of interiors, we have $$\imath_{e^i}(dx^j\wedge
 Therefore, $$(d\delta+\delta d)\omega= \sum_{i,j=1}^n \delta_{ij}\partial_{ij}\omega=\Delta \omega.$$
 }
 
-
 \section{Boundary Calculus and Tangential and Normal Components}
+This section draws primarily on \cite{CsatoDacorognaKneuss2012} (see Section 3.2), though we have modified and provided, whenever possible, simpler proofs of our own. In this section we will define the tangential and normal components of $f$ at the boundary, and various identites that help us provide a consistent notion of boundary conditions for the PDE that we shall consider in the sequel. Throughout this section, let $\Omega\subset \bbR^n$ is a bounded open $C^1$ set and $\nu(x)$ the exterior unit normal at $x\in \partial \Omega$. Let $f\in C^0(\overline{\Omega};\Lambda^k)$ be a $C^0$ $k-$form on the closure of $\Omega$. 
 \subsection{Tangential and Normal components}
+Let $\nu(x)$ be the exterior unit normal. Since the metric is Euclidean, we can identify $\nu(x)$, a vector field, with $\nu^{\flat}_{(x)}$, a $1-$form, in the usual sense: $$\nu(x)=\sum_{i=1}^n \nu_i e_i \xrightleftharpoons[\sharp \text{ map}]{\flat \text{ map}} \nu^{\flat}_{(x)}= \sum_{i=1}^n \nu_i dx^i $$ 
+
+\defn{Tangential and Normal component}{\label{defn:1-tangential_and_normal}Let $f$ be a $k-$form. The tangential component of $f$ on $\partial \Omega$ is the $(k+1)-$form $$\nu^{\flat} \wedge f.$$
+Likewise the normal component of $f$ on $\partial\Omega$ is the $(k-1)-$form $$\nu^{\flat}\lrcorner f=\imath_{\nu}(f) $$}
+
 \defn{Admissible boundary coordinate system}{Let $U,V$ and $\Omega$ be open in $\bbR^n$. Let $\Omega$ be at least a $C^1$ set. A coordinate system $\phi:U\to V$ around a boundary point is said to be an \emph{admissible boundary coordinate system} if the following holds: 
 \begin{enumerate}
     \item $\phi$ is $C^1$ diffeomorphism.
@@ -1717,18 +1757,18 @@ Therefore, $$(d\delta+\delta d)\omega= \sum_{i,j=1}^n \delta_{ij}\partial_{ij}\o
     Suppose $\phi$ is such a boundary chart. Then for any $p\in \partial \Omega$, $p=\phi(y',0)$. Let $\gamma$ be a curve on $\partial \Omega$ passing $p$ at $t_0$. $\gamma(t)=\phi(y'(t),0)$ for a curve $y'(t)$ on $\bbR^{n-1}$. Taking the derivative of the curve at $t_0$, we note that (since $T_p(\partial \Omega)$ is $n-1$ dimensioned) $\partial_{y^1}\phi(y',0),\partial_{y^2}\phi(y',0),\cdots,\partial_{y^{n-1}}\phi(y',0)$ forms a basis for $T_p(\partial \Omega)$. From the 3rd condition of the definition, we see that the unit normal at $p$, $\nu(p)$ is $\pm\partial_{y^n}(\phi)$.
 \end{remark}
 We now present a theorem that speaks to the existence of admissible boundary coordinates. The proof is adapted from \cite{CsatoDacorognaKneuss2012}:
-\thmp{}{Let $r\geq 1$ be an integer, $0\leq \alpha\leq 1$, $\Omega\subset \bbR^n$ be an open $C^{r,\alpha}$ set and let $a\in \partial \Omega$. Then there exists an open set $U\subset \bbR^n$, a neighbourhood $V\subset \bbR^n$ of $a$, and an admissible boundary coorinate system $\phi:U\to V$ such that $\phi\in \mathrm{Diff}^{r,\alpha}(U;V)$. }{By the definition of a $C^{r,\alpha}$ set, there is a neighbourhood $U$ in $\bbR^n$ and a neighbourhood $V$ of $a$ such that $$\psi(U\cap \partial\bbH^n)=V\cap \partial \Omega$$ with $\psi(U;V)\in \mathrm{Diff}^{r,\alpha}(U;V)$. Let $g_{ij}\in C^{r-1,\alpha}(U)$ be given by $$g_{ij}(x):=\big\langle\frac{\partial \psi}{\partial x^i}(x),\frac{\partial \psi}{\partial x^j}(x) \big\rangle $$ for $1\leq i,j \leq n$. Let $g(x)$ denote the associated $n\times n$ matrix. Note that we already have that the vectors $\{\frac{\partial \psi}{\partial x^i}(x):1\leq i\leq n-1\}$ forms a basis for $T_{\psi(x)}\partial \Omega$ for $x\in U\cap \partial\bbH^n$.
-\\ We have that $g$ is symmetric and positive definite for all $x\in U$ (not just the boundary). Indeed, let $J(x)=D\psi(x)$. By definition, $g=J^T J $ which yields symmetry. 
+\thmp{}{Let $r\geq 1$ be an integer, $0\leq \alpha\leq 1$, $\Omega\subset \bbR^n$ be an open $C^{r,\alpha}$ set and let $a\in \partial \Omega$. Then there exists an open set $U\subset \bbR^n$, a neighbourhood $V\subset \bbR^n$ of $a$, and an admissible boundary coorinate system $\phi:U\to V$ such that $\phi\in \mathrm{Diff}^{r,\alpha}(U;V)$. }{By the definition of a $C^{r,\alpha}$ set, there is a neighbourhood $U$ in $\bbR^n$ and a neighbourhood $V$ of $a$ such that $$\psi(U\cap \partial\bbH^n)=V\cap \partial \Omega$$ with $\psi(U;V)\in \mathrm{Diff}^{r,\alpha}(U;V)$. Let $g_{ij}\in C^{r-1,\alpha}(U)$ be given by $$g_{ij}(x):=\big\langle\frac{\partial \psi}{\partial x^i}(x),\frac{\partial \psi}{\partial x^j}(x) \big\rangle $$ for $1\leq i,j \leq n$. Let $g(x)$ denote the associated $n\times n$ matrix. Note that the vectors $\{\frac{\partial \psi}{\partial x^i}(x):1\leq i\leq n-1\}$ form a basis for $T_{\psi(x)}\partial \Omega$ for $x\in U\cap \partial\bbH^n$.
+\\\\ We have that $g$ is symmetric and positive definite for all $x\in U$ (not just the boundary). Indeed, let $J(x)=D\psi(x)$. By definition, $g=J^T J $ which yields symmetry. 
 \\ Let $v$ be any vector in $\bbR^n$: $$v^T g v =\langle Jv,Jv \rangle=|Jv|^2\geq 0.$$ 
 Now suppose that $v^T gv=0$. Then by the previous equation, $Jv=0$. Since $\psi$ is a $C^1$ diffeomorphism from $U$ onto $V$, we have that $D\psi $ is invertible on all of $U$, making $v=0$. This gives us positive definiteness. 
 \\\\ Note that, apriori, we have neither the orthogonality condition nor normality (since $\langle \partial_i\psi(x),\partial_n\psi(x)\rangle $ need not be $\delta_{in}$). Let $N=\sum_{i=1}^n a^i \frac{\partial \psi}{\partial x^i}(x)$. If $N$ were to be \emph{perpendicular} to the first $n-1$ vectors $\partial_i \psi $, we would have to have \begin{align*}
     0=\sum_{i=1}^n a^i \langle \partial_i \psi,\partial_k \psi\rangle=\sum_{i=1}^n g_{ki}a^i
 \end{align*}
 for each $k\leq n-1$. This is tantamount to saying $$[g][a] =\lambda e_n $$ where $[g]$ is the $n\times n$ matrix associated to $g_{ij}$, $[a]$ is the column vector $[a^1,a^2,\cdots,a^n]^T$ and $e_n=[0,0,\cdots,1]^T$. Since $[g]$ is invertible, $[a]=\lambda g^{-1} e_n$.
-We see then that, if we were to construct a vector $N$ that is perpendicular to $\{\partial_i \psi: i\leq n-1\}$, the coeffecients $a^i$ would have to be \emph{proportional} to the last column of $g^{-1}$.
+We see then that, if we were to construct a vector $N$ that is perpendicular to $\{\partial_i \psi: i\leq n-1\}$, the coefficients $a^i$ would have to be \emph{proportional} to the last column of $g^{-1}$.
 \\\\ To this end, let $$d(x')=\Big{[}0,0,\cdots,0,1/\sqrt{(g^{-1})_{nn}(x',0)}\Big{]}$$ for $x'\in B\cap \partial\bbH^n$ and $$f(x'):=g^{-1}(x',0) \circ d(x'). $$
 By construction, $f\in C^{{r-1},\alpha}(U \cap \partial \bbH^n;\bbR^n)$ and the $n-$th coordinate of $f$ is $$\sqrt{(g^{-1})_{nn}(x',0)} \text{ for }x'\in \partial \bbH^n.$$
-We extend $f$ to all of $\bbR^{n-1}$ (This is not trivial in general, cf. Lemma 6.37 in \cite{GilbargTrudinger2001})
+We extend $f$ to all of $\bbR^{n-1}$ (this is not trivial in general, cf. Lemma 6.37 in \cite{GilbargTrudinger2001})
 and define $\phi=(\phi^1,\phi^2,\cdots,\phi^n)$ through $$\phi^i(x):=x_i + x_n \int_{\bbR^{n-1}} \eta(y')f_i(x'-x_ny')dy', \ 1\leq i\leq n-1$$
 $$\phi^n(x):=x_n\int_{\bbR^{n-1}}\eta(y')f_n(x'-x_n y')dy', $$
 where $\eta$ is a smooth mollifier with compact support on $\bbR^{n-1}$. $\phi\in C^{r,\alpha}(\bbR^n;\bbR^n)$ and on $\partial \bbH^n$ ($x_n=0$) the following holds: $$\frac{\partial \phi^i}{\partial x^l}=\begin{cases}
@@ -1738,19 +1778,257 @@ where $\eta$ is a smooth mollifier with compact support on $\bbR^{n-1}$. $\phi\i
 We have in particular that $\det (\nabla \phi(0))\neq 0$, which implies (from the inverse function theorem) that there is a small enough neighbourhood $W$ of $0$ such that $\phi(W)\subset U$ and $\phi\in \mathrm{Diff}^{r,\alpha}(W,\phi(W))$. 
 \\\\ Now we proceed to construct our chart: Define $\gamma$ by $$\gamma(x):=\psi(\phi(x)) $$
 Indeed, since $\phi$ maps $\partial \bbH^n$ to itself identically, and since $\psi$ was a boundary chart, the first two properties of the definition are satisfied. We need only check the third.
-Let $1\leq l\leq n-1$. $$\Big{\langle} \frac{\partial \gamma}{\partial x^l}(x),\frac{\partial \gamma}{\partial x^n}(x)\Big{\rangle} $$
- 
-}
+Let $1\leq l\leq n-1$. \begin{align*}\Big{\langle} \frac{\partial \gamma}{\partial x^l}(x),\frac{\partial \gamma}{\partial x^n}(x)\Big{\rangle}&=\Big{\langle} \sum_{j=1}^n \partial_j \psi (\phi(x))\partial_l \phi^j(x), \sum_{i=1}^n \partial_i \psi (\phi(x))\partial_n \phi^i(x) \Big{\rangle} \\ 
+&= \sum_{i,j=1}^n \partial_l \phi^j(x)\partial_n \phi^i(x)\Big{\langle} \partial_j \psi(\phi(x)),\partial_i \psi(\phi(x)) \Big{\rangle}
+\\ & = \sum_{i,j=1}^n \partial_l \phi^j(x)\partial_n\phi^i(x) g_{ij}(\phi(x))
+\\ &= \sum_{j=1}^{n-1}\sum_{i=1}^{n} \delta_{jl}f_i g_{ij}(\phi(x))=\sum_{i=1}^n f_i g_{li}(\phi(x))=d_l(\phi(x))=0
+\end{align*}
+for $x\in W\cap \partial \bbH^n$. Similarly, we have \begin{align*}
+    \Big{\langle}\frac{\partial \gamma}{\partial x^n}(x),\frac{\partial \gamma}{\partial x^n}(x)\Big{\rangle} &= \sum_{i=1}^n\sum_{j=1}^n \partial_n\phi^j(x)\partial_n\phi^i(x)g_{ij}(\phi(x))
+    \\ &= \sum_{i=1}^n\sum_{j=1}^n g_{ij}(\phi(x))f_i f_j = \langle f,gf\rangle \\ &= \langle f,d \rangle= 1.
+\end{align*}}
 
+We provide yet another notion of tangential and normal parts.
 
-{\color{red} 
-!!Not complete!!
+\defn{Tangential and Normal \emph{parts}}{\label{defn:2-tangential_and_normal}Let $f$ be a $k-$form. For $x\in \partial \Omega$, we have $X=X^{\parallel}+X^{\perp}$ where $$X^{\parallel}=X-\nu(x) \langle\nu,X \rangle.$$
+Let $X_1,X_2,\cdots,X_k$ be $k$ vectors in $\bbR^n$.
 \begin{enumerate}
-    \item tangential and normal part proofs
-    \item admissible boundary coordinates proof
-    \item subtleties with lipshitz domains and boundaries.
+    \item We denote by $tf$ the $k-$form on $\partial \Omega$ defined by \begin{equation}
+    tf(X_1,X_2,\cdots,X_k):=f(X_1^{\parallel},X_2^{\parallel},\cdots,X_k^{\parallel}).\end{equation} This is called the \emph{tangential part} of $f$.
+    \item We denote by $nf$ the $k-$form on $\partial \Omega$ defined by \begin{equation}
+        nf=f-tf.
+    \end{equation} 
 \end{enumerate}
+
 }
+\begin{remark}
+    Clearly, the two notions \ref{defn:1-tangential_and_normal} and \ref{defn:2-tangential_and_normal} for tangential and normal components are \emph{different} in that, from the outset, the first consists of a $k+1$ and a $k-1$ form, whilst the latter consists of $k$ forms. As we proceed, the relationship between these two notions will be manifest.
+\end{remark}
+
+We present \emph{yet another} notion that would help us define tangential and normal boundary conditions:
+\defn{Vanishing tangential and normal element}{\label{defn:vanishing_tangential_and_normal_element}Fix $x\in \partial \Omega$ and let $\phi\in \mathrm{Diff}^1(U;V)$ be an admissible boundary coordinate system. Let $f$ be a $k-$form and $\phi^*(f)$ its pullback: $$\phi^*(f):=\sum_{1\leq i_1<i_2<\cdots<i_k\leq n} g^{i_1 i_2 \cdots i_k} dy^{i_1}\wedge \cdots \wedge dy^{i_k}. $$
+1. We then say that $f$ has \emph{vanishing tangential element} at $x=\phi(x',0)$ (a boundary point) if $$g^{i_1 i_2 \cdots i_k}(x',0)=0 \text{ whenever }1\leq i_1<i_2<\cdots<i_k<n.$$ In that case, we write symbolically $$t'f(x)=0 .$$
+2. We say $f$ has \emph{vanishing normal element} at $x=\phi(x',0)$ if $$ g^{i_1i_2\cdots i_k}(x',0)=0 \text{ whenever }1\leq i_1<i_2<\cdots<i_{k-1}<i_k=n.$$ In that case we write symbolically $$n'f(x)=0.$$ } 
+\begin{remark}\label{rmk:G_n and so on}
+    Write $\phi^*f$ as follows $$\phi^*(f)=G_{<n}+G_n $$ where \begin{equation}
+        G_{<n}= \sum_{1\leq i_1<\cdots<i_k<n} g^{i_1\cdots i_k}dy^{i_1}\wedge \cdots \wedge dy^{i_k}
+    \end{equation}
+and \begin{equation}G_n=\sum_{1\leq i_1<i_2<\cdots<i_{k-1}<i_k=n} g^{i_1 i_2,\cdots i_{k-1} n} dy^{i_1}\wedge \cdots \wedge dy^{k-1}\wedge dy^n.\end{equation}
+Note that, $$dy^n\wedge \phi^*(f)=dy^n \wedge G_{<n}=\sum_{1\leq i_1\cdots<i_k<n} g^{i_1\cdots i_k} (-1)^k dy^{i_1}\wedge \cdots \wedge dy^{i_k}\wedge dy^n $$
+and $$dy^n \lrcorner (dy^n \wedge \phi^*(f))=G_{<n}$$
+From the antiderivation identity of the interior, we have $$dy^n\lrcorner(dy^n \wedge \phi^*(f))+ dy^n \wedge (dy^n \lrcorner \phi^*(f))=\phi^*(f)$$
+and hence from identification, we see \begin{equation}
+    G_{<n}=dy^n \lrcorner (dy^n \wedge \phi^*(f)) \text{ and } G_n=dy^n\wedge(dy^n \lrcorner \phi^*(f)).
+    \end{equation}
+From the above equation, we can conclude the following: 
+$$t'f(x)=0 \iff G_{<n}(x',0)=0 \iff dy^n \lrcorner (dy^n \wedge \phi^*(f))=0 $$
+and $$n'f(x)=0 \iff G_{n}(x',0)=0 \iff dy^n \wedge (dy^n \lrcorner \phi^*(f))=0. $$
+\end{remark}
+
+
+\thmp{}{Let $f$ be a $k$-form and let $\nu$ be a unit normal vector. Then
+\begin{equation}
+    tf = \imath_\nu(\nu\wedge f)
+    \qquad\text{and}\qquad
+    nf = \nu\wedge(\imath_\nu f).
+\end{equation}
+}{First, we show that
+\begin{equation}
+    \imath_\nu(tf)=0
+    \qquad\text{and}\qquad
+    \nu\wedge nf=0.
+\end{equation}
+
+Let $x_1,x_2,\ldots,x_{k-1}$ be vectors in $\bbR^n$. We have
+\begin{align*}
+    \imath_\nu(tf)(x_1,\ldots,x_{k-1})
+    &=tf(\nu,x_1,\ldots,x_{k-1})\\
+    &=f(0,x_1^{\parallel},\ldots,x_{k-1}^{\parallel})\\
+    &=0.
+\end{align*}
+For the second equality, note that
+\[
+    \nu\wedge nf=0 \iff \nu\wedge(tf)=\nu\wedge f.
+\]
+So this is what we shall prove.
+\\\\ Let $x_1=\nu,x_2,\ldots,x_n$ be an orthonormal basis of $\bbR^n$, so that
+$
+    \langle x_1,x_j\rangle=0
+    \qquad\text{for all }j\geq 2.
+$
+We look at
+\[
+    \nu\wedge tf(x_{i_1},\ldots,x_{i_{k+1}})
+    \quad\text{and}\quad
+    \nu\wedge f(x_{i_1},\ldots,x_{i_{k+1}}).
+\]
+
+We consider two cases.
+\\\\\textbf{Case 1: $i_1\geq 2$.}
+
+Using the formula for the wedge product of a $1$-form and a $k$-form, we have
+\begin{align*}
+    \nu\wedge tf(x_{i_1},\ldots,x_{i_{k+1}})
+    &\quad=\sum_{j=1}^{k+1}(-1)^{j-1}
+    \langle\nu,x_{i_j}\rangle
+    tf(x_{i_1},\ldots,\widehat{x_{i_j}},
+    \ldots,x_{i_{k+1}})\\
+    &\quad=0\\&\quad=\nu\wedge f(x_{i_1},\ldots,x_{i_{k+1}}).
+\end{align*}
+\textbf{Case 2: $i_1=1$.}
+
+We have
+\begin{align*}
+    \nu\wedge f(x_1,x_{i_2},\ldots,x_{i_{k+1}})
+    &\quad=\sum_{j=1}^{k+1}(-1)^{j-1}
+    \langle\nu,x_{i_j}\rangle
+    f(x_1,\ldots,\widehat{x_{i_j}},\ldots,x_{i_{k+1}})\\
+    &\quad=f(x_{i_2},\ldots,x_{i_{k+1}})\\
+    &\quad=tf(x_{i_2},\ldots,x_{i_{k+1}})\\
+    &\quad=\nu\wedge tf(x_1,x_{i_2},\ldots,x_{i_{k+1}}).
+\end{align*}
+Here, all terms except the first vanish since
+$\langle\nu,x_{i_j}\rangle=0$ for $j\geq 2$. The penultimate equality follows because $x_{i_2},\ldots,x_{i_{k+1}}$ are all tangent to the boundary.
+Therefore, in both cases,
+\[{\nu\wedge\mathrm{t}f=\nu\wedge f.}\]
+Now, recall the identity
+\[
+    \imath_\nu(\nu\wedge tf)
+    =\langle\nu,\nu\rangle tf
+    -\nu\wedge(\imath_\nu tf).
+\]
+Since $\nu$ is a unit normal, this becomes
+\[
+    \imath_\nu(\nu\wedge tf)
+    =f-\nu\wedge(\imath_\nu f).
+\]
+
+On the other hand, using $\nu\wedge\mathrm{t}f=\nu\wedge f$ and
+$\imath_\nu(\mathrm{t}f)=0$, we obtain
+\begin{align*}
+    \mathrm{t}f
+    &=\imath_\nu(\nu\wedge\mathrm{t}f)\\
+    &=\imath_\nu(\nu\wedge f)\\
+    &=f-\nu\wedge(\imath_\nu f).
+\end{align*}
+Consequently,
+\[
+    \mathrm{n}f
+    =f-\mathrm{t}f
+    =\nu\wedge(\imath_\nu f).
+\]
+This proves the desired identities that $ tf=\imath_{\nu}(\nu\wedge f)$ and $nf=\nu\wedge (\imath_{\nu}f)$.
+}
+
+%%%the next theorem%%!!!!
+
+\thmp{}{\label{thm:pullback_of_tangential_and_normal}Let $f$ be a $k$-form and let $\phi$ be an admissible boundary coordinate system. Then
+\begin{equation}
+    \phi^*\big(\imath_\nu(\nu\wedge f)\big)
+    =\imath_{\partial_{y^n}}\big(dy^n\wedge\phi^*(f)\big),
+\end{equation}
+and
+\begin{equation}
+    \phi^*\big(\nu\wedge(\imath_\nu f)\big)
+    =dy^n\wedge\imath_{\partial_{y^n}}\phi^*(f).
+\end{equation}
+}{The proof rests on the following:
+\begin{itemize}
+    \item Pullback commutes with wedge products.
+    \item Pullbacks interact naturally with interior products.
+\end{itemize}
+\textbf{Observation 1:} Let $\phi$ be an admissible boundary coordinate system and $\nu$ the unit normal on $\partial\Omega$. At $y=(y',0)$, admissibility gives
+\begin{equation*}
+    \left\langle
+    D\phi_y\left(\frac{\partial}{\partial y^i}\right),
+    D\phi_y\left(\frac{\partial}{\partial y^n}\right)
+    \right\rangle
+    =\delta_{in}.
+\end{equation*}
+Thus,
+\begin{equation*}
+    D\phi_y\left(\frac{\partial}{\partial y^n}\right)=\nu
+\end{equation*}
+is the unit normal at the boundary point $\phi(y',0)$. 
+In other words, the pushforward of $\partial_{y^n}$ through $\phi$ gives us $\nu$, the unit normal at the boundary. 
+\\\\\textbf{Observation 2:} Recall that for $1$-forms,
+\begin{equation}
+    (\phi^*\nu^\flat)_y(\overline{X})
+    =\nu^\flat_{\phi(y)}(D\phi_y(\overline{X})).
+\end{equation}
+On basis vectors, we have
+\begin{align}
+    (\phi^*\nu^\flat)_y\left(\frac{\partial}{\partial y^i}\right)
+    &=\nu^\flat_{\phi(y)}
+    \left(D\phi_y\left(\frac{\partial}{\partial y^i}\right)\right)\\
+    &=\left\langle
+    \nu,D\phi_y\left(\frac{\partial}{\partial y^i}\right)
+    \right\rangle \nonumber\\
+    &=\left\langle
+    D\phi_y\left(\frac{\partial}{\partial y^n}\right),
+    D\phi_y\left(\frac{\partial}{\partial y^i}\right)
+    \right\rangle \nonumber\\
+    &=\delta_{in}. \nonumber
+\end{align}
+But this implies
+\begin{equation*}
+    {
+    \phi^*\nu^\flat=dy^n
+    \quad\text{on }U\cap\{y^n=0\}.
+    }
+\end{equation*}
+Therefore, the pullback of the $1-$form associated with $\nu$ is the $1-$form $dy^n$
+\\\\\textbf{Observation 3:} Let $\omega$ be any $k$-form on $V$. We have
+\begin{align*}
+    \phi^*(\imath_\nu\omega)_y(X_1,\ldots,X_{k-1})
+    &=(\imath_\nu\omega)_{\phi(y)}
+    (D\phi_yX_1,\ldots,D\phi_yX_{k-1})\\
+    &=\omega_{\phi(y)}
+    (\nu,D\phi_yX_1,\ldots,D\phi_yX_{k-1})\\
+    &=\omega_{\phi(y)}
+    \left(
+    D\phi_y\frac{\partial}{\partial y^n},
+    D\phi_yX_1,\ldots,D\phi_yX_{k-1}
+    \right)\\
+    &=(\phi^*\omega)_y
+    \left(\frac{\partial}{\partial y^n},
+    X_1,\ldots,X_{k-1}\right)\\
+    &=\big(\imath_{\partial_{y^n}}\phi^*\omega\big)_y
+    (X_1,\ldots,X_{k-1}).
+\end{align*}
+Therefore, the pullback of the interior of $\nu$ with $\omega$ is precisely the interior of the vector $x$ whose pushforward is $\nu$ (in this case, $x=\partial_{y^n}$) with the pullback of $\omega$. 
+\\\\ With these observations in hand, the first identity follows directly:
+\begin{align*}
+    \phi^*\big(\imath_\nu(\nu^\flat\wedge f)\big)
+    &=\imath_{\partial_{y^n}}
+    \big(\phi^*(\nu^\flat\wedge f)\big)\\
+    &=\imath_{\partial_{y^n}}
+    \big(dy^n\wedge\phi^*(f)\big).
+\end{align*}
+The next identity proceeds similarly:
+\begin{align*}
+    \phi^*\big(\nu^\flat\wedge(\imath_\nu f)\big)
+    &=\phi^*\nu^\flat\wedge\phi^*((\imath_\nu f))\\
+    &=dy^n\wedge
+    \big(\imath_{\partial_{y^n}}\phi^*(f)\big).
+\end{align*}
+}
+The previous theorems allow us to give a relationship between the various notions of the tangential and normal boundary conditions. We have the following: 
+\begin{corollary}\textbf{(Equivalent characterisations of tangential and normal boundary conditions)}
+    $$\nu \wedge f=0 \iff tf=0 \iff t'f=0$$
+    $$\nu \lrcorner f=0 \iff nf=0 \iff n'f=0.$$
+(Recall that $t'f=0$ and $n'f=0$ are defined in \ref{defn:vanishing_tangential_and_normal_element}, $tf$ and $nf$ in \ref{defn:2-tangential_and_normal} and the usual notions of tangential and normal components in \ref{defn:1-tangential_and_normal}.)
+\end{corollary}
+\pf{Note that $$\nu\wedge f=0 \iff \nu \lrcorner (\nu \wedge f)=tf=0,$$ and likewise $$\nu \lrcorner f=0 \iff \nu \wedge (\nu \lrcorner f)=nf=0.$$
+Recall from \ref{rmk:G_n and so on} that $t'f=0$ is equivalent to $$dy^n \lrcorner (dy^n \wedge \phi^*(f))=0$$ and likewise $n'f=0$ is equivalent to $$dy^n \wedge (dy^n \lrcorner \phi^*(f))=0.$$
+From \ref{thm:pullback_of_tangential_and_normal}, we see that if $tf$ (or $nf$) is $0$, then the pullback $dy^n \lrcorner (dy^n \wedge \phi^*(f))$ (respectively $dy^n \wedge (dy^n \lrcorner \phi^*(f))$) is also $0$, giving us one side of the implication.
+\\\\ Conversely, suppose that $dy^n \lrcorner (dy^n \wedge \phi^*(f))=\phi^*(tf)=0$ (or that $dy^n \wedge (dy^n \lrcorner \phi^*(f))=\phi^*(nf)=0$). Since $\phi:U\to V$ was a diffeomorphism, we have that $tf=0$ (respectively, $nf=0$) and we have the equivalences. 
+}
+
+
+
+
+
 
 %%%%%%chapter on MEASURE THEORY, FUNCTIONAL ANAL AND SOBOLEV SPACES%%%%%
 
