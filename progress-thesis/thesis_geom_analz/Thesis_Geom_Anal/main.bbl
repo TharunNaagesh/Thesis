@@ -19,6 +19,44 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{AdamsFournier2003}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=7a1d45e895aec3674e2d1ee0c8e193fe}{%
+           family={Adams},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=8c6fd505a07e6a400bc55513d6de87a9}{%
+           family={Fournier},
+           familyi={F\bibinitperiod},
+           given={John\bibnamedelimb J.\bibnamedelimi F.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Amsterdam}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier/Academic Press}%
+      }
+      \strng{namehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{fullhash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{fullhashraw}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{bibnamehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authorbibnamehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authornamehash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authorfullhash}{f04513d99eb5c05a5309eb430e88548a}
+      \strng{authorfullhashraw}{f04513d99eb5c05a5309eb430e88548a}
+      \field{labelalpha}{AF03}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{series}{Pure and Applied Mathematics (Amsterdam)}
+      \field{title}{Sobolev Spaces}
+      \field{volume}{140}
+      \field{year}{2003}
+    \endentry
     \entry{Brezis2011}{book}{}{}
       \name{author}{1}{}{%
         {{hash=31e0c25a6fb0297f0536bede27a04cd4}{%
@@ -86,6 +124,77 @@
       \field{isbn}{978-0-471-43331-6}
       \field{title}{Introduction to Real Analysis}
       \field{year}{2011}
+    \endentry
+    \entry{BottTu1982}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=c957d7c7683ecc087a423939393b4c34}{%
+           family={Bott},
+           familyi={B\bibinitperiod},
+           given={Raoul},
+           giveni={R\bibinitperiod}}}%
+        {{hash=bd797f5054139f44f22b71934a7e9d84}{%
+           family={Tu},
+           familyi={T\bibinitperiod},
+           given={Loring\bibnamedelima W.},
+           giveni={L\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{fullhash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{fullhashraw}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{bibnamehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{authorbibnamehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{authornamehash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{authorfullhash}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \strng{authorfullhashraw}{d77abf90f5fd5d3f3a92fcfebb57cc19}
+      \field{labelalpha}{BT82}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Differential Forms in Algebraic Topology}
+      \field{year}{1982}
+    \endentry
+    \entry{CantarellaDeTurckGluck2002}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=f33510f68f461a8bfc76644a4b7dc6a4}{%
+           family={Cantarella},
+           familyi={C\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod}}}%
+        {{hash=95d8d67e73e48bba52a5faca2cf33505}{%
+           family={DeTurck},
+           familyi={D\bibinitperiod},
+           given={Dennis},
+           giveni={D\bibinitperiod}}}%
+        {{hash=734ee77d7ef9701f6e25a4db78add6b2}{%
+           family={Gluck},
+           familyi={G\bibinitperiod},
+           given={Herman},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{0bde656bc3ccf5afb860533bc13e829a}
+      \strng{fullhash}{0bde656bc3ccf5afb860533bc13e829a}
+      \strng{fullhashraw}{0bde656bc3ccf5afb860533bc13e829a}
+      \strng{bibnamehash}{0bde656bc3ccf5afb860533bc13e829a}
+      \strng{authorbibnamehash}{0bde656bc3ccf5afb860533bc13e829a}
+      \strng{authornamehash}{0bde656bc3ccf5afb860533bc13e829a}
+      \strng{authorfullhash}{0bde656bc3ccf5afb860533bc13e829a}
+      \strng{authorfullhashraw}{0bde656bc3ccf5afb860533bc13e829a}
+      \field{labelalpha}{CDG02}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The American Mathematical Monthly}
+      \field{number}{5}
+      \field{title}{Vector calculus and the topology of domains in 3-space}
+      \field{volume}{109}
+      \field{year}{2002}
+      \field{pages}{409\bibrangedash 442}
+      \range{pages}{34}
     \endentry
     \entry{CsatoDacorognaKneuss2012}{book}{}{}
       \name{author}{3}{}{%
@@ -224,6 +333,40 @@
       \field{title}{Measure Theory and Fine Properties of Functions}
       \field{year}{2015}
     \endentry
+    \entry{Evans2010}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=0d72932a7775f85a51622d3af75ae26e}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Lawrence\bibnamedelima C.},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Providence, RI}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{fullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{fullhashraw}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{bibnamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorbibnamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorfullhashraw}{0d72932a7775f85a51622d3af75ae26e}
+      \field{labelalpha}{Eva10}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-0-8218-4974-3}
+      \field{series}{Graduate Studies in Mathematics}
+      \field{title}{Partial Differential Equations}
+      \field{volume}{19}
+      \field{year}{2010}
+    \endentry
     \entry{GilbargTrudinger2001}{book}{}{}
       \name{author}{2}{}{%
         {{hash=d91d04ccf8e51f30c6f9eb4b6bc0ccc1}{%
@@ -260,6 +403,33 @@
       \field{series}{Classics in Mathematics}
       \field{title}{Elliptic Partial Differential Equations of Second Order}
       \field{year}{2001}
+    \endentry
+    \entry{Hodge1952}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=97c996995d5ff64fde1379553c3a893c}{%
+           family={Hodge},
+           familyi={H\bibinitperiod},
+           given={W.\bibnamedelimi V.\bibnamedelimi D.},
+           giveni={W\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{97c996995d5ff64fde1379553c3a893c}
+      \strng{fullhash}{97c996995d5ff64fde1379553c3a893c}
+      \strng{fullhashraw}{97c996995d5ff64fde1379553c3a893c}
+      \strng{bibnamehash}{97c996995d5ff64fde1379553c3a893c}
+      \strng{authorbibnamehash}{97c996995d5ff64fde1379553c3a893c}
+      \strng{authornamehash}{97c996995d5ff64fde1379553c3a893c}
+      \strng{authorfullhash}{97c996995d5ff64fde1379553c3a893c}
+      \strng{authorfullhashraw}{97c996995d5ff64fde1379553c3a893c}
+      \field{labelalpha}{Hod52}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Theory and Applications of Harmonic Integrals}
+      \field{year}{1952}
     \endentry
     \entry{Jost2017}{book}{}{}
       \name{author}{1}{}{%
@@ -433,6 +603,33 @@
       \verb 10.1007/978-1-4419-7056-5
       \endverb
     \endentry
+    \entry{Temam1977}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d66ac417fd195a73c91d01dee8141642}{%
+           family={Temam},
+           familyi={T\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{d66ac417fd195a73c91d01dee8141642}
+      \strng{fullhash}{d66ac417fd195a73c91d01dee8141642}
+      \strng{fullhashraw}{d66ac417fd195a73c91d01dee8141642}
+      \strng{bibnamehash}{d66ac417fd195a73c91d01dee8141642}
+      \strng{authorbibnamehash}{d66ac417fd195a73c91d01dee8141642}
+      \strng{authornamehash}{d66ac417fd195a73c91d01dee8141642}
+      \strng{authorfullhash}{d66ac417fd195a73c91d01dee8141642}
+      \strng{authorfullhashraw}{d66ac417fd195a73c91d01dee8141642}
+      \field{labelalpha}{Tem77}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Navier-Stokes Equations: Theory and Numerical Analysis}
+      \field{year}{1977}
+    \endentry
     \entry{Tu2011}{book}{}{}
       \name{author}{1}{}{%
         {{hash=bd797f5054139f44f22b71934a7e9d84}{%
@@ -465,6 +662,39 @@
       \field{series}{Universitext}
       \field{title}{An Introduction to Manifolds}
       \field{year}{2011}
+    \endentry
+    \entry{Warner1983}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=5af895fccb7ba2f34db108bec544fd2a}{%
+           family={Warner},
+           familyi={W\bibinitperiod},
+           given={Frank\bibnamedelima W.},
+           giveni={F\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5af895fccb7ba2f34db108bec544fd2a}
+      \strng{fullhash}{5af895fccb7ba2f34db108bec544fd2a}
+      \strng{fullhashraw}{5af895fccb7ba2f34db108bec544fd2a}
+      \strng{bibnamehash}{5af895fccb7ba2f34db108bec544fd2a}
+      \strng{authorbibnamehash}{5af895fccb7ba2f34db108bec544fd2a}
+      \strng{authornamehash}{5af895fccb7ba2f34db108bec544fd2a}
+      \strng{authorfullhash}{5af895fccb7ba2f34db108bec544fd2a}
+      \strng{authorfullhashraw}{5af895fccb7ba2f34db108bec544fd2a}
+      \field{labelalpha}{War83}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-387-90894-6}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Foundations of Differentiable Manifolds and Lie Groups}
+      \field{volume}{94}
+      \field{year}{1983}
     \endentry
   \enddatalist
 \endrefsection

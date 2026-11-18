@@ -187,311 +187,10 @@ Let $a\in \bbR^n$, $g:\bbR^n\to \bbR$ be given by $$g(x)=f([x^1-a^1]/\varepsilon
 
 
 
-\chapter{Differential Forms Prerequisites}
+\chapter{Appendix: Exterior differential forms}
 
-\section{Exterior Algebra: Definitions and Results}
 
-\defn{Dual Space $V^*$}{Let $V$ be a vector space over $\bbR$. The set of all linear maps $f:V\to \bbR$ is called the \emph{dual space} of $V$ and is denoted by $V^*$ or $\Lambda^1(V)$.}
-\begin{lemma}
-    Let $e_1,e_2,\cdots,e_n$ be a basis for $V$. Then the vectors $\xi^1,\xi^2,\cdots,\xi^n \in \Lambda^1(V)$ defined by $\xi^i(e_j)=\delta_{ij}$ forms a basis for $\Lambda^1(V)$.
-\end{lemma}
-
-\defn{Multilinear Maps (Tensors)}{$$f:\underbrace{V \times V \times \cdots \times V}_{k \text{ copies}} \to \bbR$$ is a \emph{k-tensor} if it is linear in each coordinate. More precisely, maps from $\underbrace{V\times V\times \cdots \times V}_{k \text{ copies}}$ into $\bbR$ are called a \emph{covariant} tensor.
-\\\\ \textbf{Note:} The space of all tensors forms a vector space.}
-\begin{lemma}\label{basis for tensors}
-    For the space of all $k-$tensors from $V$, $\{dx^{i_1}\otimes dx^{i_2} \otimes \cdots \otimes dx^{i_k}: (i_1,i_2,\cdots,i_k)\in \{1,2,\cdots,n\}^k \}$ forms a basis (Here we have adopted the notational choice of writing $dx^i$ in place $\xi^i$).
-\end{lemma}
-
-\defn{$\sigma f$}{Let $f$ be a $k-$ tensor and $\sigma \in Sym(k)$. We define $$\sigma f (v_1,v_2,\cdots,v_k):= f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)}) $$}
-
-\subsection{$\sigma f$ as a group action}
-Let $X=$ set of all $k-$ tensors. Define $\rho: sym(k)\times X\to X$ by $\rho(\sigma, f):=\sigma f$. We see that $\rho$ is a group action since 
-\begin{enumerate}
-    \item $\rho(1,f)=f$
-    \item $\rho(\sigma_1, \rho(\sigma_2,f))=\rho(\sigma_1\sigma_2,f)$
-\end{enumerate}
-
-\defn{Alternating Tensors}{A $k-$tensor is alternating if for every $\sigma \in sym(k)$, $$f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})=\operatorname{sign}(\sigma) f(v_1,v_2,\cdots,v_k)$$ or $$\sigma f\equiv \operatorname{sign}(\sigma) f$$ }
-
-\defn{Symmetric Tensors}{A $k-$tensor is symmetric if for every $\sigma\in sym(k)$, $$f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})=f(v_1,v_2,\cdots,v_k)$$ or $$\sigma f\equiv f $$}
-
-\defn{Symmetrization Operator $Sf$}{$$S:\{k-\text{tensors}\}\to \{k-\text{tensors}\}$$ given by $Sf(v_1,v_2,\cdots,v_k)=\sum_{\sigma \in sym(k)} f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})$ or $$Sf\equiv \sum_{\sigma \in sym(k)} \sigma f $$ is called the \emph{symmetrization operator}}
-
-\defn{Alternation or Antisymmetrizer Operator $Af$}{$$A:\{k-\text{tensors}\}\to \{k-\text{tensors}\}$$ given by $Af(v_1,v_2,\cdots,v_k)=\sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},v_{\sigma(2)},\cdots,v_{\sigma(k)})$ or $$Af\equiv \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma)\sigma f $$ is called the \emph{alternation operator}}
-
-\thmp{}{If $f$ is a $k-$tensor, then 
-\begin{enumerate}
-    \item $Sf$ is a symmetric $k-$tensor.
-    \item $Af$ is an alternating $k-$tensor.
-\end{enumerate}
-}{
-1) $Sf:=\sum_{\sigma \in sym(k)} \sigma f$. Let $\tau \in sym(k)$. $$\tau Sf= \sum_{\sigma \in sym(k)} (\tau \sigma)f = Sf$$ (since $\tau \sigma$ runs over all of $sym(k)$ once and exactly once).
-\\\\ 2) $Af:=\sum_{\sigma\in sym(k)}\operatorname{sign}(\sigma)f$. Let $\tau \in sym(k)$. $$\tau Af= \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma \tau) \operatorname{sign}(\tau) (\tau \sigma)f=$$ $$ \operatorname{sign}(\tau) Af$$. 
- }
-\lemp{}{\begin{enumerate}
-    \item If $f$ is an alternating $k-$ tensor ($\sigma f=\operatorname{sign}(\sigma)f$) then $Af=k!f$.
-    \item If $f$ is an alternating $k-$ tensor then $Sf=0$.
-    \item If $f$ is a symmetric $k-$tensor ($\sigma f=f$) then $Af=0$.
-    \item If $f$ is a symmetric $k-$tensor then $Sf=k! f$
-\end{enumerate}}{
-1) $$Af:=\sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \operatorname{sign}(\sigma)f=\sum_{\sigma \in sym(k)} f = k!f$$
-\\\\ 2) If $f$ is alternating, then $$Sf=\sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) f=0 $$
-\\\\ 3) If $f$ is symmetric, then $$A(f):=\sum_{\sigma \in sym(k)}\operatorname{sign}(\sigma) f=0 $$
-\\\\ 4) If $f$ is symmetric, then $$Sf:=\sum_{\sigma \in sym(k)} \sigma f = k! f$$
-}
-
-\subsection{Tensor Product, Alternating Forms and the Wedge Product}
-\defn{Tensor Product}{Let $f$ be a $k-$tensor and $g$ be a $l-$tensor. We define the \textbf{tensor product} $f\otimes g$ to be the $(k+l)-$tensor given by $$f\otimes g (v_1,v_2,\cdots, v_k, v_{k+1},v_{k+2},\cdots, v_{k+l}):=f(v_1,v_2,\cdots,v_k) \cdot g(v_{k+1},v_{k+2},\cdots,v_{k+l}) $$}
-\textbf{Note:} The tensor product is \emph{bilinear} (linear in each argument) and \emph{associative} ($(f\otimes g)\otimes h=f\otimes(g\otimes h)$) but not \emph{commutative}.
-
-\defn{Wedge Product}{Let $f$ be an alternating $k-$tensor ($f\in \Lambda^k(V)$) and $g$ an alternating $l-$tensor ($g\in \Lambda^l(V)$). We define $$f \wedge g:= \frac{1}{k!l!} A(f\otimes g)$$ or written explicitly $$f\wedge g(v_1,\cdots,v_{k+l}):=\frac{1}{k!l!} \sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) $$ }
-\defn{$Sym(k,l)$}{Given natural numbers $k$ and $l$, we define $Sym(k,l)$ as follows: $$Sym(k,l):=\{\sigma\in sym(k+l): \sigma(1)<\sigma(2)<\cdots<\sigma(k) \text{ and }\sigma(k+1)<\sigma(k+2)<\cdots<\sigma(k+l)\} $$}
-\thmp{(Equivalent Expressions for the Wedge Product)}{The two expressions \begin{enumerate}
-    \item $$f\wedge g(v_1,\cdots,v_{k+l}):=\frac{1}{k!l!} \sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) $$
-    \item $$f\wedge g(v_1,\cdots,v_{l+l})=\sum_{\sigma\in sym(k,l)}\operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)}) $$
-\end{enumerate} are equivalent.}{Consider $G=sym(k+l)$ and consider the subgroup $$H:=\{\sigma \in sym(k+l): \sigma|_{\{1,\cdots,k\}}\in \{1,\cdots,k\}\text{ and } \sigma|_{\{k+1,\cdots,l+l\}}\in \{k+1,\cdots,k+l\}\}$$ (One can view every element $\sigma \in H$ as $\pi_1 \times \pi_2$ where $\pi_1 \in sym\{1,\cdots,k\}$ and $\pi_2 \in sym\{k+1,\cdots,k_l\}$).
-\\\\ Let $\alpha,\beta \in G$ and define an equivalence relation $\alpha \sim \beta $ if and only if there exists $h \in H$ such that $\alpha h=\beta $
-\\\\ Let $S_{\sigma}$ be the expression $\operatorname{sign}(\sigma) \sigma(f\otimes g)$. 
-\\\\ Suppose $\alpha \sim \beta$ or $\alpha h=\beta$ where $h=\pi_1 \times \pi_2$. 
-\\\\ $$S_{\alpha}=\operatorname{sign}(\alpha) f(v_{\alpha(1)},\cdots,v_{\alpha(k)})g(v_{\alpha(k+1)},\cdots,v_{\alpha(k+l)})$$
-and $$S_{\beta}=\operatorname{sign}(\beta) f(v_{\beta(1)},\cdots,v_{\beta(k)})g(v_{\beta(k+1)},\cdots,v_{\beta(k+l)})$$ which is equal to $$ \operatorname{sign}(\alpha)\operatorname{sign}(\pi_1)\operatorname{sign}(\pi_2) f(v_{\alpha(h(1))},\cdots,v_{\alpha(h(k))})g(v_{\alpha(h(k+1))},\cdots,v_{\alpha(h(k+l))}) $$ $$=\operatorname{sign}(\alpha) \operatorname{sign}(\pi_1)^2 \operatorname{sign}(\pi_2)^2 f(v_{\alpha(1)},\cdots,v_{\alpha(k)})g(v_{\alpha(k+1)},\cdots,v_{\alpha(k+l)})=S_{\alpha} $$ So whenever $\alpha\sim \beta$, $S_{\alpha}=S_{\beta}$.
-\\\\ We can also see that, via rearrangement, for every $\sigma \in sym(k+l)$ there exists an $\alpha \in sym(k,l)$ and a $h\in H$ such that $\sigma h=\alpha$ or $\sigma \sim \alpha$.
-\\\\ The first expression can now be written as $$\frac{1}{k!l!}\sum_{\sigma\in sym(k,l)}\sum_{\alpha\in [\sigma]} S_{\alpha} $$
-
-but for elements of the same equivalence class, $S_{\alpha}$ are all the same and is equal to $S_{\sigma}$, so we have $$\frac{1}{k!l!} \sum_{\sigma\in sym(k,l)}S_{\sigma} (k!l!)=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\sigma) \sigma (f\otimes g)  $$ (The $k!l!$ comes from the fact that $|H|=k!l!$ and so the size of each coset is $k!l!$) and the equality is proved.}
-
-\thmp{}{For $f\in \Lambda^k(V)$ and $g\in \Lambda^l(V)$ $$f\wedge g=(-1)^{kl}g \wedge f$$}{$$f\wedge g=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\sigma) \sigma(f\otimes g)$$ Let $\tau$ be the element of $sym(k+l)$ given by $\tau(1)=k+1, \tau(2)=k+2,\cdots \tau(l)=k+l$ and $\tau(l+1)=1, \tau(l+2)=2,\cdots \tau(l+k)=k$ (We are moving the block $\{k+1,k+2,\cdots,k+l\}$ back, behind the block $\{1,2\cdots k\}$, which amounts to a total of $kl$ swaps/transpositions).
-Note that $\tau$ acts as a correspondence between $sym(k,l)$ and $sym(l,k)$ since for every $\sigma \in sym(k,l)$, we have $\sigma(\tau(l+1))<\sigma(\tau(l+2))<\cdots<\sigma(\tau(l+k))$ and $\sigma(\tau(1))<\sigma(\tau(2))<\cdots<\sigma(\tau(l))$ so $\sigma(\tau)$ is in $sym(l,k)$. 
-$$f\wedge g(v_1,\cdots,v_{k+l})=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\sigma) f(v_{\sigma(1)},\cdots,v_{\sigma(k)})g(v_{\sigma(k+1)},\cdots,v_{\sigma(k+l)})$$ $$=\sum_{\sigma \in sym(k,l)} \operatorname{sign}(\tau\sigma)\operatorname{sign}(\tau)g(v_{\sigma(\tau(1))},\cdots,v_{\sigma(\tau(l))}) f(v_{\sigma(\tau(l+1))},\cdots,v_{\sigma(\tau(l+k))}) $$
-$$=\sum_{\gamma \in sym(l,k)} \operatorname{sign}(\gamma) (-1)^{kl}g(v_{\gamma(1)},\cdots,v_{\gamma(l)})f(v_{\gamma(l+1)},\cdots,v_{\gamma(l+k)})=(-1)^{kl} g\wedge f$$}
-
-\subsection{The Associativity of the Wedge Product}
-\lemp{}{Let $f\in \Lambda^k(V)$ and $g\in \Lambda^l(V)$, then: 
-\begin{enumerate}
-    \item $A(Af\otimes G)=k!A(f\otimes g)$
-    \item $A(f \otimes Ag)=l! A(f\otimes g)$
-\end{enumerate}
-}{1) $$A(Af\otimes g)=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) \sigma(Af\otimes g)$$
-$$Af:= \sum_{\substack{\tau\in sym(k+l) \\ \tau \text{ preserves }\{k+1,\cdots,k+l\}}}\operatorname{sign}(\tau) \tau (f) $$
-and $$ A(Af \otimes g):=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) (Af(X_{\sigma(1)},\cdots,X_{\sigma(k)})g(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)}))$$
-$$=\sum_{\sigma \in sym(k+l)} \operatorname{sign}(\sigma) \bigg{(} \sum_{\substack{\tau \in sym(k+l)\\ \tau \text{ preserves } \\ \{k+1,\cdots,k+l\}}} \operatorname{sign}(\tau) f(X_{\sigma \tau (1)},\cdots,X_{\sigma \tau(k)}) \bigg{)}g(X_{\sigma(k+1)},\cdots,X_{\sigma(k+l)}))$$
-
-$$=\sum_{\sigma \in sym(k+l)}\sum_{\substack{\tau \in sym(k+l)\\ \tau \text{ fixes } \\ \{k+1,\cdots,k+l\}}} \operatorname{sign}(\sigma \tau) f(X_{\sigma \tau (1)},\cdots,X_{\sigma \tau (k)})g(X_{\sigma\tau (k+1)},\cdots,X_{\sigma\tau (k+l)}) $$
-The number of such $\tau$ that fixes $\{k+1,\cdots,k+l\}$ are precisely $k!$, and for each such $\tau$, $\sigma \tau$ runs over all of $sym(k+l)$ once and exactly once. Hence we have $$A(Af\otimes g)=k! \sum_{\gamma \in sym(k+l)}\operatorname{sign}(\gamma) \gamma (f\otimes g)=k! A(f\otimes g) $$
-2) The 2nd part is proved similarly.
-}
-\thmp{\label{associativity_of_wedge}(Associativity of Wedge Product)}{For any $f\in \Lambda^k(V),g\in \Lambda^l(V), h\in \Lambda^m(V)$ $$f\wedge (g\wedge h)=(f\wedge g)\wedge h $$}{$$f\wedge (g\wedge h):= \frac{1}{k!(l+m)!} A(f\otimes (g\wedge h))=\frac{1}{k!(l+m)!} A(f\otimes (\frac{1}{l!m!}A(g\otimes h) ))  $$ $$= \frac{1}{k!l!m!(l+m)!} A(f\otimes A(g\otimes h))=\frac{1}{k!l!m!} A(f\otimes g\otimes h) $$ and likewise $$(f\wedge g)\wedge h=\frac{1}{(k+l)!m!}A((f\wedge g)\otimes h)=\frac{1}{(k+l)k!l!m!}A(A(f\otimes g)\otimes h) $$ $$=\frac{1}{k!l!m!} (k+l)!A(f\otimes g\otimes h)=\frac{1}{k!l!m!}A(f\otimes g\otimes h) $$}
-
-\textbf{Note:} \emph{The proof of \ref{associativity_of_wedge} shows that if $f_{l_1}$ is an $l_1-$form, $f_{l_2}$ is an $l_2-$form and so on, $f_{l_1}\wedge f_{l_2}\wedge \cdots \wedge f_{l_k}$ is given by}
-
-\begin{equation}\label{wedge_product_of_bunch_of_forms}
-    f_{l_1}\wedge f_{l_2}\wedge \cdots \wedge f_{l_k}=\frac{1}{l_1 ! l_2 ! \cdots l_k!} A(f_{l_1}\otimes f_{l_2}\otimes \cdots \otimes f_{l_k}) 
-\end{equation}
-\subsubsection{Short Digression on Determinants}
-\defn{Determinant (\emph{Leibniz Formula})}{Let $\{a_{ij}:1\leq i,j\leq n\}$ be a matrix. We define determinant of $A$ as $$\det(A):=\sum_{\sigma \in sym(n)}\operatorname{sign}(\sigma) a_{1,\sigma(1)}a_{2,\sigma(2)}\cdots a_{n,\sigma(n)}$$ (To be thought of as multiplying one element from each row chosen from distinct columns, and taking into account the sign of the permutation of the columns).}
-
-\defn{Minor of $(i,j)-$entry}{Let $A$ be a matrix and let $a_{ij}$ be the $(i,j)-$entry of $A$. The \emph{minor} of $a_{ij}$ is the determinant of the matrix obtained by deleting the $i^{th}$ row and $j^{th}$ column from $A$. It is denoted $m_{ij}$. The matrix itself (after deleting $i^{th}$ row and $j^{th}$ column) is denoted $M_{ij}$. }
-
-\defn{Laplace's Expansion}{Fix a row $i$. Then the Laplace's expansion gives $$\det(B)=\sum_{j=1}^n (-1)^{i+j} b_{ij} \det(M_{ij})$$}
-\textbf{Note:} 
-From \begin{equation}
-    \sum_{\sigma \in sym(n)}\operatorname{sign}(\sigma) \prod_{q=1}^n a_{q,\sigma(q)}=\sum_{j=1}^n \sum_{\substack{\sigma \in sym(n)\\ \sigma: i \mapsto j}}\operatorname{sign}(\sigma) a_{i,j}  \prod_{\substack{q=1\\ q\neq i}}^{n} a_{q,\sigma(q)}
-\end{equation}
-we can see that the Laplace's expansion is a consequence of the Leibniz formula for determinants.
-\thmp{(Wedge Product of $1-$forms or Functionals)}{Let $f_1,f_2,\cdots,f_k$ be in $\Lambda^1(V)\equiv V^*$. Then $$f_1 \wedge f_2 \wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)=det(f_i(x_j)) $$}{From \ref{wedge_product_of_bunch_of_forms}, we have $$f_1\wedge f_2\wedge \cdots \wedge f_k (x_1,\cdots,x_k)=A(f_1\otimes f_2 \otimes \cdots \otimes f_k) $$ or $$f_1 \wedge f_2 \wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)=\sum_{\sigma \in sym(k)}\operatorname{sign}(\sigma) f_1(x_{\sigma(1)})f_2(x_{\sigma(2)})\cdots f_k(x_{\sigma(k)}) $$ which is precisely the Leibniz formula for determinants. Hence $$f_1\wedge f_2\wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)=\det(f_i(x_j)) $$}
-
-\lemp{}{Any collection $f_1,f_2,\cdots,f_k$ of $1-$forms is linearly independent if and only if $f_1 \wedge f_2\wedge \cdots \wedge f_k\neq 0$}{$\implies$) Say $f_1,\cdots,f_k$ is a linearly independent collection of functionals. Then it is part of a larger collection that forms a basis for $V^*$. Let $x_1,x_2,\cdots,x_k$ be the vectors in $V$ such that $f_i(x_j)=\delta_{ij}$. Then $$f_1\wedge f_2 \wedge \cdots \wedge f_k (x_1,x_2,\cdots,x_k)= \det(\delta_{ij})=1$$
-$\impliedby)$ Let $f_1,f_2,\cdots,f_k$ be linearly dependent. Then (without loss of generality) $f_1=c_2f_2+c_3f_3+\cdots c_kf_k$
- and $f_1 \wedge f_2 \wedge \cdots \wedge f_k= c_2 (f_2 \wedge f_2 \wedge f_3 \cdots \wedge f_k)+ c_3(f_3\wedge f_2 \wedge f_3 \wedge \cdots \wedge f_k)+ \cdots c_k(f_k \wedge f_2 \wedge f_3 \wedge \cdots \wedge f_k)=0$}
-
-\subsection{Dimension of Alternating k-forms}
-Let $E_1,E_2,\cdots, E_n$ be a basis for $V$. Let $\xi^1,\xi^2,\cdots,\xi^n \in V^*=\Lambda^k(V)$ be the dual basis to $E_1,\cdots E_n$. 
-
-\thmp{(Basis for $\Lambda^k(V)$)}{The set $$\{\xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}: 1\leq i_1<i_2<\cdots<i_k\leq n\}$$ forms a basis for $\Lambda^k(V)$.}{\textbf{Linear Independence:} Look at $$\sum_{1\leq i_1<\cdots<i_k\leq n} c_{i_1 i_2 \cdots i_k} \xi^{i_1}\wedge xi^{i_2}\wedge \cdots \wedge \xi^{i_k} \equiv 0$$ in $\Lambda^k(V)$. Hence, $$\sum_{1\leq i_1<\cdots<i_k\leq n} c_{i_1 i_2 \cdots i_k} \xi^{i_1}\wedge xi^{i_2}\wedge \cdots \wedge \xi^{i_k} (E_{j_1}, E_{j_2},\cdots ,E_{j_k})=$$ $$\sum_{1\leq i_1<\cdots<i_k\leq n} c_{i_1 i_2 \cdots i_k} det(\xi^{i_r}(E_{j_s}))=0 $$ $$\implies c_{j_1 j_2 \cdots j_k}=0 $$ for every increasing k-tuple $j_1,j_2,\cdots,j_k$ and hence $\{\xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}:1\leq i_1<\cdots<i_k\leq n\}$ is linearly independent.
-\\\\ \textbf{Span:} Let $f\in \Lambda^k(V)$. Let $x_r=\sum_{j_1=1}^n \xi^{j_1}(x_r) E_{j_1} $ for $r=1,2,\cdots,k$. $$f(x_1,x_2,\cdots,x_k)=f(\sum_{j_1=1}^n \xi^{j_1}(x_1) E_{j_1},\sum_{j_1=1}^n \xi^{j_1}(x_2) E_{j_1},\cdots,\sum_{j_1=1}^n \xi^{j_1}(x_k) E_{j_1})$$ $$=\sum_{j_1=1}^n \sum_{j_2=1}^n \cdots \sum_{j_k=1}^n \xi^{j_1}(x_1)\xi^{j_2}(x_2)\cdots \xi^{j_k}(x_k) f(E_{j_1},E_{j_2},\cdots,E_{j_k}) $$ If $j_r=j_s$ for some $r$ and $s$, note that the summand is $0$. Hence we rewrite the above sum as:
-$$\sum_{\substack{1\leq j_1,j_2,\cdots,j_k\leq n \\ j_r \text{ distinct}}}\xi^{j_1}(x_1)\xi^{j_2}(x_2)\cdots \xi^{j_k}(x_k) f(E_{j_1},E_{j_2},\cdots,E_{j_k}) $$
-
-We now note that each choice of $1\leq j_1,j_2,\cdots,j_k\leq n$ tuple is some $\sigma \in sym(k)$ of the ordered $1\leq j_1<j_2<\cdots<j_k\leq n$ (Simply reorder the elements $j_1,j_2,\cdots,j_k$ such that we achieve $\sigma(j_1)<\sigma(j_2)<\cdots<\sigma(j_k)$), and hence the above sum can be rewritten as: $$\sum_{1\leq j_1<\cdots<j_k\leq n} \sum_{\sigma \in sym(k)} \xi^{j_{\sigma(1)}}(x_1) \xi^{j_{\sigma(2)}}(x_2)\cdots \xi^{j_{\sigma(k)}}(x_k) f(E_{j_{\sigma(1)}},\cdots,E_{j_{\sigma(k)}})  $$ which is precisely $$ \sum_{1\leq j_1<\cdots<j_k\leq n} f(E_{j_1},\cdots,E_{j_k}) \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \xi^{j_{\sigma(1)}}(x_1)\xi^{j_{\sigma(2)}}(x_2)\cdots \xi^{j_{\sigma(k)}}(x_k)$$ $$=\sum_{1\leq j_1<\cdots<j_k\leq n} f(E_{j_1},\cdots, E_{j_k}) \xi^{j_1}\wedge \xi^{j_2}\cdots \wedge \xi^{j_k} (x_1,x_2,\cdots,x_k) $$ which means $f$ can be written as a linear combination of $\xi^{j_1}\wedge \cdots \wedge \xi^{j_k}$.
-}
-
-\lemp{}{Let $\beta^i\in \Lambda^1(V)$ for $1\leq i\leq k$ and let $\gamma^i\in \Lambda^1(V)$ and if $$\beta^i=\sum_{j=1}^k \alpha^i_j \gamma^j$$ then $$\beta^1\wedge \beta^2\wedge \cdots \wedge \beta^k=\det(\alpha^i_j) \gamma^1\wedge \gamma^2 \wedge \cdots \gamma^k$$ }{$$\beta^1\wedge \cdots \wedge \beta^k=\sum_{j_1=1}^k\sum_{j_2=1}^k \cdots \sum_{j_k=1}^k (\alpha^1_{j_1}\alpha^2_{j_2}\cdots \alpha^k_{j_k}) (\gamma^{j_1}\wedge \gamma^{j_2}\wedge \cdots \wedge \gamma^{j_k})$$
-$$=\sum_{\substack{1\leq j_1<\cdots<j_k\leq k\\ j_r \text{ distinct} }} (\alpha^1_{j_1}\alpha^2_{j_2}\cdots \alpha^k_{j_k}) \gamma^{j_1}\wedge \gamma^{j_2}\cdots \wedge \gamma^{j_k} $$ $$=\sum_{1\leq j_1<\cdots<j_k\leq k} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) \alpha^1_{j_1} \cdots \alpha^{k}_{j_k} \gamma^1\wedge \gamma^2 \cdots \gamma^k $$ $$=\det(\alpha^i_j) \gamma^1\wedge \gamma^2 \wedge \cdots \wedge \gamma^k $$}
-
-\lemp{}{Let $f\in \Lambda^k(V)$ and let $u_1,u_2,\cdots,u_k $ and $v_1,v_2,\cdots,v_k \in V$ be related by $$ u_i=\sum_{j=1}^n a^i_j v_j $$ Then $$f(u_1,u_2,\cdots,u_k) =\det(a^i_j) f(v_1,v_2,\cdots,v_k) $$ }{$ f(\sum_{j_1=1}^n a^1_{j_1}v_{j_1}, \sum_{j_2=1}^k a^2_{j_2}v_{j_k},\cdots, \sum_{j_k=1}^n a^k_{j_k} v_j )$ $$=\sum_{\substack{ j_1,j_2,\cdots,j_k \\ \text{each distinct}}} a^1_{j_1}a^2_{j_2}\cdots a^k_{j_k} f(v_{j_1},v_{j_2},\cdots, v_{j_k})  $$ $$=\sum_{\substack{1\leq j_1<j_2<\cdots<j_k\leq k\\ \text{each distinct}}} \sum_{\sigma \in sym(k)} \operatorname{sign}(\sigma) a^1_{\sigma(1)}a^2(\sigma(2))\cdots a^k_{\sigma(k)} f(v_1,v_2,\cdots,v_k)=$$ $$\det(a^i_j) f(v_1,v_2,\cdots, v_k) $$}
-
-\textbf{Notation:} Let $\mathscr T_k$ denote the set \begin{equation}\label{index_notation}\mathscr{T}_k:=\{I\equiv (i_1,i_2,\cdots,i_k): 1\leq i_1<i_2<\cdots<i_k\leq n\} \end{equation} Suppose that $E_1,E_2,\cdots, E_n $ are the basis for $V$, and $\xi^1,\xi^2,\cdots,\xi^n$ be the dual basis for $\Lambda^1(V)$. Then, for $I=(i_1,i_2,\cdots,i_k)$ we have the notation \begin{equation} \xi^I:= \xi^{i_1}\wedge \xi^{i_2}\wedge \cdots \wedge \xi^{i_k}\end{equation} and hence for any $k-$form $f:V\times V\times \cdots \times V\to \bbR$ we have the notation for the expansion \begin{equation}f:=\sum_{I\in \mathscr{T}_k} f^I \xi^I \end{equation}  
-
-
-
-\section{Tangent vectors in $\bbR^n$ and Vector Fields}
-We denote points in $\bbR^n$ by $$p=(p^1,p^2,\cdots ,p^n)$$ and points in $T_p(\bbR^n)$, the tangent space of $\bbR^n$ at $p$ (the space of all vectors $v$ eminating from $p$), by $$v= [v^1,v^2,\cdots, v^n]^T$$
-
-\subsection{The Directional Derivative and Derivations}
-\defn{Directional Derivative}{Let $p\in \bbR^n$ be given and let $f\in C_p^{\infty}$, the space of all functions $f:U\to \bbR$ such that $p\in U$ and $f$ is $C^{\infty}$ in $U$. Let $v\in T_p(\bbR^n)$. Let $\gamma(t):=p+tv$ and look at $$ \frac{d}{dt}|_{t=0} (f \circ \gamma(t))=Df(\gamma(0))\cdot \gamma'(0)=\sum_{i=1}^n v^i \frac{\partial}{\partial x^i}|_{p}f$$
-
-If we fix a point $p$ (arbitrary) and a direction $v\in T_p(\bbR^n)$, we have an operator $D_{p,v}: C^{\infty}_p \to \bbR$ given by $$D_{p,v} (f):= \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\bigg{|}_{p} (f) $$
-This operator is \emph{Linear} and follows the property $$D_{p,v}(f \cdot g)= (D_{p,v}(f))g(p)+(D_{p,v}(g))f(p) $$
-\emph{The operator $D_{p,v}$ is called the \textbf{directional derivative} at $p$ in the direction $v$.}}
-\defn{Germs of Functions}{Fix a point $p$ and look at all pairs $(f,U)$ where $f:U\to \bbR$, $p\in U\subseteq \bbR^n$ open and $f\in C^{\infty}(U)$. We say $(f,U)\sim (g,V)$ if $f$ and $g$ agree on an open subset of $U \cap V$. This is an equivalence relation and we (by abuse of notation) denote the equivalence class of $(f,U)$ as simply $f$. The set of all such equivalence classes is denoted by $C^{\infty}_p$ known as the \emph{\textbf{Germs of functions at $p$}}.
-\\\\ Defining addition, scalar multiplication and function multiplication on $C^{\infty}_p$ by the usual operations on representatives, we see that $C^{\infty}_p$ is a commutative ring with identity. Moreover, it is also a Vector space over $\bbR$. 
-}
-
-\defn{\label{Derp}Point Derivation}{Fix a point $p \in \bbR^n$. We say $D:C^{\infty}_p\to \bbR$ is a \emph{point derivation} (at $p$) if:
-\begin{enumerate}
-    \item $D$ is linear.
-    \item $D$ obeys \emph{Leibniz's Rule}: $$D(f\cdot g)=D(f)g(p)+D(g)f(p) $$
-\end{enumerate} and the space of all point derivations at $p$ is denoted by $\mathscr{D}_p (\bbR^n)$ }
-\lemp{}{If $D\in \mathscr{D}_p(\bbR^n)$, then $D(c)=0$ for every constant function $c\in C_p^{\infty}$.}{$D(1)=D(1\cdot 1)=1 D(1)+1D(1)=2D(1)$ which implies $D(1)=0$. From linearity, we have the result. }
-
-\lemp{}{The space of all point derivations $\mathscr{D}_p(\bbR^n)$ is a vector space over $\bbR$ and $T_p(\bbR^n)\cong \mathscr{D}_p(\bbR^n)$. Moreover, $D_{p,()}:T_p(\bbR^n)\to \mathscr{D}_p(\bbR^n)$ given by $v\mapsto D_{p,v}$ is the isomorphism.}{That $\mathscr{D}_p(\bbR^n)$ is a vector space is clear. Look at the map $v\mapsto D_{p,v}$. $v+cw\mapsto D_{p,v+cw}$ Where $$D_{p,v+cw}(f)=\sum_{i=1}^n (v^i+cw^i) \frac{\partial}{\partial x^i}\big{|}_{p} (f) =D_{p,v}(f)+cD_{p,w}(f)$$ Which makes $v\mapsto D_{p,v}$ linear. 
-\\\\ \textbf{Injectivity:} Let $D_{p,v}(f)=\sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\big{|}_{p} (f)\equiv 0$ for all $f \in C^{\infty}_p$
-Let $f=x^{j}:\bbR^n\to \bbR$ that picks out the $j-$th coordinate. Then $D_{p,v}(x^j)= \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\big{|}_{p} (x^j)=v^j=0$. Therefore, $v=0$ and hence, the nullspace is trivial.
-\\\\ \textbf{Surjectivity:} Let $f \in C^{\infty}_p$. We have $f(x)=f(p)+\sum_{i=1}^n g_i(x)(x^i-p^i)$ where $g^{i}(p)=\frac{\partial f}{\partial x^i}(p)$ (From \ref{Taylor}) 
-\\\\ Let $D\in \mathscr{D}_p(\bbR^n)$. \begin{align*}D(f(x))&=D(f(p))+\sum_{i=1}^n D(g_i(x)\cdot (x^i-p^i))\\ &=0+\sum_{i=1}^n D(g_i(x))(0)+D(x^i-p^i)\frac{\partial f}{\partial x^i}(p)= \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p f \end{align*}
-
-Which means $$D\equiv \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p\equiv D_{p,<D(x^1),D(x^2)\cdots,D(x^n)>} $$ 
-\\\\ And hence, the map $v\mapsto D_{p,v}$ is surjective.
-
-}
-\defn{Vector Field}{A \emph{vector field} on $\bbR^n$ is a map $X:U\mapsto \amalg_{p\in U}T_p(U)$. For every $p \in U$, $X(p)$ is a vector in the tangent space at $p$. $$X(p)=\sum_{i=1}^n a^i(p)\frac{\partial}{\partial x^i}\big{|}_p $$ We call $X$ a smooth vector field if $a^i:U\to \bbR$ are $C^{\infty}$.}
-
-Let $f \in C^{\infty}_p$, that is $f:U\to \bbR$, a vector field $X$ to f is $$Xf (p):=\sum a_i(p) \frac{\partial}{\partial x^i}|_{p} f$$
-Then $$Xf:U\to \bbR $$ is again a $C^{\infty}$ function. 
-
-\section{Differential Forms}
-
-We start with defining what are $1-$forms.
-
-\defn{$1-$forms}{A function $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_{p}(\bbR^n)) $$ such that $\omega(p)\in \Lambda^1(T_p(\bbR^n))\equiv T^*_p(\bbR^n)$ is called a $1-$form. 
-}
-
-\textbf{Note:} Let $f:U\to \bbR$ be any $C^{\infty}$ function. We can construct a $1-$form from $f$ as follows: 
-
-$$df:U\to \amalg_{p\in U} \Lambda^1(T_p(U)) $$ such that $$df_p \in \Lambda^1(T_p(U))$$ $$df_p:V\to \bbR $$ given by the action (for $v=\sum_{j=1}^n v^j \frac{\partial}{\partial x^j}|_{p} \in T_p(U)$): $$df_p(v)=df_p(\sum_j v^j \frac{\partial}{\partial x^j}|_{p})= \sum_j v^j \frac{\partial}{\partial x^j}|_{p}(f) \in \bbR $$
-
-Suppose that $v\in T_p(\bbR^n)$ and $f\in C^{\infty}_p (\bbR^n)$. $$v=\sum_{i=1}^n a^i(p)\frac{\partial}{\partial x^i}\big{|}_{p}\equiv X(p) $$ where $X:U\to \amalg_{p\in U} T_p(\bbR^n) $ is formally $$X(p):=\sum_{i=1}^n a^i(p) \frac{\partial}{\partial x^i}\big{|}_p\in T_p(\bbR^n)$$
-We then have a bilinear function $$\langle , \rangle:T_p(\bbR^n)\times C^{\infty}_p(\bbR^n)\to \bbR$$ given by $$\langle v,f\rangle=\langle \sum_i a^i(p)\frac{\partial}{\partial x^i}\big{|}p,f \rangle:=\sum_i a^i(p)\frac{\partial}{\partial x^i}\big{|}_p f \in \bbR$$
-One can then think of \emph{tangent vectors} as $\langle v,() \rangle$ functions of the 2nd argument. Likewise, we can think of $df$ as maps on the 1st argument: $df_p()=\langle (),f\rangle$ that takes in tangent vectors and gives a number in $\bbR$.
-
-\lemp{}{Let $x^1,x^2,\cdots, x^n :\bbR^n \to \bbR$ be the standard coordinate functions on $\bbR^n$. Then at each point $p$, $\{dx^1_p,dx^2_p \cdots dx^n_p\}$ forms a basis for $\Lambda^1(T_p(\bbR^n)) $ dual to $\{\frac{\partial}{\partial x^1}\big{|}_p,\frac{\partial}{\partial x^2}\big{|}_p,\cdots, \frac{\partial}{\partial x^n}\big{|}_p\} \in T_p(\bbR^n)$.}{Note that $$dx^i:\bbR^n \to \cup_{p\in \bbR^n} \Lambda^1(T_p(\bbR^n))$$ where $dx^i_p \in \Lambda^1(T_p(\bbR^n))$ is such that $$dx^i_p(\frac{\partial}{\partial x^j}\big{|}_p):=\frac{\partial}{\partial x^j}\big{|}_p (x^i)=\delta_{ij}$$ and $dx^j_p \in \Lambda_p(T_p(\bbR^n))$ is precisely the dual basis to $\frac{\partial}{\partial x^i}\big{|}_p \in T_P(\bbR^n)$.}
-
-\textbf{Note:} If $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_p(\bbR^n))$$ is a $1-$form, $\omega(p)\in \Lambda^1(T_p(\bbR^n))$ and $$\omega(p)=\sum_i a^i(p) dx^i_p $$ and formally $$\omega(\cdot) \equiv \sum_i a_i(\cdot) dx^i_{(\cdot)} $$
-Where $a^j(p)=w_p(\frac{\partial}{\partial x^j}\big{|}_p)$.
-
-\subsection{Differential Forms in terms of Coordinates}
-\thmp{}{
-Let $f:U\to \bbR$ be $C^{\infty}$. Then $df_p$ is defined as that linear function on $T_p(\bbR^n)$ such that $$df_p(\frac{\partial}{\partial x^i}\big{|}_p)=\frac{\partial}{\partial x^i}\big{|}_p f $$
-Then (as a covector) $$df_p\equiv \sum_{i=1}^n \frac{\partial f}{\partial x^i}\big{|}_p  (dx^i)_p$$ and formally (as a map on $U$) $$ df_{()}\equiv \sum_{j=1}^n \frac{\partial f}{\partial x^i}\big{|}_{()} dx^i_{()} $$
-}{Let $f:U \to \bbR$. $df_p \in \Lambda^1(T_p(U))$ and hence we have an expansion of the form \begin{equation}\label{temp_1}{df_p=\sum_{j=1}^n a^j_p dx^j_p}\end{equation} where $x^j: \bbR^n \to \bbR$ is the $j-$th standard coordinate function and $dx^j$ is the dual covector to $\frac{\partial}{\partial x^i}\big{|}_p \in T_p(U)$. Applying $df_p$ on $\frac{\partial}{\partial x^i}\big{|}_p$ (in \ref{temp_1}) we get $$df_p(\frac{\partial}{\partial x^i}\big{|}_p):=\frac{\partial f}{\partial x^i}\big{|}_p=\sum_{j=1}^n a^j_p dx^j_p(\frac{\partial }{\partial x^i}\big{|}_p)=a^j_p $$ and hence $$df_p\equiv \sum_{j=1}^n \frac{\partial f}{\partial x^j}\big{|}_p dx^j_p $$
-
-}
-
-\textbf{Note: } Let $X_p \in T_p(\bbR^n)$ be a tangent vector. we have $X_p\equiv \sum_{i=1}^n b^i(X_p) \frac{\partial}{\partial x^i}\big{|}_p$. Apply $dx^j_p$ on both sides: $$dx^j_p(X_p)=b^j(X_p) $$ and hence $$X_p \equiv \sum_{i=1}^n dx^i_p(X_p) \frac{\partial}{\partial x^i}\big{|}_p$$
-
-\subsection{Differential $k-$forms}
-\defn{Differential $k-$form}{A differential $k-$form is a function of the kind $$\omega: U\to \amalg_{p\in U} \Lambda^k(T_p(\bbR^n)) $$ $$\omega_p \in \Lambda^k(T_p(\bbR^n))$$ 
-
-Since $\Lambda^k(T_p(\bbR^n))$ is spanned by vectors of the kind (for $1\leq i_1<i_2<\cdots<i_k\leq n$) $$dx^{i_1}_p \wedge dx^{i_2}_p \wedge \cdots \wedge dx^{i_k}_p $$ and hence $$\omega_p\equiv \sum_{1\leq i_1<\cdots<i_k\leq n} w^{i_1 i_2 \cdots i_k}_{(p)} dx^{i_1}_p \wedge dx^{i_2}_p \wedge\cdots \wedge dx^{i_k}_p  $$ where $w^{i_1 i_2 \cdots i_k}:U\to \bbR$ is a $C^{\infty}$ function. Then we say $\omega$ is a $C^{\infty}$ differential $k-$form. 
-
-} 
-
-\begin{example} \textbf{(In $\bbR^3$)} Let $x,y,z:\bbR^3\to \bbR$ be the coordinate maps. 
-\begin{enumerate}
-    \item $C^{\infty}$ $1-$forms are maps $$\omega:U\to \amalg_{p\in U} \Lambda^1(T_p(U))$$ and $$\omega_p\equiv \sum_{i=1}^3 f^i_p dx^i_p =f^x_p dx_p +f^y_p dy_p +f^z_p dz_p \in \Lambda^1(T_p(U)) $$
-    \item $C^{\infty}$ $2-$forms are maps $$\omega: U\to \amalg_{p\in U} \Lambda^2(T_p(U)) $$ and $$\omega_p\equiv \sum_{1\leq i_1< i_2\leq 3} f^{i_1 i_2}_p dx^{i_1}_p\wedge dx^{i_2}_p = f_p^{1,2} dx_p \wedge dy_p - f_p^{1,3} dz_p \wedge dx_p + f^{2,3}_p dy_p\wedge dz_p  \in \Lambda^2(T_p(U))$$
-    \item $C^{\infty}$ $3-$forms are maps $$\omega:U\mapsto \amalg_p \Lambda^3(T_p(U)) $$ and $$\omega_p \equiv \sum_{1\leq i_1<i_2<i_3} f^{i_1 i_2 i_3}_p dx^{i_1}_p\wedge dx^{i_2}_p\wedge dx^{i_3}_p= f_p dx_p \wedge dy_p \wedge dz_p \in \Lambda^3(T_p(U)) $$
-\end{enumerate}
-    
-\end{example}
-
-
-\subsection{Exterior Derivative}
-
-Consider a $C^{\infty}$ function $f: U\to \bbR$. We have $df:U\to \amalg_{p\in U} \Lambda^1(T_p(U))$ such that $df_p \in \Lambda^1(T_p(U))$. $$df_p:T_p(U)\to \bbR$$ via $$df_p(v)=df_p(\sum_{i=1}^n dx^i_p(v)\frac{\partial}{\partial x^i}\big{|}_p )=\sum_{i=1}^n \frac{\partial f}{\partial x^i}\big{|}_p dx^i_p(v)$$ and symbolically we have $$df_{} \equiv \sum_{i=1}^n \frac{\partial f}{\partial x^i}\big{|}_{} dx^i_{}$$
-
-So $d$ in this case can be viewed as a map that takes $0-$forms (functions) and gives us a $1-$form $df$.
-
-Before we define the general exterior derivative for $k-$ forms, we will set up some notation.
-
-\defn{Multi Index Notations}{Let $I\equiv \{i_1,i_2,\cdots,i_k\} \in \mathscr T_k$ and $i\not\in I$. For $i\in I$, we write $I_{\hat i}$ as the multi index $I$ with $i$ removed. For $i\not\in I$, we write $[iI] $ as the multi index $I$ with $i$ added in the correct order.
-
-We also write $\operatorname{sign}[i,I]$ as the sign of the permutation that takes $\{i, I\}$ to $[iI]$. A corollary of this is that $$dx^{[iI]}=\operatorname{sign}[i,I] dx^i \wedge dx^I $$
-}
-
-We present an important lemma from \cite{Csato_2018} that will be used in the document.
-\lemp{}{Let $n\geq 2$ and $1\leq k\leq n-1$ be integers. Then for any $I\in \mathscr T_{k+1}$ and $i,j \in I$, with $i\neq j$ we have \begin{equation}
-\operatorname{sign}[i,I_{\hat{i}\hat{j}}]\operatorname{sign}[j,I_{\hat{i}\hat{j}}]=-\operatorname{sign}[i,I_{\hat{i}}]\operatorname{sign}[j,I_{\hat{j}}]
-\end{equation}
-And and for any $I\in \mathscr T_{k-1}$ and every $i,j \not\in I$ with $i\neq j$,\begin{equation}
-    \operatorname{sign}[i,[jI]]\operatorname{sign}[j,[iI]]=-\operatorname{sign}[i,I]\operatorname{sign}[j,I]
-\end{equation}
-}{We start with the first equation. Suppose that $i=i_r$ and $j=i_s$ for some $r$ and $s$, such that (without loss of generality) $i<j$. Then we have $I=i_1<i_2,\cdots,i_r=i,\cdots,i_s=j,i_{k+1}$.
-Then $\operatorname{sign}[i,I_{\hat i}]=(-1)^{r-1}$ since to move $i=i_r$ across $r-1$ positions requires $r-1$ transpositions. Likewise $\operatorname{sign}[j,I_{\hat j}]=(-1)^{s-1} $. Therefore the right hand side gives $(-1)^{r-1}(-1)^{s-1}$. 
-
-Since $I_{\hat i \hat j}=i_1<i_2<\cdots<i_{r-1}<i_{r+1}<\cdots<i_{s-1}<i_{s+1}<\cdots<i_{k+1}$,, $\operatorname{sign}[i,I_{\hat i \hat j}]=(-1)^{r-1}$ but on the other hand $\operatorname{sign}[j,I_{\hat i \hat j}]=(-1)^{s-2}$ (Since there is one less swap due to the absense of $i$). Therefore the left hand side reads $(-1)^{r-1}(-1)^{s-1}(-1)$ which gives the identity.
-\\\\ We now prove the second equation. Assume that $i<j$. It is clear that in that case, $\operatorname{sign}[i,[jI]]=\operatorname{sign}[i,I]$ (since we would not have to move $i$ past $j$ in $[i,[jI]]$). But in that case, $\operatorname{sign}[j,[iI]]$ and $\operatorname{sign}[j,I]$ would differ by one extra transposition, since $j$ would have to be moved past $i$ in $[j,[iI]]$. Therefore, $\operatorname{sign}[j,[iI]]=-\operatorname{sign}[j,I]$ and hence the identity follows.
-
-}
-
-\defn{\label{space_of_k_forms}The space of $k-$ forms}{Let $\Omega$ be an open set in $\bbR^n$. The space of $k-$forms is denoted by $$\{\Omega; \Lambda^k(T\Omega)\} $$ We also write the space of $k-$ forms as $$\Omega(\Lambda^k) $$}
-
-\defn{Exterior derivative $d$}{
-Let 
-$\omega \in \{\Omega;\Lambda^k(T\Omega)\}$ be a $k-$form given by (see \ref{index_notation}) $$\omega_p \equiv \sum_{I \in \mathscr T_k} \omega^I_p dx_p^I  $$    
-
-$d:\{\Omega;\Lambda^k(T\Omega)\}\to \{\Omega;\Lambda^{k+1}\Omega\}$ is the function given by (formally)
-\begin{equation}
-d\omega_p := \big{(} \sum_{i=1}^n \frac{\partial}{\partial x^i}\big{|}_p dx^i_p \big{)} \wedge \omega_p
-\end{equation}
-which is 
-\begin{equation}\label{Exterior_Derivative}
-\sum_{i=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^i}\big{|}_p dx^i_p \wedge dx^I_p=\sum_{I\in \mathscr T_k} d\omega^I_p \wedge dx^I_p    
-\end{equation}
-
-}
-\defn{(An equivalent characterization of the exterior derivative)}{Let $f$ be a $k-$form. We can equivalently write the exterior derivative as \begin{equation}
-    df:=\sum_{j=1}^n dx^j \wedge \partial_j f
-\end{equation} where $\partial_j f$ is the $j-$th partial derivative of $f$.}
-\defn{Gradient of a $k-$form}{\label{def:gradient_of_a_k_form}Let $f$ be a $k-$form. We define its \emph{gradient} as the $(k+1)$ tensor $\nabla f$ given by $$\nabla f:= \sum_{j=1}^n dx^j \otimes \partial_j f.$$}
-
-\begin{lemma}{Let $\omega=\sum_{I\in \mathscr T_k}\omega^I dx^I$ be a $k-$form. Then \begin{equation}
-    d\omega=\sum_{i=1}^n \sum_{I\in \mathscr T_k}\frac{\partial\omega^I}{\partial x^i} dx^i\wedge dx^I= \sum_{I\in \mathscr T_{k+1}}\sum_{\gamma=1}^{k+1}(-1)^{\gamma-1}\frac{\partial\omega^{I_{\hat i_{\gamma}}}}{\partial x^{i_{\gamma}}} dx^I
-\end{equation}}\end{lemma}
-\defn{Antiderivation}{Let $A=\oplus_{k=0}^{\infty} A^k$ be a graded algebra over a field $K$. An antiderivation is a map $D:A\to A$ such that 
-\begin{enumerate}
-    \item $D$ is $K-$linear
-    \item For all $a\in A^k$, $b\in A^l$, $$D(ab)=(D(a))b+(-1)^k a (D(b)) $$
-\end{enumerate}
-D is said to be an antiderivation of degree $m$ if $D|_{A^k}:A^k \to A^{k+m}$}
-
-\thmp{}{\label{exterior_derivative_antiderivation}$d:\oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to\oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is an antiderivation of degree $1$ and $$d(\omega \wedge \tau)=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau $$ for all $\omega \in \Omega(
-    \Lambda^k)$ and $\tau \in \Omega(\Lambda^l)$}{That $d$ is linear is clear from formula \ref{Exterior_Derivative}. Let $\omega\equiv\sum_{I\in \mathscr T_k} w^I dx^I$ and $\tau\equiv \sum_{J\in \mathscr T_l}\tau^J dx^J$. $\omega \wedge \tau \equiv \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I \tau^J dx^I \wedge dx^J $ Applying $d$ gives us 
-    
-    \begin{align*}d(\omega \wedge \tau)&=\big{(}\frac{\partial}{\partial x^i}\big{|}_p dx^i_p \big{)}\wedge (\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} w^I_p \tau^J_p dx^I_p \wedge dx^J_p)
-        %%%%%%%% and%%% 
-    \\&=\sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \bigg{(}\frac{\partial \omega^I}{\partial x^i}\big{|}_p \tau^J_p + \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p\bigg{)}dx^i_p \wedge dx^I_p\wedge dx^J_p  
-    %%%%%%%and 
-    \\&= d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^i_p \wedge dx^I_p \wedge dx^J_p 
-    %%%%%%%%%and
-    \\ &=d\omega \wedge \tau + \sum_{i=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} (-1)^k\omega^I_p \frac{\partial \tau^J}{\partial x^i}\big{|}_p dx^I_p \wedge dx^i_p \wedge dx^J_p 
-    %%%%%%and
-    \\ &=d\omega \wedge \tau + (-1)^k \omega \wedge d\tau \end{align*}
-    
-    }
-
-
-    \lemp{}{$d^2=0$}{$$d\omega = \sum_{i=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^i} dx^i\wedge dx^I  $$ and $$d(d\omega)= \big{(}\sum_{i=1}^n\frac{\partial}{\partial x^i} dx^i \big{)}\wedge \big{(}\sum_{j=1}^n \sum_{I\in \mathscr T_k} \frac{\partial \omega^I}{\partial x^j} dx^j\wedge dx^I   \big{)} $$ $$= \sum_{i=1}^n \sum_{j=1}^n \sum_{I \in \mathscr T_k} \frac{\partial^2 \omega^I }{\partial x^ix^j } dx^i\wedge dx^j\wedge dx^I $$ Since $dx^i\wedge dx^j=-dx^j\wedge dx^i$ and $\frac{\partial^2 \omega^I}{\partial x^ix^j}=\frac{\partial^2 \omega^I}{\partial x^jx^i}$ we have that $d(d\omega)=0$. }
-
-    \subsection{Closed and Exact Forms}
-
-    \defn{Closed Form}{Let $\omega\in \Omega(\Lambda^k)$ be a $k-$form. We say $\omega$ is \emph{closed} if $d\omega=0$.}
-
-    \defn{Exact Form}{We say $k-$form $\omega \in \Omega(\Lambda^k)$ is \emph{exact} if there exists $\lambda\in \Omega(\Lambda^{k-1})$ such that $d\lambda=\omega$. }
-\begin{lemma}
-    \emph{Exact} forms are \emph{closed}.
-\end{lemma}
-
-\section{Vector Calculus}
+\section{Vector Calculus}\label{app:vector_calculus}
 We set $n=3$, $U\subset \bbR^3$ and $k\in \{1,2,3\}$.
 
 \begin{enumerate}
@@ -550,430 +249,10 @@ Which from the correspondence \ref{tab:vector_form} can be identified with the s
 
 From these correspondences, we see that $d:\Omega(\Lambda^0)\to \Omega(\Lambda^1)$ is the gradient, $d:\Omega(\Lambda^1)\to \Omega(\Lambda^2)$ the curl and $d:\Omega(\Lambda^2)\to \Omega(\Lambda^3)$ is the divergence. From this we can see immediately that the well known identities $$\nabla \times (\nabla f)=0 $$ and $$\nabla \cdot (\nabla \times \omega)=0 $$ are just special cases of $d^2=0$. 
 
-\section{Interior Product}
-We start with the observation that $\{dx^I: I \in \mathscr T_k\}$ not only forms a basis for $\Lambda^k(V)$, but is also an orthonormal set: $$\langle dx^I,dx^J\rangle=\begin{cases}
-    1& \text{ if } I=J \\ 
-    0& \text{ if } I\neq J
- \end{cases}$$
-This is a natural consequence of the definition $\langle f,g\rangle=\sum_{I\in \mathscr T_k} f^Ig^I$. In the case of a Riemannian manifold with a given $g_p:T_pM\times T_pM\to \bbR$, there is a natural choice for $\langle f,g\rangle_g$ given by   \begin{equation}
-    \langle f,g\rangle_g:=\sum_{I,J\in \mathscr T_k} f^I g^J \det(g^{i_a,j_b}_p)
-\end{equation} 
-where $\{g^{pq}\}$ is the inverse of the matrix $\{g_{pq}\}$. Note, however, that in such a case, $\{dx^I:I\in \mathscr T_k\}$ need \emph{not be} \textbf{\emph{orthonormal}}. We work predominantly in $\bbR^n$ with $g_{ij}=\delta_{ij}$ unless stated otherwise. The wedge product $$\wedge: \Lambda^k(V) \times \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is bilinear. Suppose we have a fixed $k$ form $\alpha \in \Lambda^k(V)$, then $$\alpha \wedge (): \Lambda^l(V)\to \Lambda^{k+l}(V)$$ is a linear map that \emph{raises} the degree of the form.
-For a $k-$form $\alpha$, we have the natural dual from the inner product given by: $$\langle (\alpha \wedge) \omega, \beta\rangle = \langle \omega, (\alpha \lrcorner) \beta \rangle $$
-where $\alpha \in \Lambda^k(V)$, $\omega\in \Lambda^{l-k}(V)$ and $\beta \in \Lambda^l$. From this definition it is clear that $$\alpha \lrcorner: \Lambda^{l}(V)\to \Lambda^{l-k}(V)$$
-\begin{corollary}\label{contraction_formula_basis}
-    If $k\geq l$ and $\alpha \in \Lambda^k(V)$ and $\beta \in \Lambda^l(V)$, then $\alpha \lrcorner \beta=0$.
-
-\end{corollary}
-On \emph{basis elements}, we have for $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $dx^w \in \Lambda^{l-k}(V)$ $$\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I \lrcorner dx^J\rangle $$ 
-
-
-\propp{\label{prop:inner_product_formula_for_euclidean}For $dx^I \in \Lambda^k(V)$, $dx^J\in \Lambda^l(V)$ and $l>k$, we have $$dx^I \lrcorner dx^J=\begin{cases} \operatorname{sign}(R(I,J/I)) dx^{J/I} & \text{if } I\subseteq J \\ 0  &\text{if } I\not\subseteq J\end{cases} $$ where $J/I$ denotes the ordered set of indices that are in $J$ but not in $I$ and $R(I,J/I)$ denotes the permutation that reorders the tuple $(I,J/I)$.}{\textbf{When }$\mathbf{I\not\subseteq J}$, we have some index of $dx^I$ not be in $dx^J$. Therefore, no matter our choice of $dx^w$, we must have that $$\langle dx^I \wedge dx^w,dx^J\rangle=0=\langle dx^w,dx^I \lrcorner dx^J\rangle $$ which means that $dx^I \lrcorner dx^J=0$. 
-\\\\ \textbf{When }$\mathbf{I\subseteq J}$, If $dx^w$ does not contain all the complementary elements of $J/I$, we must have that $\langle dx^I \wedge dx^w, dx^J\rangle=\langle dx^w, dx^I\lrcorner dx^J \rangle=0$. This means that $dx^I\lrcorner dx^J$ contains indices exclusively from $J/I$ (upto reordering). Let $dx^I \lrcorner dx^J=\lambda dx^{J/I}$. Choose $dx^w=dx^{J/I}$.  Note in that case that $dx^I \wedge dx^w=\operatorname{sgn}(R(I,J/I))dx^{J}$ where $R(I,J/I)$ is the permutation that rearranges $(I,J/I)$ to the canonically ordered tuple $J$.
-
-We therefore have  $$\langle dx^I \wedge dx^w, dx^J\rangle =\operatorname{sgn}(R(I,J/I))\langle dx^J, dx^J\rangle=\operatorname{sgn}(R(I,J/I)) $$
-$$=\langle dx^{J/I}, \lambda dx^{J/I}\rangle=\lambda $$
-This implies $\lambda= \operatorname{sgn}(R(I,J/I))$ and the proof is complete.  }
-
-Let $\alpha\in \Lambda^k(V)$, $\beta\in \Lambda^l(V)$. For $\omega\in \Lambda^m$ $L_{\alpha \wedge \beta}(\omega)=\alpha \wedge (\beta \wedge \omega)=L_{\alpha}\circ L_{\beta}(\omega)$. Therefore, the Adjoint must follow $$L_{\alpha \wedge \beta}^{\dagger}\equiv (L_{\alpha}\circ L_{\beta})^{\dagger}=L_{\beta}^{\dagger}\circ L_{\alpha}^{\dagger}$$ which implies $$(\alpha \wedge \beta)\lrcorner \gamma =\beta \lrcorner (\alpha \lrcorner \gamma) $$ 
-
-
-\subsection{The Musical Isomorphism and Interior Product}
-\textbf{The situation in }$\mathbf{\bbR^n:}$ 
-
-Given a $C^{\infty}$ vector field $X:U\to \amalg_{p\in U} T_p(U)$ given by $$X_{(p)}=\sum_{i=1}^n a^i(p) \frac{\partial}{\partial x^i}\bigg.{|}_{p} \in T_p(U) $$ we can find a differential $1-form$ given by \begin{equation}\label{one forms vs vectors}p \mapsto \sum_{i=1}^n a^i(p) dx^i_{(p)}\end{equation}
-
-\subsubsection{\label{section:flat_map}The $\flat$ map}
-For any general Manifold, the vector spaces $T_pM$ and $T_p^*M$ are merely of the same dimension, but there is no global way to identify $T_pM$ with $T_p^*M$. A metric changes this. 
-
-Let $g_p : T_p M \times T_p M \to \bbR$ be an inner product on $T_pM$. For a given vector $X \in T_pM$, define $X^{\flat}\in \Lambda^1(T_p(M))$ given by \begin{equation}\label{flat_isom}X^{\flat}(Y)=g(X,Y)\end{equation} for $Y\in T_p(M)$. Therefore, $\flat: T_p(M)\to T_p^*(M)$.
-This map is linear, and injective since $X^{\beta}(Y)=g(X,Y)=0, \text{ for every }Y\in T_p(M)$ implies $X=0$. Hence, $\flat:T_pM\to T^*_pM$ is an isomorphism.
-\\\\ Let $X\equiv \sum_{i=1}^n X^i \frac{\partial}{\partial x^i}$ be a vector field. $g$ being an inner product, is a $2-$tensor on $T_p(M)$.  
-
-By \ref{basis for tensors} we see then, that $$g\equiv \sum_{1\leq i,j\leq n} g_{ij}(p) dx_p^i \otimes dx_p^j:T_pM\times T_pM\to \bbR $$ and \ref{flat_isom} tells us that $$X^{\flat}_{p}= \sum_{1\leq i,j\leq n}g_{ij}(p)\sum_{s=1}^na^s(p)dx^i_p( \frac{\partial}{\partial x^s}\bigg.{|}_p) dx^j_p = \sum_{1\leq i\leq n}\sum_{1\leq j\leq n} g_{ij}(p)a^i(p)dx^j_p \in \Lambda^{1}(T_p(M))$$
-If we assume that $g_{ij}=\delta_{ij}$ we get back \ref{one forms vs vectors}.
-\\\\ \textbf{On Basis:} If $X\equiv \frac{\partial}{\partial x^q}$, then $X^{\flat}= g(X,())$ given by $$\sum_{i=1}^n \sum_{j=1}^n g_{ij} dx^i(\frac{\partial}{\partial x^q})dx^j=\sum_{j=1}^n g_{qj}dx^j$$
-Therefore, $$\Big{(}\frac{\partial}{\partial x^i}\Big{)}^{\flat}\equiv \sum_{j=1}^n g_{ij} dx^j $$
-If our metric $g$ were Euclidean ($g_{ij}=\delta_{ij}$) we would have that $$\Big{(}\frac{\partial}{\partial x^i}\Big{)}^{\flat}\equiv dx^i $$
-
-
-\subsubsection{\label{section:sharp_map}The $\sharp$ map}
-We know that $\flat: T_pM\to T_p^*M$ is given by $\big{(}\frac{\partial}{\partial x^i}\bigg.{|}_p\big{)}^{\flat}= \sum_{j=1}^n g_{ij}dx_p^j$, so we have the matrix representation of $\flat$ as $$[X^{\flat}]_{\{dx_p^1,dx_p^2,\cdots,dx^n_p\}}= \begin{bmatrix}
-    g_{11} \ g_{21} \ \cdots \ g_{n1} \\
-    g_{12} \ g_{22} \ \cdots \ g_{n2} \\
-    \vdots \ \vdots \ \ddots \ \vdots \\
-    g_{1n} \ g_{2n} \ \cdots \ g_{nn}
-\end{bmatrix} [X]_{\{\partial_{x^1},\partial_{x^2},\cdots, \partial_{x^n}\}}=G_p [X]_{\{\partial_{x^1},\partial_{x^2},\cdots, \partial_{x^n}\}} $$
-from which we get the inverse map $\sharp:T_p^*M\to T_pM$ by $$(dx_p^i)^{\sharp}=\sum_{j=1}^n (G_p)^{-1}_{ij}\frac{\partial}{\partial x^j}\bigg{|}_p \in T_pM $$
-
-\subsubsection{Interior product of a vector and a $k-$form (in $\bbR^n$)}
-Let $X\equiv \frac{\partial}{\partial x^q}$. In $\bbR^n$ we have $X^{\flat}=dx^q$. For a basis $k-$form $dx^{i_1}\wedge dx^{i_2}\cdots \wedge dx^{i_k}$, $$X^{\flat} \lrcorner (dx^{i_1}\wedge dx^{i_2}\cdots \wedge dx^{i_k})=dx^q \lrcorner (dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}) $$ \begin{equation} \label{interior product as wedge}= \begin{cases}
-    (-1)^{r-1} dx^{i_1}\wedge dx^{i_2} \wedge \cdots \wedge \widehat{dx^{i_r}}\wedge \cdots \wedge dx^{i_k} & \text{ whenever }q=i_r \\ 
-    0 & \text{ whenever }q\not\in \{i_1,i_2,\cdots,i_k\}
-\end{cases} \end{equation}
-
-\defn{\label{actual_interior_defn}Interior product of a vector with a form ($\imath_X(\omega)$)}{Let $\omega\in \Omega(\Lambda^k)$ be a $k-$form. Let $X$ be a vector field. $\imath_X:\Omega(\Lambda^k)\to \Omega(\Lambda^{k-1})$ is given by $$\imath_X (\omega)(X_1,X_2,\cdots, X_{k-1})=\omega(X,X_1,X_2,\cdots,X_{k-1})$$}
-\begin{remark}\label{remark:interior_is_a_form}
-We see that $\imath_X(\omega)$ is a $k-1$ form. Hence, its action on basis vectors $\frac{\partial}{\partial x^i}$ tells us its action on arbitrary vectors by linearity. Moreover, $\imath_{X+cY}(\omega)=\imath_X(\omega)+c\imath_Y(\omega)$. So its action on $X=\frac{\partial}{\partial x^q}$ tells us its action on arbitrary $X$ by linearity.
-\end{remark}
-
-
-\thmp{}{In $\bbR^n$ equipped with the euclidean metric, we have $$\imath_X(\omega)=X^{\flat}\lrcorner \omega $$(\ref{interior product as wedge} and \ref{actual_interior_defn} are equivalent.) }{
-By \ref{remark:interior_is_a_form} it is enough to check equality on basis vectors. Let $X\equiv \frac{\partial}{\partial x^q}$ and let $\omega=dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}$ be a $k-$form. Let $X_1=\frac{\partial}{\partial x^{j_1}},X_2=\frac{\partial}{\partial x^{j_2}},\cdots, X_{k-1}=\frac{\partial}{\partial x^{j_{k-1}}}$ be $k-1$ subcollection of basis vectors. From \ref{interior product as wedge} we have 
-$$X^{\flat}\lrcorner(dx^{i_1}\wedge dx^{i_2}\cdots \wedge dx^{i_k})$$
-$$= \begin{cases}(-1)^{r-1}dx^{i_1}\wedge \cdots \widehat{ dx^{i_r}} \cdots \wedge dx^{i_k} & \text{whenever }q=i_r \\ 
-0 & \text{whenever }q \not\in \{i_1,i_2,\cdots,i_k\} \end{cases} $$
-So when evaluated on $\frac{\partial}{\partial x^{j_1}},\frac{\partial}{\partial x^{j_2}},\cdots,\frac{\partial}{\partial x^{j_{k-1}}}$ we have $$X^{\flat}\lrcorner(dx^{i_1}\wedge \cdots \wedge dx^{i_k})(\partial_{x^{j_1}},\partial_{x^{j_2}},\cdots,\partial_{x^{j_{k-1}}})= $$
-$$= \begin{cases}(-1)^{r-1}\det(\{dx^{i_s}(\partial_{x^{j_t}}): s\neq r, 1\leq t\leq k-1\}) & \text{whenever }q=i_r \\ 
-0 & \text{whenever }q \not\in \{i_1,i_2,\cdots,i_k\} \end{cases} $$
-Let us look at $\imath_{\partial_{x^{q}}}(dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k})(\partial_{x^{j_1}},\partial_{x^{j_2}},\cdots,\partial_{x^{j_{k-1}}})=\det(D) $ where $D$ is the matrix 
-$$\begin{bmatrix}
-dx^{i_1}(\partial_{x^q}) & dx^{i_1}(\partial_{x^{j_1}}) & \cdots & dx^{i_1}(\partial_{x^{j_{k-1}}}) \\ 
-dx^{i_2}(\partial_{x^q}) & dx^{i_2}(\partial_{x^{j_1}}) & \cdots & dx^{i_2}(\partial_{x^{j_{k-1}}}) \\
-\vdots & \vdots & \ddots & \vdots \\
-dx^{i_r}(\partial_{x^q}) & dx^{i_r}(\partial_{x^{j_1}}) & \cdots & dx^{i_r}(\partial_{x^{j_{k-1}}}) \\ 
-\vdots & \vdots & \ddots & \vdots \\ 
-dx^{i_k}(\partial_{x^q}) & dx^{i_k}(\partial_{x^{j_1}}) & \cdots & dx^{i_k}(\partial_{x^{j_{k-1}}}) \\ 
-\end{bmatrix} $$
-Assuming that $q=i_r$ we see that $D$ takes the form: 
-$$\begin{bmatrix}
-0 & dx^{i_1}(\partial_{x^{j_1}}) & \cdots & dx^{i_1}(\partial_{x^{j_{k-1}}}) \\ 
-0 & dx^{i_2}(\partial_{x^{j_1}}) & \cdots & dx^{i_2}(\partial_{x^{j_{k-1}}}) \\
-\vdots & \vdots & \ddots & \vdots \\
-1 & 0 & \cdots & 0 \\ 
-\vdots & \vdots & \ddots & \vdots \\ 
-0 & dx^{i_k}(\partial_{x^{j_1}}) & \cdots & dx^{i_k}(\partial_{x^{j_{k-1}}}) \\ 
-\end{bmatrix} $$
-Whence we see that the determinant takes the following form: $$(-1)^{r-1} \det(\{ dx^{i_s}(\partial_{x^{j_t}}): s\neq r, 1\leq t\leq k-1 \}) $$ which agrees with $X^{\flat}\lrcorner (dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k})$.
-
-The case $q\not\in \{i_1,i_2,\cdots,i_k\}$ follows since $q\neq i_r$ implies that the first column in $D$ full of $0$, which makes the determinant $0$. 
-
-}
-
-
-\lemp{(Expression for interior product of a $1-$form and a $k-$form)}{\label{eqn:coordinate_expression_for_interior}Let $\nu=\sum_{j=1}^n v^j dx^j \in \Lambda^1$ and $\omega\in \Lambda^k$. We have \begin{equation}\nu \lrcorner \omega=\sum_{j=1}^n \sum_{I\in \mathscr T_k} v^j \omega^I dx^j\lrcorner dx^I = \sum_{I\in \mathscr T_k}\sum_{j\in I} v^j \omega^I (\operatorname{sign}[j,I_{\hat j}])dx^{I_{\hat j}}= \sum_{j=1}^n\sum_{I\in \mathscr T_{k-1}} v^j \omega^{ji_1i_2\cdots i_{k-1}}dx^I  \end{equation}
-\textbf{Caution:} The notation used here is adopted from \cite{Csato_2018} and \cite{CsatoDacorognaKneuss2012} wherein, for non-increasing indices, we define \begin{equation}\label{definition_extension_to_non_increasing_indices}
-\omega^{I}=\operatorname{sign}([I])\omega^{[I]} 
-\end{equation} where $I$ is an arbitrary multi-index set and $[I]$ is (by abuse of notation) both the permutation that rearranges $I$ to be increasing and the increasing index set.
-}{\begin{equation}\label{throwaway_eqn_interior}\nu \lrcorner \omega=\sum_{j=1}^n \sum_{I\in \mathscr T_k} v^j \omega^I dx^j\lrcorner dx^I = \sum_{I\in \mathscr T_k} \sum_{j\in I}v^j \omega^I (\operatorname{sign}[j,I_{\hat j}])dx^{I_{\hat j}} \end{equation}
-Note that, for every $K\in \mathscr T_{k-1}$ and $j\not\in K$, we have a unique $I\in \mathscr T_k$ given by $[jK]$ so that $K=I_{\hat j}$. We now argue that the expression above is equal to the following: $$\sum_{j=1}^n\sum_{K\in \mathscr T_{k-1}}v^j \omega^{[jK]}\operatorname{sign}[j,K]dx^K $$
-
-For a given $j \in \{1,\cdots,n\}$, $dx^j \lrcorner dx^I\neq 0$ only for those $I\in \mathscr T_k$ with $j\in I$. And for each such $I$, there is a unique $K\in \mathscr T_{k-1}$ such that $I=[jK]$. Therefore we can write the left hand side of \ref{throwaway_eqn_interior} as $$\sum_{j=1}^n \sum_{K\in \mathscr T_{k-1}}v^j \omega^{[jK]}dx^j \lrcorner dx^{[jK]}= \sum_{j=1}^n\sum_{K\in \mathscr T_{k-1}}v^j \omega^{[jK]}\operatorname{sign}[j,K]dx^K $$ If we further impose the notation in \eqref{definition_extension_to_non_increasing_indices}, we get $$\sum_{j=1}^n \sum_{K\in \mathscr T_{k-1}} v^j \omega^{j,K} dx^K $$ which are the desired results. }
 
 
 
-% \thmp{}{\label{identity_on_interior_of_wedge}Let $X$ be a vector field, $\omega \in \Omega\Lambda^k$ and $\eta \in \Omega\Lambda^l$. We then have \begin{equation}\imath_X(\omega\wedge \eta)=\imath_X(\omega)\wedge \eta+(-1)^k \omega \wedge \imath_X(\eta)\end{equation}
-% This tells us that $\imath_X: \oplus_{k=0}^{\infty}\Omega(\Lambda^k)\to \oplus_{k=0}^{\infty}\Omega(\Lambda^k) $ is a rank $-1$ antiderivation. }{
-    
-% Let $X_{(p)}=\sum_{q=1}^n a^q(p)\frac{\partial}{\partial x^q}\big{|}_p$, $\omega=\sum_{I\in \mathscr T_k} \omega^I dx^I$ and $\eta=\sum_{J\in \mathscr T_l}\eta^J dx^J$.
-
-% $\imath_X(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\omega \wedge \eta)=\sum_{q=1}^n a^q \imath_{\partial_{x^q}}(\sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} \omega^I \eta^J dx^I \wedge dx^J) $ which gives $$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \imath_{\partial_{x^{q}}}(dx^I \wedge dx^J)  $$
-% If we suppose that the identity holds on basis elements i.e. $X=\partial_{x^q}$ $\omega=dx^I $ and $\eta=dx^J$, we then have
-% $$\imath_X(\omega \wedge \eta)=\sum_{q=1}^n \sum_{I\in \mathscr T_k}\sum_{J\in \mathscr T_l} a^q \omega^I \eta^J \Big{(}\imath_{\partial_{x^{q}}}(dx^I) \wedge dx^J +(-1)^k dx^I \imath_{\partial_{x^{q}}}(dx^J) \Big{)}  $$
-% Which gives the result. Hence we need only to prove the identity for $X=\partial_{x^q}$, $\omega=dx^I$ and $\eta=dx^J$.
-% \\\\ \textbf{Case 1:} $\mathbf{q \in I}\textbf{ and }\mathbf{I\cap J=\varnothing} $
-% \\Suppose that $q=i_r \in I$. We have $i_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $$D=\begin{bmatrix}
-%     dx^{i_1}(\partial_{x^q}) & dx^{i_1}(x_1) & \cdots & dx^{i_1}(x_{k+l-1}) \\
-%     dx^{i_2}(\partial_{x^q}) & dx^{i_2}(x_1) &\cdots & dx^{i_2}(x_{k+l-1})\\
-%     \vdots & \vdots & \ddots & \vdots \\
-%     dx^{i_r}(\partial_{x^q}) & dx^{i_r}(x_1)& \cdots & dx^{i_r}(x_{k+l-1})\\
-%     \vdots & \vdots & \ddots &\vdots \\
-%     dx^{j_1}(\partial_{x^q}) & dx^{j_1}(x_1)&\cdots & dx^{j_1}(x_{k+l-1}) \\
-%     \vdots &\vdots &\ddots&\vdots \\
-%     dx^{j_l}(\partial_{x^q})& dx^{j_l}(x_1)& \cdots & dx^{j_l}(x_{k+l-1}) 
-% \end{bmatrix}$$ which evaluates to (from Laplace's Formula) $$(-1)^{r-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \widehat{dx^{i_r}} \wedge \cdots \wedge dx^{i_k} \wedge dx^{j_1} \wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})= \imath_{\partial_{x^q}}(dx^I) \wedge dx^J$$
-% If $J\cap I=\varnothing$ and $q=i_r \in I$, note that $dx^I \wedge i_{\partial_{x^q}}(dx^J)= dx^I \wedge (dx^q \lrcorner (dx^J))=0$ since $q$ is not in $J$ (see Formula \ref{contraction_formula_basis}). Therefore, we have the identity in this case.
-% \\\\ \textbf{Case 2:} $\mathbf{q\in J}\textbf{ and }\mathbf{I\cap J=\varnothing}$
-% \\ Let $q=j_s$ for some $j_s \in J$. We have $\imath_{\partial_{x^q}}(dx^I \wedge dx^J)=\det D$ where $D$ is as in case $1$, but note that the only non zero element in the first column occurs in the $k+s$ row. The Laplace expansion thus reads $$(-1)^{k+s-1} dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge dx^{j_2}\cdots \wedge \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l} (x_1,x_2,\cdots,x_{k+l-1})=(-1)^k dx^I \wedge \imath_{\partial_{x^q}}(dx^J) $$ 
-% If $I \cap J=\varnothing$ and $q=j_s$ for some $j_s\in J$ then note that $\imath_{\partial_{x^q}}(dx^I)\wedge dx^J=(dx^q \lrcorner dx^I)\wedge dx^J=0 $ and likewise we have the identity. 
-% \\\\ Note that in both case $1$ and case $2$ we only used the following fact: $q \in I $ (or $J$) and $q \not \in J$ (or $\not \in I$).
-% \\\\ \textbf{Case 3:}
-% $\mathbf{I\cap J\neq\varnothing}$ \textbf{ and }$\mathbf{q=i_r=j_s}$ 
-% \\Note that the left hand side $\imath_{\partial_{x^q}}(dx^I\wedge dx^J)=0$. The first expression on the right hand side reads $\imath_{\partial_{x^q}}(dx^I) \wedge dx^J=(dx^q\lrcorner dx^I)\wedge dx^J$ and the second expression reads $(-1)^k dx^I \wedge (dx^q\lrcorner dx^J) $. Note that in case $3$, the matrix $D$ we get has two occurences of $1$ (and the rest $0$) in the first column: In the $r-$th and $(k+s)-$th rows. Laplace's expansion gives us the determinant of $D$ to be $$(-1)^{r-1}dx^{i_1}\wedge \cdots \wedge \widehat{dx^{i_r}}\wedge \cdots \wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ $$+ (-1)^{k+s-1}dx^{i_1}\wedge dx^{i_2}\wedge dx^{i_k}\wedge dx^{j_1}\wedge \cdots \widehat{dx^{j_s}}\wedge \cdots \wedge dx^{j_l}(x_1,x_2,\cdots,x_{k+l-1})$$ which is precisely $$\imath_{\partial_{x^q}}(dx^I)\wedge dx^J +(-1)^k dx^I \wedge (\imath_{\partial_{x^q}}dx^J ) $$ 
-% Since the identity is true on basis, it is true in the general case through multilinearity. 
-% }
-
-\thmp{}{
-\label{identity_on_interior_of_wedge}
-Let $X$ be a vector field, $\omega \in \Omega\Lambda^k$ and
-$\eta \in \Omega\Lambda^l$. We then have
-\begin{equation}
-    \imath_X(\omega\wedge\eta)
-    =
-    \imath_X(\omega)\wedge\eta
-    +
-    (-1)^k\omega\wedge\imath_X(\eta).
-\end{equation}
-This tells us that
-\[
-\imath_X:
-\bigoplus_{k=0}^{\infty}\Omega(\Lambda^k)
-\to
-\bigoplus_{k=0}^{\infty}\Omega(\Lambda^k)
-\]
-is a rank $-1$ antiderivation.
-}{
-Let
-\[
-X_{(p)}
-=
-\sum_{q=1}^n a^q(p)
-\frac{\partial}{\partial x^q}\Big|_p,
-\qquad
-\omega
-=
-\sum_{I\in\mathscr T_k}\omega^I\,dx^I,
-\qquad
-\eta
-=
-\sum_{J\in\mathscr T_l}\eta^J\,dx^J.
-\]
-
-By linearity,
-\[
-\begin{aligned}
-\imath_X(\omega\wedge\eta)
-&=
-\sum_{q=1}^n
-\sum_{I\in\mathscr T_k}
-\sum_{J\in\mathscr T_l}
-a^q\omega^I\eta^J
-\imath_{\partial_{x^q}}
-(dx^I\wedge dx^J).
-\end{aligned}
-\]
-
-Thus, it suffices to prove the identity for basis elements, i.e.
-\[
-X=\partial_{x^q},
-\qquad
-\omega=dx^I,
-\qquad
-\eta=dx^J.
-\]
-
-\medskip
-\noindent
-\textbf{Case 1:} $\mathbf{q\in I}$ and $\mathbf{I\cap J=\varnothing}$.
-
-Suppose that $q=i_r\in I$. By the contraction formula on basis forms,
-\[
-\imath_{\partial_{x^q}}(dx^I)
-=
-(-1)^{r-1}
-dx^{i_1}\wedge\cdots\wedge
-\widehat{dx^{i_r}}\wedge\cdots\wedge dx^{i_k}.
-\]
-
-Since $q\notin J$,
-\[
-\imath_{\partial_{x^q}}(dx^J)=0.
-\]
-On the other hand, applying the contraction formula to
-$dx^I\wedge dx^J$ gives
-\[
-\begin{aligned}
-\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
-&=
-(-1)^{r-1}
-dx^{i_1}\wedge\cdots\wedge
-\widehat{dx^{i_r}}\wedge\cdots\wedge
-dx^{i_k}\wedge dx^{j_1}\wedge\cdots\wedge dx^{j_l}
-\\
-&=
-\imath_{\partial_{x^q}}(dx^I)\wedge dx^J.
-\end{aligned}
-\]
-Therefore,
-\[
-\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
-=
-\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
-+
-(-1)^k dx^I\wedge
-\imath_{\partial_{x^q}}(dx^J).
-\]
-
-\medskip
-\noindent
-\textbf{Case 2:} $\mathbf{q\in J}$ and $\mathbf{I\cap J=\varnothing}$.
-
-Let $q=j_s$ for some $j_s\in J$. Then
-\[
-\imath_{\partial_{x^q}}(dx^I)=0,
-\]
-while
-\[
-\imath_{\partial_{x^q}}(dx^J)
-=
-(-1)^{s-1}
-dx^{j_1}\wedge\cdots\wedge
-\widehat{dx^{j_s}}\wedge\cdots\wedge dx^{j_l}.
-\]
-
-Applying the contraction formula to $dx^I\wedge dx^J$ gives
-\[
-\begin{aligned}
-\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
-&=
-(-1)^{k+s-1}
-dx^{i_1}\wedge\cdots\wedge dx^{i_k}
-\wedge
-dx^{j_1}\wedge\cdots\wedge
-\widehat{dx^{j_s}}\wedge\cdots\wedge dx^{j_l}
-\\
-&=
-(-1)^k dx^I\wedge
-\imath_{\partial_{x^q}}(dx^J).
-\end{aligned}
-\]
-Hence,
-\[
-\imath_{\partial_{x^q}}(dx^I\wedge dx^J)
-=
-\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
-+
-(-1)^k dx^I\wedge
-\imath_{\partial_{x^q}}(dx^J).
-\]
-
-\medskip
-\noindent
-Note that in both Case 1 and Case 2, we only used the fact that
-$q\in I$ (or $J$) and $q\notin J$ (or $I$).
-
-\medskip
-\noindent
-\textbf{Case 3:} $\mathbf{I\cap J\neq\varnothing}$ and
-$\mathbf{q=i_r=j_s}$.
-
-In this case,
-\[
-dx^I\wedge dx^J=0,
-\]
-and hence
-\[
-\imath_{\partial_{x^q}}(dx^I\wedge dx^J)=0.
-\]
-
-On the other hand,
-\[
-\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
-=
-(-1)^{r-1}
-dx^{i_1}\wedge\cdots\wedge
-\widehat{dx^{i_r}}\wedge\cdots\wedge
-dx^{i_k}\wedge dx^J,
-\]
-while
-\[
-(-1)^k dx^I\wedge
-\imath_{\partial_{x^q}}(dx^J)
-=
-(-1)^{k+s-1}
-dx^I\wedge
-dx^{j_1}\wedge\cdots\wedge
-\widehat{dx^{j_s}}\wedge\cdots\wedge dx^{j_l}.
-\]
-
-Since $i_r=j_s=q$, the two terms are the same $(k+l-1)$-form
-up to opposite signs. Hence
-\[
-\imath_{\partial_{x^q}}(dx^I)\wedge dx^J
-+
-(-1)^k dx^I\wedge
-\imath_{\partial_{x^q}}(dx^J)
-=0.
-\]
-
-Thus the identity holds on basis elements, and hence, by multilinearity,
-it holds in the general case.
-}
-\begin{corollary} (\textbf{Cartan's relation}) \label{eq:cartan_relation} \begin{equation}dx^i \wedge \imath_{\partial_{x^j}}(\cdot)+\imath_{\partial_{x^j}}(dx^i\wedge \cdot)=\delta_{ij}\end{equation}
-    
-\end{corollary}
-\pf{Take $\omega=dx^i$ and $X=\partial_{x^j}$ in \ref{identity_on_interior_of_wedge}.}
-
-\lemp{}{$\imath$ is anticummutative, i.e. $$\imath_X \imath_Y=-\imath_Y \imath_X $$ }{This is easy to see since $\imath_X(\omega)(x_1,\cdots,x_{k-1})=\omega(X,x_1,\cdots,x_{k-1})$ and $\imath_Y\imath_X (\omega) (x_1,\cdots,x_{k-2})=\imath_X(\omega)(Y,x_1,x_2,\cdots,x_{k-2})=\omega(X,Y,x_1,\cdots,x_{k-2})=-\omega(Y,X,x_1,\cdots,x_{k-2})$ and the proof is complete.}
-\begin{corollary}
-    $\imath_X \circ \imath_X=0$
-\end{corollary}
-
-\thmp{}{Let $\xi \in \Omega(\Lambda^1)$, $\eta\in \Omega(\Lambda^k)$ be $1$ and $k$ forms respectively in $\bbR^n$ (with the Euclidean Metric). Then we have the following identity: \begin{equation}||\xi||^2\eta=\xi \wedge (\xi \lrcorner \eta)+ \xi \lrcorner (\xi \wedge \eta) \end{equation}
-For vector fields we have: $$|X|^2 \eta=X^{\flat}\wedge \imath_X(\eta)+\imath_X(X^{\flat}\wedge \eta)$$}{Using the identity \ref{identity_on_interior_of_wedge} we have $\xi \lrcorner (\xi \wedge \eta)=(\xi \lrcorner \xi)\wedge \eta+ (-1) \xi \wedge (\xi \lrcorner \eta)$ which gives $$\xi \lrcorner (\xi \wedge \eta)+ \xi \wedge (\xi \lrcorner \eta)= (\xi \lrcorner \xi) \wedge \eta=\lambda \eta $$
-Note that $\xi \wedge 1=\xi$ and $\langle \xi \wedge 1,\beta \rangle = \langle 1,\xi \lrcorner \beta \rangle $. Choosing $\beta=\xi$ gives $$\langle 1,\xi \lrcorner \xi\rangle=\xi \lrcorner \xi=\langle \xi,\xi\rangle=||\xi||^2 $$
-So we have the identity.
-}
-
-We present now an identity that will come to use later. This identity relates the gradient (see \ref{def:gradient_of_a_k_form}) and the interior product:
-Recall the coordinate expansion of the interior \ref{eqn:coordinate_expression_for_interior}. specifically \begin{equation}
-    \nu \lrcorner \omega=\sum_{j=1}
-^n \sum_{I\in \mathscr T_{k-1}}v^j \omega^{j i_1 \cdots i_{k-1}}dx^I \end{equation} where it is understood $\omega^I:=\mathrm{sign}([I])dx^{[I]}$. Therefore, the $(\nu\lrcorner \omega)_{i_2 i_3\cdots i_k}=\sum_{j=1}^n v^j \omega^{j i_2 i_3 \cdots i_k}.$
-
-\begin{proposition}\textbf{(Leibniz rule for interior product)}\label{prop:leibniz_rule_for_interior} Let $U\subset\bbR^n$ be open, $k\ge 1$, and let $f\in C^1(U;\Lambda^k)$ and
-$Y\in C^1(U;\bbR^n)$ be a vector field. For $X\in\bbR^n$ (or a continuous vector field $X$ on $U$) define
-\[
-\nabla_X f:=\sum_{|I|=k}X(f_I)\,dx^I
-\quad\text{if } f=\sum_{|I|=k} f_I\,dx^I,
-\qquad
-\nabla_X Y:=\sum_{i=1}^n X(Y^i)\,e_i
-\quad\text{if } Y=\sum_{i=1}^n Y^i e_i .
-\]
-Then, at every point of $U$,
-\begin{equation}\label{eq:leibniz-interior}
-\nabla_X(\imath_Y f)=\imath_{\nabla_X Y}f+\imath_Y(\nabla_X f).
-\end{equation}
-In particular, \eqref{eq:leibniz-interior} holds with $X=e_a$ for any
-$a$ (and, since both sides depend only on the value of $X$ at the point, for any local frame $e_a$).    
-\end{proposition}
-\pf{By linearity, it is enough to consider $X=\partial_{x^i}$, $Y=g e_j$ (for some function $g$), and $f=h dx^I$ (for some function $h$). \begin{align*}
-    \nabla_{\partial_{x^i}}(\imath_{ge_j}(hdx^I)) &= \nabla_{\partial_{x^i}}(gh dx^j\lrcorner dx^I) \\
-    &= \partial_{x^i}(gh) dx^j \lrcorner dx^I \\
-    &= \partial_{x^i}g \cdot h dx^j \lrcorner dx^I + \partial_{x^i}h \cdot g dx^j \lrcorner dx^I \\
-    &= \imath_{\nabla_{e_i}Y}f + \imath_{Y}(\nabla_{e^i}f)
-\end{align*}
-which concludes the result. }
-
-\section{Hodge Star}
-Let $f$ be a $k-$form given by $$f\equiv \sum_{I\in \mathscr T_k} f^I dx^I $$
-We define the operation \emph{Hodge Star} as follows (defined first on basic $k-$forms, and then extended linearly for any $k-$form): 
-
-$$\star \ dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}={\operatorname{sign}(R(I,J))} dx^{j_1}\wedge dx^{j_2}\wedge \cdots \wedge dx^{j_{n-k}} $$ where \begin{enumerate}
-    \item $I\equiv \{i_1,i_2,\cdots, i_k\}\in \mathscr{T}_k$ and $J\equiv \{j_1,j_2,\cdots,j_{n-k}\}$ being the complementary increasing index set to $I$ (i.e. $J\cup I\equiv \{1,2,\cdots,n\}$ where $J$ is also increasingly ordered).
-    \item $R(I,J)\in sym(n)$ rearranges $\{i_1,i_2,\cdots,i_k, j_1, j_2,\cdots,j_{n-k}\}$ in its increasing order.
-    \item For any $f\equiv \sum_{I\in \mathscr T_k} f^I dx^I$ we have $$\star \ f := \sum_{I\in \mathscr T_k} f^{I} \star dx^I$$
-\end{enumerate}
-An alternate way to define the \emph{Hodge Star}: If $f$ and $g$ are $k-$forms, then $\star \ g$ is defined as the unique $(n-k)-$form such that \begin{equation}\label{hodge_and_inner}f\wedge \star g=\langle f,g\rangle dx^1 \wedge dx^2 \wedge \cdots \wedge dx^n\end{equation} 
-where the inner product is $$\langle f,g\rangle:=\sum_{I\in \mathscr{T}_k} f^I g^I$$
-
-\lemp{}{Let $f\in \Omega(\Lambda^k)$. We then have \begin{equation}\label{hodge_double_star_identity}\star \star f=(-1)^{k(n-k)} f\end{equation} }{Since $\star$ is linear, it is enough to prove on basis elements. $$\star dx^I=\operatorname{sign}(R(I,J)) dx^J $$ where $J$ is the complement of $I$ relative to $\{1,2,\cdots,n\}$ and $R(I,J)$ is the permutation that rearranges $\{i_1,i_2,\cdots,i_k,j_1,j_2,\cdots,j_{n-k}\}\to \{1,2,\cdots,n\}$. 
-$$\star \star dx^I=\operatorname{sign}(R(I,J)) \star dx^J= \operatorname{sign}(R(I,J)) \operatorname{sign}(R(J,I))dx^I $$
-To compute the product of the signs we look at the map $\sigma$ that takes $(I,J)$, rearranges them to $\{1,2,\cdots,n\}$ and then rearranges them to $\{J,I\}$. This amounts to moving the first $k$ elements behind the last $n-k$ elements. This takes $k(n-k)$ transpositions, and hence the sign is $(-1)^{k(n-k)}$. Therefore, $$\star \star dx^I=(-1)^{k(n-k)} dx^I $$
-and the result follows for a general $k-$form from linearity. 
-}
-
-\lemp{}{For $f,g\in \Omega(\Lambda^k)$ $$\langle f,g\rangle=\langle \star f,\star g\rangle$$}{Since $f\wedge \star g=\langle f,g\rangle dV$ (where $dV$ is the volume form, in the Euclidean case, $dx^1\wedge dx^2\wedge \cdots \wedge dx^n$), we have $\star f \wedge \star \star g= (-1)^{k(n-k)}\star f \wedge g= \langle \star f,\star g\rangle dV$. Recall that $f\wedge g=(-1)^{kl} g \wedge f$ for $f\in \Omega\Lambda^k$ and $g\in \Omega\Lambda^l$. Since $\star f \in \Lambda^{n-k}$ and $g\in \Lambda^k$, we have $\star f \wedge g= (-1)^{k(n-k)} g \wedge \star f$. This gives us $$(-1)^{k(n-k)}\star f \wedge g= g \wedge \star f= \langle \star f,\star g\rangle dV $$
-But since $g \wedge \star f:= \langle g,f \rangle = \langle f,g\rangle $ (Real inner product), we have the result. 
-}
-
-\subsection{Hodge Star and Interior}
-\lemp{}{\label{interior_in_terms_of_star_euclid}Let $\omega$ be a $k-$form and $\eta$ an $l-$form. We have the following identity: \begin{equation}\label{interior_in_terms_of_hodge}\omega \lrcorner \eta= (-1)^{(n-l)(l-k)} \star (\omega \wedge \star \eta) \end{equation}
-If $\omega$ were a $1$ form, this formula reads: \begin{equation}
-    \omega \lrcorner \eta=(-1)^{n(l-1)}\star(\omega \wedge \star \eta)
-\end{equation} }{Let $\gamma$ be an arbitrary $(l-k)-$form. 
-$$\langle \omega \wedge \gamma, \eta\rangle dV= \omega \wedge \gamma \wedge \star \eta $$
-By the anti-commutation rule of the wedge, we have $$\langle \omega\wedge \gamma,\eta\rangle dV=(-1)^{k(l-k)} \gamma \wedge (\omega \wedge \star \eta) $$
-Using the $\star \star$ identity, we can write $$(\omega \wedge \star \eta)= (-1)^{(k+n-l)(l-k)}\star \star (\omega\wedge \star \eta) $$ which gives us $$\langle \omega \wedge \gamma,\eta\rangle dV=(-1)^{k(l-k)}(-1)^{(k+n-l)(l-k)}\gamma \wedge \star \big{(}\star (\omega \wedge \star \eta)\big{)} $$
-$\star (\omega\wedge \star \eta)$ is a $(l-k)$ form and we can invoke the hodge star definition to get: 
-$$\langle \omega \wedge \gamma,\eta\rangle dV=(-1)^{k(l-k)}(-1)^{(k+n-l)(l-k)}\langle \gamma, \star (\omega \wedge \star \eta)\rangle dV$$
-This gives us $$\langle \gamma,\omega\lrcorner \eta\rangle= (-1)^{(l-k)(n-l)}\langle \gamma,\star(\omega\wedge \star \eta)\rangle $$
-Since $\gamma$ was arbitrary, we have $$\omega\lrcorner\eta=(-1)^{(l-k)(n-l)}\star (\omega \wedge \star \eta) $$
-}
-\begin{corollary}
-    Let $X$ be a vector field and $\omega$ a $k-$form. $$\imath_X(\omega)=(-1)^{(n-k)(k-1)}\star(X^{\flat}\wedge \star \omega) \equiv (-1)^{n(l-1)}\star (X^{\flat}\wedge \star \omega)$$
-\end{corollary}
-
-\section{Brief Look at Riemannian Manifolds}
+\section{Brief Look at Riemannian Manifolds}\label{app:riemannian}
 \defn{Smooth Manifold}{\label{defn:smooth_manifold}
 A smooth manifold of dimension $n$ is a topological space $M$ that is \emph{Hausdorff} and \emph{second countable}, together with a collection of pairs
 \[
@@ -1106,11 +385,33 @@ Let $\xi^1,\xi^2,\cdots,\xi^n$ be the co-frame of the orthonormal frame $E_1,E_2
     
 \end{corollary}
 
-\subsection{Briefly on the shape operator and the principal curvatures
-}
-{\color{red} Incomplete- to develop the idea of the 2nd fundaemntal form, what the shape operator does, and to develop the principal directions and principle curvatures, and form a basis on the boundary}
+\subsection{The shape operator and principal curvatures}
+This section develops the shape operator and principal curvatures and directions, and will be used in the proof of the Gaffney inequality. Throughout, $\Omega\subset\bbR^n$ is a bounded open $C^2$ set and $\nu$ is the exterior unit normal. Since $\Omega$ is $C^2$, $\nu\in C^1(\partial\Omega;\bbR^n)$, and this is precisely the regularity needed to differentiate $\nu$ along the boundary. (For a merely $C^1$ set, $\nu$ is only continuous and none of what follows makes sense pointwise.)
 
-\section{Pullback of Forms}
+\defn{Shape operator (Weingarten map)}{For $x\in\partial\Omega$ and $X\in T_x(\partial\Omega)$, define
+\begin{equation}
+    W_x(X):=\nabla_X\nu=\frac{d}{dt}\Big|_{t=0}\nu(\gamma(t)),
+\end{equation}
+where $\gamma$ is any $C^1$ curve in $\partial\Omega$ with $\gamma(0)=x$ and $\gamma'(0)=X$. (Only values of $\nu$ on $\partial\Omega$ are used, so no extension of $\nu$ is needed.)}
+Note that $W_x$ maps $T_x(\partial\Omega)$ to itself. Indeed, since $\langle\nu,\nu\rangle=1$ on $\partial\Omega$, differentiating along $X$ gives $2\langle\nabla_X\nu,\nu\rangle=0$, i.e.\ $W_x(X)\perp\nu(x)$, so $W_x(X)\in T_x(\partial\Omega)$. 
+
+\defn{Second fundamental form}{$\mathrm{II}_x(X,Y):=\langle W_x(X),Y\rangle$ for $X,Y\in T_x(\partial\Omega)$.}
+
+\thmp{}{$\mathrm{II}_x$ is a symmetric bilinear form on $T_x(\partial\Omega)$. Equivalently, $W_x$ is self-adjoint.}{Bilinearity is clear. For symmetry, let $\varphi(y')$ be a $C^2$ local parametrization of $\partial\Omega$ (e.g.\ $\varphi(y')=\phi(y',0)$ for a boundary chart) and write $\nu(y')=\nu(\varphi(y'))$. Differentiating $\langle\nu,\partial_j\varphi\rangle=0$ in $y^i$ gives
+\[
+\langle\partial_i\nu,\partial_j\varphi\rangle=-\langle\nu,\partial_{ij}\varphi\rangle.
+\]
+The right side is symmetric in $(i,j)$ since $\varphi\in C^2$. Since $\partial_i\nu=W(\partial_i\varphi)$, this reads $\mathrm{II}(\partial_i\varphi,\partial_j\varphi)=\mathrm{II}(\partial_j\varphi,\partial_i\varphi)$. The $\partial_i\varphi$ form a basis of $T_x(\partial\Omega)$ and $\mathrm{II}$ is bilinear, so symmetry holds on every pair of tangent vectors, in particular for any orthonormal frame.}
+
+The identity in the proof also shows that $\mathrm{II}(X,Y)=-\langle\nu,D_XY\rangle$ for tangent fields $X,Y$, so $\mathrm{II}$ measures how fast the boundary bends away from its tangent plane in the direction of $\nu$.
+
+\defn{Principal curvatures and directions}{Since $W_x$ is a self-adjoint endomorphism of the $(n-1)$-dimensional inner product space $T_x(\partial\Omega)$, the spectral theorem gives an orthonormal basis $e_1,\dots,e_{n-1}$ of $T_x(\partial\Omega)$ and real numbers $\kappa_1\leq\cdots\leq\kappa_{n-1}$ with
+\begin{equation}
+    \nabla_{e_j}\nu=W_x(e_j)=\kappa_j e_j .
+\end{equation}
+The $\kappa_j$ are the \emph{principal curvatures} and the $e_j$ the \emph{principal directions} at $x$. The \emph{mean curvature} is $H=\operatorname{tr}W=\sum_j\kappa_j$ and the \emph{Gauss curvature} is $K=\det W=\prod_j\kappa_j$.}
+
+\section{Pullback of Forms}\label{app:pullback}
 Let $F:U\to V$, where $U\subseteq \bbR^n$ and $V\subseteq \bbR^m$. If $F$ is smooth, the Frechet derivative at $p$ is defined as the unique linear map $DF_p:\bbR^n\to\bbR^m$ satisfying $$\lim_{|h|\to 0} \frac{||F(p+h)-F(p)-DF_p(h)||_m}{||h||_n}=0 $$
 We have $DF_p:T_pU\to T_{f(p)}V$ where $DF_p(v)\in T_{f(p)}V$ such that $$DF_p(v) (g)=v(g \circ F)$$ Where $g\in C^{\infty}_{f(p)}(V)$. 
 In coordinates we have \begin{equation}\label{DF_p of basis}
@@ -1258,9 +559,6 @@ F^*\left(\sum_{j=1}^m\omega^j\,dy^j\right)_p
 (\omega^j\circ F)(p)\,dF^j_p.
 \]
 
-
-
-```latex
 \subsection{Pullback of a $k$-form}
 
 Let $\omega=dy^I=dy^{i_1}\wedge dy^{i_2}\cdots\wedge dy^{i_k}\in\Omega(V,\Lambda^k)$ be a $k$-form on $V\subset\bbR^m$. Then
@@ -1423,7 +721,7 @@ Evaluating the left-hand side at $p \in M$ on vectors $v_1, \dots, v_{k-1} \in T
 \\\\ $\impliedby)$ Say $df_p=0$ for all $p\in U$. Let $x$ and $y$ be arbitrary fixed points in $U$ and let $c:[a,b]\to U $ be any smooth curve connecting $x$ and $y$ (Such a curve exists because $U$ is path-connected, and hence continuity is guarenteed. Smoothening of the polygon edges with smooth curves guarentees smoothness). Note that $c^*f\equiv f \circ c:[a,b]\to \bbR$ is a smooth $0$ form on $[a,b]$. $d(c^*f)=d(f\circ c)= \frac{d (f\circ c (t))}{dt} dt=c^* df=0$ (from \ref{pullback_commutes_with_derivative}). Therefore $d(c^*f)=0$, so $f\circ c(a)=f\circ c(b)$ which gives $f(x)=f(y)$.  }
 
 \section{Manifolds with Boundary}
-The following section discusses manifolds with boundary, which is crucial for the sequel on integration. Much of the discussion is taken from \cite{Tu2011}.
+\label{app:manifold_with_bd}The following section discusses manifolds with boundary, which is crucial for the sequel on integration. Much of the discussion is taken from \cite{Tu2011}.
 
 We ask the question: What does it mean for a function to be smooth on an \emph{arbitrary} set $S\subset \bbR^n$? We define it in the following way: 
 \defn{Smooth functions for non-open sets}{Let $S\subset \bbR^n$. We say a function $f:S\to \bbR^m$ is \emph{smooth} at $p$ if there is a neighbourhood $U$ of $p$ and a $C^{\infty}$ function $\tilde{f}:U\to \bbR^m$ such that $f\equiv \tilde{f}$ on $U\cap S$. The function is \emph{smooth} on $S$ if it is smooth at every point of $S$. }
@@ -1453,7 +751,7 @@ and if $(U,\phi)$ and $(V,\psi)$ are two charts for $M$, then $$\psi' \circ (\ph
 We define tangent spaces as we did previously, as the space of all derivations on the algebra $C^{\infty}_p$ of germs of smooth functions.
 \\\\ For a manifold $M$ with boundary, we say a vector $X_p$ is \emph{inward pointing} if $X_p \not \in T_p(\partial M)$ and there is a curve $c:[0,1)\to M$ such that $c(0)=p$, $c((0,1))\subset M^{\circ}$ (in the manifold sense) and $\frac{dc}{dt}|_{t=0}=X_p$.
 
-\section{Integration of forms}
+\subsection{Integration of forms}
 Let $U\subseteq \bbR^n$ be an open set and $\alpha$ be a $1-$form. 
 
 \defn{Parametrized Paths}{Any map $c:[a,b]\to U\subset \bbR^n$ that is smooth is said to be a \emph{path} from $c(a)$ to $c(b)$. }
@@ -1500,7 +798,7 @@ Since $\mathrm{supp}(\rho_{\alpha} \omega)\subset U_{\alpha}$, we can define
 We do not show that this is independent of the choice of the partition of unity. For details, refer pg. 266, \cite{Tu2011}.
 
 
-\section{The Stokes', Green's and Gauss' Theorems}
+\subsection{The Stokes' Theorem}
 \defn{Lipschitz and $C^k$ Set}{\label{def:Lipshitz_set_Cr_set}Let $\Omega\subseteq \bbR^n$ be an open domain and let $\partial \Omega$ denote its boundary. $\Omega$ is said to be a \emph{Lipschitz set} ($C^k$ set) if for every point $p\in \partial\Omega$ there exists a hyperplane $H$ of dimension $n-1$ passing through $p$, a Lipschitz continuous ($C^k$) function $g:H\to \bbR$ and reals $r>0,h>0$ such that: 
 \begin{enumerate}
     \item $\Omega \cap C=\{x+y\hat n \ : \ x\in B_r(p)\cap H \text{ and }-h<y<g(x) \}$
@@ -1603,426 +901,6 @@ On the other hand, if $\iota:\partial M\hookrightarrow M$ is the inclusion, we s
 
 When $j=n$, we have $d\beta=(-1)^{n-1} \partial_n b_n(x) dx^1 \wedge \cdots \wedge dx^n$, while the positively oriented boundary volume form takes the form $(-1)^{n-1} dx^1 \wedge \cdots \wedge dx^{n-1}$(Recall that the boundary orientation form comes from the interior product of the orientation form for $M$ with the outward unit normal). We thus have \begin{align*}\int_M d\beta=(-1)^{n-1}\int dx^1dx^2 \cdots dx^{n-1}\int_{-\infty}^{0} \frac{\partial b_n(x)}{\partial x^n}dx^n&=(-1)^{n-1}\int b_n(x',0)dx'\\&=\int_{\partial M} \beta \end{align*}
 which proves the result.
-}
-
-\section{The Codifferential $\delta$}
-\subsection{Motivation}
-Let $\alpha \in \Omega\Lambda^{k-1}$ and $\beta \in \Omega\Lambda^k$. Here we can invoke the definition of the Hodge star (\ref{hodge_and_inner}) to get $$\langle d\alpha,\beta\rangle vol=d\alpha \wedge (\star \beta) $$
-$$\int_{\Omega} \langle d\alpha,\beta\rangle vol=\int_{\Omega} \Big{(}d\alpha \wedge (\star \beta)+(-1)^{k-1}\alpha \wedge d(\star \beta)+(-1)^k \alpha \wedge d(\star \beta) \Big{)}$$
-Using the Antiderivation identity \ref{exterior_derivative_antiderivation}
-we get 
-\begin{equation}
-\int_{\Omega} \langle d\alpha,\beta\rangle vol=\int_{\Omega} \Big{(}d(\alpha \wedge \star \beta)+(-1)^k \alpha \wedge d(\star \beta) \Big{)}\end{equation}
-$$\int_{\Omega} \langle d\alpha,\beta\rangle vol= \Big{(}\int_{\partial\Omega} \alpha \wedge (\star \beta)+(-1)^k\int_{\Omega} \alpha \wedge d(\star \beta) \Big{)} $$
-Since $\star \beta$ is a $n-k$ form and $d(\star \beta)$ is an $n-(k-1)$ form, we apply the definition of Hodge star again to replace $\alpha \wedge d(\star \beta)$ with $(-1)^{(n-(k-1))(k-1)}\langle \alpha,\star d\star \beta \rangle vol$ to get: 
-\begin{equation}\label{diff_codiff_boundary_integral}\int_{\Omega} \langle d\alpha,\beta\rangle vol= \Big{(}\int_{\partial\Omega} \alpha \wedge (\star \beta)+(-1)^k(-1)^{(n-(k-1))(k-1)}\int_{\Omega} \langle \alpha, \star d(\star \beta) \rangle vol\Big{)} \end{equation}
-Note that \eqref{diff_codiff_boundary_integral} is a formula that is independent of the definition for \emph{Codifferential} that will follow. This is important because different texts (cf. \cite{Jost2017} and \cite{CsatoDacorognaKneuss2012}) opt for different sign conventions for the Codifferential.
-
-\defn{Codifferential}{\label{codiff}We define a map $\delta: \oplus_{k=0}^{\infty}\Omega\Lambda^k\to \oplus_{k=0}^{\infty}\Omega\Lambda^k$ given by \begin{equation}
-\delta(\omega):=(-1)^{n(k-1)}\star d\star (\omega)
-\end{equation} for a $k-$form $\omega$.}
-Using \ref{codiff} in \eqref{diff_codiff_boundary_integral} we immediately see that \begin{equation}\label{diff_codiff_boundary_integral_final}
-    \int_{\Omega} \langle d\alpha,\beta\rangle \mathrm{vol}=(-1)\int_{\Omega} \langle \alpha,\delta\beta\rangle\mathrm{vol} + \int_{\partial\Omega}\alpha\wedge \star \beta
-\end{equation}
-This is called the \emph{integration by parts formula} for forms.
-\begin{remark}
-1. Under the conventions of \ref{codiff}, the formula \ref{diff_codiff_boundary_integral_final} takes the above form. But if we propose that $\delta=(-1)^{nk+n+1}\star d \star$, or $(-1)^{k(n-k+1)}\star d\star$, we see different possible factors in \ref{diff_codiff_boundary_integral_final}.
-\\2. If we assume that our set either has no boundary or that the forms vanish on the boundary, the formula \ref{diff_codiff_boundary_integral_final} yields \begin{equation}\label{diff_codiff_compact}
-    \int_{\Omega} \langle d\alpha,\beta\rangle + \int_{\Omega}\langle \alpha,\delta \beta \rangle=0
-\end{equation}
-\end{remark}
-
-\subsection{Coordinate formulas for the Codifferential}
-\textbf{Case 1:}
-Let $\omega=dx^I$. Where $I\in \mathscr T_k(\bbR^n)$. Then $\delta(\omega)=(-1)^{n(k-1)}\star d\star (dx^I)$ gives us $$(-1)^{n(k-1)} \operatorname{sgn}(R(I,I^c))\star (d (dx^{I^c})) =0$$
-\\ \textbf{Case 2:}  Consider the case where $\omega=fdx^I$.
-For ease sake, let $(-1)^{n(k-1)}:=\kappa$. We then have $\delta(\omega)=\kappa\star d\star (fdx^I)=\kappa\star d (f \mathrm{sgn}(R(I,I^c))dx^{I^c})$
-which gives $$\kappa \mathrm{sgn}(R(I,I^c)) \star d(fdx^{I^c})= \kappa\mathrm{sgn}(R(I,I^c)) \star \Big{(}\sum_{q=1}^n \frac{df}{dx^q} dx^q\wedge dx^{I^c} \Big{)}  $$
-since the summand is $0$ for when $q\not\in I$ we have 
-\begin{equation}\label{formula_for_codiff_step}\delta(fdx^I)=\kappa\mathrm{sgn}(R(I,I^c)) \Big{(}\sum_{\gamma=1}^k \frac{df}{dx^{i_{\gamma}}} \star \big{(}dx^{i_{\gamma}}\wedge dx^{I^c}\big{)} \Big{)} \end{equation}
-We will continue the derivation after the following proposition:
-
-\propp{Let $I=(i_1,i_2,\cdots,i_k)\in \mathscr T_k(\bbR^n)$. Then \begin{equation}\label{lemma_for_formula_for_codiff}
-    \star (dx^{i_{\gamma}}\wedge dx^{I^c})=(-1)^{n-k+\gamma-1+k(n-k)}\mathrm{sgn}(R(I,I^c))dx^{I_{\widehat i_{\gamma}}}
-\end{equation} }{$\star (dx^{i_{\gamma}}\wedge dx^{I^c})=dx^{I_{\widehat i_{\gamma}}}(R)$ where $R$ is the coefficient such that $dx^{i_{\gamma}}\wedge dx^{I^c}\wedge dx^{I_{\widehat i_{\gamma}}}=R \mathrm{vol}$.
-Note that $$dx^{i_{\gamma}}\wedge dx^{I^c}\wedge dx^{I_{\widehat i_{\gamma}}}=(-1)^{1(n-k)}dx^{I^c}\wedge (-1)^{\gamma-1}dx^I $$
-Which gives $$(-1)^{n-k}(-1)^{\gamma-1}\mathrm{sgn}(I,I^c)(-1)^{k(n-k)}\mathrm{vol} $$ And hence $R=(-1)^{n-k+\gamma-1+k(n-k)}\mathrm{sgn}(R(I,I^c))$
-}
-From the proposition, we have $$\delta(fdx^I)=\kappa \mathrm{sgn}(R(I,I^c))^2(-1)^{n-k+k(n-k)}\Big{(}\sum_{\gamma=1}^k (-1)^{\gamma-1}\frac{\partial f}{\partial x^{i_{\gamma}}}dx^{I_{\widehat i_{\gamma}}} \Big{)}$$ 
-\begin{equation}\label{formula_codiff_fdxI_case}\delta(fdx^I)=\Big{(}\sum_{\gamma=1}^k (-1)^{\gamma-1}\frac{\partial f}{\partial x^{i_{\gamma}}}dx^{I_{\widehat i_{\gamma}}} \Big{)} \end{equation}
-\begin{remark}
-    Note that, if we adopted a different convention for $\delta$ (like $\delta=(-1)^{k(n-k+1)}$) we would then have the following formula instead of \eqref{formula_codiff_fdxI_case}:
-    \begin{equation}\delta(fdx^I)=(-1)^n\Big{(}\sum_{\gamma=1}^k (-1)^{\gamma-1}\frac{\partial f}{\partial x^{i_{\gamma}}}dx^{I_{\widehat i_{\gamma}}} \Big{)} \end{equation}
-\end{remark}
-\noindent\textbf{General Case:}
-Let $\omega=\sum_{I\in \mathscr T_k(\bbR^n)} f^I dx^I $
-Then \begin{equation}\label{codiff_expansion_formula_general_kform}
-    \delta(\sum_{I\in \mathscr T_k}f^I dx^I)=\sum_{I\in \mathscr T_k} \delta(f^I dx^I)=\sum_{I\in \mathscr T_k}\sum_{\gamma=1}^k (-1)^{\gamma-1}\frac{\partial f^I}{\partial x^{i_{\gamma}}} dx^{I_{\widehat i_{\gamma}}} 
-\end{equation}
-
-\subsubsection{Alternative Formula for the Codifferential:}
-Let $\omega=\sum_{1\leq i_1<\cdots<i_k\leq n} \omega^{i_1i_2\cdots i_k}dx^{i_1}\wedge dx^{i_2}\wedge \cdots \wedge dx^{i_k}$ and let $\delta(\omega)=\kappa \star d \star (\omega)$.
-
-$$\delta(\omega)=\kappa \star d \Big{(}\sum_{1\leq i_1<\cdots<i_k\leq n}\omega^{i_1\cdots i_k} \mathrm{sgn}(R(I,I^c))dx^{I^c}  \Big{)} $$ 
-
-$$=\kappa \star \Big{(}\sum_{1\leq i_1<\cdots<i_k\leq n}\mathrm{sgn}(R(I,I^c))d\omega^{i_1\cdots i_k} \wedge dx^{I^c}  \Big{)}= \kappa \star \Big{(}\sum_{1\leq i_1<\cdots<i_k\leq n}\mathrm{sgn}(R(I,I^c))\big{(}\sum_{q=1}^n\frac{\partial \omega^{i_1i_2\cdots i_k}}{\partial x^q}dx^q\big{)} \wedge dx^{I^c}  \Big{)} $$
-
-\begin{equation}\label{throwaway_another_formula_for_codiff}
-\delta(\omega)=\kappa \Big{(}\sum_{q=1}^n\sum_{I\in \mathscr T_{k-1}}\mathrm{sgn}(R([qI],[qI]^c))\frac{\partial \omega^{[qI]}}{\partial x^q} \star dx^q \wedge dx^{[qI]^c} \Big{)} \end{equation}
-
-A modification to the proof of \ref{lemma_for_formula_for_codiff} yields us the following computation for $\star (dx^q \wedge dx^{[qI]^c})$: 
-
-\begin{equation}\label{throwaway_semi_computation_for_different_formula_of_codiff}
-    \star(dx^q \wedge dx^{[qI]^c})=(-1)^{n-k+\gamma-1+k(n-k)}\mathrm{sgn}(R([qI],[qI]^c))dx^{I} 
-\end{equation}
-where $i_{\gamma-1}<q<i_{\gamma}$.
-Combining \eqref{throwaway_semi_computation_for_different_formula_of_codiff} and \eqref{throwaway_another_formula_for_codiff} we get: 
-
-$$
-\delta(\omega)=\kappa \Big{(}\sum_{q=1}^n\sum_{I\in \mathscr T_{k-1}}\mathrm{sgn}(R([qI],[qI]^c))^2 (-1)^{n-k+\gamma-1+k(n-k)}\frac{\partial \omega^{[qI]}}{\partial x^q} dx^I \Big{)}$$
-
-which gives
-$$ \delta(\omega)=\kappa (-1)^{n-k+k(n-k)} \Big{(}\sum_{q=1}^n \sum_{I\in \mathscr T_{k-1}} \frac{\partial \omega^{q,I}}{\partial x^q}dx^I \Big{)}$$
-Which simplifies to 
-\begin{equation}
-\delta(\omega)=\Big{(}\sum_{q=1}^n \sum_{I\in \mathscr T_{k-1}} \frac{\partial \omega^{q,I}}{\partial x^q}dx^I \Big{)}
-\end{equation}
-Where the notation $\omega^{q,I}$ is understood form the equation \ref{definition_extension_to_non_increasing_indices}.
-\begin{remark}
-    This is the formula persented in \cite{Csato_2018} pg. 465, 2 (vii).
-\end{remark}
-
-\subsubsection{Two identities involving the codifferential}
-There is an analogous identity to the antiderivation property of the exterior derivative with wedges, involving the codifferential and the interior. Recall that $d(f\wedge g)=df\wedge g+(-1)^k f\wedge dg$. We present that analogous result below: 
-\thmp{}{Let $f$ be a $k-$form and $g$ an $l-$form. We then have the following identity \begin{equation}
-    \delta(f\lrcorner g)=(-1)^k (df\lrcorner g+f\lrcorner \delta g).
-\end{equation}  }{Recall for compactly supported forms, we have from \ref{diff_codiff_compact} \begin{equation}\label{throwaway_for_13.6}\int_{\Omega}\langle d\alpha,\beta \rangle=-\int_{\Omega}\langle \alpha, \delta \beta \rangle \tag{A}\end{equation} where $\alpha$ is a $k-1$ form and $\beta$ is a $k$ form. 
-
-Let $h$ be an arbitrary form of degree $l-k-1$. Suppose also that $h$ is compactly supported. From the adjoint definition of interior we have:  
-$$ \int_{\Omega}\langle f\wedge h,g \rangle=\int_{\Omega} \langle h, f\lrcorner g\rangle$$
-Consider \begin{align} \int_{\Omega} \langle d(f\wedge h),g\rangle=\int_{\Omega} \langle df\wedge h,g\rangle + (-1)^k\int_{\Omega} \langle f\wedge dh,g\rangle &= - \int_{\Omega} \langle f\wedge h, \delta g\rangle \tag{From \ref{throwaway_for_13.6}}\\ &=-\int_{\Omega} \langle h,f\lrcorner \delta g\rangle\nonumber \end{align}
-Simplifying the left sum yields the following equality
-$$\int_{\Omega} \langle h,df \lrcorner g\rangle +(-1)^{k+1}\int_{\Omega} \langle h,\delta(f\lrcorner g)\rangle=-\int_{\Omega} \langle h,f\lrcorner \delta g\rangle $$
-Since $h$ was an arbitrary compactly supported form, Fundamental lemma of Calculus of Variation gives us: 
-$$df\lrcorner g+ f\lrcorner \delta g = (-1)^k\delta (f\lrcorner g)$$
-}
-We now give the second identity: 
-\thmp{}{\label{identity:codifferential-2}Let $\omega$ be a $k-$form. By our conventions, $\delta$ has the following form: \begin{equation}
-    \delta \omega= \sum_{j=1}^n \imath_{\partial_{x^j}}(\partial_{x^j}\omega)
-\end{equation}}{Recall from \ref{interior_in_terms_of_star_euclid} that $$\imath_{e_j} \omega=(-1)^{(n-k)(k-1)}\star (dx^j \wedge \star \omega)=(-1)^{n(k-1)}\star (dx^j \wedge \star \omega).$$
-Recall that $\delta \omega:= (-1)^{n(k-1)}\star d\star \omega$. From the definition of the exterior derivative, we have (in the Euclidean setting) $$d(\star \omega)=\sum_{j=1}^n dx^j \wedge \partial_j(\star \omega)=\sum_{j=1}^n dx^j \wedge \star (\partial_j \omega) $$ and consequently $$\delta (\omega)=(-1)^{n(k-1)}\star (\sum_{j=1}^n dx^j \wedge \star (\partial_j \omega))=\sum_{j=1}^n (-1)^{n(k-1)} \star (dx^j \wedge \star (\partial_j \omega))$$ which is precisely $$\sum_{j=1}^n \imath_{e^j}(\partial_j \omega)$$ and hence we have the identity. }
-\subsection{The Laplacian $\Delta$}
-With the tools we have developed thus far (exterior differentiation and codifferentiation), we can now define the Laplacian on forms. 
-\defn{Laplacian $\Delta$ for forms}{Let $\omega$ be a $k-$form, with a local basis expansion given by $\sum_I \omega^I dx^I$. We define the Laplacian on $\omega$ as \begin{equation}
-    \Delta \omega:= \sum_I \Delta \omega^I dx^I
-\end{equation} where $\Delta \omega^I$ is the usual Laplacian on $C^2$ functions.}
-
-
-\thmp{}{Let $\omega$ be a $k-$form. We have that \begin{equation}
-    (d\delta +\delta d)\omega=\Delta \omega.
-\end{equation}}{We have from \ref{identity:codifferential-2} and the definition of exterior differentiation that 
-\begin{equation}
-    \delta \omega=\sum_{j=1}^n \imath_{e^j}(\partial_j \omega) \text{  and }d \omega=\sum_{j=1}^n dx^j \wedge \partial_j(\omega).
-\end{equation}
-
-Let us compute $d\delta$ and $\delta d$ separately:
-
-\begin{align}
-    d\delta (\omega)= \sum_{j=1}^n dx^j \wedge \partial_j (\sum_{i=1}^n \imath_{e^i}(\partial_i \omega))=\sum_{j=1}^n \sum_{i=1}^n dx^j \wedge (\imath_{e^i}(\partial_{ij}\omega)).
-\end{align}
-On the other hand \begin{align}
-    \delta d(\omega)=\sum_{i=1}^n \imath_{e^i}(\partial_i (\sum_{j=1}^n dx^j\wedge \partial_j\omega))=\sum_{i=1}^n\sum_{j=1}^n \imath_{e^i}(dx^j \wedge \partial_{ij}\omega)
-\end{align}
-And hence \begin{equation}(d\delta +\delta d)\omega= \sum_{i=1}^n\sum_{j=1}^n \Big{(}dx^j\wedge (\imath_{e^i}(\partial_{ij}\omega))+\imath_{e^i}(dx^j\wedge \partial_{ij}\omega)\Big{)}\end{equation}
-From the antiderivation property of interiors, we have $$\imath_{e^i}(dx^j\wedge \partial_{ij}\omega)+dx^j\wedge (\imath_{e^i}(\partial_{ij}\omega))=\imath_{e^i}(dx^j)\wedge \partial_{ij}\omega =\delta_{ij}\partial_{ij}\omega$$
-Therefore, $$(d\delta+\delta d)\omega= \sum_{i,j=1}^n \delta_{ij}\partial_{ij}\omega=\Delta \omega.$$
-}
-
-\section{Boundary Calculus and Tangential and Normal Components}
-This section draws primarily on \cite{CsatoDacorognaKneuss2012} (see Section 3.2), though we have modified and provided, whenever possible, simpler proofs of our own. In this section we will define the tangential and normal components of $f$ at the boundary, and various identites that help us provide a consistent notion of boundary conditions for the PDE that we shall consider in the sequel. Throughout this section, let $\Omega\subset \bbR^n$ is a bounded open $C^1$ set and $\nu(x)$ the exterior unit normal at $x\in \partial \Omega$. Let $f\in C^0(\overline{\Omega};\Lambda^k)$ be a $C^0$ $k-$form on the closure of $\Omega$. 
-\subsection{Tangential and Normal components}
-Let $\nu(x)$ be the exterior unit normal. Since the metric is Euclidean, we can identify $\nu(x)$, a vector field, with $\nu^{\flat}_{(x)}$, a $1-$form, in the usual sense: $$\nu(x)=\sum_{i=1}^n \nu_i e_i \xrightleftharpoons[\sharp \text{ map}]{\flat \text{ map}} \nu^{\flat}_{(x)}= \sum_{i=1}^n \nu_i dx^i $$ 
-
-\defn{Tangential and Normal component}{\label{defn:1-tangential_and_normal}Let $f$ be a $k-$form. The tangential component of $f$ on $\partial \Omega$ is the $(k+1)-$form $$\nu^{\flat} \wedge f.$$
-Likewise the normal component of $f$ on $\partial\Omega$ is the $(k-1)-$form $$\nu^{\flat}\lrcorner f=\imath_{\nu}(f) $$}
-
-\defn{Admissible boundary coordinate system}{Let $U,V$ and $\Omega$ be open in $\bbR^n$. Let $\Omega$ be at least a $C^1$ set. A coordinate system $\phi:U\to V$ around a boundary point is said to be an \emph{admissible boundary coordinate system} if the following holds: 
-\begin{enumerate}
-    \item $\phi$ is $C^1$ diffeomorphism.
-    \item The boundary is locally $\partial \bbH^n$, i.e.  $$\partial \Omega\cap V=\{\phi(y',0):(y',0)\in U\}$$
-    \item For every $1\leq i\leq n$ and for all $(y',0)\in U$, $$\langle \partial_{y^i}\phi(y',0),\partial_{y^n}\phi(y',0)\rangle=\delta_{in} $$
-\end{enumerate}
- }
-\begin{remark}
-    Suppose $\phi$ is such a boundary chart. Then for any $p\in \partial \Omega$, $p=\phi(y',0)$. Let $\gamma$ be a curve on $\partial \Omega$ passing $p$ at $t_0$. $\gamma(t)=\phi(y'(t),0)$ for a curve $y'(t)$ on $\bbR^{n-1}$. Taking the derivative of the curve at $t_0$, we note that (since $T_p(\partial \Omega)$ is $n-1$ dimensioned) $\partial_{y^1}\phi(y',0),\partial_{y^2}\phi(y',0),\cdots,\partial_{y^{n-1}}\phi(y',0)$ forms a basis for $T_p(\partial \Omega)$. From the 3rd condition of the definition, we see that the unit normal at $p$, $\nu(p)$ is $\pm\partial_{y^n}(\phi)$.
-\end{remark}
-We now present a theorem that speaks to the existence of admissible boundary coordinates. The proof is adapted from \cite{CsatoDacorognaKneuss2012}:
-\thmp{}{Let $r\geq 1$ be an integer, $0\leq \alpha\leq 1$, $\Omega\subset \bbR^n$ be an open $C^{r,\alpha}$ set and let $a\in \partial \Omega$. Then there exists an open set $U\subset \bbR^n$, a neighbourhood $V\subset \bbR^n$ of $a$, and an admissible boundary coorinate system $\phi:U\to V$ such that $\phi\in \mathrm{Diff}^{r,\alpha}(U;V)$. }{By the definition of a $C^{r,\alpha}$ set, there is a neighbourhood $U$ in $\bbR^n$ and a neighbourhood $V$ of $a$ such that $$\psi(U\cap \partial\bbH^n)=V\cap \partial \Omega$$ with $\psi(U;V)\in \mathrm{Diff}^{r,\alpha}(U;V)$. Let $g_{ij}\in C^{r-1,\alpha}(U)$ be given by $$g_{ij}(x):=\big\langle\frac{\partial \psi}{\partial x^i}(x),\frac{\partial \psi}{\partial x^j}(x) \big\rangle $$ for $1\leq i,j \leq n$. Let $g(x)$ denote the associated $n\times n$ matrix. Note that the vectors $\{\frac{\partial \psi}{\partial x^i}(x):1\leq i\leq n-1\}$ form a basis for $T_{\psi(x)}\partial \Omega$ for $x\in U\cap \partial\bbH^n$.
-\\\\ We have that $g$ is symmetric and positive definite for all $x\in U$ (not just the boundary). Indeed, let $J(x)=D\psi(x)$. By definition, $g=J^T J $ which yields symmetry. 
-\\ Let $v$ be any vector in $\bbR^n$: $$v^T g v =\langle Jv,Jv \rangle=|Jv|^2\geq 0.$$ 
-Now suppose that $v^T gv=0$. Then by the previous equation, $Jv=0$. Since $\psi$ is a $C^1$ diffeomorphism from $U$ onto $V$, we have that $D\psi $ is invertible on all of $U$, making $v=0$. This gives us positive definiteness. 
-\\\\ Note that, apriori, we have neither the orthogonality condition nor normality (since $\langle \partial_i\psi(x),\partial_n\psi(x)\rangle $ need not be $\delta_{in}$). Let $N=\sum_{i=1}^n a^i \frac{\partial \psi}{\partial x^i}(x)$. If $N$ were to be \emph{perpendicular} to the first $n-1$ vectors $\partial_i \psi $, we would have to have \begin{align*}
-    0=\sum_{i=1}^n a^i \langle \partial_i \psi,\partial_k \psi\rangle=\sum_{i=1}^n g_{ki}a^i
-\end{align*}
-for each $k\leq n-1$. This is tantamount to saying $$[g][a] =\lambda e_n $$ where $[g]$ is the $n\times n$ matrix associated to $g_{ij}$, $[a]$ is the column vector $[a^1,a^2,\cdots,a^n]^T$ and $e_n=[0,0,\cdots,1]^T$. Since $[g]$ is invertible, $[a]=\lambda g^{-1} e_n$.
-We see then that, if we were to construct a vector $N$ that is perpendicular to $\{\partial_i \psi: i\leq n-1\}$, the coefficients $a^i$ would have to be \emph{proportional} to the last column of $g^{-1}$.
-\\\\ To this end, let $$d(x')=\Big{[}0,0,\cdots,0,1/\sqrt{(g^{-1})_{nn}(x',0)}\Big{]}$$ for $x'\in B\cap \partial\bbH^n$ and $$f(x'):=g^{-1}(x',0) \circ d(x'). $$
-By construction, $f\in C^{{r-1},\alpha}(U \cap \partial \bbH^n;\bbR^n)$ and the $n-$th coordinate of $f$ is $$\sqrt{(g^{-1})_{nn}(x',0)} \text{ for }x'\in \partial \bbH^n.$$
-We extend $f$ to all of $\bbR^{n-1}$ (this is not trivial in general, cf. Lemma 6.37 in \cite{GilbargTrudinger2001})
-and define $\phi=(\phi^1,\phi^2,\cdots,\phi^n)$ through $$\phi^i(x):=x_i + x_n \int_{\bbR^{n-1}} \eta(y')f_i(x'-x_ny')dy', \ 1\leq i\leq n-1$$
-$$\phi^n(x):=x_n\int_{\bbR^{n-1}}\eta(y')f_n(x'-x_n y')dy', $$
-where $\eta$ is a smooth mollifier with compact support on $\bbR^{n-1}$. $\phi\in C^{r,\alpha}(\bbR^n;\bbR^n)$ and on $\partial \bbH^n$ ($x_n=0$) the following holds: $$\frac{\partial \phi^i}{\partial x^l}=\begin{cases}
-    \delta_{il} & 1\leq l\leq n-1 \\
-    f_i & l=n
-\end{cases} $$
-We have in particular that $\det (\nabla \phi(0))\neq 0$, which implies (from the inverse function theorem) that there is a small enough neighbourhood $W$ of $0$ such that $\phi(W)\subset U$ and $\phi\in \mathrm{Diff}^{r,\alpha}(W,\phi(W))$. 
-\\\\ Now we proceed to construct our chart: Define $\gamma$ by $$\gamma(x):=\psi(\phi(x)) $$
-Indeed, since $\phi$ maps $\partial \bbH^n$ to itself identically, and since $\psi$ was a boundary chart, the first two properties of the definition are satisfied. We need only check the third.
-Let $1\leq l\leq n-1$. \begin{align*}\Big{\langle} \frac{\partial \gamma}{\partial x^l}(x),\frac{\partial \gamma}{\partial x^n}(x)\Big{\rangle}&=\Big{\langle} \sum_{j=1}^n \partial_j \psi (\phi(x))\partial_l \phi^j(x), \sum_{i=1}^n \partial_i \psi (\phi(x))\partial_n \phi^i(x) \Big{\rangle} \\ 
-&= \sum_{i,j=1}^n \partial_l \phi^j(x)\partial_n \phi^i(x)\Big{\langle} \partial_j \psi(\phi(x)),\partial_i \psi(\phi(x)) \Big{\rangle}
-\\ & = \sum_{i,j=1}^n \partial_l \phi^j(x)\partial_n\phi^i(x) g_{ij}(\phi(x))
-\\ &= \sum_{j=1}^{n-1}\sum_{i=1}^{n} \delta_{jl}f_i g_{ij}(\phi(x))=\sum_{i=1}^n f_i g_{li}(\phi(x))=d_l(\phi(x))=0
-\end{align*}
-for $x\in W\cap \partial \bbH^n$. Similarly, we have \begin{align*}
-    \Big{\langle}\frac{\partial \gamma}{\partial x^n}(x),\frac{\partial \gamma}{\partial x^n}(x)\Big{\rangle} &= \sum_{i=1}^n\sum_{j=1}^n \partial_n\phi^j(x)\partial_n\phi^i(x)g_{ij}(\phi(x))
-    \\ &= \sum_{i=1}^n\sum_{j=1}^n g_{ij}(\phi(x))f_i f_j = \langle f,gf\rangle \\ &= \langle f,d \rangle= 1.
-\end{align*}}
-
-We provide yet another notion of tangential and normal parts.
-
-\defn{Tangential and Normal \emph{parts}}{\label{defn:2-tangential_and_normal}Let $f$ be a $k-$form. For $x\in \partial \Omega$, we have $X=X^{\parallel}+X^{\perp}$ where $$X^{\parallel}=X-\nu(x) \langle\nu,X \rangle.$$
-Let $X_1,X_2,\cdots,X_k$ be $k$ vectors in $\bbR^n$.
-\begin{enumerate}
-    \item We denote by $tf$ the $k-$form on $\partial \Omega$ defined by \begin{equation}
-    tf(X_1,X_2,\cdots,X_k):=f(X_1^{\parallel},X_2^{\parallel},\cdots,X_k^{\parallel}).\end{equation} This is called the \emph{tangential part} of $f$.
-    \item We denote by $nf$ the $k-$form on $\partial \Omega$ defined by \begin{equation}
-        nf=f-tf.
-    \end{equation} 
-\end{enumerate}
-
-}
-\begin{remark}
-    Clearly, the two notions \ref{defn:1-tangential_and_normal} and \ref{defn:2-tangential_and_normal} for tangential and normal components are \emph{different} in that, from the outset, the first consists of a $k+1$ and a $k-1$ form, whilst the latter consists of $k$ forms. As we proceed, the relationship between these two notions will be manifest.
-\end{remark}
-
-We present \emph{yet another} notion that would help us define tangential and normal boundary conditions:
-\defn{Vanishing tangential and normal element}{\label{defn:vanishing_tangential_and_normal_element}Fix $x\in \partial \Omega$ and let $\phi\in \mathrm{Diff}^1(U;V)$ be an admissible boundary coordinate system. Let $f$ be a $k-$form and $\phi^*(f)$ its pullback: $$\phi^*(f):=\sum_{1\leq i_1<i_2<\cdots<i_k\leq n} g^{i_1 i_2 \cdots i_k} dy^{i_1}\wedge \cdots \wedge dy^{i_k}. $$
-1. We then say that $f$ has \emph{vanishing tangential element} at $x=\phi(x',0)$ (a boundary point) if $$g^{i_1 i_2 \cdots i_k}(x',0)=0 \text{ whenever }1\leq i_1<i_2<\cdots<i_k<n.$$ In that case, we write symbolically $$t'f(x)=0 .$$
-2. We say $f$ has \emph{vanishing normal element} at $x=\phi(x',0)$ if $$ g^{i_1i_2\cdots i_k}(x',0)=0 \text{ whenever }1\leq i_1<i_2<\cdots<i_{k-1}<i_k=n.$$ In that case we write symbolically $$n'f(x)=0.$$ } 
-\begin{remark}\label{rmk:G_n and so on}
-    Write $\phi^*f$ as follows $$\phi^*(f)=G_{<n}+G_n $$ where \begin{equation}
-        G_{<n}= \sum_{1\leq i_1<\cdots<i_k<n} g^{i_1\cdots i_k}dy^{i_1}\wedge \cdots \wedge dy^{i_k}
-    \end{equation}
-and \begin{equation}G_n=\sum_{1\leq i_1<i_2<\cdots<i_{k-1}<i_k=n} g^{i_1 i_2,\cdots i_{k-1} n} dy^{i_1}\wedge \cdots \wedge dy^{k-1}\wedge dy^n.\end{equation}
-Note that, $$dy^n\wedge \phi^*(f)=dy^n \wedge G_{<n}=\sum_{1\leq i_1\cdots<i_k<n} g^{i_1\cdots i_k} (-1)^k dy^{i_1}\wedge \cdots \wedge dy^{i_k}\wedge dy^n $$
-and $$dy^n \lrcorner (dy^n \wedge \phi^*(f))=G_{<n}$$
-From the antiderivation identity of the interior, we have $$dy^n\lrcorner(dy^n \wedge \phi^*(f))+ dy^n \wedge (dy^n \lrcorner \phi^*(f))=\phi^*(f)$$
-and hence from identification, we see \begin{equation}
-    G_{<n}=dy^n \lrcorner (dy^n \wedge \phi^*(f)) \text{ and } G_n=dy^n\wedge(dy^n \lrcorner \phi^*(f)).
-    \end{equation}
-From the above equation, we can conclude the following: 
-$$t'f(x)=0 \iff G_{<n}(x',0)=0 \iff dy^n \lrcorner (dy^n \wedge \phi^*(f))=0 $$
-and $$n'f(x)=0 \iff G_{n}(x',0)=0 \iff dy^n \wedge (dy^n \lrcorner \phi^*(f))=0. $$
-\end{remark}
-
-
-\thmp{}{Let $f$ be a $k$-form and let $\nu$ be a unit normal vector. Then
-\begin{equation}
-    tf = \imath_\nu(\nu\wedge f)
-    \qquad\text{and}\qquad
-    nf = \nu\wedge(\imath_\nu f).
-\end{equation}
-}{First, we show that
-\begin{equation}
-    \imath_\nu(tf)=0
-    \qquad\text{and}\qquad
-    \nu\wedge nf=0.
-\end{equation}
-
-Let $x_1,x_2,\ldots,x_{k-1}$ be vectors in $\bbR^n$. We have
-\begin{align*}
-    \imath_\nu(tf)(x_1,\ldots,x_{k-1})
-    &=tf(\nu,x_1,\ldots,x_{k-1})\\
-    &=f(0,x_1^{\parallel},\ldots,x_{k-1}^{\parallel})\\
-    &=0.
-\end{align*}
-For the second equality, note that
-\[
-    \nu\wedge nf=0 \iff \nu\wedge(tf)=\nu\wedge f.
-\]
-So this is what we shall prove.
-\\\\ Let $x_1=\nu,x_2,\ldots,x_n$ be an orthonormal basis of $\bbR^n$, so that
-$
-    \langle x_1,x_j\rangle=0
-    \qquad\text{for all }j\geq 2.
-$
-We look at
-\[
-    \nu\wedge tf(x_{i_1},\ldots,x_{i_{k+1}})
-    \quad\text{and}\quad
-    \nu\wedge f(x_{i_1},\ldots,x_{i_{k+1}}).
-\]
-
-We consider two cases.
-\\\\\textbf{Case 1: $i_1\geq 2$.}
-
-Using the formula for the wedge product of a $1$-form and a $k$-form, we have
-\begin{align*}
-    \nu\wedge tf(x_{i_1},\ldots,x_{i_{k+1}})
-    &\quad=\sum_{j=1}^{k+1}(-1)^{j-1}
-    \langle\nu,x_{i_j}\rangle
-    tf(x_{i_1},\ldots,\widehat{x_{i_j}},
-    \ldots,x_{i_{k+1}})\\
-    &\quad=0\\&\quad=\nu\wedge f(x_{i_1},\ldots,x_{i_{k+1}}).
-\end{align*}
-\textbf{Case 2: $i_1=1$.}
-
-We have
-\begin{align*}
-    \nu\wedge f(x_1,x_{i_2},\ldots,x_{i_{k+1}})
-    &\quad=\sum_{j=1}^{k+1}(-1)^{j-1}
-    \langle\nu,x_{i_j}\rangle
-    f(x_1,\ldots,\widehat{x_{i_j}},\ldots,x_{i_{k+1}})\\
-    &\quad=f(x_{i_2},\ldots,x_{i_{k+1}})\\
-    &\quad=tf(x_{i_2},\ldots,x_{i_{k+1}})\\
-    &\quad=\nu\wedge tf(x_1,x_{i_2},\ldots,x_{i_{k+1}}).
-\end{align*}
-Here, all terms except the first vanish since
-$\langle\nu,x_{i_j}\rangle=0$ for $j\geq 2$. The penultimate equality follows because $x_{i_2},\ldots,x_{i_{k+1}}$ are all tangent to the boundary.
-Therefore, in both cases,
-\[{\nu\wedge\mathrm{t}f=\nu\wedge f.}\]
-Now, recall the identity
-\[
-    \imath_\nu(\nu\wedge tf)
-    =\langle\nu,\nu\rangle tf
-    -\nu\wedge(\imath_\nu tf).
-\]
-Since $\nu$ is a unit normal, this becomes
-\[
-    \imath_\nu(\nu\wedge tf)
-    =f-\nu\wedge(\imath_\nu f).
-\]
-
-On the other hand, using $\nu\wedge\mathrm{t}f=\nu\wedge f$ and
-$\imath_\nu(\mathrm{t}f)=0$, we obtain
-\begin{align*}
-    \mathrm{t}f
-    &=\imath_\nu(\nu\wedge\mathrm{t}f)\\
-    &=\imath_\nu(\nu\wedge f)\\
-    &=f-\nu\wedge(\imath_\nu f).
-\end{align*}
-Consequently,
-\[
-    \mathrm{n}f
-    =f-\mathrm{t}f
-    =\nu\wedge(\imath_\nu f).
-\]
-This proves the desired identities that $ tf=\imath_{\nu}(\nu\wedge f)$ and $nf=\nu\wedge (\imath_{\nu}f)$.
-}
-
-%%%the next theorem%%!!!!
-
-\thmp{}{\label{thm:pullback_of_tangential_and_normal}Let $f$ be a $k$-form and let $\phi$ be an admissible boundary coordinate system. Then
-\begin{equation}
-    \phi^*\big(\imath_\nu(\nu\wedge f)\big)
-    =\imath_{\partial_{y^n}}\big(dy^n\wedge\phi^*(f)\big),
-\end{equation}
-and
-\begin{equation}
-    \phi^*\big(\nu\wedge(\imath_\nu f)\big)
-    =dy^n\wedge\imath_{\partial_{y^n}}\phi^*(f).
-\end{equation}
-}{The proof rests on the following:
-\begin{itemize}
-    \item Pullback commutes with wedge products.
-    \item Pullbacks interact naturally with interior products.
-\end{itemize}
-\textbf{Observation 1:} Let $\phi$ be an admissible boundary coordinate system and $\nu$ the unit normal on $\partial\Omega$. At $y=(y',0)$, admissibility gives
-\begin{equation*}
-    \left\langle
-    D\phi_y\left(\frac{\partial}{\partial y^i}\right),
-    D\phi_y\left(\frac{\partial}{\partial y^n}\right)
-    \right\rangle
-    =\delta_{in}.
-\end{equation*}
-Thus,
-\begin{equation*}
-    D\phi_y\left(\frac{\partial}{\partial y^n}\right)=\nu
-\end{equation*}
-is the unit normal at the boundary point $\phi(y',0)$. 
-In other words, the pushforward of $\partial_{y^n}$ through $\phi$ gives us $\nu$, the unit normal at the boundary. 
-\\\\\textbf{Observation 2:} Recall that for $1$-forms,
-\begin{equation}
-    (\phi^*\nu^\flat)_y(\overline{X})
-    =\nu^\flat_{\phi(y)}(D\phi_y(\overline{X})).
-\end{equation}
-On basis vectors, we have
-\begin{align}
-    (\phi^*\nu^\flat)_y\left(\frac{\partial}{\partial y^i}\right)
-    &=\nu^\flat_{\phi(y)}
-    \left(D\phi_y\left(\frac{\partial}{\partial y^i}\right)\right)\\
-    &=\left\langle
-    \nu,D\phi_y\left(\frac{\partial}{\partial y^i}\right)
-    \right\rangle \nonumber\\
-    &=\left\langle
-    D\phi_y\left(\frac{\partial}{\partial y^n}\right),
-    D\phi_y\left(\frac{\partial}{\partial y^i}\right)
-    \right\rangle \nonumber\\
-    &=\delta_{in}. \nonumber
-\end{align}
-But this implies
-\begin{equation*}
-    {
-    \phi^*\nu^\flat=dy^n
-    \quad\text{on }U\cap\{y^n=0\}.
-    }
-\end{equation*}
-Therefore, the pullback of the $1-$form associated with $\nu$ is the $1-$form $dy^n$
-\\\\\textbf{Observation 3:} Let $\omega$ be any $k$-form on $V$. We have
-\begin{align*}
-    \phi^*(\imath_\nu\omega)_y(X_1,\ldots,X_{k-1})
-    &=(\imath_\nu\omega)_{\phi(y)}
-    (D\phi_yX_1,\ldots,D\phi_yX_{k-1})\\
-    &=\omega_{\phi(y)}
-    (\nu,D\phi_yX_1,\ldots,D\phi_yX_{k-1})\\
-    &=\omega_{\phi(y)}
-    \left(
-    D\phi_y\frac{\partial}{\partial y^n},
-    D\phi_yX_1,\ldots,D\phi_yX_{k-1}
-    \right)\\
-    &=(\phi^*\omega)_y
-    \left(\frac{\partial}{\partial y^n},
-    X_1,\ldots,X_{k-1}\right)\\
-    &=\big(\imath_{\partial_{y^n}}\phi^*\omega\big)_y
-    (X_1,\ldots,X_{k-1}).
-\end{align*}
-Therefore, the pullback of the interior of $\nu$ with $\omega$ is precisely the interior of the vector $x$ whose pushforward is $\nu$ (in this case, $x=\partial_{y^n}$) with the pullback of $\omega$. 
-\\\\ With these observations in hand, the first identity follows directly:
-\begin{align*}
-    \phi^*\big(\imath_\nu(\nu^\flat\wedge f)\big)
-    &=\imath_{\partial_{y^n}}
-    \big(\phi^*(\nu^\flat\wedge f)\big)\\
-    &=\imath_{\partial_{y^n}}
-    \big(dy^n\wedge\phi^*(f)\big).
-\end{align*}
-The next identity proceeds similarly:
-\begin{align*}
-    \phi^*\big(\nu^\flat\wedge(\imath_\nu f)\big)
-    &=\phi^*\nu^\flat\wedge\phi^*((\imath_\nu f))\\
-    &=dy^n\wedge
-    \big(\imath_{\partial_{y^n}}\phi^*(f)\big).
-\end{align*}
-}
-The previous theorems allow us to give a relationship between the various notions of the tangential and normal boundary conditions. We have the following: 
-\begin{corollary}\textbf{(Equivalent characterisations of tangential and normal boundary conditions)}
-    $$\nu \wedge f=0 \iff tf=0 \iff t'f=0$$
-    $$\nu \lrcorner f=0 \iff nf=0 \iff n'f=0.$$
-(Recall that $t'f=0$ and $n'f=0$ are defined in \ref{defn:vanishing_tangential_and_normal_element}, $tf$ and $nf$ in \ref{defn:2-tangential_and_normal} and the usual notions of tangential and normal components in \ref{defn:1-tangential_and_normal}.)
-\end{corollary}
-\pf{Note that $$\nu\wedge f=0 \iff \nu \lrcorner (\nu \wedge f)=tf=0,$$ and likewise $$\nu \lrcorner f=0 \iff \nu \wedge (\nu \lrcorner f)=nf=0.$$
-Recall from \ref{rmk:G_n and so on} that $t'f=0$ is equivalent to $$dy^n \lrcorner (dy^n \wedge \phi^*(f))=0$$ and likewise $n'f=0$ is equivalent to $$dy^n \wedge (dy^n \lrcorner \phi^*(f))=0.$$
-From \ref{thm:pullback_of_tangential_and_normal}, we see that if $tf$ (or $nf$) is $0$, then the pullback $dy^n \lrcorner (dy^n \wedge \phi^*(f))$ (respectively $dy^n \wedge (dy^n \lrcorner \phi^*(f))$) is also $0$, giving us one side of the implication.
-\\\\ Conversely, suppose that $dy^n \lrcorner (dy^n \wedge \phi^*(f))=\phi^*(tf)=0$ (or that $dy^n \wedge (dy^n \lrcorner \phi^*(f))=\phi^*(nf)=0$). Since $\phi:U\to V$ was a diffeomorphism, we have that $tf=0$ (respectively, $nf=0$) and we have the equivalences. 
 }
 
 
@@ -2306,7 +1184,7 @@ Given $f\in L^1_{\mathrm{loc}}(\Omega)$, we define \begin{equation}\label{eq:T_f
 We immediately see that $T_f$ is a linear operator on $C^{\infty}_c(\Omega)$.
 That it is continuous is evident from the following: Let $K$ be a compact set. $$|T_f(\varphi)|\leq \int_K |f(x)||\varphi(x)|d\mu(x)\leq \Big(\int_K |f(x)|d\mu(x)\Big)||\varphi||_{C^0(K)}$$
 
-\subsection{Convolutions and Mollifiers}
+\subsection{Convolutions and mollifiers}
 \defn{Convolution}{Let $f,g:\bbR^n\to \bbR$ be measurable. The \emph{convolution} of $f$ and $g$, denoted $f\ast g$ is defined as: \begin{equation}
     f\ast g (z):=\int_{\bbR^n} f(z-t)g(t)dt
 \end{equation}}
@@ -2340,7 +1218,7 @@ A slightly different version of the proposition is given below:
     If $f\in L^1_{\mathrm{loc}}(\bbR^n)$ and $g\in C^k_c(\bbR^n)$, then $f\ast g\in C^k(\bbR^n)$ and $$D^{\alpha}(f\ast g)=f\ast D^{\alpha}g $$ for each multiindex $\alpha$ with $|\alpha|\leq k$. 
 \end{proposition}
 
-\subsection{Mollifiers}
+\subsubsection{Mollifiers}
 \defn{Mollifying kernel}{A function $\phi:\bbR^n\to \bbR$ is a \emph{mollifying kernel} if \begin{enumerate}
     \item $\phi\in C^{\infty}_c(\bbR^n)$.
     \item $\mathrm{supp}(\phi)\subset \overline{B_1(0)}$.
@@ -2394,7 +1272,7 @@ And in general, $$D^{\alpha}T_f\equiv T_{D^{\alpha}f}. $$
 
 
 
-\section{Briefly on the space of H\"{o}lder continuous functions}
+\section{Briefly on the space of H\"{o}lder continuous functions}\label{app:holder}
 Let $\Omega\subset\mathbb{R}^n$ be an open set and let
 $0<\alpha\leq 1$.
 \defn{$C^{0,\alpha}(\Omega)$}{
@@ -2548,14 +1426,171 @@ Fix a compact exhaustion $K_i$ of $\Omega$ and let $p_i(u):=\|u\|_{C^{k,\alpha}(
     H\"{o}lder spaces are complete metric spaces.
 \end{theorem}
 
-\section{Sobolev spaces}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%BEHEMOTH SECTION INCOMING ON SOBOLEV SPACES%%%%%%%%%%%%%%%%%%%%
+\section{Sobolev Spaces}\label{app:sobolev}
+Throughout, $\Omega\subseteq\bbR^n$ is an open set, $k\geq 1$ is an integer and $1\leq p\leq\infty$ unless stated otherwise. For a multi-index $\alpha=(\alpha_1,\ldots,\alpha_n)$ we write $|\alpha|=\sum_i\alpha_i$ and $\partial^\alpha=\partial_1^{\alpha_1}\cdots\partial_n^{\alpha_n}$. We denote by $C_c^\infty(\Omega)$ the space of \emph{test functions}, and by $p'$ the conjugate exponent, $\frac1p+\frac1{p'}=1$. Much of this section follows \cite{Evans2010} (Chapter 5), \cite{AdamsFournier2003} and \cite{GilbargTrudinger2001} (Chapter 7).
+
+\subsection{Weak derivatives and Sobolev spaces}
+\defn{Weak derivative}{\label{defn:weak_derivative}Let $u\in L^1_{loc}(\Omega)$ and let $\alpha$ be a multi-index. We say that $v\in L^1_{loc}(\Omega)$ is the \emph{$\alpha$-th weak derivative} of $u$, and write $v=\partial^\alpha u$, if
+\begin{equation}\label{eq:weak_derivative}
+    \int_\Omega u\,\partial^\alpha\varphi\,dx=(-1)^{|\alpha|}\int_\Omega v\,\varphi\,dx\qquad\text{for every }\varphi\in C_c^\infty(\Omega).
+\end{equation}}
+By the fundamental lemma of the calculus of variations, $v$ is unique up to a set of measure zero (whenever it exists). If $u\in C^{|\alpha|}(\Omega)$, then \eqref{eq:weak_derivative} is just integration by parts, so the weak derivative coincides with the classical one.
+
+\defn{The Sobolev space $W^{k,p}(\Omega)$ (weak derivative version)}{\label{defn:sobolev_weak}
+$$W^{k,p}(\Omega):=\{u\in L^p(\Omega):\ \partial^\alpha u \text{ exists in the sense of \ref{defn:weak_derivative} and }\partial^\alpha u\in L^p(\Omega)\text{ for all }|\alpha|\leq k\}.$$
+We write $W^{k,p}_{loc}(\Omega)$ for the functions that lie in $W^{k,p}(U)$ for every open $U\subset\subset\Omega$.}
+
+We now give the same definition in the language of distributions.
+
+\defn{The Sobolev space $W^{k,p}(\Omega)$ (distributional version)}{\label{defn:sobolev_distributional}Let $\mathscr D'(\Omega)$ be the space of distributions (continuous linear functionals on $C_c^\infty(\Omega)$). Every $u\in L^1_{loc}(\Omega)$ defines a distribution $T_u(\varphi):=\int_\Omega u\varphi\,dx$, and the \emph{distributional derivative} of $T\in \mathscr D'(\Omega)$ is
+$$(\partial^\alpha T)(\varphi):=(-1)^{|\alpha|}T(\partial^\alpha\varphi).$$
+Then $$W^{k,p}(\Omega):=\{u\in L^p(\Omega): \text{for each }|\alpha|\leq k,\ \partial^\alpha T_u=T_{v_\alpha}\text{ for some }v_\alpha\in L^p(\Omega)\}.$$}
+
+\defn{Norms and seminorms}{For $u\in W^{k,p}(\Omega)$ define
+\begin{equation}
+\|u\|_{W^{k,p}(\Omega)}:=\Big(\sum_{|\alpha|\leq k}\|\partial^\alpha u\|_{L^p(\Omega)}^p\Big)^{1/p}\ (1\leq p<\infty),\qquad \|u\|_{W^{k,\infty}(\Omega)}:=\max_{|\alpha|\leq k}\|\partial^\alpha u\|_{L^\infty(\Omega)},
+\end{equation}
+and the \emph{seminorms}
+\begin{equation}
+|u|_{W^{k,p}(\Omega)}:=\Big(\sum_{|\alpha|=k}\|\partial^\alpha u\|_{L^p(\Omega)}^p\Big)^{1/p}\ (p<\infty),\qquad |u|_{W^{k,\infty}(\Omega)}:=\max_{|\alpha|=k}\|\partial^\alpha u\|_{L^\infty(\Omega)}.
+\end{equation}}
+
+\defn{$W^{k,p}_0(\Omega)$}{For $1\leq p<\infty$, let $W^{k,p}_0(\Omega)$ be the closure of $C_c^\infty(\Omega)$ in $W^{k,p}(\Omega)$ with respect to $\|\cdot\|_{W^{k,p}(\Omega)}$.}
+
+\subsubsection{Completeness, separability and reflexivity}
+\thmp{}{For $1\leq p\leq\infty$, $W^{k,p}(\Omega)$ is a Banach space. In particular $W_0^{k,p}(\Omega)$, being a closed subspace, is also Banach.}{Let $(u_m)$ be Cauchy in $W^{k,p}(\Omega)$. Then for every $|\alpha|\leq k$, $(\partial^\alpha u_m)$ is Cauchy in $L^p(\Omega)$, and since $L^p$ is complete, $\partial^\alpha u_m\to v_\alpha$ in $L^p$ for some $v_\alpha$. Write $u:=v_0=\lim u_m$. For any $\varphi\in C_c^\infty(\Omega)$, $\varphi$ and $\partial^\alpha \varphi$ are in $L^{p'}$, so by H\"older we can pass to the limit in
+$$\int_\Omega u_m\,\partial^\alpha\varphi\,dx=(-1)^{|\alpha|}\int_\Omega \partial^\alpha u_m\,\varphi\,dx$$
+to get $\int_\Omega u\,\partial^\alpha\varphi=(-1)^{|\alpha|}\int_\Omega v_\alpha\varphi$. Hence $\partial^\alpha u=v_\alpha\in L^p$, so $u\in W^{k,p}(\Omega)$ and $u_m\to u$ in $W^{k,p}$.}
+
+\thmp{}{$W^{k,p}(\Omega)$ is separable for $1\leq p<\infty$ and reflexive for $1<p<\infty$.}{Let $N$ be the number of multi-indices with $|\alpha|\leq k$. The map
+$$P:W^{k,p}(\Omega)\to L^p(\Omega)^N,\qquad u\mapsto(\partial^\alpha u)_{|\alpha|\leq k}$$
+is a linear isometry when $L^p(\Omega)^N$ carries the norm $\big(\sum_\alpha\|f_\alpha\|_p^p\big)^{1/p}$, and its image is closed (by completeness of $W^{k,p}$). Now $L^p(\Omega)^N$ is separable for $1\leq p<\infty$ and reflexive for $1<p<\infty$. Subspaces of separable metric spaces are separable, and closed subspaces of reflexive Banach spaces are reflexive. Transferring through $P$ gives the claim.}
+\subsubsection{The Hilbert spaces $H^k$}
+\defn{$H^k(\Omega)$ and $H^k_0(\Omega)$}{We write $H^k(\Omega):=W^{k,2}(\Omega)$ and $H^k_0(\Omega):=W^{k,2}_0(\Omega)$.}
+\begin{proposition}
+$H^k(\Omega)$ is a Hilbert space with the inner product
+$$\langle u,v\rangle_{H^k(\Omega)}:=\sum_{|\alpha|\leq k}\int_\Omega\partial^\alpha u\,\partial^\alpha v\,dx,$$
+whose induced norm is $\|\cdot\|_{W^{k,2}}$. The same holds for $H^k_0(\Omega)$.
+\end{proposition}
+This is immediate from completeness together with the parallelogram law (or because $P$ above embeds $H^k$ isometrically as a closed subspace of $L^2(\Omega)^N$, a Hilbert space). For $k=1$,
+$$\langle u,v\rangle_{H^1}=\int_\Omega uv+\nabla u\cdot\nabla v\,dx,$$
+and for $H^1_0(\Omega)$ with $\Omega$ bounded one may equivalently use $\int_\Omega\nabla u\cdot\nabla v\,dx$ (see the Poincar\'e inequality below), which is the form that appears in the weak formulation of the Dirichlet problem. The dual of $H^1_0(\Omega)$ is denoted $H^{-1}(\Omega)$. On $\bbR^n$ one has the Fourier characterization
+$$H^k(\bbR^n)=\{u\in L^2:\ (1+|\xi|^2)^{k/2}\hat u\in L^2\},\qquad \|u\|_{H^k}\simeq\|(1+|\xi|^2)^{k/2}\hat u\|_{L^2},$$
+which also allows one to define $H^s$ for non-integer $s$.
+
+\subsection{Approximation by smooth functions}
+Fix a mollifier: $\eta\in C_c^\infty(B_1(0))$, $\eta\geq0$, $\int\eta=1$, and set $\eta_\varepsilon(x):=\varepsilon^{-n}\eta(x/\varepsilon)$. For $\varepsilon>0$ put $\Omega_\varepsilon:=\{x\in\Omega:\mathrm{dist}(x,\partial\Omega)>\varepsilon\}$ and for $u\in L^1_{loc}(\Omega)$,
+$$u^\varepsilon:=\eta_\varepsilon*u\in C^\infty(\Omega_\varepsilon).$$
+The basic fact is that mollification commutes with weak derivatives: if $\partial^\alpha u$ exists, then $\partial^\alpha(u^\varepsilon)=\eta_\varepsilon*\partial^\alpha u$ in $\Omega_\varepsilon$.
+
+\begin{theorem}[Local approximation by smooth functions]\label{thm:local_approx}
+Let $u\in W^{k,p}(\Omega)$ with $1\leq p<\infty$. Then $u^\varepsilon\in C^\infty(\Omega_\varepsilon)$ and $u^\varepsilon\to u$ in $W^{k,p}_{loc}(\Omega)$, i.e. for every open $U\subset\subset\Omega$, $\|u^\varepsilon-u\|_{W^{k,p}(U)}\to0$ as $\varepsilon\to0$.
+\end{theorem}
+
+The previous theorem controls $u^\varepsilon$ only on compactly contained sets, and its norm may blow up as one approaches $\partial\Omega$. To get an approximation on all of $\Omega$ one patches local approximations together with a partition of unity.
+
+\begin{theorem}[\textbf{(Meyers--Serrin)} Global approximation by smooth functions]\label{thm:meyers_serrin}
+Let $\Omega\subseteq\bbR^n$ be \emph{any} open set and $1\leq p<\infty$. Then $C^\infty(\Omega)\cap W^{k,p}(\Omega)$ is dense in $W^{k,p}(\Omega)$. 
+\end{theorem}
+
+\begin{theorem}[Global approximation by functions smooth up to the boundary]\label{thm:global_approx_C1}
+Let $\Omega$ be a bounded open $C^1$ set and $1\leq p<\infty$. Then $C^\infty(\overline\Omega)$ (the restrictions to $\Omega$ of $C_c^\infty(\bbR^n)$ functions) is dense in $W^{k,p}(\Omega)$.
+\end{theorem}
 
 
+\subsection{Calculus rules for weak derivatives}
+The following rules show that weak derivatives behave like classical ones. The proofs are usually by approximation (Theorems~\ref{thm:local_approx} and \ref{thm:meyers_serrin}) and passing to the limit in the classical identity, and we omit them.
+\begin{theorem}\label{thm:calculus_rules}
+Let $\Omega\subseteq\bbR^n$ be open.
+\begin{enumerate}
+    \item \textbf{(Leibniz rule)} If $u\in W^{k,p}(\Omega)$ and $\varphi\in C^\infty(\Omega)$ with $\varphi$ and all its derivatives up to order $k$ bounded, then $\varphi u\in W^{k,p}(\Omega)$ and
+    $$\partial^\alpha(\varphi u)=\sum_{\beta\leq\alpha}\binom{\alpha}{\beta}\partial^\beta\varphi\ \partial^{\alpha-\beta}u,\qquad |\alpha|\leq k.$$
+    More generally, if $u\in W^{1,p}(\Omega)$, $v\in W^{1,p'}(\Omega)$, then $uv\in W^{1,1}(\Omega)$ and $\partial_i(uv)=u\,\partial_iv+v\,\partial_iu$. Also, if $u,v\in W^{1,p}(\Omega)\cap L^\infty(\Omega)$, then $uv\in W^{1,p}(\Omega)$ with the same formula.
+    \item \textbf{(Chain rule)} Let $G\in C^1(\bbR)$ with $G'$ bounded and $u\in W^{1,p}(\Omega)$. Then $G(u)\in W^{1,p}_{loc}(\Omega)$ and $\partial_iG(u)=G'(u)\partial_iu$. If $|\Omega|<\infty$ or $G(0)=0$, then $G(u)\in W^{1,p}(\Omega)$. The same holds for $G$ Lipschitz and piecewise $C^1$ (with finitely many corners).
+    \item \textbf{(Positive and negative parts)} If $u\in W^{1,p}(\Omega)$ then $u^+=\max(u,0)$, $u^-=\max(-u,0)$ and $|u|$ lie in $W^{1,p}(\Omega)$, and
+    $$\nabla u^+=\mathbf 1_{\{u>0\}}\nabla u,\qquad\nabla u^-=-\mathbf 1_{\{u<0\}}\nabla u,\qquad\nabla|u|=\mathrm{sgn}(u)\nabla u.$$
+    In particular $\nabla u=0$ a.e. on $\{u=c\}$ for every $c\in\bbR$, and $\max(u,v),\min(u,v)\in W^{1,p}$ for $u,v\in W^{1,p}$.
+    \item \textbf{(Change of variables)} Let $\Phi:\Omega'\to\Omega$ be a bijection such that $\Phi$ and $\Phi^{-1}$ are $C^1$ with bounded derivatives (a bi-Lipschitz $C^1$ diffeomorphism). If $u\in W^{1,p}(\Omega)$ then $u\circ\Phi\in W^{1,p}(\Omega')$ and
+    $$\partial_j(u\circ\Phi)=\sum_{i=1}^n(\partial_iu)\circ\Phi\ \partial_j\Phi^i.$$
+    Moreover $\|u\circ\Phi\|_{W^{1,p}(\Omega')}\leq C\|u\|_{W^{1,p}(\Omega)}$ with $C$ depending on $n,p$ and the bounds on $D\Phi,D\Phi^{-1}$. This is what allows one to flatten the boundary with a chart (for instance an admissible boundary coordinate system) and work in $\bbH^n$.
+    \item \textbf{(Lipschitz functions)} $W^{1,\infty}_{loc}(\Omega)=\mathrm{Lip}_{loc}(\Omega)$ (Rademacher). If $\Omega$ is convex, then $W^{1,\infty}(\Omega)$ is the space of bounded Lipschitz functions on $\Omega$, with $\mathrm{Lip}(u)=\|\nabla u\|_{L^\infty}$.
+\end{enumerate}
+\end{theorem}
+Here is a weak analogue of ``zero derivative implies constant'', which we need in the sequel:
+\thmp{}{Let $\Omega$ be open and connected and $u\in W^{1,p}_{loc}(\Omega)$ with $\nabla u=0$ a.e. Then $u$ is a.e. equal to a constant.}{For $U\subset\subset\Omega$ and $\varepsilon$ small, $\nabla u^\varepsilon=\eta_\varepsilon*\nabla u=0$ on $U$, so $u^\varepsilon$ is locally constant on $U$. Since $u^\varepsilon\to u$ in $L^p(U)$ (and a.e. along a subsequence), $u$ is locally a.e. constant. A locally constant function on a connected set is constant.}
 
+\subsubsection{The Gagliardo--Nirenberg--Sobolev inequality and Sobolev embeddings}
+\defn{Sobolev conjugate}{For $1\leq p<n$, the \emph{Sobolev conjugate} of $p$ is $$p^*:=\frac{np}{n-p},\qquad\text{equivalently}\qquad\frac1{p^*}=\frac1p-\frac1n.$$}
+Note that $p^*>p$, $1^*=\frac{n}{n-1}$, and $p^*\to\infty$ as $p\uparrow n$.
 
-\section{Compactness: Arzelà--Ascoli, Banach--Alaoglu, and Eberlein--Šmulian}
-We now digress to look at three results that pertain to compactness in various spaces of continuous functions. 
-\subsection{Arzelà--Ascoli compactness theorem}
+\begin{theorem}[Gagliardo--Nirenberg--Sobolev]\label{thm:GNS}
+Let $1\leq p<n$. There exists a constant $C=C(n,p)$ such that
+\begin{equation}\label{eq:GNS}
+\|u\|_{L^{p^*}(\bbR^n)}\leq C\,\|Du\|_{L^p(\bbR^n)}\qquad\text{for all }u\in C_c^1(\bbR^n).
+\end{equation}
+\end{theorem}
+\begin{remark}
+\begin{enumerate}
+    \item Let $u_\lambda(x):=u(\lambda x)$. Then $\|u_\lambda\|_{L^q}=\lambda^{-n/q}\|u\|_{L^q}$ and $\|Du_\lambda\|_{L^p}=\lambda^{1-n/p}\|Du\|_{L^p}$. If \eqref{eq:GNS} holds with $q$ in place of $p^*$ and a constant independent of $u$, letting $\lambda\to0$ and $\lambda\to\infty$ forces $-\frac nq=1-\frac np$, i.e. $\frac1q=\frac1p-\frac1n$. So $q=p^*$. This tells us that the \emph{only choice} of exponent is $p^*$.
+    \item By density, \eqref{eq:GNS} extends to all $u\in W^{1,p}(\bbR^n)$ with $1\leq p<n$ (recall $W^{1,p}(\bbR^n)=W^{1,p}_0(\bbR^n)$).
+\end{enumerate}
+\end{remark}
+
+\begin{theorem}[Sobolev embedding in $\bbR^n$]\label{thm:sobolev_embedding_Rn}
+Let $1\leq p<n$. Then $W^{1,p}(\bbR^n)\hookrightarrow L^q(\bbR^n)$ continuously for every $q\in[p,p^*]$, i.e.
+$$\|u\|_{L^q(\bbR^n)}\leq C(n,p,q)\|u\|_{W^{1,p}(\bbR^n)}.$$
+\end{theorem}
+For $q=p^*$ this is Theorem~\ref{thm:GNS}. For $q\in(p,p^*)$ one interpolates, $\|u\|_q\leq\|u\|_p^{1-\theta}\|u\|_{p^*}^\theta$ with $\frac1q=\frac{1-\theta}p+\frac\theta{p^*}$. Iterating gives the higher-order version: if $kp<n$, then $W^{k,p}(\bbR^n)\hookrightarrow L^q(\bbR^n)$ for $q\in[p,q_k]$, $\frac1{q_k}=\frac1p-\frac kn$.
+
+\begin{theorem}[Sobolev embedding on bounded domains]\label{thm:sobolev_embedding_bounded}
+Let $\Omega\subset\bbR^n$ be a bounded open $C^1$ set and $1\leq p<n$. Then $W^{1,p}(\Omega)\hookrightarrow L^q(\Omega)$ continuously for every $q\in[1,p^*]$:
+$$\|u\|_{L^q(\Omega)}\leq C(n,p,q,\Omega)\|u\|_{W^{1,p}(\Omega)}.$$
+If we instead consider $u\in W^{1,p}_0(\Omega)$, then this holds for \emph{any} bounded open $\Omega$ (no regularity of $\partial\Omega$), and in fact $\|u\|_{L^{p^*}(\Omega)}\leq C(n,p)\|Du\|_{L^p(\Omega)}$ with a constant independent of $\Omega$.
+\end{theorem}
+\begin{remark}
+The idea of the proof is to reduce to $\bbR^n$. For a bounded $C^1$ set there is a bounded linear \emph{extension operator} $E:W^{1,p}(\Omega)\to W^{1,p}(\bbR^n)$ with $Eu=u$ on $\Omega$ (flatten the boundary locally, reflect across $\{y^n=0\}$, and glue using a partition of unity). Applying Theorem~\ref{thm:sobolev_embedding_Rn} to $Eu$ and restricting gives the bound for $q\in[p,p^*]$, and for $q<p$ one uses $|\Omega|<\infty$ and H\"older. \end{remark}
+
+\subsection{Poincar\'e inequalities}
+Let $|A|$ denote the Lebesgue measure of a measurable set $A$. For a set $A$ with $0<|A|<\infty$ and $u\in L^1(A)$, we write
+$$(u)_A:=\fint_Au\,dx=\frac1{|A|}\int_Au\,dx$$
+for the \emph{mean} (average) of $u$ over $A$, and $\fint_A|f|^q\,dx:=\frac{1}{|A|}\int_A|f|^q\,dx$.
+
+\subsubsection{Poincar\'e inequality for $W^{1,p}_0$}
+\begin{theorem}[Poincar\'e inequality, zero boundary values]\label{thm:poincare_W0}
+Let $\Omega$ be a bounded open set (it is enough that $\Omega$ is contained in a slab $\{a<x^n<b\}$) and $1\leq p<\infty$. There exists $C=C(n,p,\Omega)$ such that
+$$\|u\|_{L^p(\Omega)}\leq C\|Du\|_{L^p(\Omega)}\qquad\text{for all }u\in W^{1,p}_0(\Omega).$$
+\end{theorem}
+\begin{remark}
+As a consequence we have $u\mapsto\|Du\|_{L^p(\Omega)}$ as a norm on $W_0^{1,p}(\Omega)$, equivalent to $\|\cdot\|_{W^{1,p}}$. In particular, $H^1_0(\Omega)$ is a Hilbert space under $\int_\Omega\nabla u\cdot\nabla v\,dx$ as an equivalent inner product.
+
+\end{remark}
+
+\subsubsection{Poincar\'e--Sobolev inequality for $W^{1,p}_0$}
+For $u\in W_0^{1,p}(\Omega)$ with $1\leq p<n$, Theorem~\ref{thm:sobolev_embedding_bounded} already gives the \emph{Poincar\'e--Sobolev inequality}
+$$\|u\|_{L^{p^*}(\Omega)}\leq C(n,p)\|Du\|_{L^p(\Omega)},$$
+which improves Theorem~\ref{thm:poincare_W0}: the left side has a better exponent and the constant does not depend on $\Omega$. The two are related by H\"older, $\|u\|_{L^p(\Omega)}\leq|\Omega|^{1/n}\|u\|_{L^{p^*}(\Omega)}$, which shows that Theorem~\ref{thm:poincare_W0} holds with $C=C(n,p)|\Omega|^{1/n}$ on any open set of finite measure.
+
+\subsubsection{Poincar\'e inequality on balls}
+We write $B_r=B_r(x_0)$. 
+
+\begin{theorem}[Poincar\'e inequality on balls, with means]\label{thm:poincare_ball_mean}
+Let $1\leq p<\infty$. There is $C=C(n,p)$ such that for every ball $B_r\subset\bbR^n$ and every $u\in W^{1,p}(B_r)$,
+$$\|u-(u)_{B_r}\|_{L^p(B_r)}\leq C\,r\,\|Du\|_{L^p(B_r)},\qquad\text{equivalently}\qquad\Big(\fint_{B_r}|u-(u)_{B_r}|^p\Big)^{1/p}\leq C\,r\Big(\fint_{B_r}|Du|^p\Big)^{1/p}.$$
+\end{theorem}
+
+\subsubsection{Poincar\'e--Sobolev inequality with means on balls}
+\begin{theorem}[Poincar\'e--Sobolev inequality on balls, with means]\label{thm:poincare_sobolev_ball}
+Let $1\leq p<n$. There is $C=C(n,p)$ such that for every ball $B_r\subset\bbR^n$ and every $u\in W^{1,p}(B_r)$,
+$$\|u-(u)_{B_r}\|_{L^{p^*}(B_r)}\leq C\,\|Du\|_{L^p(B_r)},\qquad\text{equivalently}\qquad\Big(\fint_{B_r}|u-(u)_{B_r}|^{p^*}\Big)^{1/p^*}\leq C\,r\Big(\fint_{B_r}|Du|^p\Big)^{1/p}.$$
+\end{theorem}
+
+\subsection{Compactness}
+We now digress to look at a few results that pertain to compactness in various spaces of functions. 
+
+\subsubsection{Arzelà--Ascoli compactness theorem}
 
 \defn{Equicontinuity}{Let $X$ be a metric space. We say a collection $\mathcal F$ of functions $f:X\to \bbR$ \emph{equicontinuous} if for every $x\in X$ and every $\varepsilon>0$, there exists a $\delta(x,\varepsilon)>0$ such that $$d_X(x,y)<\delta\implies |f(x)-f(y)|<\varepsilon,\ \text{for all } f\in \mathcal F. $$ 
 If $\delta$ is independent of $x$, we say $\mathcal F$ is \emph{uniformly equicontinuous} }
@@ -2588,24 +1623,92 @@ then, $\mathcal F$ is relatively compact in $C(X)$.}
 \\\\2. We also note that the condition \ref{eq:boundedness_in_AA_thm}, along with equicontinuity, actually implies uniform boundedness. 
 \end{remark}
 
-\pf{(\emph{of} \ref{thm:AA}) We give a sketch of the proof: Let $\delta>0$ be arbitrary. $X$ can be covered by finitely many balls $$X\subset \cup_{i=1}^{N_{\delta}} B_{\delta}(x_i) $$ for $\{x_1,x_2,\cdots,x_{N_{\delta}}\} \subset X$. The sequence $f_1(x_1),f_2(x_1)\cdots f_j(x_1)\cdots$ is bounded by pointwise boundedness, and by Bolzano--Weierstrass, we can extract a convergent subsequence $f(x_1)$. For $x_2$, we can extract a further subsequence (which we do not relabel) such that $f_i(x_1)\to f(x_1)$ and $f_i(x_2)\to f(x_2)$. We continue as such to get a subsequence (which we do not relabel) $f_n(x_j)\to f(x_j)$ for each $j\leq N_{\delta}$.
+
+%%THE PROOF OF AZERLA IS HERE%%%
+\begin{comment}\pf{(\emph{of} \ref{thm:AA}) We give a sketch of the proof: Let $\delta>0$ be arbitrary. $X$ can be covered by finitely many balls $$X\subset \cup_{i=1}^{N_{\delta}} B_{\delta}(x_i) $$ for $\{x_1,x_2,\cdots,x_{N_{\delta}}\} \subset X$. The sequence $f_1(x_1),f_2(x_1)\cdots f_j(x_1)\cdots$ is bounded by pointwise boundedness, and by Bolzano--Weierstrass, we can extract a convergent subsequence $f(x_1)$. For $x_2$, we can extract a further subsequence (which we do not relabel) such that $f_i(x_1)\to f(x_1)$ and $f_i(x_2)\to f(x_2)$. We continue as such to get a subsequence (which we do not relabel) $f_n(x_j)\to f(x_j)$ for each $j\leq N_{\delta}$.
 \\\\Now let $x\in X$, $x_i$ be the closest to $x$. Let $\varepsilon>0$ be arbitrary. Recall that our collection is \emph{uniformly equicontinuous}. Thus, if $\delta$ is sufficiently small, equicontinuity of $f_n$ yields $$|f_n(x)-f_n(x_i)|<\varepsilon/3 \text{ for all }n\in \bbN $$
 Recall that $f_n(x_i)$ was convergent for every $i$, therefore Cauchy for each $i$: $$|f_n(x_i)-f_m(x_i)|<\varepsilon/3 \text{ for all }i\leq N_{\delta} $$
-We then have, $$|f_n(x)-f_m(x)|\leq |f_n(x)-f_n(x_i)|+|f_n(x_i)-f_m(x_i)|+|f_m(x_i)-f_m(x)|<\varepsilon $$ by 1. Equicontinuity and 2. Extraction of a convergent subsequence. The key idea is that the large enough $N$ \emph{does not} depend on $x$ (due to uniform equicontinuity). We have, therefore, extracted a uniformly cauchy subsequence (since $x$ was arbitrary and $N$ was independent of $x$). Completeness of $C(X)$ implies that $f_n$ converges to $f$.
-
-}
-
-
-\begin{comment}
-{\color{red}
-\chapter{Manifolds}
-\section{Topological Manifolds}
-\defn{Topological Manifold of dimension $n$}{A Hausdorff, second countable topological space $M$ is said to be a \emph{Topological Manifold} of dimension $n$ if for every $p\in M$, there exists $U$ open in $M$ with $p\in U$, $\hat{U}\subset \bbR^n$ and a homeomorphism $\phi:U\to \hat U$. Such a pair $(U,\phi)$ is called a \emph{coordinate chart}, and a collection of such $(U_{\alpha},\phi_{\alpha})$ that covers $M$ is called an \emph{atlas}.}
-\begin{example}
-    \textbf{(Graph of a continuous function)}
-  Let $U\subset \bbR^n$ be open and $f:U\to \bbR^k$ be a continuous mapping. Let $\Gamma \subset \bbR^n \times \bbR^k$ be given by $$\Gamma:=\{(x,f(x))\in \bbR^k \times \bbR^n: x \in U\} $$
-  Let $\Gamma$ have the subspace topology and let $p\in \Gamma$ be some $(x_p,f(x_p))$. Define $\phi:\Gamma\to U$ by $$\phi(x,y)=x $$ This map is continuous, and has a continuous inverse $g(x)=(x,f(x))$. Hence $\phi$ is a homeomorphism and $\{(\Gamma,\phi)\}$ gives us an atlas.    
-\end{example}
-}
-
+We then have, $$|f_n(x)-f_m(x)|\leq |f_n(x)-f_n(x_i)|+|f_n(x_i)-f_m(x_i)|+|f_m(x_i)-f_m(x)|<\varepsilon $$ by 1. Equicontinuity and 2. Extraction of a convergent subsequence. The key idea is that the large enough $N$ \emph{does not} depend on $x$ (due to uniform equicontinuity). We have, therefore, extracted a uniformly cauchy subsequence (since $x$ was arbitrary and $N$ was independent of $x$). Completeness of $C(X)$ implies that $f_n$ converges to $f$.}
 \end{comment}
+
+\subsubsection{Banach--Alaoglu theorem}
+\begin{theorem} \textbf{(Banach--Alaoglu)} Let $E$ be a normed linear space and $E^*$ its dual. The closed unit ball $$B_{E^*}:=\{f\in E^*: \| f\|_{op}\leq 1 \}$$
+is compact in the weak* topology $\sigma(E^*,E)$.
+\end{theorem}
+\textbf{Sketch:} The proof is a clever application of the Tychonoff theorem, applied on the space $Y=\bbR^E$ and noting that the set $B_{E^*}$ is essentially the space (call it $K$) of all $\omega\in Y$ such that $|\omega_x|\leq \|x\|$, $\omega_{x+y}=\omega_x+\omega_y$ and $\omega_{\lambda x}=\lambda \omega_x$. Once we note that $K$ is compact, we would have the result.
+\\\\ Note that, this gives us compactness of the unit ball, yet not \emph{sequential compactness}. We require additional hypothesis (separability) to ensure \emph{sequential compactness}, as the following modification suggests: 
+\begin{theorem}
+    \textbf{(Banach--Alaoglu for separable spaces)} Let $E$ be a separable normed linear space. Then, the closed unit ball $$B_{E^*}:=\{f\in E^*: \|f\|_{op}\leq 1\}$$ is \emph{metrizable} and \emph{sequentially compact}. In other words, every bounded sequence $f_n$ has a weak* convergent subsequence.
+\end{theorem}
+
+We provide a characterisation for \emph{reflexive spaces} (Spaces whose double duals can be identified with the space itself, or rather, spaces for which the $J:E\to E^{**}$ is surjective).
+\begin{theorem}
+    \textbf{(Characterization of reflexive spaces)} Let $E$ be a normed linear space. $E$ is reflexive if and only if $$B_E:=\{x\in E:\|x\|\leq 1\} $$ is compact in the weak topology $\sigma(E,E^*)$. 
+\end{theorem}
+
+\subsubsection{Eberlein--Šmulian theorem}
+We try to modify the Banach--Alaoglu for separable spaces to get a result for reflexive spaces. Recall that for reflexive spaces, we have the weak compactness of the unit ball, yet we do not have its sequential compactness from that characterisation. This is the Eberlein--Šmulian theorem. We begin with a few lemmas that will prove to be important: 
+\begin{lemma}
+    Closed subspaces of reflexive spaces are reflexive spaces.
+\end{lemma}
+\begin{lemma}
+    For banach spaces $E$, $E^*$ being separable implies $E$ is separable.
+\end{lemma}
+\begin{lemma}
+    A Banach space $E$ is reflexive if and only if its dual is reflexive.
+\end{lemma}
+Now we are in position to state the Eberlein--Šmulian theorem: 
+\begin{theorem}
+    \textbf{(Eberlein--Šmulian)} Let $E$ is a reflexive banach space. Then every bounded sequence $x_n\in E$ has a weakly convergent subsequence. In other words, the closed unit ball $B_{E}$ is weakly sequentially compact.
+\end{theorem}
+\begin{remark}
+1. Note that for reflexive spaces \emph{in general}, we have, baked in, the \emph{topological compactness} of $B_{E}$. In fact, reflexivity is equivalent to it. For reflexive Banach spaces, on the other hand, we have weakly sequential compactness.
+\\\\ 2. We have, in fact, the converse to be true as well, which is also called the Eberlein--Šmulian theorem: 
+\emph{Let $E$ be a Banach space such that every bounded sequence in $E$ admits a weakly convergent subsequence. Then, $E$ is reflexive.}
+
+\end{remark}
+We now come back to $L^p$ spaces.
+\subsubsection{Compactness in $L^p$ spaces}
+We shall provide a criterion for compactness in $L^p(\Omega)$.
+\begin{theorem}
+    \textbf{(Kolmogorov--Reisz--Frechet)} Let $\mathcal F$ be a bounded subset of $L^p(\bbR^n)$ with $1\leq p<\infty$ such that $$\lim_{|h|\to 0} \|u(\cdot - h)-u(\cdot)\|_{L^p(\bbR^n)}=0 \text{ uniformly in }u\in \mathcal F. $$ Then the closure of $\mathcal F|_{\Omega}$ is compact in $L^p(\Omega)$ for any measurable set $\Omega\subset \bbR^n$ of finite measure. 
+\end{theorem}
+
+\subsubsection{Rellich-Kondarachov compact embeddings}
+This is the result of primary interest to us:
+\begin{theorem}\label{thm:rellich}
+    \textbf{(Rellich-Kondarachov)} Let $\Omega\subset \bbR^n$ be open, bounded and smooth. Then, the following injections are \emph{compact}: 
+    \begin{alignat*}{3}
+W^{1,p}(\Omega) &\hookrightarrow L^q(\Omega) &\quad& \text{for all } 1\leq q<p^*, &\quad& \text{for } 1\leq p<n,\\
+W^{1,p}(\Omega) &\hookrightarrow L^q(\Omega) &\quad& \text{for all } 1\leq q<\infty, &\quad& \text{for } p=n,\\
+W^{1,p}(\Omega) &\hookrightarrow C(\overline\Omega) &\quad& &\quad& \text{for } p>n.
+\end{alignat*}
+\end{theorem}
+
+\subsection{Traces}\label{app:trace}
+We want to define 'boundary values' for functions in Sobolev spaces, so that we can viably tackle boundary value problems. The main obstacle is that, $\partial\Omega$ has Lebesgue measure zero, and hence there is no sense in which we can talk about the \emph{"value"} of an $L^p$ function on $\partial \Omega$. Indeed, this is meaningless for $L^p$ functions, but we can still precisely define a notion of a \emph{boundary value} for \emph{\textbf{Sobolev functions}}. 
+\begin{theorem}
+    (\textbf{Existence of Trace operator}) Let $\Omega$ be open, bounded and smooth, and let $1\\leq p<\infty$. There exists a bounded linear operator $$\mathrm{Tr}:W^{1,p}(\Omega)\to L^p(\partial\Omega)$$ such that $$\mathrm{Tr}u=u|_{\partial\Omega}$$
+whenever $u\in W^{1,p}(\Omega)\cap C^\infty{\overline\Omega}$.
+\end{theorem}
+For any $u\in W^{1,p}(\Omega)$, we call $\mathrm{Tr}u$ as the \emph{zeroth order trace} on the boundary and us usually denoted as $u|_{\partial\Omega}$.
+\begin{remark} We collect here some remarks and generalities regarding the trace operator:
+\\\\ 1. $L^p(\partial\Omega)$ is defined with respect to the surface measure $d\sigma$ on $\partial\Omega$.
+\\\\ 2. The trace map actually restricts to the boundary value for $u\in C^0(\overline\Omega)$, not just $C^{\infty}(\overline\Omega)$.
+\\\\ 3. The theorem holds for \emph{Lipschitz} boundaries as well, not just for $C^k$ boundaries. 
+\end{remark}
+Note that, this operator is easy to define on smooth functions, by simply assigning the boundary values. This operation is clearly linear. Since $C^{\infty}(\overline\Omega)$ is dense in $W^{1,p}(\Omega)$, it is enough to show that $$ \|u|_{\partial\Omega}\|_{L^p(\partial\Omega)}\leq C \|u\|_{W^{1,p}(\Omega)} \text{ for every }u\in C^{\infty}(\overline\Omega).$$
+After localizing, flattening the boundary (with an admissible boundary coordinate system) and patching up (using partitions of unity), the theorem can be reduced to the following inequality (which we shall not prove): 
+\begin{proposition}
+    There exists a constant $C>0$ such that $$\Big{(}\int_{\bbR^{n-1}} |u(x',0)^p dx'|\Big{)}^{1/p}\leq C \|u\|_{W^{1,p}(\bbR^n_+)} \text{ for every }u\in C^{\infty}_c(\bbR^n).$$
+\end{proposition}
+\begin{remark} The kernel of the trace map is $$\ker(\mathrm{Tr}):=W^{1,p}_0(\Omega).$$
+
+\end{remark}
+
+\subsubsection{Integration by parts formula}
+The classical integration by parts formula reads: $$\int_{\Omega} \partial_{x_i}(u) v dx=-\int_{\Omega}u\partial_{x_i}(v)dx +\int_{\partial\Omega} \nu_i (uv) dS $$ for $u,v\in C^1(\overline\Omega)$. An identical result holds for Sobolev functions, with the boundary values coming from the trace map: 
+\begin{theorem}
+    \textbf{(Integration by parts formula for Sobolev functions)} Let $\Omega$ be open, bounded and $C^1$. $u\in W^{1,p}(\Omega)$ and $v\in W^{1,p'}(\Omega)$ (Ho\"lder conjugate). We then have $$\int_{\Omega} \partial_{x_i}u \cdot v dx =-\int_{\Omega} u\cdot \partial_{x_i}v dx +\int_{\partial\Omega} \nu_i (\mathrm{Tr}u \mathrm{Tr}v)dS. $$
+\end{theorem}
+The proof follows by approximation by smooth functions and the continuity of the trace operator.
