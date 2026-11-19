@@ -295,6 +295,42 @@
       \verb http://dx.doi.org/10.1016/j.jfa.2017.10.006
       \endverb
     \endentry
+    \entry{Dacorogna2008}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=e6908e0eeee954987c8751d41e2e6e7d}{%
+           family={Dacorogna},
+           familyi={D\bibinitperiod},
+           given={Bernard},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e6908e0eeee954987c8751d41e2e6e7d}
+      \strng{fullhash}{e6908e0eeee954987c8751d41e2e6e7d}
+      \strng{fullhashraw}{e6908e0eeee954987c8751d41e2e6e7d}
+      \strng{bibnamehash}{e6908e0eeee954987c8751d41e2e6e7d}
+      \strng{authorbibnamehash}{e6908e0eeee954987c8751d41e2e6e7d}
+      \strng{authornamehash}{e6908e0eeee954987c8751d41e2e6e7d}
+      \strng{authorfullhash}{e6908e0eeee954987c8751d41e2e6e7d}
+      \strng{authorfullhashraw}{e6908e0eeee954987c8751d41e2e6e7d}
+      \field{labelalpha}{Dac08}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{series}{Applied Mathematical Sciences}
+      \field{title}{Direct Methods in the Calculus of Variations}
+      \field{volume}{78}
+      \field{year}{2008}
+      \verb{doi}
+      \verb 10.1007/978-0-387-55249-1
+      \endverb
+    \endentry
     \entry{EvansGariepy2015}{book}{}{}
       \name{author}{2}{}{%
         {{hash=0d72932a7775f85a51622d3af75ae26e}{%

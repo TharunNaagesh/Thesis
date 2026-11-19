@@ -99,7 +99,7 @@ for some constant $C>0$ independent of $\omega$. This is the inequality that giv
 \end{itemize}
 
 
-\chapter{Prelimnaries}
+\chapter{Exterior forms and exterior algebra}
 
 \section{Exterior Algebra: Definitions and Results}
 
@@ -269,7 +269,7 @@ Which means $$D\equiv \sum_{i=1}^n D(x^i)\frac{\partial}{\partial x^i}\big{|}_p\
 
 Let $f \in C^{\infty}_p$, that is $f:U\to \bbR$, a vector field $X$ to f is $$Xf (p):=\sum a_i(p) \frac{\partial}{\partial x^i}|_{p} f$$
 Then $$Xf:U\to \bbR $$ is again a $C^{\infty}$ function. 
-
+\chapter{Calculus of differential forms}
 \section{Differential Forms}
 
 We start with defining what are $1-$forms.
@@ -325,13 +325,13 @@ So $d$ in this case can be viewed as a map that takes $0-$forms (functions) and 
 
 Before we define the general exterior derivative for $k-$ forms, we will set up some notation.
 
-\defn{Multi Index Notations}{Let $I\equiv \{i_1,i_2,\cdots,i_k\} \in \mathscr T_k$ and $i\not\in I$. For $i\in I$, we write $I_{\hat i}$ as the multi index $I$ with $i$ removed. For $i\not\in I$, we write $[iI] $ as the multi index $I$ with $i$ added in the correct order.
+\defn{Multi Index Notations}{\label{def:multi_index} Let $I\equiv \{i_1,i_2,\cdots,i_k\} \in \mathscr T_k$ and $i\not\in I$. For $i\in I$, we write $I_{\hat i}$ as the multi index $I$ with $i$ removed. For $i\not\in I$, we write $[iI] $ as the multi index $I$ with $i$ added in the correct order.
 
 We also write $\operatorname{sign}[i,I]$ as the sign of the permutation that takes $\{i, I\}$ to $[iI]$. A corollary of this is that $$dx^{[iI]}=\operatorname{sign}[i,I] dx^i \wedge dx^I $$
 }
 
 We present an important lemma from \cite{Csato_2018} that will be used in the document.
-\lemp{}{Let $n\geq 2$ and $1\leq k\leq n-1$ be integers. Then for any $I\in \mathscr T_{k+1}$ and $i,j \in I$, with $i\neq j$ we have \begin{equation}
+\lemp{}{\label{lem:multi_index} Let $n\geq 2$ and $1\leq k\leq n-1$ be integers. Then for any $I\in \mathscr T_{k+1}$ and $i,j \in I$, with $i\neq j$ we have \begin{equation}
 \operatorname{sign}[i,I_{\hat{i}\hat{j}}]\operatorname{sign}[j,I_{\hat{i}\hat{j}}]=-\operatorname{sign}[i,I_{\hat{i}}]\operatorname{sign}[j,I_{\hat{j}}]
 \end{equation}
 And and for any $I\in \mathscr T_{k-1}$ and every $i,j \not\in I$ with $i\neq j$,\begin{equation}
@@ -1754,3 +1754,2004 @@ Once again, passing to the limit by H\"older's inequality yields
 \]
 This completes the proof.
 \end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+\chapter{The Hodge-Morrey decomposition in $L^2$}
+
+\subsection{The Gaffney inequality}
+The main result of this section is the following inequality:
+{\color{purple}
+\begin{theorem}[Gaffney inequality]
+\label{thm:gaffney}
+Let $\Omega\subset\R^n$ be a bounded open $C^2$ set. Then there exists a
+constant $C=C(\Omega)>0$ such that
+\begin{equation}
+    \|\omega\|_{W^{1,2}(\Omega)}
+    \leq
+    C\left(
+        \|d\omega\|_{L^2(\Omega)}
+        +\|\delta\omega\|_{L^2(\Omega)}
+        +\|\omega\|_{L^2(\Omega)}
+    \right)
+\end{equation}
+for every
+\[
+    \omega\in
+    W^{1,2}_{T}(\Omega;\Lambda^k)\cup
+    W^{1,2}_{N}(\Omega;\Lambda^k).
+\]
+\end{theorem}
+}
+This chapter heavily draws from the paper \cite{Csato_2018}, and parts of chapter $6$ of \cite{CsatoDacorognaKneuss2012}.
+We begin with fixing some notation: Recall the multi-index notation set up in \ref{def:multi_index}. 
+
+\begin{lemma}
+    Let $n\geq 2$ and $1\leq k\leq n-1$ be integers. Then for any $I\in \mathscr T_{k+1}$ and $i,j \in I$, with $i\neq j$ we have \begin{equation}
+\operatorname{sign}[i,I_{\hat{i}\hat{j}}]\operatorname{sign}[j,I_{\hat{i}\hat{j}}]=-\operatorname{sign}[i,I_{\hat{i}}]\operatorname{sign}[j,I_{\hat{j}}]
+\end{equation}
+And and for any $I\in \mathscr T_{k-1}$ and every $i,j \not\in I$ with $i\neq j$,\begin{equation}
+    \operatorname{sign}[i,[jI]]\operatorname{sign}[j,[iI]]=-\operatorname{sign}[i,I]\operatorname{sign}[j,I]
+\end{equation}
+
+\end{lemma} 
+The proof of the lemma is discussed in \ref{lem:multi_index}
+
+\begin{lemma}
+\label{lemma:pointwise_identity}
+Let $U\subset\mathbb{R}^n$ be open and let
+\[
+    \omega\in C^1(U;\Lambda^k).
+\]
+Then, for every $x\in U$,
+\[
+\begin{aligned}\label{lem23_1}
+    |d\omega|^2+|\delta\omega|^2-|\nabla\omega|^2
+    &=
+    \sum_{I\in\mathscr{T}_{k+1}}
+    \sum_{\substack{i,j\in I\\i\neq j}}
+    \operatorname{sgn}[i,\widehat{I}_i]\,
+    \operatorname{sgn}[j,\widehat{I}_j]
+    \left(
+        \frac{\partial\omega_{\widehat{I}_i}}{\partial x^i}
+        \frac{\partial\omega_{\widehat{I}_j}}{\partial x^j}
+        -
+        \frac{\partial\omega_{\widehat{I}_j}}{\partial x^i}
+        \frac{\partial\omega_{\widehat{I}_i}}{\partial x^j}
+    \right)
+\end{aligned}
+\tag{17}
+\]
+and
+\[
+\begin{aligned}\label{lem23_2}
+    |d\omega|^2+|\delta\omega|^2-|\nabla\omega|^2
+    &=
+    \sum_{I\in\mathscr{T}_{k-1}}
+    \sum_{\substack{i,j\notin I\\i<j}}
+    \operatorname{sgn}[i,I]\,
+    \operatorname{sgn}[j,I]
+    \left(
+        \frac{\partial\omega_{[iI]}}{\partial x^i}
+        \frac{\partial\omega_{[jI]}}{\partial x^j}
+        -
+        \frac{\partial\omega_{[jI]}}{\partial x^i}
+        \frac{\partial\omega_{[iI]}}{\partial x^j}
+    \right).
+\end{aligned}
+\tag{18}
+\]
+\end{lemma}
+\begin{remark}
+    Here, the quantities $|d\omega|$, $|\delta \omega|$ and $|\nabla \omega|$ are \emph{pointwise} norms on the forms. 
+\end{remark}
+
+\begin{proof}
+From the component formulas for $d$ and $\delta$,
+\[
+    d\omega
+    =
+    \sum_{I\in\mathscr{T}_{k+1}}
+    \left(
+        \sum_{i\in I}
+        \operatorname{sgn}[i,\widehat{I}_i]\,
+        \frac{\partial\omega_{\widehat{I}_i}}
+        {\partial x^i}
+    \right)dx^I
+\]
+and
+\[
+    \delta\omega
+    =
+    \sum_{I\in\mathscr{T}_{k-1}}
+    \left(
+        \sum_{i\notin I}
+        \operatorname{sgn}[i,I]\,
+        \frac{\partial\omega_{[iI]}}
+        {\partial x^i}
+    \right)dx^I.
+\]
+
+Expanding the squares gives
+\[
+\begin{aligned}
+|d\omega|^2
+&=
+\sum_{I\in\mathscr{T}_{k+1}}
+\sum_{i\in I}
+\left(
+    \frac{\partial\omega_{\widehat{I}_i}}
+    {\partial x^i}
+\right)^2
+\\
+&\quad+
+2\sum_{I\in\mathscr{T}_{k+1}}
+\sum_{\substack{i,j\in I\\i<j}}
+\operatorname{sgn}[i,\widehat{I}_i]\,
+\operatorname{sgn}[j,\widehat{I}_j]\,
+\frac{\partial\omega_{\widehat{I}_i}}{\partial x^i}
+\frac{\partial\omega_{\widehat{I}_j}}{\partial x^j},
+\end{aligned}
+\tag{19}
+\]
+while
+\[
+\begin{aligned}
+|\delta\omega|^2
+&=
+\sum_{I\in\mathscr{T}_{k-1}}
+\sum_{i\notin I}
+\left(
+    \frac{\partial\omega_{[iI]}}
+    {\partial x^i}
+\right)^2
+\\
+&\quad+
+2\sum_{I\in\mathscr{T}_{k-1}}
+\sum_{\substack{i,j\notin I\\i<j}}
+\operatorname{sgn}[i,I]\,
+\operatorname{sgn}[j,I]\,
+\frac{\partial\omega_{[iI]}}{\partial x^i}
+\frac{\partial\omega_{[jI]}}{\partial x^j}.
+\end{aligned}
+\tag{20}
+\]
+
+The diagonal terms in these two expressions together give (after first suitably converting the sum over $\mathscr T_{k-1}$ to a sum over $\mathscr T_{k+1}$ by noting that for every $I_0$ in $\mathscr T_{k-1}$, $i$ and $j$ not in $I_0$, we have a \emph{unique} $J=[I_0,i,j]\in \mathscr T_{k+1}$)
+\[
+    |\nabla\omega|^2
+    =
+    \sum_{I\in\mathscr{T}_k}
+    \sum_{i=1}^n
+    \left(
+        \frac{\partial\omega_I}{\partial x^i}
+    \right)^2.
+\]
+Consequently, after cancelling the diagonal terms, the remaining
+cross terms can be written as
+\[
+\begin{aligned}
+|d\omega|^2+|\delta\omega|^2-|\nabla\omega|^2
+={}&
+2\sum_{I\in\mathscr{T}_{k+1}}
+\sum_{\substack{i,j\in I\\i<j}}
+\Bigg[
+\operatorname{sgn}[i,\widehat{I}_i]\,
+\operatorname{sgn}[j,\widehat{I}_j]\,
+\frac{\partial\omega_{\widehat{I}_i}}{\partial x^i}
+\frac{\partial\omega_{\widehat{I}_j}}{\partial x^j}
+\\
+&\qquad\qquad\qquad+
+\operatorname{sgn}[i,\widehat{I}_{ij}]\,
+\operatorname{sgn}[j,\widehat{I}_{ij}]\,
+\frac{\partial\omega_{\widehat{I}_j}}{\partial x^i}
+\frac{\partial\omega_{\widehat{I}_i}}{\partial x^j}
+\Bigg].
+\end{aligned}
+\]
+
+By Lemma~\ref{lem:multi_index},
+\[
+    \operatorname{sgn}[i,\widehat{I}_{ij}]
+    \operatorname{sgn}[j,\widehat{I}_{ij}]
+    =
+    -
+    \operatorname{sgn}[i,\widehat{I}_i]
+    \operatorname{sgn}[j,\widehat{I}_j],
+\]
+which gives \eqref{lem23_1}.
+
+Alternatively, regrouping the cross terms according to
+$I\in\mathscr{T}_{k-1}$ and $i,j\notin I$ gives
+\[
+\begin{aligned}
+|d\omega|^2+|\delta\omega|^2-|\nabla\omega|^2
+={}&
+2\sum_{I\in\mathscr{T}_{k-1}}
+\sum_{\substack{i,j\notin I\\i<j}}
+\Bigg[
+\operatorname{sgn}[i,I]\,
+\operatorname{sgn}[j,I]\,
+\frac{\partial\omega_{[iI]}}{\partial x^i}
+\frac{\partial\omega_{[jI]}}{\partial x^j}
+\\
+&\qquad\qquad\qquad+
+\operatorname{sgn}[i,[jI]]\,
+\operatorname{sgn}[j,[iI]]\,
+\frac{\partial\omega_{[jI]}}{\partial x^i}
+\frac{\partial\omega_{[iI]}}{\partial x^j}
+\Bigg].
+\end{aligned}
+\]
+The second identity of Lemma~\ref{lem:multi_index} gives
+\[
+    \operatorname{sgn}[i,[jI]]
+    \operatorname{sgn}[j,[iI]]
+    =
+    -
+    \operatorname{sgn}[i,I]\operatorname{sgn}[j,I],
+\]
+and hence \eqref{lem23_2}.
+\end{proof}
+
+\begin{lemma}
+\label{lemma:boundary_identity}
+Let $\Omega\subset\mathbb{R}^n$ be a bounded open Lipschitz domain and let
+$\omega\in C^1(\overline{\Omega};\Lambda^k)$. Then
+\begin{equation}
+\label{eq:boundary_identity_wedge}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+=
+\int_{\partial\Omega}\langle \nu\wedge\omega,d\omega\rangle
+-
+\int_{\partial\Omega}
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{\substack{i,j\in I\\ i\neq j}}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\,\omega_{\widehat I_j}\,
+\nu_i
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}.
+\end{equation}
+
+Similarly,
+\begin{equation}
+\label{eq:boundary_identity_contraction}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+=
+\int_{\partial\Omega}\langle \nu\lrcorner\omega,\delta\omega\rangle
+-
+\int_{\partial\Omega}
+\sum_{I\in\mathscr T_{k-1}}
+\sum_{\substack{i,j\notin I\\ i<j}}
+\operatorname{sgn}[i,I]\operatorname{sgn}[j,I]\,
+\omega_{[iI]}\,
+\nu_j
+\frac{\partial\omega_{[jI]}}{\partial x^i}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We prove \eqref{eq:boundary_identity_wedge}. The proof of
+\eqref{eq:boundary_identity_contraction} is identical, starting from the second
+identity of Lemma \ref{lemma:pointwise_identity}.
+
+By Lemma \ref{lemma:pointwise_identity},
+\[
+|d\omega|^2+|\delta\omega|^2-|\nabla\omega|^2
+=
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{\substack{i,j\in I\\ i\neq j}}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\left(
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
+\frac{\partial\omega_{\widehat I_j}}{\partial x^j}
+-
+\frac{\partial\omega_{\widehat I_j}}{\partial x^i}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
+\right).
+\]
+Integrating over $\Omega$ gives
+\begin{equation}
+\label{eq:integrated_pointwise_identity}
+\begin{aligned}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+&=
+\int_\Omega
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{\substack{i,j\in I\\ i\neq j}}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j] \\
+&\qquad\qquad\cdot
+\left(
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
+\frac{\partial\omega_{\widehat I_j}}{\partial x^j}
+-
+\frac{\partial\omega_{\widehat I_j}}{\partial x^i}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
+\right).
+\end{aligned}
+\end{equation}
+
+For each pair $(I,i,j)$, the product rule gives
+\[
+\frac{\partial}{\partial x^j}
+\left(
+\omega_{\widehat I_j}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
+\right)
+=
+\frac{\partial\omega_{\widehat I_j}}{\partial x^j}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
++
+\omega_{\widehat I_j}
+\frac{\partial^2\omega_{\widehat I_i}}{\partial x^j\partial x^i},
+\]
+and similarly,
+\[
+\frac{\partial}{\partial x^i}
+\left(
+\omega_{\widehat I_j}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
+\right)
+=
+\frac{\partial\omega_{\widehat I_j}}{\partial x^i}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
++
+\omega_{\widehat I_j}
+\frac{\partial^2\omega_{\widehat I_i}}{\partial x^i\partial x^j}.
+\]
+Since mixed partial derivatives commute for $C^2$ functions,
+\[
+\frac{\partial^2\omega_{\widehat I_i}}{\partial x^j\partial x^i}
+=
+\frac{\partial^2\omega_{\widehat I_i}}{\partial x^i\partial x^j},
+\]
+we obtain
+\begin{equation}
+\label{eq:divergence_identity}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
+\frac{\partial\omega_{\widehat I_j}}{\partial x^j}
+-
+\frac{\partial\omega_{\widehat I_j}}{\partial x^i}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
+=
+\frac{\partial}{\partial x^j}
+\left(
+\omega_{\widehat I_j}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
+\right)
+-
+\frac{\partial}{\partial x^i}
+\left(
+\omega_{\widehat I_j}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
+\right).
+\end{equation}
+
+Substituting \eqref{eq:divergence_identity} into
+\eqref{eq:integrated_pointwise_identity} and applying the Gauss--Green theorem
+componentwise yields
+\[
+\begin{aligned}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+&=
+\int_{\partial\Omega}
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{\substack{i,j\in I\\ i\neq j}}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j] \\
+&\qquad\cdot
+\left(
+\omega_{\widehat I_j}\nu_j
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
+-
+\omega_{\widehat I_j}\nu_i
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
+\right).
+\end{aligned}
+\]
+The identity remains valid for $\omega\in C^1(\overline\Omega;\Lambda^k)$ by
+density.
+
+Since $\Omega$ is Lipschitz, the outward unit normal $\nu$ is defined almost
+everywhere on $\partial\Omega$. Using the coordinate formula for the exterior
+product,
+\[
+\nu\wedge\omega
+=
+\sum_{I\in\mathscr T_{k+1}}
+\left(
+\sum_{j\in I}
+\operatorname{sgn}[j,\widehat I_j]\,
+\nu_j\omega_{\widehat I_j}
+\right)
+dx^I,
+\]
+while the coordinate expression for the exterior derivative is
+\[
+d\omega
+=
+\sum_{I\in\mathscr T_{k+1}}
+\left(
+\sum_{i\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}
+\right)
+dx^I.
+\]
+Taking the inner product of these two $(k+1)$-forms gives
+\[
+\langle\nu\wedge\omega,d\omega\rangle
+=
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{i,j\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\,\omega_{\widehat I_j}\,
+\nu_j
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}.
+\]
+Separating the diagonal terms from the terms with $i\neq j$,
+\[
+\begin{aligned}
+\langle\nu\wedge\omega,d\omega\rangle
+&=
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{i\in I}
+\omega_{\widehat I_i}\nu_i
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i} \\
+&\qquad+
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{\substack{i,j\in I\\ i\neq j}}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\,\omega_{\widehat I_j}\,
+\nu_j
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}.
+\end{aligned}
+\]
+Hence
+\[
+\begin{aligned}
+&\sum_{I\in\mathscr T_{k+1}}
+\sum_{\substack{i,j\in I\\ i\neq j}}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\,\omega_{\widehat I_j}\,
+\nu_j
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i} \\
+&\qquad=
+\langle\nu\wedge\omega,d\omega\rangle
+-
+\sum_{I\in\mathscr T_{k+1}}
+\sum_{i\in I}
+\omega_{\widehat I_i}\nu_i
+\frac{\partial\omega_{\widehat I_i}}{\partial x^i}.
+\end{aligned}
+\]
+Substituting this identity into the boundary integral above gives
+\eqref{eq:boundary_identity_wedge}. The proof of
+\eqref{eq:boundary_identity_contraction} is obtained in the same way starting
+from the second pointwise identity of Lemma
+\ref{lemma:pointwise_identity}.
+\end{proof}
+
+
+\begin{theorem}[Boundary identity in terms of principal curvatures]
+\label{thm:boundary_principal_curvature_identity}
+Let $\Omega\subset\mathbb{R}^n$ be a bounded open Lipschitz domain whose boundary is piecewise $C^2$. Suppose
+\[
+\partial\Omega=\bigcup_{s=1}^N\Gamma_s,
+\]
+where each $\Gamma_s$ is a relatively open $C^2$ hypersurface and
+\[\sigma\!\left(\partial\Omega\setminus\bigcup_{s=1}^N\Gamma_s\right)=0.
+\]
+Let $E_1,\ldots,E_{n-1}$ be an orthonormal frame field of principal directions on each $\Gamma_s$, with associated principal curvatures $\gamma_1,\ldots,\gamma_{n-1}$.
+
+Then, for every $\omega\in C_T^1(\Omega;\Lambda^k)$,
+\begin{equation}
+\label{eq:tangential_boundary_identity}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+=
+\sum_{s=1}^N
+\int_{\Gamma_s}
+\sum_{l=1}^{n-1}
+\gamma_l\,|E_l\wedge\omega|^2.
+\end{equation}
+
+Similarly, for every $\omega\in C_N^1(\Omega;\Lambda^k)$,
+\begin{equation}
+\label{eq:normal_boundary_identity}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+=
+\sum_{s=1}^N
+\int_{\Gamma_s}
+\sum_{l=1}^{n-1}
+\gamma_l\,|E_l\lrcorner\omega|^2.
+\end{equation}
+\end{theorem}
+
+\begin{remark}
+If $\partial\Omega$ is $C^2$, then the identities remain valid for
+$\omega\in W_T^{1,2}(\Omega;\Lambda^k)$ and
+$\omega\in W_N^{1,2}(\Omega;\Lambda^k)$ by a density argument.
+\end{remark}
+\begin{remark}
+    For a brief overview on principal directions and curvatures, see the section on shape operator \ref{sec:shape_operator} in the appendix.
+\end{remark}
+
+\begin{proof}
+We prove \eqref{eq:tangential_boundary_identity}. The proof of
+\eqref{eq:normal_boundary_identity} is identical, starting from the
+second identity of Lemma \ref{lemma:boundary_identity}.
+\\\\ Since $\partial\Omega=\bigcup_{s=1}^N\Gamma_s$ up to a set of
+surface measure zero, Lemma \ref{lemma:boundary_identity} gives
+\begin{equation}
+\label{eq:boundary_start}
+\begin{aligned}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+&=
+\sum_{s=1}^N
+\int_{\Gamma_s}
+\langle \nu\wedge\omega,d\omega\rangle     \\
+&\quad-
+\sum_{s=1}^N
+\int_{\Gamma_s}
+A,
+\end{aligned}
+\end{equation}
+where
+\[
+A=
+\sum_{I\in\mathscr{T}_{k+1}}
+\sum_{\substack{i,j\in I\\ i\neq j}}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\,
+\omega_{\widehat I_j}
+\nu_i
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}.
+\]
+
+It therefore suffices to rewrite $A$ on each smooth boundary piece
+$\Gamma_s$. We shall do this by decomposing the coordinate derivatives
+into their normal and tangential components, and then expressing the
+result in terms of the exterior product $\nu\wedge\omega$.
+\\\\ \textbf{Step 1. Decomposition of the boundary derivatives.}
+
+Fix one component $\Gamma_s$. Let
+$E_1,\ldots,E_{n-1}$ be an orthonormal frame of principal directions
+on $\Gamma_s$, and let $\nu$ denote the outward unit normal.
+
+Since $\{E_1,\ldots,E_{n-1},\nu\}$ is an orthonormal basis of
+$\mathbb{R}^n$ at every point of $\Gamma_s$, each coordinate vector
+$e_j$ can be decomposed as
+\[
+e_j=\sum_{l=1}^{n-1}E_l^jE_l+\nu_j\nu,
+\]
+where $E_l=(E_l^1,\ldots,E_l^n)$.
+
+Consequently, applying directional derivatives to the coefficient
+$\omega_{\widehat I_i}$ gives
+\begin{equation}
+\label{eq:directional_decomposition}
+\frac{\partial\omega_{\widehat I_i}}{\partial x^j}
+=
+\sum_{l=1}^{n-1}
+E_l^j
+\frac{\partial\omega_{\widehat I_i}}{\partial E_l}
++
+\nu_j
+\frac{\partial\omega_{\widehat I_i}}{\partial\nu}.
+\end{equation}
+
+Substituting \eqref{eq:directional_decomposition} into $A$, we
+separate the contributions involving normal derivatives from those
+involving tangential derivatives. Thus, writing $A=B+C$, we have
+\[
+\begin{aligned}
+B={}&
+\sum_{I\in\mathscr{T}_{k+1}}
+\sum_{i,j\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\,
+\omega_{\widehat I_j}
+\nu_i\nu_j
+\frac{\partial\omega_{\widehat I_i}}{\partial\nu},
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+C={}&
+\sum_{I\in\mathscr{T}_{k+1}}
+\sum_{i,j\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\,
+\omega_{\widehat I_j}
+\nu_i
+\sum_{l=1}^{n-1}
+E_l^j
+\frac{\partial\omega_{\widehat I_i}}{\partial E_l}.
+\end{aligned}
+\]
+\textbf{Step 2. The normal part.}
+
+We first rewrite $B$ in terms of the exterior product. Indeed, recall that
+the coordinate expression for the exterior product gives
+\[
+(\nu\wedge\omega)_I
+=
+\sum_{j\in I}
+\operatorname{sgn}[j,\widehat I_j]
+\nu_j
+\omega_{\widehat I_j}.
+\]
+Similarly, applying the same formula to the form
+$\frac{\partial\omega}{\partial\nu}$ yields
+\[
+\left(\nu\wedge\frac{\partial\omega}{\partial\nu}\right)_I
+=
+\sum_{i\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\nu_i
+\frac{\partial\omega_{\widehat I_i}}{\partial\nu}.
+\]
+Comparing these expressions with the definition of $B$, we obtain
+\[
+\begin{aligned}
+B
+&=
+\sum_{I\in\mathscr{T}_{k+1}}
+(\nu\wedge\omega)_I
+\left(\nu\wedge\frac{\partial\omega}{\partial\nu}\right)_I\\
+&=
+\left\langle
+\nu\wedge\omega,
+\nu\wedge\frac{\partial\omega}{\partial\nu}
+\right\rangle.
+\end{aligned}
+\]
+Hence,
+\begin{equation}
+\label{eq:B_identity}
+B=
+\left\langle
+\nu\wedge\omega,
+\nu\wedge\frac{\partial\omega}{\partial\nu}
+\right\rangle.
+\end{equation}
+\textbf{Step 3. The tangential part.}
+
+We now consider $C$. Fix $I\in\mathscr{T}_{k+1}$ and denote by
+$C_I$ the contribution corresponding to this index. 
+\\\\ To rewrite $C_I$, we differentiate the coefficient of
+$\nu\wedge\omega$ along a principal direction $E_l$. By the product
+rule,
+\[
+\begin{aligned}
+\frac{\partial}{\partial E_l}
+(\nu\wedge\omega)_I
+={}&
+\sum_{i\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\nu_i
+\frac{\partial\omega_{\widehat I_i}}{\partial E_l}
+\\
+&+
+\sum_{i\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\omega_{\widehat I_i}
+\frac{\partial\nu_i}{\partial E_l}.
+\end{aligned}
+\]
+
+Multiplying this identity by
+$\operatorname{sgn}[j,\widehat I_j]\omega_{\widehat I_j}E_l^j$
+and summing over $j\in I$, we obtain
+\[
+\begin{aligned}
+C_I
+&=
+\sum_{l=1}^{n-1}
+( E_l\wedge\omega )_I
+\frac{\partial}{\partial E_l}
+(\nu\wedge\omega)_I
+\\
+&\quad-
+\sum_{i,j\in I}
+\operatorname{sgn}[i,\widehat I_i]
+\operatorname{sgn}[j,\widehat I_j]
+\omega_{\widehat I_i}
+\omega_{\widehat I_j}
+\sum_{l=1}^{n-1}
+E_l^j
+\frac{\partial\nu_i}{\partial E_l}.
+\end{aligned}
+\]
+Since $E_l$ is a principal direction, we have
+\[
+\frac{\partial\nu}{\partial E_l}
+=
+\gamma_lE_l,
+\]
+and hence
+\[
+\frac{\partial\nu_i}{\partial E_l}
+=
+\gamma_lE_l^i.
+\]
+Substituting this into the preceding expression for $C_I$ gives
+\[
+\begin{aligned}
+C_I
+&=
+\sum_{l=1}^{n-1}
+( E_l\wedge\omega )_I
+\frac{\partial}{\partial E_l}
+(\nu\wedge\omega)_I
+\\
+&\quad-
+\sum_{l=1}^{n-1}
+\gamma_l
+\left(
+\sum_{i\in I}
+\operatorname{sgn}[i,\widehat I_i]
+E_l^i
+\omega_{\widehat I_i}
+\right)
+\left(
+\sum_{j\in I}
+\operatorname{sgn}[j,\widehat I_j]
+E_l^j
+\omega_{\widehat I_j}
+\right).
+\end{aligned}
+\]
+Observe that the expression inside each parenthesis is precisely
+the $I$-th coefficient of $E_l\wedge\omega$. Therefore,
+\[
+\begin{aligned}
+C_I
+&=
+\sum_{l=1}^{n-1}
+( E_l\wedge\omega )_I
+\frac{\partial}{\partial E_l}
+(\nu\wedge\omega)_I
+\\
+&\quad-
+\sum_{l=1}^{n-1}
+\gamma_l
+( E_l\wedge\omega )_I^2.
+\end{aligned}
+\]
+Summing over all $I\in\mathscr{T}_{k+1}$, we arrive at
+\begin{equation}
+\label{eq:C_identity}
+\begin{aligned}
+C={}&
+\sum_{l=1}^{n-1}
+\left\langle
+E_l\wedge\omega,
+\frac{\partial}{\partial E_l}
+(\nu\wedge\omega)
+\right\rangle
+\\
+&-
+\sum_{l=1}^{n-1}
+\gamma_l|E_l\wedge\omega|^2.
+\end{aligned}
+\end{equation}
+\textbf{Step 4. Combining our results.}
+
+Combining \eqref{eq:B_identity} and \eqref{eq:C_identity}, we obtain
+the following expression for $A$ on $\Gamma_s$:
+\[
+\begin{aligned}
+A={}&
+\left\langle
+\nu\wedge\omega,
+\nu\wedge\frac{\partial\omega}{\partial\nu}
+\right\rangle
+\\
+&+
+\sum_{l=1}^{n-1}
+\left\langle
+E_l\wedge\omega,
+\frac{\partial}{\partial E_l}
+(\nu\wedge\omega)
+\right\rangle
+\\
+&-
+\sum_{l=1}^{n-1}
+\gamma_l|E_l\wedge\omega|^2.
+\end{aligned}
+\]
+
+Substituting this expression into \eqref{eq:boundary_start} gives
+\[
+\begin{aligned}
+\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+&=
+\sum_{s=1}^N
+\int_{\Gamma_s}
+\Bigg[
+\langle\nu\wedge\omega,d\omega\rangle
+\\
+&\qquad-
+\left\langle
+\nu\wedge\omega,
+\nu\wedge\frac{\partial\omega}{\partial\nu}
+\right\rangle
+\\
+&\qquad-
+\sum_{l=1}^{n-1}
+\left\langle
+E_l\wedge\omega,
+\frac{\partial}{\partial E_l}
+(\nu\wedge\omega)
+\right\rangle
+\\
+&\qquad+
+\sum_{l=1}^{n-1}
+\gamma_l|E_l\wedge\omega|^2
+\Bigg].
+\end{aligned}
+\]
+
+If $\omega\in C_T^1(\Omega;\Lambda^k)$, then
+\[
+\nu\wedge\omega=0
+\qquad\text{on }\Gamma_s
+\]
+for every $s$. Since the tangential derivative of a vanishing form
+also vanishes, we have
+\[
+\frac{\partial}{\partial E_l}(\nu\wedge\omega)=0
+\qquad\text{on }\Gamma_s.
+\]
+Consequently, the first three boundary terms vanish identically, and
+we obtain
+\[
+\begin{aligned}
+&\|d\omega\|_{L^2}^2+\|\delta\omega\|_{L^2}^2-\|\nabla\omega\|_{L^2}^2
+\\
+&\qquad=
+\sum_{s=1}^N
+\int_{\Gamma_s}
+\sum_{l=1}^{n-1}
+\gamma_l|E_l\wedge\omega|^2,
+\end{aligned}
+\]
+which is \eqref{eq:tangential_boundary_identity}.
+\\\\ The proof of \eqref{eq:normal_boundary_identity} is obtained in
+exactly the same way, starting from
+\eqref{eq:boundary_identity_contraction}. One replaces the exterior
+product by the interior product throughout and uses the boundary
+condition $\nu\lrcorner\omega=0$ on each $\Gamma_s$.
+\end{proof}
+
+\begin{proposition}[Trace estimate]
+\label{prop:trace_estimate}
+Let $\Omega\subset\mathbb{R}^n$ be a bounded open set of class $C^2$.
+Then there exists a constant $C=C(\Omega)>0$ such that, for every
+$0<\varepsilon<1$,
+\[
+    \int_{\partial\Omega}u^2
+    \leq
+    \varepsilon\int_\Omega |\nabla u|^2
+    +
+    \frac{C}{\varepsilon}\int_\Omega |u|^2
+\]
+for every $u\in W^{1,2}(\Omega)$.
+\end{proposition}
+
+\begin{proof}
+By the density of $C^1(\overline{\Omega})$ in $W^{1,2}(\Omega)$ and
+the continuous trace embedding
+\[
+    W^{1,2}(\Omega)\hookrightarrow L^2(\partial\Omega),
+\]
+it suffices to prove the estimate for
+$u\in C^1(\overline{\Omega})$ (since boundary values viably get approximated by the continuous trace map).
+\\\\ Since $\Omega$ is of class $C^2$, the exterior unit normal
+\[
+    \nu:\partial\Omega\to\mathbb{R}^n
+\]
+admits a $C^1$ extension to $\overline{\Omega}$, which we continue
+to denote by $\nu$. In particular, both $|\nu|$ and
+$|\operatorname{div}\nu|$ are bounded in $\Omega$. Thus, for some
+constant $C>0$ depending only on $\Omega$,
+\[
+    |\nu|\leq C,
+    \qquad
+    |\operatorname{div}\nu|\leq C
+    \qquad\text{in }\Omega.
+\]
+
+On $\partial\Omega$, $\nu$ is the unit exterior normal, and hence
+$|\nu|^2=1$. Therefore,
+\[
+\begin{aligned}
+    \int_{\partial\Omega}u^2
+    &=
+    \int_{\partial\Omega}u^2|\nu|^2\\
+    &=
+    \int_{\partial\Omega}\langle u^2\nu,\nu\rangle.
+\end{aligned}
+\]
+Applying the divergence theorem to the vector field $u^2\nu$, we
+obtain
+\[
+\begin{aligned}
+    \int_{\partial\Omega}u^2
+    &=
+    \int_\Omega\operatorname{div}(u^2\nu)\\
+    &=
+    \int_\Omega u^2\operatorname{div}\nu
+    +
+    \int_\Omega\langle\nu,\nabla(u^2)\rangle.
+\end{aligned}
+\]
+Since $\nabla(u^2)=2u\nabla u$, it follows that
+\[
+\begin{aligned}
+    \int_{\partial\Omega}u^2
+    &\leq
+    \int_\Omega|\operatorname{div}\nu|\,u^2
+    +
+    2\int_\Omega|\nu|\,|u|\,|\nabla u|\\
+    &\leq
+    C\int_\Omega u^2
+    +
+    2C\int_\Omega|u|\,|\nabla u|.
+\end{aligned}
+\]
+We now estimate the mixed term using Young's inequality. For every
+$\varepsilon>0$,
+\[
+    2C|u||\nabla u|
+    \leq
+    \varepsilon|\nabla u|^2
+    +
+    \frac{C^2}{\varepsilon}u^2.
+\]
+Consequently,
+\[
+\begin{aligned}
+    \int_{\partial\Omega}u^2
+    &\leq
+    \varepsilon\int_\Omega|\nabla u|^2
+    +
+    \left(
+        C+\frac{C^2}{\varepsilon}
+    \right)
+    \int_\Omega u^2.
+\end{aligned}
+\]
+Since $0<\varepsilon<1$, we have
+\[
+    C+\frac{C^2}{\varepsilon}
+    \leq
+    \frac{C'}{\varepsilon}
+\]
+for some constant $C'=C'(\Omega)>0$. Thus,
+\[
+    \boxed{
+    \int_{\partial\Omega}u^2
+    \leq
+    \varepsilon\int_\Omega|\nabla u|^2
+    +
+    \frac{C'}{\varepsilon}\int_\Omega|u|^2
+    }
+\]
+as required. Passing the inequality to the limit yields the result for $W^{1,2}(\Omega)$.
+\end{proof}
+Now we are in position to present the main result of the section:
+\begin{theorem}[Gaffney inequality]
+\label{thm:gaffney_inequality}
+Let $\Omega\subset\mathbb{R}^n$ be a bounded open set of class $C^2$.
+Then there exists a constant $C=C(\Omega)>0$ such that
+\[
+    \|\omega\|_{W^{1,2}(\Omega;\Lambda^k)}
+    \leq
+    C\left(
+        \|d\omega\|_{L^2(\Omega)}
+        +
+        \|\delta\omega\|_{L^2(\Omega)}
+        +
+        \|\omega\|_{L^2(\Omega)}
+    \right)
+\]
+for every
+\[
+    \omega\in
+    W_T^{1,2}(\Omega;\Lambda^k)
+    \cup
+    W_N^{1,2}(\Omega;\Lambda^k).
+\]
+\end{theorem}
+
+\begin{proof}
+By the density results for the tangential and normal Sobolev spaces, it
+suffices to establish the estimate for forms in
+\[
+    C_T^1(\overline{\Omega};\Lambda^k)
+    \cup
+    C_N^1(\overline{\Omega};\Lambda^k).
+\]
+Indeed, the estimate then extends to the corresponding Sobolev spaces by
+approximation and the continuity of the trace operator.
+\\\\ We first consider the tangential case, namely
+\[
+    \omega\in C_T^1(\overline{\Omega};\Lambda^k),
+\]
+so that
+\[
+    \nu\wedge\omega=0
+    \qquad\text{on }\partial\Omega.
+\]
+The boundary identity involving the principal curvatures gives
+\[
+    \|d\omega\|_{L^2}^2
+    +
+    \|\delta\omega\|_{L^2}^2
+    -
+    \|\nabla\omega\|_{L^2}^2
+    =
+    \int_{\partial\Omega}
+    \sum_{l=1}^{n-1}
+    \gamma_l|E_l\wedge\omega|^2,
+\]
+where $E_1,\ldots,E_{n-1}$ are principal directions and
+$\gamma_1,\ldots,\gamma_{n-1}$ are the corresponding principal
+curvatures. Rearranging, we obtain
+\begin{equation}
+\label{eq:gaffney_start}
+    \|\nabla\omega\|_{L^2}^2
+    =
+    \|d\omega\|_{L^2}^2
+    +
+    \|\delta\omega\|_{L^2}^2
+    -
+    \int_{\partial\Omega}
+    \sum_{l=1}^{n-1}
+    \gamma_l|E_l\wedge\omega|^2.
+\end{equation}
+Since $\partial\Omega$ is compact and of class $C^2$, its principal
+curvatures are bounded. Hence there exists a constant
+$C_1=C_1(\Omega)>0$ such that
+\[
+    |\gamma_l(x)|\leq C_1
+\]
+for every $x\in\partial\Omega$ and every $1\leq l\leq n-1$.
+Moreover, since each $E_l$ is a unit vector, we have
+\[
+    |E_l\wedge\omega|
+    \leq
+    |E_l|\,|\omega|
+    =
+    |\omega|.
+\]
+It follows that
+\[
+\begin{aligned}
+\left|
+    \sum_{l=1}^{n-1}
+    \gamma_l|E_l\wedge\omega|^2
+\right|
+&\leq
+    \sum_{l=1}^{n-1}
+    |\gamma_l|\,|E_l\wedge\omega|^2\\
+&\leq
+    C_1\sum_{l=1}^{n-1}|\omega|^2\\
+&=
+    C_1(n-1)|\omega|^2.
+\end{aligned}
+\]
+Thus, for some constant $C_2=C_2(\Omega)>0$,
+\[
+    \left|
+    \sum_{l=1}^{n-1}
+    \gamma_l|E_l\wedge\omega|^2
+    \right|
+    \leq C_2|\omega|^2
+    \qquad\text{on }\partial\Omega.
+\]
+Substituting this bound into \eqref{eq:gaffney_start}, we obtain
+\begin{equation}
+\label{eq:gaffney_boundary_control}
+    \|\nabla\omega\|_{L^2}^2
+    \leq
+    \|d\omega\|_{L^2}^2
+    +
+    \|\delta\omega\|_{L^2}^2
+    +
+    C_2\int_{\partial\Omega}|\omega|^2.
+\end{equation}
+We now apply the trace estimate. For every $0<\varepsilon<1$,
+\[
+    \int_{\partial\Omega}|\omega|^2
+    \leq
+    \varepsilon\|\nabla\omega\|_{L^2}^2
+    +
+    \frac{C_3}{\varepsilon}
+    \|\omega\|_{L^2}^2,
+\]
+where $C_3=C_3(\Omega)>0$. Combining this with
+\eqref{eq:gaffney_boundary_control}, we obtain
+\[
+\begin{aligned}
+    \|\nabla\omega\|_{L^2}^2
+    \leq{}&
+    \|d\omega\|_{L^2}^2
+    +
+    \|\delta\omega\|_{L^2}^2\\
+    &+
+    C_2\varepsilon\|\nabla\omega\|_{L^2}^2
+    +
+    \frac{C_2C_3}{\varepsilon}
+    \|\omega\|_{L^2}^2.
+\end{aligned}
+\]
+Choose $\varepsilon>0$ sufficiently small that
+\[
+    C_2\varepsilon\leq\frac12.
+\]
+Then
+\[
+\begin{aligned}
+    \frac12\|\nabla\omega\|_{L^2}^2
+    \leq{}&
+    \|d\omega\|_{L^2}^2
+    +
+    \|\delta\omega\|_{L^2}^2\\
+    &+
+    \frac{C_2C_3}{\varepsilon}
+    \|\omega\|_{L^2}^2.
+\end{aligned}
+\]
+Consequently, there exists a constant $C_4=C_4(\Omega)>0$ such that
+\begin{equation}
+\label{eq:gradient_estimate}
+    \|\nabla\omega\|_{L^2}^2
+    \leq
+    C_4
+    \left(
+        \|d\omega\|_{L^2}^2
+        +
+        \|\delta\omega\|_{L^2}^2
+        +
+        \|\omega\|_{L^2}^2
+    \right).
+\end{equation}
+By the definition of the $W^{1,2}$ norm,
+\[
+    \|\omega\|_{W^{1,2}}^2
+    =
+    \|\omega\|_{L^2}^2
+    +
+    \|\nabla\omega\|_{L^2}^2.
+\]
+Combining this with \eqref{eq:gradient_estimate}, we obtain
+\[
+    \|\omega\|_{W^{1,2}}^2
+    \leq
+    C_5
+    \left(
+        \|d\omega\|_{L^2}^2
+        +
+        \|\delta\omega\|_{L^2}^2
+        +
+        \|\omega\|_{L^2}^2
+    \right)
+\]
+for some constant $C_5=C_5(\Omega)>0$. Taking square roots and using
+\[
+    \sqrt{a^2+b^2+c^2}\leq a+b+c
+    \qquad\text{for }a,b,c\geq0,
+\]
+we conclude that
+\[
+    \|\omega\|_{W^{1,2}}
+    \leq
+    C
+    \left(
+        \|d\omega\|_{L^2}
+        +
+        \|\delta\omega\|_{L^2}
+        +
+        \|\omega\|_{L^2}
+    \right)
+\]
+for some constant $C=C(\Omega)>0$.
+\\\\ We now consider the normal case,
+\[
+    \omega\in C_N^1(\overline{\Omega};\Lambda^k),
+\]
+for which
+\[
+    \nu\lrcorner\omega=0
+    \qquad\text{on }\partial\Omega.
+\]
+The corresponding boundary identity gives
+\[
+    \|d\omega\|_{L^2}^2
+    +
+    \|\delta\omega\|_{L^2}^2
+    -
+    \|\nabla\omega\|_{L^2}^2
+    =
+    \int_{\partial\Omega}
+    \sum_{l=1}^{n-1}
+    \gamma_l|E_l\lrcorner\omega|^2.
+\]
+Since each $E_l$ is a unit vector, we have
+\[
+    |E_l\lrcorner\omega|
+    \leq
+    |E_l|\,|\omega|
+    =
+    |\omega|.
+\]
+The boundedness of the principal curvatures therefore yields the same
+boundary estimate as in the tangential case. Applying the trace
+inequality and absorbing the resulting gradient term, we obtain
+\[
+    \|\nabla\omega\|_{L^2}^2
+    \leq
+    C
+    \left(
+        \|d\omega\|_{L^2}^2
+        +
+        \|\delta\omega\|_{L^2}^2
+        +
+        \|\omega\|_{L^2}^2
+    \right).
+\]
+Consequently, the same $W^{1,2}$ estimate holds for normal forms.
+\\\\ Finally, by the density of $C_T^1(\overline{\Omega};\Lambda^k)$ in
+$W_T^{1,2}(\Omega;\Lambda^k)$ and of
+$C_N^1(\overline{\Omega};\Lambda^k)$ in
+$W_N^{1,2}(\Omega;\Lambda^k)$, together with the continuity of the trace
+operator, the estimate extends to all
+\[
+    \omega\in
+    W_T^{1,2}(\Omega;\Lambda^k)
+    \cup
+    W_N^{1,2}(\Omega;\Lambda^k).
+\]
+\end{proof}
+
+\section{The Hodge Laplacian}
+We recall the definition of harmonic fields. Let
+$0\leq k\leq n$ be an integer.
+
+\begin{definition}
+The set of harmonic fields is defined by
+    \[
+        \mathcal{H}(\Omega;\Lambda^k)
+        =
+        \left\{
+            \omega\in W^{1,2}(\Omega;\Lambda^k)
+            : d\omega=0\text{ and }\delta\omega=0
+        \right\}.
+    \]
+    We shall write
+    \[
+        \mathcal{H}_T(\Omega;\Lambda^k)
+        =
+        \mathcal{H}(\Omega;\Lambda^k)
+        \cap
+        W_T^{1,2}(\Omega;\Lambda^k),
+    \]
+    and
+    \[
+        \mathcal{H}_N(\Omega;\Lambda^k)
+        =
+        \mathcal{H}(\Omega;\Lambda^k)
+        \cap
+        W_N^{1,2}(\Omega;\Lambda^k).
+    \]
+    That is,
+    \[
+        \mathcal{H}_T(\Omega;\Lambda^k)
+        =
+        \left\{
+            \omega\in\mathcal{H}(\Omega;\Lambda^k)
+            : \nu\wedge\omega=0
+            \text{ on }\partial\Omega
+        \right\},
+    \]
+    and
+    \[
+        \mathcal{H}_N(\Omega;\Lambda^k)
+        =
+        \left\{
+            \omega\in\mathcal{H}(\Omega;\Lambda^k)
+            : \nu\lrcorner\omega=0
+            \text{ on }\partial\Omega
+        \right\}.\]
+
+\end{definition}
+
+\begin{remark}
+The space $\mathcal{H}(\Omega;\Lambda^k)$ can be equivalently
+    defined as
+    \[
+        \mathcal{H}(\Omega;\Lambda^k)
+        =
+        \left\{
+            \omega\in L_{\mathrm{loc}}^1(\Omega;\Lambda^k)
+            : d\omega=0\text{ and }\delta\omega=0
+        \right\},
+    \]
+    where the equations $d\omega=0$ and $\delta\omega=0$ are understood
+    in the sense of distributions, namely,
+    \[
+        \int_\Omega\langle\omega,\delta\varphi\rangle=0,
+        \qquad
+        \text{for every }
+        \varphi\in C_0^\infty(\Omega;\Lambda^{k+1}),
+    \]
+    and
+    \[
+        \int_\Omega\langle\omega,d\varphi\rangle=0,
+        \qquad
+        \text{for every }
+        \varphi\in C_0^\infty(\Omega;\Lambda^{k-1}).
+    \]
+
+\end{remark}
+\subsection{Existence and uniqueness of minimizers}
+We draw primarily from the source \cite{CsatoDacorognaKneuss2012} for this section. cf. chapter 6. 
+\\\\Some motivations are in order. 
+
+We consider the problem of solving the Hodge Laplacian equation
+\[
+    \Delta_H\omega=-g
+\]
+subject to the tangential boundary condition
+\[
+    \nu\wedge\omega=0
+    \qquad\text{on }\partial\Omega,
+\]
+where $\Delta_H=d\delta+\delta d$ is the Hodge Laplacian and
+$g\in L^2(\Omega;\Lambda^k)$.
+\\\\ The corresponding weak formulation is obtained by testing the equation
+against forms $u\in W_T^{1,2}(\Omega;\Lambda^k)$. Formally, using
+integration by parts, we obtain
+\[
+    \int_\Omega\langle d\omega,du\rangle
+    +
+    \int_\Omega\langle\delta\omega,\delta u\rangle
+    =
+    -\int_\Omega\langle g,u\rangle.
+\]
+This suggests considering the functional
+\[
+    D_g(\omega)
+    =
+    \int_\Omega
+    \left(
+        \frac12|d\omega|^2
+        +
+        \frac12|\delta\omega|^2
+        +
+        \langle g,\omega\rangle
+    \right),
+\]
+whose Euler--Lagrange equation is precisely the weak formulation of
+the Hodge Laplacian equation above.
+\\\\ The idea is that, we use the Gaffney inequality, together with the orthogonality condition to
+$\mathcal{H}_T(\Omega;\Lambda^k)$, to get coercivity of the quadratic
+part of $D_g$ on $X$. Consequently, the direct method in the calculus
+of variations (cf. \cite{Dacorogna2008}) can be applied to obtain a unique minimizer of $D_g$
+over $X$. The minimizer satisfies the weak Euler--Lagrange equation
+\[
+    \int_\Omega\langle d\omega,du\rangle
+    +
+    \int_\Omega\langle\delta\omega,\delta u\rangle
+    =
+    -\int_\Omega\langle g,u\rangle
+    \qquad\text{for every }u\in X.
+\]
+
+This provides the existence step in the $W^{1,2}$ setting for the
+Hodge--Morrey decomposition.
+\\\\ Let $0\leq k\leq n$. We now present the existence and uniqueness in
+$W^{1,2}$ for the Hodge Laplacian equation. 
+\\\\ Recall that
+\[
+    W_T^{1,2}(\Omega;\Lambda^k)
+    =
+    \left\{
+        f\in W^{1,2}(\Omega;\Lambda^k)
+        : \nu\wedge f=0\text{ on }\partial\Omega
+    \right\}.
+\]
+
+\begin{theorem}[Existence of minimizer]
+\label{thm:existence_minimizer}
+Let $\Omega\subset\mathbb{R}^n$ be a bounded open set of class $C^2$.
+Let $g\in L^2(\Omega;\Lambda^k)$, and define
+\[
+    D_g(\omega)
+    =
+    \int_\Omega
+    \left(
+        \frac12|d\omega|^2
+        +
+        \frac12|\delta\omega|^2
+        +
+        \langle g,\omega\rangle
+    \right).
+\]
+Set
+\[
+    X
+    =
+    W_T^{1,2}(\Omega;\Lambda^k)
+    \cap
+    \mathcal{H}_T(\Omega;\Lambda^k)^\perp.
+\]
+Then there exists a unique $\tilde{\omega}\in X$ such that
+\[
+    D_g(\tilde{\omega})\leq D_g(\omega)
+    \qquad\text{for every }\omega\in X,
+\]
+and $\tilde{\omega}$ satisfies the weak form of the Euler--Lagrange equation,
+namely,
+\begin{equation}
+\label{eq:6.4}
+    \int_\Omega\langle d\tilde\omega,du\rangle
+    +
+    \int_\Omega\langle\delta\tilde\omega,\delta u\rangle
+    =
+    -\int_\Omega\langle g,u\rangle
+    \qquad\text{for every }u\in X.
+\end{equation}
+
+Moreover, if
+\[
+    g\in\mathcal{H}_T(\Omega;\Lambda^k)^\perp,
+\]
+then $\tilde\omega$ satisfies
+\begin{equation}
+\label{eq:6.5}
+    \int_\Omega\langle d\tilde\omega,du\rangle
+    +
+    \int_\Omega\langle\delta\tilde\omega,\delta u\rangle
+    =
+    -\int_\Omega\langle g,u\rangle
+    \qquad\text{for every }
+    u\in W_T^{1,2}(\Omega;\Lambda^k).
+\end{equation}
+
+The same result holds upon replacing $T$ everywhere
+by $N$.
+\\\\ In particular, taking $g=0$ gives us direct existnce in $W^{1,2}(\Omega;\Lambda^k)$, for the \emph{Hodge Laplace's equation}. 
+\end{theorem}
+\begin{remark}\textbf{(On the Euler--Lagrange equation)}
+\\\\ The Euler--Lagrange equation associated with the functional $D_g$ is
+obtained by considering variations within the admissible space $X$.
+Indeed, let $\omega\in X$ be a minimizer of $D_g$, and let $u\in X$
+be arbitrary. Since $X$ is a vector space, the form
+\[
+    \omega_t=\omega+tu
+\]
+belongs to $X$ for every $t\in\mathbb{R}$. By the minimality of
+$\omega$, the function
+\[
+    \Phi(t)=D_g(\omega+tu)
+\]
+attains a minimum at $t=0$. Hence $\Phi'(0)=0$.
+
+Expanding the functional, we obtain
+\[
+\begin{aligned}
+    \Phi(t)
+    =\int_\Omega\bigg(
+        &\frac12|d\omega+tdu|^2
+        +\frac12|\delta\omega+t\delta u|^2\\
+        &+\langle g,\omega+tu\rangle
+    \bigg).
+\end{aligned}
+\]
+Differentiating with respect to $t$ at $t=0$ gives
+\[
+\begin{aligned}
+    0=\Phi'(0)
+    ={}&
+    \int_\Omega\langle d\omega,du\rangle
+    +
+    \int_\Omega\langle\delta\omega,\delta u\rangle\\
+    &+
+    \int_\Omega\langle g,u\rangle.
+\end{aligned}
+\]
+Therefore, the minimizer $\omega$ satisfies
+\[
+    \int_\Omega\langle d\omega,du\rangle
+    +
+    \int_\Omega\langle\delta\omega,\delta u\rangle
+    =
+    -\int_\Omega\langle g,u\rangle
+    \qquad\text{for every }u\in X.
+\]
+This is the weak form of the Euler--Lagrange equation associated
+with $D_g$.
+    
+\end{remark}
+
+\begin{proof}
+We divide the proof into five steps.
+
+\medskip
+\noindent\textbf{Step 1. Coercivity of the quadratic part of $D_g$.}
+
+We first claim that there exists a constant $C_1>0$ such that
+\begin{equation}\label{eq:coercivity_X}
+    \|\omega\|_{W^{1,2}}^2
+    \leq C_1\int_\Omega
+    \bigl(|d\omega|^2+|\delta\omega|^2\bigr)
+\end{equation}
+for every $\omega\in X$.
+
+The point here is that the Gaffney inequality alone does not immediately
+give this estimate, since it contains an additional $L^2$-term on the
+right-hand side. We shall use the fact that $\omega$ is orthogonal to
+$\mathcal H_T$ to eliminate this term.
+\\\\ Suppose that \eqref{eq:coercivity_X} were false. Then, for every
+$m\in\mathbb N$, there would exist $\omega_m\in X$ such that
+\[
+    \|\omega_m\|_{W^{1,2}}^2
+    \geq
+    m\int_\Omega
+    \bigl(|d\omega_m|^2+|\delta\omega_m|^2\bigr).
+\]
+Since this inequality is homogeneous in $\omega_m$, we may normalize
+$\omega_m$ so that
+\[
+    \|\omega_m\|_{L^2}=1
+\]
+for every $m$.
+\\\\ By the Gaffney inequality, there exists a constant
+$C_2>0$ such that
+\[
+    \|\omega_m\|_{W^{1,2}}^2
+    \leq
+    C_2\int_\Omega
+    \bigl(|d\omega_m|^2+|\delta\omega_m|^2
+    +|\omega_m|^2\bigr).
+\]
+Combining this with the preceding inequality and the normalization
+$\|\omega_m\|_{L^2}=1$, we obtain
+\[
+    \|\omega_m\|_{W^{1,2}}^2
+    \leq
+    \frac{C_2}{m}\|\omega_m\|_{W^{1,2}}^2+C_2.
+\]
+For $m$ sufficiently large, we have $C_2/m\leq 1/2$, and hence
+\[
+    \frac12\|\omega_m\|_{W^{1,2}}^2\leq C_2.
+\]
+Consequently, the sequence $\{\omega_m\}$ is uniformly bounded in
+$W^{1,2}(\Omega;\Lambda^k)$.
+\\\\ Since $W^{1,2}(\Omega;\Lambda^k)$ is reflexive, we may extract a
+subsequence (From \v{S}mulian--Eberlein), which we do not relabel, such that there exists
+$u\in W^{1,2}(\Omega;\Lambda^k)$ satisfying
+\[
+    \omega_m\rightharpoonup u
+    \qquad\text{in }W^{1,2}(\Omega;\Lambda^k).
+\]
+Moreover, by the Rellich--Kondrachov theorem, we have a compact inclusion $$W^{1,2}(\Omega)\hookrightarrow L^2(\Omega) $$
+therefore, every bounded sequence has a strongly convergent subsequence. We can therefore (upon relabelling which we do not do) write
+\[
+    \omega_m\longrightarrow u
+    \qquad\text{in }L^2(\Omega;\Lambda^k).
+\]
+In particular, since $\|\omega_m\|_{L^2}=1$ for every $m$, we obtain
+\[
+    \|u\|_{L^2}=1.
+\]
+
+Furthermore, since $d$ and $\delta$ are bounded linear operators from
+$W^{1,2}(\Omega;\Lambda^k)$ into the appropriate $L^2$-spaces, we have
+\[
+    d\omega_m\rightharpoonup du
+    \qquad\text{in }L^2(\Omega;\Lambda^{k+1}),
+\]
+and
+\[
+    \delta\omega_m\rightharpoonup\delta u
+    \qquad\text{in }L^2(\Omega;\Lambda^{k-1}).
+\]
+Finally, since each $\omega_m\in\mathcal H_T^\perp$ and
+$\mathcal H_T^\perp$ is closed in $L^2(\Omega;\Lambda^k)$, the strong
+$L^2$-convergence implies that
+\[
+    u\in\mathcal H_T^\perp.
+\]
+We now show that
+\[
+    du=0\quad\text{in }\Omega,\qquad
+    \delta u=0\quad\text{in }\Omega,
+\]
+and that
+\[
+    \nu\wedge u=0\quad\text{on }\partial\Omega.
+\]
+Indeed, from the defining inequality for $\omega_m$ and the uniform
+bound on $\|\omega_m\|_{W^{1,2}}$, we have
+\[
+    \int_\Omega
+    \bigl(|d\omega_m|^2+|\delta\omega_m|^2\bigr)
+    \leq
+    \frac1m\|\omega_m\|_{W^{1,2}}^2
+    \longrightarrow 0.
+\]
+Therefore,
+\[
+    d\omega_m\longrightarrow 0
+    \qquad\text{in }L^2(\Omega;\Lambda^{k+1}),
+\]
+and
+\[
+    \delta\omega_m\longrightarrow 0
+    \qquad\text{in }L^2(\Omega;\Lambda^{k-1}).
+\]
+On the other hand, we already know that
+$d\omega_m\rightharpoonup du$ and
+$\delta\omega_m\rightharpoonup\delta u$ in $L^2$. It follows that
+\[
+    du=0\quad\text{in }\Omega,
+    \qquad
+    \delta u=0\quad\text{in }\Omega.
+\]
+It remains to verify the tangential boundary condition. Since
+$\omega_m\in W_T^{1,2}(\Omega;\Lambda^k)$, we have
+\[
+    \nu\wedge\omega_m=0
+    \qquad\text{on }\partial\Omega.
+\]
+The continuity of the trace embedding
+\[
+    W^{1,2}(\Omega;\Lambda^k)
+    \hookrightarrow L^2(\partial\Omega;\Lambda^k)
+\]
+along with the weak convergence of $\omega_m$ $$\omega_m \rightharpoonup u \text{ in }W^{1,2}(\Omega,\Lambda^k) $$
+gives us $$\mathrm{Tr}(\omega_m)\rightharpoonup \mathrm{Tr}(u) \text{ in }L^2(\partial\Omega,\Lambda^k). $$
+Consequently,
+\[
+    \nu\wedge u=0
+    \qquad\text{on }\partial\Omega.
+\]
+since $\omega_m$ satisfies the boundary condition for each $m$.
+\\\\ Thus $u\in\mathcal H_T$. Since we also have
+$u\in\mathcal H_T^\perp$, it follows that
+\[
+    u\in\mathcal H_T\cap\mathcal H_T^\perp=\{0\}.
+\]
+This contradicts $\|u\|_{L^2}=1$. The claim
+\eqref{eq:coercivity_X} is therefore proved.
+\\\\ \textbf{Step 2. A bound in terms of the functional $D_g$.}
+\\\\ We next show that there exists a constant $C_4>0$ such that
+\begin{equation}\label{eq:bound_Dg}
+    \|\omega\|_{W^{1,2}}^2
+    \leq
+    4C_1D_g(\omega)+C_4
+\end{equation}
+for every $\omega\in X$.
+\\\\ Recall that
+\[
+    D_g(\omega)
+    =
+    \frac12\int_\Omega
+    \bigl(|d\omega|^2+|\delta\omega|^2\bigr)
+    +\int_\Omega\langle g,\omega\rangle.
+\]
+By \eqref{eq:coercivity_X}, we have
+\[
+    \begin{aligned}
+    \|\omega\|_{W^{1,2}}^2
+    &\leq
+    C_1\int_\Omega
+    \bigl(|d\omega|^2+|\delta\omega|^2\bigr)\\
+    &=2C_1D_g(\omega)
+    -2C_1\int_\Omega\langle g,\omega\rangle.
+    \end{aligned}
+\]
+Using the Cauchy--Schwarz inequality, we obtain
+\[
+    \|\omega\|_{W^{1,2}}^2
+    \leq
+    2C_1D_g(\omega)
+    +2C_1\|g\|_{L^2}\|\omega\|_{L^2}.
+\]
+Since $\|\omega\|_{L^2}\leq\|\omega\|_{W^{1,2}}$, Young's inequality
+gives
+\[
+    2C_1\|g\|_{L^2}\|\omega\|_{W^{1,2}}
+    \leq
+    \frac12\|\omega\|_{W^{1,2}}^2
+    +2C_1^2\|g\|_{L^2}^2.
+\]
+Hence
+\[
+    \frac12\|\omega\|_{W^{1,2}}^2
+    \leq
+    2C_1D_g(\omega)+2C_1^2\|g\|_{L^2}^2,
+\]
+and therefore
+\[
+    \|\omega\|_{W^{1,2}}^2
+    \leq
+    4C_1D_g(\omega)+4C_1^2\|g\|_{L^2}^2.
+\]
+Taking
+\[
+    C_4=4C_1^2\|g\|_{L^2}^2,
+\]
+we obtain \eqref{eq:bound_Dg}.
+\\\\ The important idea here is that the estimate above shows that the functional
+$D_g$ controls the $W^{1,2}$-norm on $X$, up to an additive constant.
+In particular, any sequence in $X$ along which $D_g$ remains bounded
+must also remain bounded in $W^{1,2}$.
+\\\\ \textbf{Step 3. Existence of a minimizer.}
+
+Recall that a function $f$ from a metric space $X$ to $\bbR$ is \emph{lower semicontinuous} if for every sequence $x_n\to x \text{ in }X$, we have $$f(x)\leq \liminf_{n\to \infty} f(x_n) $$
+The functional $D_g$ is weakly lower semicontinuous in
+$W^{1,2}(\Omega;\Lambda^k)$. Indeed, the maps
+\[
+    \omega\longmapsto d\omega,
+    \qquad
+    \omega\longmapsto\delta\omega
+\]
+are bounded linear maps into $L^2$, and the squared $L^2$-norm is
+weakly lower semicontinuous. Moreover, the linear term
+\[
+    \omega\longmapsto\int_\Omega\langle g,\omega\rangle
+\]
+is weakly continuous ($\omega_n\rightharpoonup \omega$ gives us $ \int_{\Omega}\langle g,\omega_n\rangle \to \int_{\Omega}\langle g,\omega\rangle$).
+\\\\ Due to lower semicontinuity of $D_g$, we need only a \emph{weakly convergent} minimizing sequence whose limit still belongs in $X$, instead of requiring strong convergence. The resultant extracted weak subsequence shall be our \emph{minimizer} (This is a technique called \emph{Direct method} cf. \cite{Dacorogna2008} \emph{"Introduction to The Calculus of Variations"}). 
+\\\\ Let $\{\omega_m\}\subset X$ be a minimizing sequence for $D_g$. By
+\eqref{eq:bound_Dg}, the sequence $\{\omega_m\}$ is bounded in
+$W^{1,2}(\Omega;\Lambda^k)$. Since this space is reflexive, we may
+extract a subsequence, which we do not relabel, such that
+\[
+    \omega_m\rightharpoonup\omega
+    \qquad\text{in }W^{1,2}(\Omega;\Lambda^k).
+\]
+By the Rellich--Kondrachov theorem, we also have
+\[
+    \omega_m\longrightarrow\omega
+    \qquad\text{in }L^2(\Omega;\Lambda^k).
+\]
+We now verify that $\omega\in X$.
+\\\\ First, since $\omega_m\in W_T^{1,2}(\Omega;\Lambda^k)$, we have
+\[
+    \nu\wedge\omega_m=0
+    \qquad\text{on }\partial\Omega.
+\]
+The continuity of the trace operator, together with the weak
+convergence in $W^{1,2}$, implies that
+\[
+    \nu\wedge\omega=0
+    \qquad\text{on }\partial\Omega.
+\]
+Thus
+\[
+    \omega\in W_T^{1,2}(\Omega;\Lambda^k).
+\]
+Second, since $\omega_m\in\mathcal H_T^\perp$ for every $m$ and
+$\omega_m\to\omega$ strongly in $L^2$, we obtain
+\[
+    \omega\in\mathcal H_T^\perp.
+\]
+Consequently,
+\[
+    \omega\in W_T^{1,2}(\Omega;\Lambda^k)
+    \cap\mathcal H_T^\perp=X.
+\]
+We may therefore apply weak lower semicontinuity to conclude that
+\[
+    D_g(\omega)
+    \leq\liminf_{m\to\infty}D_g(\omega_m).
+\]
+Since $\{\omega_m\}$ was a minimizing sequence, $\omega$ is a minimizer
+of $D_g$ on $X$. This proves the existence assertion. Moreover, the Euler--Lagrange equation obtained from the minimization
+problem holds for every $u\in X$, namely
+\begin{equation}\label{eq:EL_X}
+    \int_\Omega\langle d\omega,du\rangle
+    +\int_\Omega\langle\delta\omega,\delta u\rangle
+    =
+    -\int_\Omega\langle g,u\rangle.
+\end{equation}
+\\\\ \textbf{Step 4. Uniqueness of the minimizer.}
+
+Let $u,v\in X$ be two minimizers of $D_g$. Since the quadratic part
+of $D_g$ is strictly convex in the pair $(d\omega,\delta\omega)$,
+we obtain
+\[
+    du=dv
+    \qquad\text{and}\qquad
+    \delta u=\delta v.
+\]
+Equivalently,
+\[
+    d(u-v)=0,\qquad
+    \delta(u-v)=0.
+\]
+Since $u-v\in X$, the coercivity estimate
+\eqref{eq:coercivity_X} gives
+\[
+    \begin{aligned}
+    \|u-v\|_{W^{1,2}}^2
+    &\leq
+    C_1\int_\Omega
+    \bigl(|d(u-v)|^2+|\delta(u-v)|^2\bigr)\\
+    &=0.
+    \end{aligned}
+\]
+Hence $u=v$, and the minimizer is unique.
+
+\medskip
+\noindent\textbf{Step 5. Extension of the Euler--Lagrange equation to
+all of $W_T^{1,2}(\Omega;\Lambda^k)$.}
+
+It remains to establish \eqref{eq:6.5}. Let
+\[
+    u\in W_T^{1,2}(\Omega;\Lambda^k).
+\]
+Decompose $u$ into $w$ and $v$:
+\[
+    u=w+v,
+    \qquad
+    w\in\mathcal H_T,\quad
+    v\in\mathcal H_T^\perp.
+\]
+Since $w\in\mathcal H_T$, we have
+\[
+    dw=0,\qquad\delta w=0.
+\]
+Moreover, by the assumption $g\in\mathcal H_T^\perp$,
+\[
+    \int_\Omega\langle g,w\rangle=0.
+\]
+
+We also have $v=u-w\in W_T^{1,2}(\Omega;\Lambda^k)$, since both
+$u$ and $w$ satisfy the tangential boundary condition. In addition,
+$v\in\mathcal H_T^\perp$. Thus
+\[
+    v\in W_T^{1,2}(\Omega;\Lambda^k)
+    \cap\mathcal H_T^\perp=X.
+\]
+We may therefore apply \eqref{eq:EL_X} with $v$ in place of $u$,
+obtaining
+\[
+    \int_\Omega\langle d\omega,dv\rangle
+    +\int_\Omega\langle\delta\omega,\delta v\rangle
+    =
+    -\int_\Omega\langle g,v\rangle.
+\]
+
+Finally, since $u=v+w$ and $dw=\delta w=0$, we have
+\[
+    du=dv,\qquad\delta u=\delta v.
+\]
+Also,
+\[
+    \int_\Omega\langle g,u\rangle
+    =
+    \int_\Omega\langle g,v\rangle
+    +\int_\Omega\langle g,w\rangle
+    =
+    \int_\Omega\langle g,v\rangle.
+\]
+Consequently,
+\[
+    \begin{aligned}
+    &\int_\Omega\langle d\omega,du\rangle
+    +\int_\Omega\langle\delta\omega,\delta u\rangle
+    +\int_\Omega\langle g,u\rangle\\
+    &\qquad=
+    \int_\Omega\langle d\omega,dv\rangle
+    +\int_\Omega\langle\delta\omega,\delta v\rangle
+    +\int_\Omega\langle g,v\rangle\\
+    &\qquad=0.
+    \end{aligned}
+\]
+This is precisely the desired identity \eqref{eq:6.5}.
+\end{proof}
+
+We now turn to the main result of the present chapter, which gives the Hodge--Morrey decomposition of \(L^2\)-differential forms on bounded domains. We present the result without proof.
+
+\begin{theorem}[Hodge--Morrey decomposition]
+    Let \(\Omega\subset\mathbb{R}^n\) be a bounded open \(C^3\) set with exterior unit normal \(\nu\). Let \(0\leq k\leq n\) and \(f\in L^2(\Omega;\Lambda^k)\). Then the following hold.
+
+    \begin{enumerate}
+        \item There exist
+        \[
+            \alpha\in W_T^{1,2}(\Omega;\Lambda^{k-1}),
+            \qquad
+            \beta\in W_T^{1,2}(\Omega;\Lambda^{k+1}),
+        \]
+        \[
+            h\in\mathcal{H}_T(\Omega;\Lambda^k),
+            \qquad
+            \omega\in W_T^{2,2}(\Omega;\Lambda^k),
+        \]
+        such that, in \(\Omega\),
+        \[
+            f=d\alpha+\delta\beta+h,
+        \]
+        where
+        \[
+            \alpha=\delta\omega,
+            \qquad
+            \beta=d\omega.
+        \]
+
+        \item There exist
+        \[
+            \alpha\in W_N^{1,2}(\Omega;\Lambda^{k-1}),
+            \qquad
+            \beta\in W_N^{1,2}(\Omega;\Lambda^{k+1}),
+        \]
+        \[
+            h\in\mathcal{H}_N(\Omega;\Lambda^k),
+            \qquad
+            \omega\in W_N^{2,2}(\Omega;\Lambda^k),
+        \]
+        such that, in \(\Omega\),
+        \[
+            f=d\alpha+\delta\beta+h,
+        \]
+        where
+        \[
+            \alpha=\delta\omega,
+            \qquad
+            \beta=d\omega.
+        \]
+
+        \item There exist
+        \[
+            \alpha\in W_T^{1,2}(\Omega;\Lambda^{k-1}),
+            \qquad
+            \beta\in W_N^{1,2}(\Omega;\Lambda^{k+1}),
+        \]
+        \[
+            h\in\mathcal{H}(\Omega;\Lambda^k),
+        \]
+        and
+        \[
+            \omega_1\in W_T^{2,2}(\Omega;\Lambda^k),
+            \qquad
+            \omega_2\in W_N^{2,2}(\Omega;\Lambda^k),
+        \]
+        such that, in \(\Omega\),
+        \[
+            f=d\alpha+\delta\beta+h,
+        \]
+        where
+        \[
+            \alpha=\delta\omega_1,
+            \qquad
+            \beta=d\omega_2.
+        \]
+    \end{enumerate}
+
+    Moreover, in each of the three cases, the forms \(d\alpha\), \(\delta\beta\), and \(h\) are mutually orthogonal with respect to the \(L^2\)-inner product. Furthermore, in each case, there exists a positive constant \(C=C(\Omega)\) such that
+    \[
+        \|\omega\|_{W^{2,2}}+\|h\|_{L^2}
+        \leq C\|f\|_{L^2},
+    \]
+    with the corresponding interpretation of \(\omega\) in cases \textup{(i)} and \textup{(ii)}, and of \(\omega_1,\omega_2\) in case \textup{(iii)}.
+\end{theorem}

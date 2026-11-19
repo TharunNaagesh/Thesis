@@ -2386,22 +2386,27 @@
     <bcf:citekey order="9" intorder="1">CsatoDacorognaKneuss2012</bcf:citekey>
     <bcf:citekey order="10" intorder="1">CsatoDacorognaKneuss2012</bcf:citekey>
     <bcf:citekey order="11" intorder="1">GilbargTrudinger2001</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">Spivak1965</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">Spivak1965</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">Tu2011</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">Tu2011</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">Tu2011</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">EvansGariepy2015</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">Taylor2010PDE1</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">Taylor2010PDE1</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">RudFA</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">BartleSherbert2011</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">SchaeferWolff1999</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">Brezis2011</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">Brezis2011</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">Evans2010</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">AdamsFournier2003</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">GilbargTrudinger2001</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">Csato_2018</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">CsatoDacorognaKneuss2012</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">CsatoDacorognaKneuss2012</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">Dacorogna2008</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">Dacorogna2008</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">Spivak1965</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">Spivak1965</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">Tu2011</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">Tu2011</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">Tu2011</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">EvansGariepy2015</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">Taylor2010PDE1</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">Taylor2010PDE1</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">RudFA</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">BartleSherbert2011</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">SchaeferWolff1999</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">Brezis2011</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">Brezis2011</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">Evans2010</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">AdamsFournier2003</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">GilbargTrudinger2001</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">
